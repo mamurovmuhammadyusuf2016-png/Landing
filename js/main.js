@@ -1,0 +1,241 @@
+(function () {
+  "use strict";
+
+  /* Replace with the real values once available */
+  const CONFIG = {
+    telegramUsername: "academyofarabic_tashkent",
+    defaultLang: "ru",
+    rtlLangs: ["ar"]
+  };
+
+  const root = document.documentElement;
+
+  /* ---------------------------------------------------------
+     i18n
+  --------------------------------------------------------- */
+  function getByPath(obj, path) {
+    return path.split(".").reduce((acc, key) => (acc && acc[key] !== undefined ? acc[key] : null), obj);
+  }
+
+  function applyTranslations(lang) {
+    const dict = TRANSLATIONS[lang] || TRANSLATIONS[CONFIG.defaultLang];
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const value = getByPath(dict, el.getAttribute("data-i18n"));
+      if (value !== null) el.textContent = value;
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      const value = getByPath(dict, el.getAttribute("data-i18n-placeholder"));
+      if (value !== null) el.setAttribute("placeholder", value);
+    });
+
+    root.lang = lang;
+    root.dir = CONFIG.rtlLangs.includes(lang) ? "rtl" : "ltr";
+
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+    });
+
+    try { localStorage.setItem("aoa_lang", lang); } catch (e) { /* storage unavailable */ }
+  }
+
+  function initLangSwitch() {
+    const saved = (() => {
+      try { return localStorage.getItem("aoa_lang"); } catch (e) { return null; }
+    })();
+    const initial = saved && TRANSLATIONS[saved] ? saved : CONFIG.defaultLang;
+    applyTranslations(initial);
+
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => applyTranslations(btn.getAttribute("data-lang")));
+    });
+  }
+
+  /* ---------------------------------------------------------
+     Header scroll state
+  --------------------------------------------------------- */
+  function initHeaderScroll() {
+    const header = document.getElementById("siteHeader");
+    const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  /* ---------------------------------------------------------
+     Mobile navigation
+  --------------------------------------------------------- */
+  function initMobileNav() {
+    const burger = document.getElementById("burgerBtn");
+    const nav = document.getElementById("mainNav");
+    const overlay = document.getElementById("mobileOverlay");
+
+    function close() {
+      burger.classList.remove("open");
+      nav.classList.remove("open");
+      overlay.classList.remove("open");
+      burger.setAttribute("aria-expanded", "false");
+    }
+    function toggle() {
+      const isOpen = nav.classList.toggle("open");
+      burger.classList.toggle("open", isOpen);
+      overlay.classList.toggle("open", isOpen);
+      burger.setAttribute("aria-expanded", String(isOpen));
+    }
+
+    burger.addEventListener("click", toggle);
+    overlay.addEventListener("click", close);
+    nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", close));
+  }
+
+  /* ---------------------------------------------------------
+     Scroll reveal
+  --------------------------------------------------------- */
+  function initReveal() {
+    const items = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    items.forEach((el) => observer.observe(el));
+  }
+
+  /* ---------------------------------------------------------
+     Animated counters
+  --------------------------------------------------------- */
+  function initCounters() {
+    const counters = document.querySelectorAll(".stat-num[data-count]");
+    const animate = (el) => {
+      const target = parseInt(el.getAttribute("data-count"), 10);
+      const duration = 1400;
+      const start = performance.now();
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animate(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+    counters.forEach((el) => observer.observe(el));
+  }
+
+  /* ---------------------------------------------------------
+     FAQ accordion
+  --------------------------------------------------------- */
+  function initFaq() {
+    document.querySelectorAll(".faq-item").forEach((item) => {
+      const question = item.querySelector(".faq-question");
+      question.addEventListener("click", () => {
+        const isOpen = item.classList.contains("open");
+        item.parentElement.querySelectorAll(".faq-item").forEach((i) => i.classList.remove("open"));
+        if (!isOpen) item.classList.add("open");
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------
+     Course cards -> preselect course in booking form
+  --------------------------------------------------------- */
+  function initCourseCta() {
+    document.querySelectorAll(".course-cta").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const course = btn.getAttribute("data-course");
+        const select = document.getElementById("fieldCourse");
+        if (!course || !select) return;
+        [...select.options].forEach((opt) => {
+          if (opt.textContent.trim() === course) select.value = opt.value || opt.textContent;
+        });
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------
+     Booking form -> Telegram deep link
+  --------------------------------------------------------- */
+  function initBookingForm() {
+    const form = document.getElementById("bookingForm");
+    const success = document.getElementById("formSuccess");
+    if (!form) return;
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = form.querySelector("#fieldName").value.trim();
+      const phone = form.querySelector("#fieldPhone").value.trim();
+      const course = form.querySelector("#fieldCourse").value.trim();
+      const message = form.querySelector("#fieldMessage").value.trim();
+
+      if (!name || !phone) {
+        form.reportValidity();
+        return;
+      }
+
+      const lines = [
+        "Заявка с сайта Academy of Arabic:",
+        `Имя: ${name}`,
+        `Телефон: ${phone}`,
+        course ? `Курс: ${course}` : null,
+        message ? `Комментарий: ${message}` : null
+      ].filter(Boolean);
+
+      const text = encodeURIComponent(lines.join("\n"));
+      const url = `https://t.me/${CONFIG.telegramUsername}?text=${text}`;
+
+      form.hidden = true;
+      success.hidden = false;
+
+      window.open(url, "_blank", "noopener");
+    });
+  }
+
+  /* ---------------------------------------------------------
+     Floating scroll-to-top button
+  --------------------------------------------------------- */
+  function initScrollTop() {
+    const btn = document.getElementById("scrollTopBtn");
+    const onScroll = () => btn.classList.toggle("visible", window.scrollY > 500);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  }
+
+  /* ---------------------------------------------------------
+     Footer year
+  --------------------------------------------------------- */
+  function initYear() {
+    const el = document.getElementById("year");
+    if (el) el.textContent = new Date().getFullYear();
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initLangSwitch();
+    initHeaderScroll();
+    initMobileNav();
+    initReveal();
+    initCounters();
+    initFaq();
+    initCourseCta();
+    initBookingForm();
+    initScrollTop();
+    initYear();
+  });
+})();
