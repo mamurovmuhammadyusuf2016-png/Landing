@@ -74,6 +74,87 @@
   }
 
   /* ---------------------------------------------------------
+     Ambient background — floating Arabic words + drifting
+     light beams and dust, layered into every section
+  --------------------------------------------------------- */
+  const AMBIENT_WORDS = ["العربية", "تعلم", "لغة", "قرآن", "كتاب", "علم", "حرف", "كلمة", "قلم", "أهلاً"];
+
+  function rand(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  function buildAmbientLayer(target, opts) {
+    const isDark = target.classList.contains("section-dark") || target.classList.contains("section-cta");
+    const wrap = document.createElement("div");
+    wrap.className = "ambient-bg" + (isDark ? " dark" : "");
+    wrap.setAttribute("aria-hidden", "true");
+
+    if (opts.lattice) {
+      const lattice = document.createElement("div");
+      lattice.className = "lattice-overlay";
+      wrap.appendChild(lattice);
+    }
+
+    for (let i = 0; i < (opts.letters || 0); i++) {
+      const el = document.createElement("span");
+      el.className = "floating-letter";
+      el.textContent = AMBIENT_WORDS[Math.floor(Math.random() * AMBIENT_WORDS.length)];
+      el.style.left = `${rand(3, 82)}%`;
+      el.style.top = `${rand(6, 78)}%`;
+      el.style.fontSize = `${rand(2.2, 5)}rem`;
+      el.style.animationDuration = `${rand(16, 30)}s`;
+      el.style.animationDelay = `${rand(-12, 0)}s`;
+      wrap.appendChild(el);
+    }
+
+    for (let i = 0; i < (opts.motes || 0); i++) {
+      const el = document.createElement("span");
+      el.className = "dust-mote";
+      const size = rand(2, 5);
+      el.style.width = `${size}px`;
+      el.style.height = `${size}px`;
+      el.style.left = `${rand(2, 96)}%`;
+      el.style.bottom = `${rand(-10, 10)}%`;
+      el.style.setProperty("--drift", `${rand(-40, 40)}px`);
+      el.style.animationDuration = `${rand(9, 20)}s`;
+      el.style.animationDelay = `${rand(-14, 0)}s`;
+      wrap.appendChild(el);
+    }
+
+    for (let i = 0; i < (opts.beams || 0); i++) {
+      const el = document.createElement("div");
+      el.className = "light-beam";
+      el.style.left = `${rand(-10, 40)}%`;
+      el.style.animationDuration = `${rand(14, 22)}s`;
+      el.style.animationDelay = `${rand(-10, 0)}s`;
+      wrap.appendChild(el);
+    }
+
+    return wrap;
+  }
+
+  function initAmbientBackground() {
+    document.querySelectorAll(".section").forEach((section) => {
+      const wrap = buildAmbientLayer(section, { letters: 3, motes: 7, beams: 1, lattice: true });
+      section.insertBefore(wrap, section.firstChild);
+    });
+
+    const hero = document.querySelector(".hero");
+    if (hero) {
+      const wrap = buildAmbientLayer(hero, { motes: 6 });
+      const heroInner = hero.querySelector(".hero-inner");
+      hero.insertBefore(wrap, heroInner);
+    }
+
+    const footer = document.querySelector(".site-footer");
+    if (footer) {
+      const wrap = buildAmbientLayer(footer, { letters: 2, motes: 5, beams: 1, lattice: true });
+      wrap.classList.add("dark");
+      footer.insertBefore(wrap, footer.firstChild);
+    }
+  }
+
+  /* ---------------------------------------------------------
      Hero background — animated flowing paths
      (inspired by "Background Paths" layout, restyled in the
      center's own emerald/gold palette)
@@ -303,6 +384,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
+    initAmbientBackground();
     initHeroPaths();
     initLangSwitch();
     initHeaderScroll();
