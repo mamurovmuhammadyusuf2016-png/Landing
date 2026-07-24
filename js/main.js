@@ -74,6 +74,47 @@
   }
 
   /* ---------------------------------------------------------
+     Logo — one-time tile assembly intro, then idle glow (CSS)
+  --------------------------------------------------------- */
+  function buildLogoTiles(el) {
+    if (!el || el.dataset.tiled) return;
+    el.dataset.tiled = "true";
+
+    const cols = 4;
+    const rows = 5;
+    const order = [];
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) order.push([r, c]);
+    }
+    order.sort(() => Math.random() - 0.5);
+
+    const frag = document.createDocumentFragment();
+    order.forEach(([r, c], i) => {
+      const tile = document.createElement("span");
+      tile.className = "logo-tile";
+      tile.style.width = `${100 / cols}%`;
+      tile.style.height = `${100 / rows}%`;
+      tile.style.left = `${(100 / cols) * c}%`;
+      tile.style.top = `${(100 / rows) * r}%`;
+      tile.style.backgroundImage = "url('assets/logo-icon.png')";
+      tile.style.backgroundSize = `${cols * 100}% ${rows * 100}%`;
+      tile.style.backgroundPosition = `${(c / (cols - 1)) * 100}% ${(r / (rows - 1)) * 100}%`;
+      tile.style.animationDelay = `${i * 0.035}s`;
+      frag.appendChild(tile);
+    });
+    el.appendChild(frag);
+
+    const cleanupDelay = order.length * 35 + 650;
+    setTimeout(() => {
+      el.querySelectorAll(".logo-tile").forEach((t) => t.remove());
+    }, cleanupDelay);
+  }
+
+  function initLogoAssembly() {
+    document.querySelectorAll("[data-logo-icon]").forEach(buildLogoTiles);
+  }
+
+  /* ---------------------------------------------------------
      Ambient background — floating Arabic words + drifting
      light beams and dust, layered into every section
   --------------------------------------------------------- */
@@ -384,6 +425,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
+    initLogoAssembly();
     initAmbientBackground();
     initHeroPaths();
     initLangSwitch();

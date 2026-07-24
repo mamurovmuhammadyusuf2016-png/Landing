@@ -209,12 +209,32 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
   transition:padding .3s var(--ease);
 }
 .brand{ display:flex; align-items:center; gap:12px; flex-shrink:0; }
-.brand-mark{ width:34px; height:34px; flex-shrink:0; transition:transform .4s var(--ease); animation:markGlow 3.6s ease-in-out infinite; }
-.brand:hover .brand-mark{ transform:rotate(18deg) scale(1.08); }
-.brand-mark svg{ width:100%; height:100%; }
+.brand-mark{
+  position:relative; overflow:hidden;
+  width:34px; height:42px; flex-shrink:0; border-radius:8px;
+  background-image:url('../assets/logo-icon.png'); background-size:cover; background-position:center;
+  box-shadow:0 0 0 1px rgba(185,138,46,.25);
+  transition:transform .4s var(--ease);
+  animation:markGlow 3.6s ease-in-out infinite; animation-delay:1.3s;
+}
+.brand:hover .brand-mark{ transform:rotate(10deg) scale(1.08); }
 @keyframes markGlow{
   0%,100%{ filter:drop-shadow(0 0 0 rgba(185,138,46,0)); }
-  50%{ filter:drop-shadow(0 0 6px rgba(185,138,46,.55)); }
+  50%{ filter:drop-shadow(0 0 6px rgba(185,138,46,.6)); }
+}
+
+/* logo assembly intro — tiles fly in once on load, then get removed
+   to reveal the identical static image + the idle glow above */
+.logo-tile{
+  position:absolute; background-repeat:no-repeat;
+  animation:tileIn .6s var(--ease) both;
+}
+@keyframes tileIn{
+  from{ opacity:0; transform:scale(.4) rotate(10deg); }
+  to{ opacity:1; transform:scale(1) rotate(0); }
+}
+@media (prefers-reduced-motion: reduce){
+  .logo-tile{ display:none; }
 }
 .brand-text{ display:flex; flex-direction:column; line-height:1.1; }
 .brand-title{ font-family:var(--font-head); font-weight:600; font-size:1.05rem; color:var(--primary); }
@@ -673,7 +693,7 @@ html[dir="rtl"] .footer-col a:hover{ transform:translateX(-4px); }
   .header-actions{ gap:8px; }
   .brand-sub{ display:none; }
   .brand-title{ font-size:.9rem; }
-  .brand-mark{ width:28px; height:28px; }
+  .brand-mark{ width:28px; height:35px; }
   .lang-btn{ padding:5px 8px; font-size:.68rem; }
   .nav-cta-mobile{ display:flex!important; margin-top:10px; }
 
