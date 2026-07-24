@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academy of Arabic — Курсы арабского языка в Ташкенте</title>
+<meta name="description" content="Academy of Arabic — учебный центр арабского языка в Ташкенте. Курсы для детей и взрослых, преподаватели-носители языка, пробный урок бесплатно.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230F6B4F'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23D4AF37' font-family='serif'%3Eا%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="noise-overlay"></div>
+
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+  <div class="preloader-mark">
+    <span class="preloader-arabic">العربية</span>
+  </div>
+</div>
+
+<!-- Floating actions -->
+<div class="floating-actions">
+  <a href="https://wa.me/998712000000" class="fab fab-whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.3-.6-.4z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4.1 15.1 3.6 13.6 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.3-8.4 8.3z"/></svg>
+  </a>
+  <a href="https://t.me/academyofarabic_tashkent" class="fab fab-telegram" target="_blank" rel="noopener" aria-label="Telegram">
+    <svg viewBox="0 0 24 24"><path d="M21.9 4.1c-.3-.2-.7-.3-1.2-.1L2.9 10.6c-.5.2-.8.5-.8.9 0 .3.2.7.9.9l4.6 1.5 1.8 5.6c.1.4.4.7.8.7.2 0 .5-.1.7-.3l2.6-2.5 4.6 3.4c.3.2.6.3.9.3.2 0 .5-.1.6-.2.3-.2.5-.5.6-.9l3-14.1c.1-.6-.1-1.1-.4-1.4zM8.4 14.7l-2.9-1 11.6-7.2-8.7 8.2zm.9 4.3l-1-3.2 1.5 1.2-.5 2zm5.4-2.5-4-3 6.9-6.5-2.9 9.5z"/></svg>
+  </a>
+  <button class="fab fab-top" id="toTop" aria-label="Наверх">
+    <svg viewBox="0 0 24 24"><path d="M12 5l-7 7h4v7h6v-7h4z"/></svg>
+  </button>
+</div>
+
+<!-- Header -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="#top" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="23" fill="none" stroke="url(#gGold)" stroke-width="1.5"/><text x="24" y="33" text-anchor="middle" font-family="Amiri, serif" font-size="22" fill="url(#gGold)">ع</text><defs><linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0d385"/><stop offset="1" stop-color="#b8892f"/></linearGradient></defs></svg>
+      </span>
+      <span class="logo-text">
+        <strong>Academy</strong>
+        <em>of Arabic</em>
+      </span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#about" data-i18n="nav.about">О центре</a>
+      <a href="#courses" data-i18n="nav.courses">Курсы</a>
+      <a href="#teachers" data-i18n="nav.teachers">Преподаватели</a>
+      <a href="#reviews" data-i18n="nav.reviews">Отзывы</a>
+      <a href="#faq" data-i18n="nav.faq">Вопросы</a>
+      <a href="#contact" data-i18n="nav.contact">Контакты</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="uz">UZ</button>
+        <button class="lang-btn" data-lang="ar">عربي</button>
+      </div>
+      <a href="tel:+998712000000" class="header-phone">+998 71 200-00-00</a>
+      <a href="#trial" class="btn btn-primary btn-sm header-cta" data-i18n="nav.cta">Пробный урок</a>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <nav class="mobile-menu-nav">
+    <a href="#about" data-i18n="nav.about">О центре</a>
+    <a href="#courses" data-i18n="nav.courses">Курсы</a>
+    <a href="#teachers" data-i18n="nav.teachers">Преподаватели</a>
+    <a href="#reviews" data-i18n="nav.reviews">Отзывы</a>
+    <a href="#faq" data-i18n="nav.faq">Вопросы</a>
+    <a href="#contact" data-i18n="nav.contact">Контакты</a>
+  </nav>
+  <div class="mobile-menu-extra">
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="uz">UZ</button>
+      <button class="lang-btn" data-lang="ar">عربي</button>
+    </div>
+    <a href="tel:+998712000000" class="mobile-menu-phone">+998 71 200-00-00</a>
+    <a href="#trial" class="btn btn-primary btn-block" data-i18n="nav.cta">Пробный урок</a>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-pattern" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-copy" data-reveal>
+        <span class="eyebrow"><span class="eyebrow-arabic">العربية</span><span data-i18n="hero.eyebrow">Учебный центр арабского языка в Ташкенте</span></span>
+        <h1 data-i18n="hero.title">Откройте мир <span class="hl">арабского языка</span> вместе с Academy&nbsp;of&nbsp;Arabic</h1>
+        <p class="hero-sub" data-i18n="hero.sub">Курсы для детей и взрослых: грамматика, чтение и живое общение. Опытные преподаватели, уютные группы и результат уже с первого месяца.</p>
+        <div class="hero-cta">
+          <a href="#trial" class="btn btn-primary btn-lg" data-i18n="hero.cta1">Записаться на пробный урок</a>
+          <a href="#courses" class="btn btn-ghost btn-lg" data-i18n="hero.cta2">Смотреть курсы</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num" data-count="500">0</span><span class="stat-label" data-i18n="hero.stat1">учеников</span></div>
+          <div class="stat"><span class="stat-num" data-count="12">0</span><span class="stat-label" data-i18n="hero.stat2">преподавателей</span></div>
+          <div class="stat"><span class="stat-num" data-count="7">0</span><span class="stat-label" data-i18n="hero.stat3">лет опыта</span></div>
+          <div class="stat"><span class="stat-num" data-count="98">0</span><span class="stat-label suffix-percent" data-i18n="hero.stat4">довольных семей</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual" data-reveal>
+        <div class="hero-card">
+          <div class="hero-card-glow"></div>
+          <svg class="hero-illustration" viewBox="0 0 420 420" aria-hidden="true">
+            <circle cx="210" cy="210" r="190" fill="none" stroke="rgba(212,175,55,0.35)" stroke-width="1"/>
+            <circle cx="210" cy="210" r="150" fill="none" stroke="rgba(212,175,55,0.25)" stroke-width="1"/>
+            <g opacity="0.9">
+              <path d="M210 70 L235 150 L320 150 L250 200 L275 280 L210 230 L145 280 L170 200 L100 150 L185 150 Z" fill="url(#starGrad)"/>
+            </g>
+            <text x="210" y="230" text-anchor="middle" font-family="Amiri, serif" font-size="120" fill="#0F6B4F" opacity="0.12">ع</text>
+            <defs>
+              <linearGradient id="starGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#e9c869"/>
+                <stop offset="1" stop-color="#b8892f"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="hero-badge">
+            <strong data-i18n="hero.badgeTitle">Бесплатный</strong>
+            <span data-i18n="hero.badgeSub">пробный урок</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- LOGOS / TRUST BAR -->
+  <section class="trustbar">
+    <div class="container trustbar-inner">
+      <p data-i18n="trust.line">Online и офлайн формат · Небольшие группы до 8 человек · Сертификат по окончании курса</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="container about-grid">
+      <div class="about-visual" data-reveal>
+        <div class="about-frame">
+          <div class="about-pattern"></div>
+          <svg viewBox="0 0 200 200" class="about-svg"><rect x="10" y="10" width="180" height="180" rx="18" fill="#0F6B4F"/><text x="100" y="130" text-anchor="middle" font-family="Amiri, serif" font-size="90" fill="#D4AF37">أ</text></svg>
+        </div>
+        <div class="about-years">
+          <strong>7+</strong>
+          <span data-i18n="about.years">лет обучаем арабскому в Ташкенте</span>
+        </div>
+      </div>
+      <div class="about-content" data-reveal>
+        <span class="section-tag" data-i18n="about.tag">О центре</span>
+        <h2 data-i18n="about.title">Academy of Arabic — там, где язык становится понятным</h2>
+        <p data-i18n="about.p1">Мы создали центр, в котором арабский язык преподают структурно, живо и с уважением к культуре. Наша методика сочетает классическую грамматику с разговорной практикой, поэтому ученики не просто заучивают правила, а начинают понимать и говорить.</p>
+        <p data-i18n="about.p2">Мы находимся в Ташкенте и уже несколько лет помогаем детям и взрослым уверенно читать, писать и общаться на арабском языке в комфортной атмосфере.</p>
+        <ul class="about-points">
+          <li><span class="point-icon">✓</span><span data-i18n="about.point1">Авторская программа для детей и взрослых</span></li>
+          <li><span class="point-icon">✓</span><span data-i18n="about.point2">Преподаватели с профильным образованием</span></li>
+          <li><span class="point-icon">✓</span><span data-i18n="about.point3">Регулярная обратная связь для родителей</span></li>
+          <li><span class="point-icon">✓</span><span data-i18n="about.point4">Уютные классы и онлайн-формат на выбор</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-tag" data-i18n="why.tag">Почему мы</span>
+        <h2 data-i18n="why.title">Обучение, которое действительно работает</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card" data-reveal>
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 3l9 4.5-9 4.5-9-4.5L12 3zm-7 7.2V16c0 1.7 3.1 4 7 4s7-2.3 7-4v-5.8l-7 3.5-7-3.5z"/></svg></div>
+          <h3 data-i18n="why.card1title">Авторская методика</h3>
+          <p data-i18n="why.card1text">Программа выстроена по уровням — от алфавита до свободного чтения и речи, без «воды» и лишней теории.</p>
+        </div>
+        <div class="why-card" data-reveal>
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 8 1.3 8 4v2H4v-2c0-2.7 5.3-4 8-4zm0-2a4 4 0 100-8 4 4 0 000 8z"/></svg></div>
+          <h3 data-i18n="why.card2title">Опытные преподаватели</h3>
+          <p data-i18n="why.card2text">Педагоги с профильным образованием и опытом работы с детьми и взрослыми любого уровня подготовки.</p>
+        </div>
+        <div class="why-card" data-reveal>
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H5.2L4 17.2V4zm2 4h12V6H6v2zm0 4h8v-2H6v2z"/></svg></div>
+          <h3 data-i18n="why.card3title">Малые группы</h3>
+          <p data-i18n="why.card3text">До 8 человек в группе — каждому ученику достаточно внимания и практики речи на уроке.</p>
+        </div>
+        <div class="why-card" data-reveal>
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg></div>
+          <h3 data-i18n="why.card4title">Прогресс, который видно</h3>
+          <p data-i18n="why.card4text">Регулярные тесты, обратная связь и сертификат по итогам каждого пройденного уровня.</p>
+        </div>
+        <div class="why-card" data-reveal>
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v9a2 2 0 002 2h4l-1 3h10l-1-3h4a2 2 0 002-2V6a2 2 0 00-2-2zm-1 10H5V6h14v8z"/></svg></div>
+          <h3 data-i18n="why.card5title">Онлайн и офлайн</h3>
+          <p data-i18n="why.card5text">Занимайтесь в классе в Ташкенте или подключайтесь на урок из любой точки мира.</p>
+        </div>
+        <div class="why-card" data-reveal>
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 21c-4.4-3-8-6.6-8-10.8A5.2 5.2 0 0112 6.6a5.2 5.2 0 018 3.6C20 14.4 16.4 18 12 21z"/></svg></div>
+          <h3 data-i18n="why.card6title">Забота о каждом ученике</h3>
+          <p data-i18n="why.card6text">Атмосфера поддержки — детям комфортно учиться, а взрослым не страшно ошибаться.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSES -->
+  <section id="courses" class="courses">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-tag" data-i18n="courses.tag">Программы обучения</span>
+        <h2 data-i18n="courses.title">Курсы для детей и взрослых</h2>
+        <p data-i18n="courses.sub">Подберём программу под ваш возраст, уровень и цель — от первых букв до уверенной речи.</p>
+      </div>
+
+      <div class="course-tabs" role="tablist">
+        <button class="course-tab active" data-tab="kids" data-i18n="courses.tabKids">Для детей</button>
+        <button class="course-tab" data-tab="adults" data-i18n="courses.tabAdults">Для взрослых</button>
+      </div>
+
+      <div class="course-panel active" data-panel="kids">
+        <div class="course-grid">
+          <div class="course-card" data-reveal>
+            <span class="course-level" data-i18n="courses.kids1.level">6–9 лет</span>
+            <h3 data-i18n="courses.kids1.title">Первые шаги: алфавит и чтение</h3>
+            <p data-i18n="courses.kids1.text">Знакомство с арабскими буквами, звуками и первыми словами в игровой форме.</p>
+            <ul>
+              <li data-i18n="courses.kids1.f1">Арабский алфавит и написание букв</li>
+              <li data-i18n="courses.kids1.f2">Чтение простых слов и коротких текстов</li>
+              <li data-i18n="courses.kids1.f3">2 занятия в неделю по 60 минут</li>
+            </ul>
+            <div class="course-foot">
+              <span class="course-price" data-i18n="courses.kids1.price">от 350 000 сум/мес</span>
+              <a href="#trial" class="btn btn-outline btn-sm" data-i18n="courses.cta">Записаться</a>
+            </div>
+          </div>
+          <div class="course-card featured" data-reveal>
+            <span class="ribbon" data-i18n="courses.popular">Популярный</span>
+            <span class="course-level" data-i18n="courses.kids2.level">10–14 лет</span>
+            <h3 data-i18n="courses.kids2.title">Грамматика и чтение</h3>
+            <p data-i18n="courses.kids2.text">Системное изучение грамматики арабского языка и развитие уверенного чтения.</p>
+            <ul>
+              <li data-i18n="courses.kids2.f1">Основы грамматики (морфология, падежи)</li>
+              <li data-i18n="courses.kids2.f2">Чтение и пересказ текстов по возрасту</li>
+              <li data-i18n="courses.kids2.f3">2–3 занятия в неделю по 75 минут</li>
+            </ul>
+            <div class="course-foot">
+              <span class="course-price" data-i18n="courses.kids2.price">от 420 000 сум/мес</span>
+              <a href="#trial" class="btn btn-primary btn-sm" data-i18n="courses.cta">Записаться</a>
+            </div>
+          </div>
+          <div class="course-card" data-reveal>
+            <span class="course-level" data-i18n="courses.kids3.level">12–17 лет</span>
+            <h3 data-i18n="courses.kids3.title">Продвинутое чтение и письмо</h3>
+            <p data-i18n="courses.kids3.text">Для тех, кто уже читает, — углубляем грамматику, письмо и словарный запас.</p>
+            <ul>
+              <li data-i18n="courses.kids3.f1">Расширенная грамматика и синтаксис</li>
+              <li data-i18n="courses.kids3.f2">Письменные работы и сочинения</li>
+              <li data-i18n="courses.kids3.f3">2 занятия в неделю по 75 минут</li>
+            </ul>
+            <div class="course-foot">
+              <span class="course-price" data-i18n="courses.kids3.price">от 420 000 сум/мес</span>
+              <a href="#trial" class="btn btn-outline btn-sm" data-i18n="courses.cta">Записаться</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-panel" data-panel="adults">
+        <div class="course-grid">
+          <div class="course-card" data-reveal>
+            <span class="course-level" data-i18n="courses.adult1.level">Начальный</span>
+            <h3 data-i18n="courses.adult1.title">Арабский с нуля</h3>
+            <p data-i18n="courses.adult1.text">Алфавит, базовая грамматика и первые разговорные фразы для повседневного общения.</p>
+            <ul>
+              <li data-i18n="courses.adult1.f1">Алфавит, чтение, базовая лексика</li>
+              <li data-i18n="courses.adult1.f2">Разговорные модули с первого урока</li>
+              <li data-i18n="courses.adult1.f3">2 занятия в неделю по 90 минут</li>
+            </ul>
+            <div class="course-foot">
+              <span class="course-price" data-i18n="courses.adult1.price">от 480 000 сум/мес</span>
+              <a href="#trial" class="btn btn-outline btn-sm" data-i18n="courses.cta">Записаться</a>
+            </div>
+          </div>
+          <div class="course-card featured" data-reveal>
+            <span class="ribbon" data-i18n="courses.popular">Популярный</span>
+            <span class="course-level" data-i18n="courses.adult2.level">Средний</span>
+            <h3 data-i18n="courses.adult2.title">Разговорный арабский</h3>
+            <p data-i18n="courses.adult2.text">Уверенное общение на бытовые, деловые и повседневные темы, живая практика речи.</p>
+            <ul>
+              <li data-i18n="courses.adult2.f1">Диалоги, ролевые игры, разбор ситуаций</li>
+              <li data-i18n="courses.adult2.f2">Расширение словарного запаса</li>
+              <li data-i18n="courses.adult2.f3">2–3 занятия в неделю по 90 минут</li>
+            </ul>
+            <div class="course-foot">
+              <span class="course-price" data-i18n="courses.adult2.price">от 550 000 сум/мес</span>
+              <a href="#trial" class="btn btn-primary btn-sm" data-i18n="courses.cta">Записаться</a>
+            </div>
+          </div>
+          <div class="course-card" data-reveal>
+            <span class="course-level" data-i18n="courses.adult3.level">Продвинутый</span>
+            <h3 data-i18n="courses.adult3.title">Деловой и свободный арабский</h3>
+            <p data-i18n="courses.adult3.text">Для тех, кто хочет говорить свободно: обсуждение сложных тем, деловая переписка, культура речи.</p>
+            <ul>
+              <li data-i18n="courses.adult3.f1">Продвинутая грамматика и стилистика</li>
+              <li data-i18n="courses.adult3.f2">Деловая лексика и переписка</li>
+              <li data-i18n="courses.adult3.f3">2 занятия в неделю по 90 минут</li>
+            </ul>
+            <div class="course-foot">
+              <span class="course-price" data-i18n="courses.adult3.price">от 600 000 сум/мес</span>
+              <a href="#trial" class="btn btn-outline btn-sm" data-i18n="courses.cta">Записаться</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="courses-note" data-i18n="courses.note">* Точную стоимость и расписание уточняйте у администратора — предложим программу под ваш уровень.</p>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-tag" data-i18n="process.tag">Как начать</span>
+        <h2 data-i18n="process.title">4 простых шага до первого урока</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-card" data-reveal>
+          <span class="process-num">01</span>
+          <h3 data-i18n="process.s1title">Оставьте заявку</h3>
+          <p data-i18n="process.s1text">Заполните форму или напишите нам в Telegram — это займёт меньше минуты.</p>
+        </div>
+        <div class="process-card" data-reveal>
+          <span class="process-num">02</span>
+          <h3 data-i18n="process.s2title">Определим уровень</h3>
+          <p data-i18n="process.s2text">Короткая беседа с преподавателем поможет подобрать подходящую группу.</p>
+        </div>
+        <div class="process-card" data-reveal>
+          <span class="process-num">03</span>
+          <h3 data-i18n="process.s3title">Пробный урок</h3>
+          <p data-i18n="process.s3text">Познакомитесь с преподавателем и форматом занятий — бесплатно и без обязательств.</p>
+        </div>
+        <div class="process-card" data-reveal>
+          <span class="process-num">04</span>
+          <h3 data-i18n="process.s4title">Начало обучения</h3>
+          <p data-i18n="process.s4text">Присоединяетесь к группе или начинаете индивидуальные занятия по расписанию.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEACHERS -->
+  <section id="teachers" class="teachers">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-tag" data-i18n="teachers.tag">Наша команда</span>
+        <h2 data-i18n="teachers.title">Преподаватели, которым доверяют</h2>
+      </div>
+      <div class="teachers-grid">
+        <div class="teacher-card" data-reveal>
+          <div class="teacher-avatar">УС</div>
+          <h3 data-i18n="teachers.t1name">Устод Саид</h3>
+          <span class="teacher-role" data-i18n="teachers.t1role">Грамматика, преподаватель для взрослых</span>
+          <p data-i18n="teachers.t1text">Более 8 лет преподаёт арабский язык взрослым, специализируется на разговорной практике.</p>
+        </div>
+        <div class="teacher-card" data-reveal>
+          <div class="teacher-avatar">МА</div>
+          <h3 data-i18n="teachers.t2name">Мадина Ахмедова</h3>
+          <span class="teacher-role" data-i18n="teachers.t2role">Педагог для детей</span>
+          <p data-i18n="teachers.t2text">Помогает детям полюбить арабский язык через игру, чтение и творческие задания.</p>
+        </div>
+        <div class="teacher-card" data-reveal>
+          <div class="teacher-avatar">ЖТ</div>
+          <h3 data-i18n="teachers.t3name">Жасур Турсунов</h3>
+          <span class="teacher-role" data-i18n="teachers.t3role">Куратор программы</span>
+          <p data-i18n="teachers.t3text">Следит за прогрессом каждого ученика и подбирает индивидуальную траекторию обучения.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="reviews">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-tag" data-i18n="reviews.tag">Отзывы</span>
+        <h2 data-i18n="reviews.title">Что говорят наши ученики и родители</h2>
+      </div>
+      <div class="reviews-slider" id="reviewsSlider">
+        <div class="review-track" id="reviewTrack">
+          <div class="review-card">
+            <p data-i18n="reviews.r1text">«Сын занимается уже полгода — грамматика стала гораздо понятнее, а читает арабский текст уверенно и с удовольствием.»</p>
+            <div class="review-author"><span class="review-avatar">Н</span><div><strong data-i18n="reviews.r1name">Нилуфар, мама ученика</strong><span data-i18n="reviews.r1sub">курс «Грамматика и чтение», 10 лет</span></div></div>
+          </div>
+          <div class="review-card">
+            <p data-i18n="reviews.r2text">«Долго искал курсы с нормальным разговорным уклоном, а не только теорию. Здесь именно так — уже говорю простыми фразами.»</p>
+            <div class="review-author"><span class="review-avatar">Р</span><div><strong data-i18n="reviews.r2name">Рустам, ученик</strong><span data-i18n="reviews.r2sub">курс «Разговорный арабский»</span></div></div>
+          </div>
+          <div class="review-card">
+            <p data-i18n="reviews.r3text">«Приятная атмосфера, преподаватели терпеливые. Дочка ждёт каждое занятие и уже читает небольшие тексты сама.»</p>
+            <div class="review-author"><span class="review-avatar">Д</span><div><strong data-i18n="reviews.r3name">Дилnoza, мама ученицы</strong><span data-i18n="reviews.r3sub">курс «Первые шаги», 8 лет</span></div></div>
+          </div>
+          <div class="review-card">
+            <p data-i18n="reviews.r4text">«Записался на пробный урок из любопытства — остался на полный курс. Понятная программа и живое общение на уроках.»</p>
+            <div class="review-author"><span class="review-avatar">А</span><div><strong data-i18n="reviews.r4name">Азиз, ученик</strong><span data-i18n="reviews.r4sub">курс «Арабский с нуля»</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews-dots" id="reviewDots"></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <div class="container faq-grid">
+      <div class="faq-head" data-reveal>
+        <span class="section-tag" data-i18n="faq.tag">Вопросы и ответы</span>
+        <h2 data-i18n="faq.title">Отвечаем на частые вопросы</h2>
+        <p data-i18n="faq.sub">Не нашли ответ на свой вопрос? Напишите нам — ответим в Telegram или по телефону.</p>
+        <a href="#trial" class="btn btn-primary" data-i18n="faq.cta">Задать вопрос</a>
+      </div>
+      <div class="faq-list" data-reveal>
+        <div class="faq-item active">
+          <button class="faq-q"><span data-i18n="faq.q1">С какого возраста можно начинать обучение?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p data-i18n="faq.a1">Мы принимаем детей с 6 лет и взрослых без ограничений по возрасту. Программу подбираем индивидуально после короткой беседы.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span data-i18n="faq.q2">Нужны ли базовые знания арабского языка?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p data-i18n="faq.a2">Нет, у нас есть группы с нуля. Если базовые знания уже есть, определим уровень на пробном уроке и подберём подходящую группу.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span data-i18n="faq.q3">Есть ли занятия онлайн?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p data-i18n="faq.a3">Да, можно заниматься онлайн из любого города, а можно приходить очно в наш центр в Ташкенте.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span data-i18n="faq.q4">Сколько человек в группе?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p data-i18n="faq.a4">Группы небольшие — до 8 человек, поэтому у преподавателя есть время на каждого ученика.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span data-i18n="faq.q5">Как проходит пробный урок?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p data-i18n="faq.a5">Пробный урок бесплатный, длится 30–40 минут. Вы познакомитесь с преподавателем и форматом занятий без каких-либо обязательств.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRIAL FORM -->
+  <section id="trial" class="trial">
+    <div class="trial-pattern" aria-hidden="true"></div>
+    <div class="container trial-grid">
+      <div class="trial-copy" data-reveal>
+        <span class="section-tag light" data-i18n="trial.tag">Бесплатный пробный урок</span>
+        <h2 data-i18n="trial.title">Сделайте первый шаг к арабскому языку</h2>
+        <p data-i18n="trial.sub">Оставьте заявку — мы свяжемся с вами в течение дня, подберём группу и запишем на бесплатный пробный урок.</p>
+        <ul class="trial-points">
+          <li data-i18n="trial.point1">✓ Без предоплаты и обязательств</li>
+          <li data-i18n="trial.point2">✓ Подбор программы под уровень и цель</li>
+          <li data-i18n="trial.point3">✓ Ответ в течение рабочего дня</li>
+        </ul>
+      </div>
+      <form class="trial-form" id="trialForm" data-reveal>
+        <div class="form-row">
+          <label data-i18n="trial.nameLabel">Ваше имя</label>
+          <input type="text" name="name" required placeholder="Имя" data-i18n-ph="trial.namePh">
+        </div>
+        <div class="form-row">
+          <label data-i18n="trial.phoneLabel">Телефон</label>
+          <input type="tel" name="phone" required placeholder="+998 90 123 45 67">
+        </div>
+        <div class="form-row">
+          <label data-i18n="trial.courseLabel">Кого записываем?</label>
+          <select name="course">
+            <option value="kids" data-i18n="trial.optKids">Ребёнка (грамматика и чтение)</option>
+            <option value="adult" data-i18n="trial.optAdult">Взрослого (разговорный арабский)</option>
+            <option value="notsure" data-i18n="trial.optNotsure">Ещё не определились</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label data-i18n="trial.commentLabel">Комментарий (необязательно)</label>
+          <textarea name="comment" rows="2" placeholder="Удобное время, вопросы..." data-i18n-ph="trial.commentPh"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" data-i18n="trial.submit">Отправить заявку</button>
+        <p class="form-note" data-i18n="trial.note">Нажимая «Отправить», вы соглашаетесь на обработку персональных данных.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-tag" data-i18n="contact.tag">Контакты</span>
+        <h2 data-i18n="contact.title">Мы находимся в Ташкенте</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info" data-reveal>
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 00-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg></div>
+            <div><strong data-i18n="contact.addressTitle">Адрес</strong><span data-i18n="contact.address">г. Ташкент, Мирабадский район, ул. Себзор, 12</span></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg></div>
+            <div><strong data-i18n="contact.phoneTitle">Телефон</strong><a href="tel:+998712000000">+998 71 200-00-00</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm4.9 7.4l-1.6 7.4c-.1.5-.5.6-.9.4l-2.5-1.8-1.2 1.1c-.1.1-.2.2-.5.2l.2-2.6 4.7-4.2c.2-.2 0-.3-.2-.1L9 13.3l-2.5-.8c-.5-.2-.5-.5.1-.7l9.7-3.7c.4-.1.8.1.6.7z"/></svg></div>
+            <div><strong data-i18n="contact.tgTitle">Telegram</strong><a href="https://t.me/academyofarabic_tashkent" target="_blank" rel="noopener">@academyofarabic_tashkent</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9zm0 1.8a2.7 2.7 0 110 5.4 2.7 2.7 0 010-5.4zM17.6 6a1 1 0 100 2 1 1 0 000-2z"/></svg></div>
+            <div><strong data-i18n="contact.igTitle">Instagram</strong><a href="https://instagram.com/academyofarabic.tashkent" target="_blank" rel="noopener">@academyofarabic.tashkent</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm1 5v5.4l4 2.4-.8 1.3-4.7-2.8V7z"/></svg></div>
+            <div><strong data-i18n="contact.hoursTitle">Часы работы</strong><span data-i18n="contact.hours">Пн–Сб: 9:00–20:00, Вс: выходной</span></div>
+          </div>
+        </div>
+        <div class="contact-map" data-reveal>
+          <iframe title="map" src="https://www.google.com/maps?q=Tashkent,Uzbekistan&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo-text light"><strong>Academy</strong><em>of Arabic</em></span>
+      <p data-i18n="footer.text">Учебный центр арабского языка в Ташкенте — курсы для детей и взрослых, грамматика и живое общение.</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/academyofarabic.tashkent" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9zm0 1.8a2.7 2.7 0 110 5.4 2.7 2.7 0 010-5.4zM17.6 6a1 1 0 100 2 1 1 0 000-2z"/></svg></a>
+        <a href="https://t.me/academyofarabic_tashkent" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21.9 4.1c-.3-.2-.7-.3-1.2-.1L2.9 10.6c-.5.2-.8.5-.8.9 0 .3.2.7.9.9l4.6 1.5 1.8 5.6c.1.4.4.7.8.7.2 0 .5-.1.7-.3l2.6-2.5 4.6 3.4c.3.2.6.3.9.3.2 0 .5-.1.6-.2.3-.2.5-.5.6-.9l3-14.1c.1-.6-.1-1.1-.4-1.4zM8.4 14.7l-2.9-1 11.6-7.2-8.7 8.2zm.9 4.3l-1-3.2 1.5 1.2-.5 2zm5.4-2.5-4-3 6.9-6.5-2.9 9.5z"/></svg></a>
+        <a href="https://wa.me/998712000000" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm4.9 12.4c-.2.6-1.4 1.2-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.8-4.3-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.3.7-.3h.5c.2 0 .4-.1.6.5.2.5.7 1.9.8 2 .1.2.1.3 0 .5-.1.1-.1.3-.2.4-.1.1-.3.3-.4.5-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.2.1.3.1.5-.1.1-.1.6-.7.8-1 .2-.2.3-.2.6-.1.2.1 1.6.8 1.9.9.3.1.5.2.5.3.1.3.1.6-.1 1z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4 data-i18n="footer.nav">Навигация</h4>
+      <a href="#about" data-i18n="nav.about">О центре</a>
+      <a href="#courses" data-i18n="nav.courses">Курсы</a>
+      <a href="#teachers" data-i18n="nav.teachers">Преподаватели</a>
+      <a href="#faq" data-i18n="nav.faq">Вопросы</a>
+    </div>
+    <div class="footer-contact">
+      <h4 data-i18n="footer.contact">Контакты</h4>
+      <span data-i18n="contact.address">г. Ташкент, Мирабадский район, ул. Себзор, 12</span>
+      <a href="tel:+998712000000">+998 71 200-00-00</a>
+      <a href="https://t.me/academyofarabic_tashkent" target="_blank" rel="noopener">Telegram</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <span>&copy; <span id="year"></span> Academy of Arabic. <span data-i18n="footer.rights">Все права защищены.</span></span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
