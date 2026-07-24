@@ -162,6 +162,13 @@
   --------------------------------------------------------- */
   function initReveal() {
     const items = document.querySelectorAll(".reveal");
+
+    items.forEach((el) => {
+      const siblings = Array.from(el.parentElement.children).filter((c) => c.classList.contains("reveal"));
+      const idx = siblings.indexOf(el);
+      if (idx > 0) el.style.transitionDelay = `${Math.min(idx * 0.08, 0.4)}s`;
+    });
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
