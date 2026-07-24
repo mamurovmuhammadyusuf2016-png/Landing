@@ -17,12 +17,33 @@
     return path.split(".").reduce((acc, key) => (acc && acc[key] !== undefined ? acc[key] : null), obj);
   }
 
+  function wordify(el, text) {
+    el.innerHTML = "";
+    const words = text.split(" ");
+    words.forEach((word, i) => {
+      const wrap = document.createElement("span");
+      wrap.className = "word-wrap";
+      const inner = document.createElement("span");
+      inner.className = "word-inner";
+      inner.style.animationDelay = `${i * 0.09}s`;
+      inner.textContent = word;
+      wrap.appendChild(inner);
+      el.appendChild(wrap);
+      if (i < words.length - 1) el.appendChild(document.createTextNode(" "));
+    });
+  }
+
   function applyTranslations(lang) {
     const dict = TRANSLATIONS[lang] || TRANSLATIONS[CONFIG.defaultLang];
 
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const value = getByPath(dict, el.getAttribute("data-i18n"));
       if (value !== null) el.textContent = value;
+    });
+
+    document.querySelectorAll("[data-i18n-words]").forEach((el) => {
+      const value = getByPath(dict, el.getAttribute("data-i18n-words"));
+      if (value !== null) wordify(el, value);
     });
 
     document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
@@ -50,6 +71,54 @@
     document.querySelectorAll(".lang-btn").forEach((btn) => {
       btn.addEventListener("click", () => applyTranslations(btn.getAttribute("data-lang")));
     });
+  }
+
+  /* ---------------------------------------------------------
+     Hero background — animated flowing paths
+     (inspired by "Background Paths" layout, restyled in the
+     center's own emerald/gold palette)
+  --------------------------------------------------------- */
+  function initHeroPaths() {
+    const container = document.getElementById("heroBgPattern");
+    if (!container || container.querySelector(".hero-paths")) return;
+
+    const svgNS = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(svgNS, "svg");
+    svg.setAttribute("class", "hero-paths");
+    svg.setAttribute("viewBox", "0 0 1000 600");
+    svg.setAttribute("preserveAspectRatio", "none");
+    svg.setAttribute("aria-hidden", "true");
+
+    const colors = ["#0E3B2E", "#B98A2E", "#1d5c46"];
+    const perGroup = 9;
+
+    [1, -1].forEach((group) => {
+      for (let i = 0; i < perGroup; i++) {
+        const t = i / (perGroup - 1);
+        const yBase = 40 + t * 520;
+        const amp = 36 + t * 100;
+
+        const x1 = -50, y1 = yBase;
+        const cx1 = 260, cy1 = yBase + group * amp;
+        const cx2 = 700, cy2 = yBase - group * amp;
+        const x2 = 1050, y2 = yBase + group * amp * 0.35;
+        const d = `M${x1} ${y1} C ${cx1} ${cy1}, ${cx2} ${cy2}, ${x2} ${y2}`;
+
+        const path = document.createElementNS(svgNS, "path");
+        path.setAttribute("d", d);
+        path.setAttribute("fill", "none");
+        path.setAttribute("stroke", colors[i % colors.length]);
+        path.setAttribute("stroke-width", (0.6 + t * 1.6).toFixed(2));
+        path.setAttribute("stroke-linecap", "round");
+        path.style.opacity = (0.05 + t * 0.16).toFixed(2);
+        path.style.strokeDasharray = "220 260";
+        const duration = 16 + ((i * 5 + (group > 0 ? 0 : 7)) % 22);
+        path.style.animation = `dashFlow ${duration}s linear infinite ${group > 0 ? "normal" : "reverse"}`;
+        svg.appendChild(path);
+      }
+    });
+
+    container.appendChild(svg);
   }
 
   /* ---------------------------------------------------------
@@ -227,6 +296,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
+    initHeroPaths();
     initLangSwitch();
     initHeaderScroll();
     initMobileNav();
