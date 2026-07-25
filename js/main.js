@@ -3,7 +3,7 @@
 
   /* Replace with the real values once available */
   const CONFIG = {
-    telegramUsername: "academyofarabic_tashkent",
+    telegramUsername: "academy_arabic",
     defaultLang: "ru",
     rtlLangs: ["ar"]
   };

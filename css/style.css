@@ -485,22 +485,6 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
   transition:transform .3s var(--ease), box-shadow .3s var(--ease);
 }
 .course-card:hover{ transform:translateY(-8px); box-shadow:var(--shadow-md); }
-.course-card.featured{ background:var(--primary); border-color:var(--primary); animation:featuredGlow 3.2s ease-in-out infinite; }
-.course-card.featured *{ color:#fff; }
-.course-card.featured .course-badge{ background:rgba(255,255,255,.15); color:var(--gold-light); }
-.course-card.featured p{ color:rgba(255,255,255,.72); }
-.course-card.featured .course-price strong{ color:var(--gold-light); }
-@keyframes featuredGlow{
-  0%,100%{ box-shadow:0 0 0 0 rgba(185,138,46,.35), var(--shadow-sm); }
-  50%{ box-shadow:0 0 0 8px rgba(185,138,46,0), var(--shadow-md); }
-}
-.course-ribbon{
-  position:absolute; top:18px; inset-inline-end:18px;
-  background:var(--gold); color:#fff!important; font-family:var(--font-head); font-size:.68rem; font-weight:700;
-  padding:5px 12px; border-radius:100px; text-transform:uppercase; letter-spacing:.04em;
-  animation:ribbonPulse 2.2s ease-in-out infinite;
-}
-@keyframes ribbonPulse{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.06); } }
 .course-badge{
   align-self:flex-start; background:var(--primary-soft); color:var(--primary);
   font-family:var(--font-head); font-size:.72rem; font-weight:700; padding:5px 13px; border-radius:100px; margin-bottom:16px;
@@ -509,12 +493,26 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
 .course-card:hover .course-badge{ transform:translateY(-2px); }
 .course-card h3{ font-size:1.18rem; }
 .course-card p{ font-size:.92rem; flex-grow:1; }
-.course-meta{ display:flex; gap:16px; font-family:var(--font-head); font-size:.78rem; color:var(--ink-faint); margin-block:16px; }
-.course-meta span{ display:flex; align-items:center; gap:6px; }
-.course-meta svg{ width:15px; height:15px; stroke:currentColor; fill:none; stroke-width:1.8; }
-.course-price{ margin-bottom:18px; }
-.course-price strong{ font-family:var(--font-head); font-size:1.4rem; color:var(--primary); transition:color .3s var(--ease); }
-.course-price span{ font-family:var(--font-head); font-size:.82rem; color:var(--ink-faint); }
+
+.course-price-list{ display:flex; flex-direction:column; gap:10px; margin:18px 0 4px; }
+.course-price-list li{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:10px 14px; background:var(--bg-alt); border-radius:12px;
+}
+.course-price-list li span{ font-family:var(--font-head); font-size:.84rem; color:var(--ink-soft); }
+.course-price-list li strong{ font-family:var(--font-head); font-size:1.02rem; color:var(--primary); white-space:nowrap; }
+.course-price-note{ display:block; font-family:var(--font-head); font-size:.78rem; color:var(--ink-faint); margin-bottom:18px; }
+
+.course-price-grid-wrap{ margin:16px 0 4px; overflow-x:auto; }
+.course-price-grid{ width:100%; border-collapse:collapse; font-family:var(--font-head); font-size:.82rem; }
+.course-price-grid th, .course-price-grid td{ padding:9px 8px; text-align:center; white-space:nowrap; }
+.course-price-grid thead th{ color:var(--ink-faint); font-weight:600; font-size:.72rem; }
+.course-price-grid tbody th{ text-align:start; color:var(--ink-soft); font-weight:600; }
+.course-price-grid tbody td{ color:var(--primary); font-weight:700; }
+.course-price-grid tbody tr{ background:var(--bg-alt); }
+.course-price-grid tbody tr:nth-child(even){ background:transparent; }
+.course-price-grid tbody th:first-child{ border-start-start-radius:10px; border-end-start-radius:10px; padding-inline-start:12px; }
+.course-price-grid tbody td:last-child{ border-start-end-radius:10px; border-end-end-radius:10px; padding-inline-end:12px; }
 
 /* =============================================================
    Process
@@ -535,6 +533,7 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
    Teachers
 ============================================================= */
 .teachers-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:26px; }
+.teachers-grid-9{ grid-template-columns:repeat(3, 1fr); }
 .teacher-card{
   text-align:center; background:#fff; border:1px solid var(--line); border-radius:var(--radius-md);
   padding:32px 22px; transition:transform .3s var(--ease), box-shadow .3s var(--ease);
