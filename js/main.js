@@ -468,58 +468,6 @@
     if (el) el.textContent = new Date().getFullYear();
   }
 
-  /* ---------------------------------------------------------
-     3D mode — mouse-tilt on cards, with an on/off toggle
-  --------------------------------------------------------- */
-  const TILT_SELECTOR =
-    ".feature-card, .course-card, .teacher-card, .review-card, .process-step, .about-badge, .hero-card-float, .logo-showcase, .booking-form";
-
-  function clearTilt(el) {
-    el.style.transform = "";
-  }
-
-  function initTilt3D() {
-    const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    if (!canHover) return;
-
-    const items = document.querySelectorAll(TILT_SELECTOR);
-    const maxTilt = 9;
-
-    items.forEach((el) => {
-      el.addEventListener("mousemove", (e) => {
-        if (!root.classList.contains("mode-3d")) return;
-        const rect = el.getBoundingClientRect();
-        const px = (e.clientX - rect.left) / rect.width - 0.5;
-        const py = (e.clientY - rect.top) / rect.height - 0.5;
-        el.style.transform =
-          `perspective(800px) rotateX(${(-py * maxTilt).toFixed(2)}deg) ` +
-          `rotateY(${(px * maxTilt).toFixed(2)}deg) translateZ(4px)`;
-      });
-      el.addEventListener("mouseleave", () => clearTilt(el));
-    });
-  }
-
-  function initModeToggle() {
-    const btn = document.getElementById("mode3dToggle");
-    if (!btn) return;
-
-    let saved = null;
-    try { saved = localStorage.getItem("aoa_mode3d"); } catch (e) { /* storage unavailable */ }
-    const enabled = saved !== "0";
-
-    root.classList.toggle("mode-3d", enabled);
-    btn.classList.toggle("is-off", !enabled);
-    btn.setAttribute("aria-pressed", String(enabled));
-
-    btn.addEventListener("click", () => {
-      const isOn = root.classList.toggle("mode-3d");
-      btn.classList.toggle("is-off", !isOn);
-      btn.setAttribute("aria-pressed", String(isOn));
-      try { localStorage.setItem("aoa_mode3d", isOn ? "1" : "0"); } catch (e) { /* storage unavailable */ }
-      if (!isOn) document.querySelectorAll(TILT_SELECTOR).forEach(clearTilt);
-    });
-  }
-
   document.addEventListener("DOMContentLoaded", () => {
     initLogoAssembly();
     initHeroWordmark();
@@ -536,7 +484,5 @@
     initBookingForm();
     initScrollTop();
     initYear();
-    initModeToggle();
-    initTilt3D();
   });
 })();
