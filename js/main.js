@@ -140,6 +140,25 @@
   }
 
   /* ---------------------------------------------------------
+     About gallery — real center photos, crossfade every 3s
+  --------------------------------------------------------- */
+  function initAboutGallery() {
+    const container = document.querySelector("[data-gallery]");
+    if (!container) return;
+    const slides = container.querySelectorAll(".about-gallery-slide");
+    if (slides.length < 2) return;
+
+    let index = [...slides].findIndex((s) => s.classList.contains("is-active"));
+    if (index < 0) index = 0;
+
+    setInterval(() => {
+      slides[index].classList.remove("is-active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("is-active");
+    }, 3000);
+  }
+
+  /* ---------------------------------------------------------
      Ambient background — floating Arabic words + drifting
      light beams and dust, layered into every section
   --------------------------------------------------------- */
@@ -452,6 +471,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     initLogoAssembly();
     initHeroWordmark();
+    initAboutGallery();
     initAmbientBackground();
     initHeroPaths();
     initLangSwitch();
