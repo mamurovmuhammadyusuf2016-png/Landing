@@ -329,32 +329,48 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
 .stat-label{ font-family:var(--font-head); font-size:.76rem; font-weight:500; color:var(--ink-faint); display:block; margin-top:2px; }
 
 .hero-visual{ position:relative; height:440px; }
-.hero-card-main{
+.hero-logo-intro{
   position:absolute; inset:0;
-  border-radius:var(--radius-lg);
-  background:
-    radial-gradient(circle at 50% 50%, rgba(231,205,122,.28), transparent 60%),
-    linear-gradient(155deg, var(--primary) 0%, var(--primary-dark) 100%);
-  box-shadow:var(--shadow-lg);
-  display:flex; align-items:center; justify-content:center;
-  overflow:hidden;
-}
-.hero-card-pattern{
-  position:absolute; inset:0; opacity:.15;
-  background-image:
-    linear-gradient(45deg, var(--gold-light) 25%, transparent 25%),
-    linear-gradient(-45deg, var(--gold-light) 25%, transparent 25%);
-  background-size:60px 60px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; gap:26px;
 }
 .logo-showcase{
   position:relative; flex-shrink:0;
   width:150px; height:185px; border-radius:20px; overflow:hidden;
   background-image:url('../assets/logo-icon.png'); background-size:cover; background-position:center;
-  box-shadow:0 20px 46px rgba(0,0,0,.28), 0 0 0 1px rgba(231,205,122,.35);
+  box-shadow:0 20px 46px rgba(14,59,46,.22), 0 0 0 1px rgba(231,205,122,.35);
   animation:markGlow 3.6s ease-in-out infinite; animation-delay:1.3s;
+}
+.logo-showcase--intro{ width:190px; height:234px; border-radius:26px; }
+
+.hero-wordmark{ display:flex; flex-direction:column; align-items:center; gap:4px; }
+.hero-wordmark-sub{
+  font-family:'Playfair Display', serif; font-style:italic; font-weight:500;
+  font-size:1.15rem; letter-spacing:.14em; color:var(--ink-soft); text-transform:lowercase;
+}
+.hero-wordmark-main{
+  font-family:'Playfair Display', serif; font-weight:800;
+  font-size:2.9rem; letter-spacing:.05em; color:var(--primary);
+}
+.hero-wordmark .letter{
+  display:inline-block; opacity:0;
+  animation:letterUp .5s var(--ease) both;
+}
+@keyframes letterUp{
+  from{ opacity:0; transform:translateY(16px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-wordmark .letter{ animation:none; opacity:1; transform:none; }
 }
 @media (max-width:560px){
   .logo-showcase{ width:118px; height:146px; border-radius:16px; }
+  .logo-showcase--intro{ width:128px; height:158px; border-radius:18px; }
+  .hero-wordmark-sub{ font-size:.95rem; }
+  .hero-wordmark-main{ font-size:1.8rem; }
+  .hero-card-float{ padding:12px 16px; }
+  .hero-card-float strong{ font-size:1.05rem; }
+  .hero-card-float small{ font-size:.68rem; }
 }
 .hero-card-float{
   position:absolute; background:#fff; border-radius:var(--radius-md); box-shadow:var(--shadow-md);
@@ -726,7 +742,10 @@ html[dir="rtl"] .footer-col a:hover{ transform:translateX(-4px); }
   }
 
   .hero-inner{ grid-template-columns:1fr; }
-  .hero-visual{ height:320px; order:-1; }
+  .hero-visual{ height:400px; order:-1; }
+  .hero-logo-intro{ justify-content:flex-start; padding-top:22px; }
+  .hero-card-1{ top:0; inset-inline-start:0; }
+  .hero-card-2{ bottom:4%; inset-inline-end:0; }
   .about-grid, .contact-grid, .faq-grid{ grid-template-columns:1fr; }
   .about-visual{ max-width:360px; margin-inline:auto; }
   .features-grid, .courses-grid, .teachers-grid, .reviews-track, .process-grid{ grid-template-columns:1fr; }
