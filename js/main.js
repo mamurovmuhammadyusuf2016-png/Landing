@@ -4,7 +4,7 @@
   /* Replace with the real values once available */
   const CONFIG = {
     telegramUsername: "academy_arabic",
-    defaultLang: "ru",
+    defaultLang: "uz",
     rtlLangs: ["ar"]
   };
 

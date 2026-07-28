@@ -131,7 +131,7 @@ ru: {
 /* =========================== UZBEK (LOTIN) =========================== */
 uz: {
   nav: {
-    tagline: "Arab tili o'quv markazi",
+    tagline: "Arab tili akademiyasi",
     about: "Markaz haqida", courses: "Kurslar", teachers: "O'qituvchilar",
     reviews: "Fikrlar", faq: "Savollar", contact: "Aloqa", cta: "Yozilish"
   },
