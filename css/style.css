@@ -328,12 +328,12 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
 .stat-plus{ font-family:var(--font-head); font-size:1.9rem; font-weight:700; color:var(--gold); }
 .stat-label{ font-family:var(--font-head); font-size:.76rem; font-weight:500; color:var(--ink-faint); display:block; margin-top:2px; }
 
-.hero-visual{ position:relative; height:440px; }
-.hero-logo-intro{
-  position:absolute; inset:0;
-  display:flex; flex-direction:row; align-items:center; justify-content:center;
-  text-align:start; gap:26px;
+.hero-visual{ position:relative; height:440px; display:flex; align-items:center; justify-content:center; }
+.hero-logo{
+  width:100%; max-width:470px; height:auto;
 }
+
+/* still used for the About-section frame */
 .logo-showcase{
   position:relative; flex-shrink:0;
   width:150px; height:185px; border-radius:20px; overflow:hidden;
@@ -341,38 +341,10 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
   box-shadow:0 20px 46px rgba(14,59,46,.22), 0 0 0 1px rgba(231,205,122,.35);
   animation:markGlow 3.6s ease-in-out infinite; animation-delay:1.3s;
 }
-.logo-showcase--intro{ width:190px; height:234px; border-radius:26px; }
 
-/* direction:ltr keeps the Latin brand lockup readable in the RTL (Arabic)
-   layout — the per-letter spans are inline-blocks, which bidi would
-   otherwise reorder into "CIBARA" */
-.hero-wordmark{ display:flex; flex-direction:column; align-items:flex-start; gap:2px; direction:ltr; }
-.hero-wordmark-sub{
-  font-family:'Playfair Display', serif; font-style:italic; font-weight:500;
-  font-size:1.15rem; letter-spacing:.14em; color:var(--ink-soft); text-transform:lowercase;
-}
-.hero-wordmark-main{
-  font-family:'Playfair Display', serif; font-weight:800;
-  font-size:2.9rem; letter-spacing:.05em; color:var(--primary);
-}
-.hero-wordmark .letter{
-  display:inline-block; opacity:0;
-  animation:letterIn .5s var(--ease) both;
-}
-/* letters slide in rightwards, matching the logo's horizontal lockup */
-@keyframes letterIn{
-  from{ opacity:0; transform:translateX(-18px); }
-  to{ opacity:1; transform:translateX(0); }
-}
-@media (prefers-reduced-motion: reduce){
-  .hero-wordmark .letter{ animation:none; opacity:1; transform:none; }
-}
 @media (max-width:560px){
   .logo-showcase{ width:118px; height:146px; border-radius:16px; }
-  .logo-showcase--intro{ width:112px; height:138px; border-radius:16px; }
-  .hero-logo-intro{ gap:16px; }
-  .hero-wordmark-sub{ font-size:.8rem; letter-spacing:.1em; }
-  .hero-wordmark-main{ font-size:1.55rem; }
+  .hero-logo{ max-width:320px; }
   .hero-card-float{ padding:12px 16px; }
   .hero-card-float strong{ font-size:1.05rem; }
   .hero-card-float small{ font-size:.68rem; }
@@ -759,10 +731,9 @@ html[dir="rtl"] .footer-col a:hover{ transform:translateX(-4px); }
   }
 
   .hero-inner{ grid-template-columns:1fr; }
-  .hero-visual{ height:400px; order:-1; }
-  .hero-logo-intro{ justify-content:flex-start; padding-top:22px; }
+  .hero-visual{ height:340px; order:-1; }
   .hero-card-1{ top:0; inset-inline-start:0; }
-  .hero-card-2{ bottom:4%; inset-inline-end:0; }
+  .hero-card-2{ bottom:0; inset-inline-end:0; }
   .about-grid, .contact-grid, .faq-grid{ grid-template-columns:1fr; }
   .about-visual{ max-width:360px; margin-inline:auto; }
   .features-grid, .courses-grid, .teachers-grid, .reviews-track, .process-grid{ grid-template-columns:1fr; }

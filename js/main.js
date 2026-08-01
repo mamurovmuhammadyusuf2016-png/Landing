@@ -115,31 +115,6 @@
   }
 
   /* ---------------------------------------------------------
-     Hero wordmark — letters fly in after the arch assembles
-  --------------------------------------------------------- */
-  function letterify(el, baseDelay) {
-    const text = el.textContent;
-    el.innerHTML = "";
-    el.setAttribute("aria-label", text);
-    [...text].forEach((ch, i) => {
-      const span = document.createElement("span");
-      span.className = "letter";
-      span.textContent = ch === " " ? " " : ch;
-      span.style.animationDelay = `${baseDelay + i * 0.045}s`;
-      el.appendChild(span);
-    });
-  }
-
-  function initHeroWordmark() {
-    const nodes = document.querySelectorAll("[data-wordmark]");
-    let delay = 1.3;
-    nodes.forEach((el) => {
-      letterify(el, delay);
-      delay += el.textContent.length * 0.045 + 0.1;
-    });
-  }
-
-  /* ---------------------------------------------------------
      About gallery — real center photos, crossfade every 3s
   --------------------------------------------------------- */
   function initAboutGallery() {
@@ -470,7 +445,6 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     initLogoAssembly();
-    initHeroWordmark();
     initAboutGallery();
     initAmbientBackground();
     initHeroPaths();
