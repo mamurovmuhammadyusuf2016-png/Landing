@@ -9,12 +9,12 @@ ru: {
     reviews: "Отзывы", faq: "Вопросы", contact: "Контакты", cta: "Записаться"
   },
   hero: {
-    badge: "№1 центр арабского языка в Ташкенте",
+    badge: "Арабский язык в центре Ташкента",
     title1: "Арабский язык", title2: "с нуля", title3: "до уверенной речи",
     subtitle: "Фонетика, грамматика и курс для детей. Группы до 20 человек, опытные устазы, гибкое расписание в центре Ташкента.",
     ctaPrimary: "Бесплатный пробный урок", ctaSecondary: "Смотреть курсы",
-    statsStudents: "выпускников", statsTeachers: "преподавателей", statsYears: "лет опыта", statsRating: "рейтинг учеников",
-    floatSatisfaction: "довольны обучением", floatGroups: "до 20 чел.", floatGroupsLabel: "в группе"
+    statsStudents: "выпускников", statsTeachers: "преподавателей", statsYears: "лет опыта",
+    floatGroups: "до 20 чел.", floatGroupsLabel: "в группе"
   },
   about: {
     badgeLabel: "год основания центра",
@@ -136,12 +136,12 @@ uz: {
     reviews: "Fikrlar", faq: "Savollar", contact: "Aloqa", cta: "Yozilish"
   },
   hero: {
-    badge: "Toshkentdagi №1 arab tili markazi",
+    badge: "Toshkent markazida arab tili",
     title1: "Arab tili", title2: "noldan", title3: "erkin nutqqacha",
     subtitle: "Fonetika, grammatika va bolalar uchun kurs. Guruhda 20 nafargacha o'quvchi, tajribali ustozlar, Toshkent markazida qulay jadval.",
     ctaPrimary: "Bepul sinov darsi", ctaSecondary: "Kurslarni ko'rish",
-    statsStudents: "bitiruvchi", statsTeachers: "o'qituvchi", statsYears: "yillik tajriba", statsRating: "o'quvchilar bahosi",
-    floatSatisfaction: "ta'limdan mamnun", floatGroups: "20 nafargacha", floatGroupsLabel: "guruhda"
+    statsStudents: "bitiruvchi", statsTeachers: "o'qituvchi", statsYears: "yillik tajriba",
+    floatGroups: "20 nafargacha", floatGroupsLabel: "guruhda"
   },
   about: {
     badgeLabel: "markaz tashkil topgan yil",
@@ -263,12 +263,12 @@ ar: {
     reviews: "الآراء", faq: "الأسئلة", contact: "تواصل معنا", cta: "التسجيل"
   },
   hero: {
-    badge: "المركز رقم ١ لتعليم العربية في طشقند",
+    badge: "اللغة العربية في مركز طشقند",
     title1: "اللغة العربية", title2: "من الصفر", title3: "حتى الطلاقة",
     subtitle: "الصوتيات والقواعد ودورة للأطفال. مجموعات حتى ٢٠ طالبًا، أساتذة ذوو خبرة، وجدول مرن في مركز طشقند.",
     ctaPrimary: "درس تجريبي مجاني", ctaSecondary: "عرض الدورات",
-    statsStudents: "خريج", statsTeachers: "معلم", statsYears: "سنوات خبرة", statsRating: "تقييم الطلاب",
-    floatSatisfaction: "راضون عن التعليم", floatGroups: "حتى ٢٠ طالبًا", floatGroupsLabel: "في المجموعة"
+    statsStudents: "خريج", statsTeachers: "معلم", statsYears: "سنوات خبرة",
+    floatGroups: "حتى ٢٠ طالبًا", floatGroupsLabel: "في المجموعة"
   },
   about: {
     badgeLabel: "سنة تأسيس المركز",
