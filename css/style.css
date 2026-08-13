@@ -400,6 +400,8 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
 }
 @keyframes patternDrift{ to{ background-position:26px 26px; } }
 
+.about-logo{ position:relative; width:82%; max-width:340px; height:auto; }
+
 .about-badge{
   position:absolute; bottom:-24px; inset-inline-end:-24px;
   background:#fff; border-radius:var(--radius-md); box-shadow:var(--shadow-md);
