@@ -13,7 +13,7 @@ ru: {
     title1: "Арабский язык", title2: "с нуля", title3: "до уверенной речи",
     subtitle: "Фонетика, грамматика и курс для детей. Группы до 20 человек, опытные устазы, гибкое расписание в центре Ташкента.",
     ctaPrimary: "Бесплатный пробный урок", ctaSecondary: "Смотреть курсы",
-    statsStudents: "выпускников", statsTeachers: "преподавателей", statsYears: "лет опыта",
+    statsStudents: "учеников", statsTeachers: "преподавателей", statsSince: "с вами с 2021 года",
     floatGroups: "до 20 чел.", floatGroupsLabel: "в группе"
   },
   about: {
@@ -140,7 +140,7 @@ uz: {
     title1: "Arab tili", title2: "noldan", title3: "erkin nutqqacha",
     subtitle: "Fonetika, grammatika va bolalar uchun kurs. Guruhda 20 nafargacha o'quvchi, tajribali ustozlar, Toshkent markazida qulay jadval.",
     ctaPrimary: "Bepul sinov darsi", ctaSecondary: "Kurslarni ko'rish",
-    statsStudents: "bitiruvchi", statsTeachers: "o'qituvchi", statsYears: "yillik tajriba",
+    statsStudents: "o'quvchi", statsTeachers: "o'qituvchi", statsSince: "2021-yildan siz bilan",
     floatGroups: "20 nafargacha", floatGroupsLabel: "guruhda"
   },
   about: {
@@ -267,7 +267,7 @@ ar: {
     title1: "اللغة العربية", title2: "من الصفر", title3: "حتى الطلاقة",
     subtitle: "الصوتيات والقواعد ودورة للأطفال. مجموعات حتى ٢٠ طالبًا، أساتذة ذوو خبرة، وجدول مرن في مركز طشقند.",
     ctaPrimary: "درس تجريبي مجاني", ctaSecondary: "عرض الدورات",
-    statsStudents: "خريج", statsTeachers: "معلم", statsYears: "سنوات خبرة",
+    statsStudents: "طالب", statsTeachers: "معلم", statsSince: "معكم منذ ٢٠٢١",
     floatGroups: "حتى ٢٠ طالبًا", floatGroupsLabel: "في المجموعة"
   },
   about: {

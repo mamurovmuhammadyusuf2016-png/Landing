@@ -322,11 +322,13 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
 .hero-subtitle{ font-size:1.08rem; max-width:520px; }
 .hero-actions{ display:flex; gap:16px; flex-wrap:wrap; margin-block:34px; }
 .hero-stats{ display:flex; flex-wrap:wrap; gap:34px; margin-top:10px; padding-top:30px; border-top:1px solid var(--line); }
-.stat{ display:flex; flex-direction:column; transition:transform .3s var(--ease); }
+/* wrap:wrap + full-width label keeps the number and its "+" on one line —
+   flex-direction:column used to push the "+" onto a line of its own */
+.stat{ display:flex; flex-wrap:wrap; align-items:baseline; transition:transform .3s var(--ease); }
 .stat:hover{ transform:translateY(-3px); }
 .stat-num{ font-family:var(--font-head); font-size:1.9rem; font-weight:700; color:var(--primary); display:inline; }
 .stat-plus{ font-family:var(--font-head); font-size:1.9rem; font-weight:700; color:var(--gold); }
-.stat-label{ font-family:var(--font-head); font-size:.76rem; font-weight:500; color:var(--ink-faint); display:block; margin-top:2px; }
+.stat-label{ font-family:var(--font-head); font-size:.76rem; font-weight:500; color:var(--ink-faint); flex-basis:100%; margin-top:2px; }
 
 .hero-visual{ position:relative; height:440px; display:flex; align-items:center; justify-content:center; }
 .hero-logo{
@@ -397,18 +399,6 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
   animation:patternDrift 14s linear infinite;
 }
 @keyframes patternDrift{ to{ background-position:26px 26px; } }
-
-.about-gallery{ position:absolute; inset:0; border-radius:inherit; }
-.about-gallery-slide{
-  position:absolute; inset:0;
-  background-size:cover; background-position:center;
-  opacity:0; transform:scale(1.08);
-  transition:opacity 1.4s var(--ease), transform 5s var(--ease);
-}
-.about-gallery-slide.is-active{ opacity:1; transform:scale(1); z-index:1; }
-@media (prefers-reduced-motion: reduce){
-  .about-gallery-slide{ transition:opacity .3s linear; transform:none; }
-}
 
 .about-badge{
   position:absolute; bottom:-24px; inset-inline-end:-24px;
