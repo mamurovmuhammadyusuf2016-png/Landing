@@ -10,8 +10,8 @@ ru: {
   },
   hero: {
     badge: "Арабский язык в центре Ташкента",
-    title1: "Арабский язык", title2: "с нуля", title3: "до уверенной речи",
-    subtitle: "Фонетика, грамматика и курс для детей. Группы до 20 человек, опытные устазы, гибкое расписание в центре Ташкента.",
+    title1: "Арабский язык", title2: "с нуля", title3: "до свободного общения",
+    subtitle: "Начальный арабский (фонетика), грамматика и курс для детей. Группы до 20 человек, опытные устазы, гибкое расписание в центре Ташкента.",
     ctaPrimary: "Бесплатный пробный урок", ctaSecondary: "Смотреть курсы",
     statsStudents: "учеников", statsTeachers: "преподавателей", statsSince: "с вами с 2021 года",
     floatGroups: "до 20 чел.", floatGroupsLabel: "в группе"
@@ -39,9 +39,9 @@ ru: {
   },
   courses: {
     tag: "Направления", title: "Курсы арабского языка",
-    subtitle: "Фонетика, грамматика и курс для детей — выберите частоту занятий под свой темп.",
+    subtitle: "Начальный арабский (фонетика), грамматика и курс для детей — выберите частоту занятий под свой темп.",
     priceMonth: "/ месяц", cta: "Записаться",
-    item1Level: "Взрослым", item1Title: "Фонетика",
+    item1Level: "Взрослым", item1Title: "Начальный арабский (фонетика)",
     item1Desc: "Постановка произношения и звуков арабского языка — основа для дальнейшего обучения.",
     item1Freq1: "2 раза в неделю", item1Price1: "550 000 сум",
     item1Freq2: "3 раза в неделю", item1Price2: "750 000 сум",
@@ -137,8 +137,8 @@ uz: {
   },
   hero: {
     badge: "Toshkent markazida arab tili",
-    title1: "Arab tili", title2: "noldan", title3: "erkin nutqqacha",
-    subtitle: "Fonetika, grammatika va bolalar uchun kurs. Guruhda 20 nafargacha o'quvchi, tajribali ustozlar, Toshkent markazida qulay jadval.",
+    title1: "Arab tili", title2: "noldan", title3: "erkin muloqotgacha",
+    subtitle: "Boshlang'ich arab tili (fonetika), grammatika va bolalar uchun kurs. Guruhda 20 nafargacha o'quvchi, tajribali ustozlar, Toshkent markazida qulay jadval.",
     ctaPrimary: "Bepul sinov darsi", ctaSecondary: "Kurslarni ko'rish",
     statsStudents: "o'quvchi", statsTeachers: "o'qituvchi", statsSince: "2021-yildan siz bilan",
     floatGroups: "20 nafargacha", floatGroupsLabel: "guruhda"
@@ -166,9 +166,9 @@ uz: {
   },
   courses: {
     tag: "Yo'nalishlar", title: "Arab tili kurslari",
-    subtitle: "Fonetika, grammatika va bolalar uchun kurs — o'zingizga qulay chastotani tanlang.",
+    subtitle: "Boshlang'ich arab tili (fonetika), grammatika va bolalar uchun kurs — o'zingizga qulay chastotani tanlang.",
     priceMonth: "/ oyiga", cta: "Yozilish",
-    item1Level: "Kattalar uchun", item1Title: "Fonetika",
+    item1Level: "Kattalar uchun", item1Title: "Boshlang'ich arab tili (fonetika)",
     item1Desc: "Arab tili tovushlari va talaffuzini shakllantirish — keyingi o'qish uchun asos.",
     item1Freq1: "haftada 2 marta", item1Price1: "550 000 so'm",
     item1Freq2: "haftada 3 marta", item1Price2: "750 000 so'm",
@@ -264,8 +264,8 @@ ar: {
   },
   hero: {
     badge: "اللغة العربية في مركز طشقند",
-    title1: "اللغة العربية", title2: "من الصفر", title3: "حتى الطلاقة",
-    subtitle: "الصوتيات والقواعد ودورة للأطفال. مجموعات حتى ٢٠ طالبًا، أساتذة ذوو خبرة، وجدول مرن في مركز طشقند.",
+    title1: "اللغة العربية", title2: "من الصفر", title3: "حتى التواصل بحرية",
+    subtitle: "العربية للمبتدئين (الصوتيات) والقواعد ودورة للأطفال. مجموعات حتى ٢٠ طالبًا، أساتذة ذوو خبرة، وجدول مرن في مركز طشقند.",
     ctaPrimary: "درس تجريبي مجاني", ctaSecondary: "عرض الدورات",
     statsStudents: "طالب", statsTeachers: "معلم", statsSince: "معكم منذ ٢٠٢١",
     floatGroups: "حتى ٢٠ طالبًا", floatGroupsLabel: "في المجموعة"
@@ -293,9 +293,9 @@ ar: {
   },
   courses: {
     tag: "المسارات", title: "دورات اللغة العربية",
-    subtitle: "الصوتيات والقواعد ودورة للأطفال — اختر وتيرة الحصص المناسبة لك.",
+    subtitle: "العربية للمبتدئين (الصوتيات) والقواعد ودورة للأطفال — اختر وتيرة الحصص المناسبة لك.",
     priceMonth: "/ شهريًا", cta: "التسجيل",
-    item1Level: "للكبار", item1Title: "الصوتيات",
+    item1Level: "للكبار", item1Title: "العربية للمبتدئين (الصوتيات)",
     item1Desc: "تأسيس النطق الصحيح لأصوات اللغة العربية — أساس لما بعده من تعلّم.",
     item1Freq1: "مرتان أسبوعيًا", item1Price1: "550,000 سوم",
     item1Freq2: "٣ مرات أسبوعيًا", item1Price2: "750,000 سوم",
