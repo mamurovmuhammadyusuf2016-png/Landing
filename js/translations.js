@@ -19,7 +19,7 @@ ru: {
   about: {
     badgeLabel: "год основания центра",
     tag: "О центре",
-    title: "От первых букв до уверенной речи — по понятной программе",
+    title: "От первых букв до свободного общения — по понятной программе",
     lead: "Academy of Arabic ведёт взрослых и детей по трём ступеням: фонетика и чтение, затем грамматика, затем разговорная практика. Вы всегда знаете, на каком этапе находитесь и что будет дальше.",
     text: "Обучение построено вокруг практики: разбор ошибок на каждом занятии, регулярные тесты и обратная связь от устаза. По итогам курса вы получаете сертификат с указанием достигнутого уровня.",
     point1Title: "Опытные устазы", point1Desc: "Преподаватели центра — практикующие устазы по фонетике, грамматике и работе с детьми.",
@@ -146,7 +146,7 @@ uz: {
   about: {
     badgeLabel: "markaz tashkil topgan yil",
     tag: "Markaz haqida",
-    title: "Birinchi harflardan erkin nutqqacha — aniq dastur bo'yicha",
+    title: "Birinchi harflardan erkin muloqotgacha — aniq dastur bo'yicha",
     lead: "Academy of Arabic kattalar va bolalarni uch bosqichdan olib o'tadi: fonetika va o'qish, so'ng grammatika, so'ng so'zlashuv amaliyoti. Siz qaysi bosqichda ekaningizni va keyin nima bo'lishini doim bilasiz.",
     text: "Ta'lim amaliyot ustiga qurilgan: har darsda xatolar tahlili, muntazam testlar va ustozdan fikr-mulohaza. Kurs yakunida erishilgan daraja ko'rsatilgan sertifikat olasiz.",
     point1Title: "Tajribali ustozlar", point1Desc: "Markaz o'qituvchilari — fonetika, grammatika va bolalar bilan ishlash bo'yicha amaliyotchi ustozlar.",
@@ -273,7 +273,7 @@ ar: {
   about: {
     badgeLabel: "سنة تأسيس المركز",
     tag: "عن المركز",
-    title: "من أول الحروف إلى الحديث بثقة — وفق برنامج واضح",
+    title: "من أول الحروف حتى التواصل بحرية — وفق برنامج واضح",
     lead: "يأخذ Academy of Arabic الكبار والصغار عبر ثلاث مراحل: الصوتيات والقراءة، ثم القواعد، ثم ممارسة المحادثة. تعرف دائمًا في أي مرحلة أنت وما هي الخطوة التالية.",
     text: "التعليم مبني على الممارسة: تحليل الأخطاء في كل حصة، واختبارات منتظمة، وتغذية راجعة من الأستاذ. وفي ختام الدورة تحصل على شهادة تُبيّن المستوى الذي بلغته.",
     point1Title: "أساتذة ذوو خبرة", point1Desc: "معلمو المركز أساتذة ممارسون في الصوتيات والقواعد والعمل مع الأطفال.",
