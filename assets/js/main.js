@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- Trial form -> Telegram / WhatsApp handoff ---------- */
   const TELEGRAM_USERNAME = 'academyofarabic_tashkent';
-  const WHATSAPP_NUMBER = '998712000000';
+  const WHATSAPP_NUMBER = '998781136343';
 
   const trialForm = document.getElementById('trialForm');
   trialForm.addEventListener('submit', (e) => {
@@ -175,9 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'hero.stat1': 'o‘quvchi', 'hero.stat2': 'o‘qituvchi', 'hero.stat3': 'yillik tajriba', 'hero.stat4': 'mamnun oila',
       'hero.badgeTitle': 'Bepul', 'hero.badgeSub': 'sinov darsi',
       'trust.line': 'Online va oflayn format · 8 kishigacha kichik guruhlar · Kurs yakunida sertifikat',
-      'about.tag': 'Markaz haqida', 'about.title': 'Academy of Arabic — til tushunarli bo‘ladigan joy',
-      'about.p1': 'Biz arab tilini tizimli, jonli va madaniyatga hurmat bilan o‘rgatadigan markaz yaratdik. Metodikamiz klassik grammatika bilan og‘zaki amaliyotni birlashtiradi — o‘quvchilar shunchaki qoidalarni yodlamaydi, balki tushunib, gapira boshlaydi.',
-      'about.p2': 'Biz Toshkentda joylashganmiz va bir necha yildan beri bolalar va kattalarga arab tilida ishonch bilan o‘qish, yozish va muloqot qilishga yordam beramiz.',
+      'about.tag': 'Markaz haqida',
       'about.point1': 'Bolalar va kattalar uchun mualliflik dasturi', 'about.point2': 'Yo‘nalishli ta’limga ega o‘qituvchilar',
       'about.point3': 'Ota-onalar uchun muntazam qayta aloqa', 'about.point4': 'Qulay sinflar va online format tanlovi',
       'about.years': 'yildan beri Toshkentda arab tilidan dars beramiz',
@@ -269,9 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'hero.stat1': 'طالب وطالبة', 'hero.stat2': 'معلم ومعلمة', 'hero.stat3': 'سنوات خبرة', 'hero.stat4': 'أسرة راضية',
       'hero.badgeTitle': 'حصة', 'hero.badgeSub': 'تجريبية مجانية',
       'trust.line': 'تعليم حضوري وعن بُعد · مجموعات صغيرة حتى 8 طلاب · شهادة عند إتمام الدورة',
-      'about.tag': 'عن الأكاديمية', 'about.title': 'أكاديمية العربية — حيث تصبح اللغة واضحة وسهلة',
-      'about.p1': 'أنشأنا مركزًا يُدرَّس فيه اللغة العربية بأسلوب منهجي وحيوي يحترم الثقافة العربية. تجمع منهجيتنا بين القواعد الكلاسيكية والممارسة الشفوية، فلا يكتفي الطلاب بحفظ القواعد بل يبدؤون بالفهم والتحدث فعليًا.',
-      'about.p2': 'نحن في طشقند، ونساعد منذ سنوات الأطفال والكبار على القراءة والكتابة والتحدث بثقة باللغة العربية في أجواء مريحة.',
+      'about.tag': 'عن الأكاديمية',
       'about.point1': 'برنامج خاص للأطفال والكبار', 'about.point2': 'معلمون بتخصص أكاديمي في اللغة العربية',
       'about.point3': 'تقارير منتظمة لأولياء الأمور', 'about.point4': 'قاعات مريحة وخيار التعلم عن بُعد',
       'about.years': 'سنوات من تدريس اللغة العربية في طشقند',
