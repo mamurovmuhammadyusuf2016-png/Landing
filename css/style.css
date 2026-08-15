@@ -156,7 +156,7 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
 .btn:hover::after{ inset-inline-start:130%; }
 .btn:active{ transform:scale(.96); }
 .btn-primary{ background:var(--primary); color:#fff; box-shadow:var(--shadow-sm); }
-.btn-primary:hover{ background:var(--primary-dark); transform:translateY(-2px); box-shadow:var(--shadow-md); }
+.btn-primary:hover{ background:var(--primary-dark); transform:translateY(-2px); box-shadow:var(--shadow-md), 0 0 26px rgba(185,138,46,.35); }
 .btn-ghost{ background:transparent; color:var(--ink); border-color:var(--line); }
 .btn-ghost:hover{ border-color:var(--primary); background:var(--primary-soft); transform:translateY(-2px); }
 .btn-outline{ background:transparent; color:var(--primary); border-color:var(--primary); }
@@ -202,6 +202,11 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
   background:rgba(251,248,241,.92);
   border-color:var(--line);
   box-shadow:0 6px 24px rgba(14,59,46,.06);
+}
+.scroll-progress{
+  position:absolute; inset-inline-start:0; bottom:0; height:2px; width:0%;
+  background:linear-gradient(90deg, var(--gold), var(--gold-light));
+  transition:width .12s linear;
 }
 /* the header spans the full window rather than the 1200px content column,
    so the brand sits hard left and the nav gets the extra room it needs */
@@ -375,6 +380,12 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
 .section-cta{ background:radial-gradient(circle at 80% 10%, #123f31, var(--primary-dark) 60%); }
 .section-cta h2, .section-cta h3{ color:#fff; }
 .section-cta p{ color:rgba(255,255,255,.7); }
+/* soften the hard cut where a light section meets a dark one */
+.section-dark::after, .section-cta::after{
+  content:""; position:absolute; top:0; inset-inline:0; height:140px;
+  background:linear-gradient(180deg, rgba(251,248,241,.05), transparent);
+  pointer-events:none;
+}
 
 .section-head{ max-width:680px; margin:0 auto 60px; text-align:center; }
 .section-head h2{ font-size:clamp(1.7rem, 3vw, 2.4rem); }
@@ -679,6 +690,34 @@ html[dir="rtl"] .footer-col a:hover{ transform:translateX(-4px); }
 ============================================================= */
 .reveal{ opacity:0; transform:translateY(28px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
 .reveal.in-view{ opacity:1; transform:translateY(0); }
+
+/* visuals pop in with a gentle scale instead of a plain slide-up */
+.reveal-scale{ opacity:0; transform:translateY(20px) scale(.93); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal-scale.in-view{ opacity:1; transform:translateY(0) scale(1); }
+
+/* section headings resolve out of a soft blur */
+.reveal-blur{ opacity:0; filter:blur(9px); transform:translateY(14px); transition:opacity .8s var(--ease), filter .8s var(--ease), transform .8s var(--ease); }
+.reveal-blur.in-view{ opacity:1; filter:blur(0); transform:translateY(0); }
+
+@media (prefers-reduced-motion: reduce){
+  .reveal-scale, .reveal-blur{ filter:none; }
+}
+
+/* cursor-tracking spotlight glow on interactive cards — desktop pointers only */
+@media (hover:hover) and (pointer:fine){
+  .feature-card, .course-card, .teacher-card, .review-card, .process-step{ position:relative; }
+  .feature-card::before, .course-card::before, .teacher-card::before, .review-card::before, .process-step::before{
+    content:""; position:absolute; inset:0; border-radius:inherit;
+    background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(185,138,46,.22), transparent 70%);
+    opacity:0; transition:opacity .4s var(--ease);
+    pointer-events:none;
+  }
+  .process-step::before{
+    background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(231,205,122,.22), transparent 70%);
+  }
+  .feature-card:hover::before, .course-card:hover::before, .teacher-card:hover::before,
+  .review-card:hover::before, .process-step:hover::before{ opacity:1; }
+}
 
 /* =============================================================
    Mobile nav overlay

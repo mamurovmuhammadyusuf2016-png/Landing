@@ -248,7 +248,14 @@
   --------------------------------------------------------- */
   function initHeaderScroll() {
     const header = document.getElementById("siteHeader");
-    const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 12);
+    const progress = document.getElementById("scrollProgress");
+    const onScroll = () => {
+      header.classList.toggle("scrolled", window.scrollY > 12);
+      if (progress) {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        progress.style.width = `${max > 0 ? Math.min((window.scrollY / max) * 100, 100) : 0}%`;
+      }
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
   }
@@ -283,10 +290,12 @@
      Scroll reveal
   --------------------------------------------------------- */
   function initReveal() {
-    const items = document.querySelectorAll(".reveal");
+    const items = document.querySelectorAll(".reveal, .reveal-scale, .reveal-blur");
 
     items.forEach((el) => {
-      const siblings = Array.from(el.parentElement.children).filter((c) => c.classList.contains("reveal"));
+      const siblings = Array.from(el.parentElement.children).filter(
+        (c) => c.classList.contains("reveal") || c.classList.contains("reveal-scale") || c.classList.contains("reveal-blur")
+      );
       const idx = siblings.indexOf(el);
       if (idx > 0) el.style.transitionDelay = `${Math.min(idx * 0.08, 0.4)}s`;
     });
@@ -334,6 +343,21 @@
       { threshold: 0.6 }
     );
     counters.forEach((el) => observer.observe(el));
+  }
+
+  /* ---------------------------------------------------------
+     Cursor-tracking spotlight glow on cards (desktop pointers)
+  --------------------------------------------------------- */
+  function initCardGlow() {
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    const cards = document.querySelectorAll(".feature-card, .course-card, .teacher-card, .review-card, .process-step");
+    cards.forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+        card.style.setProperty("--my", `${e.clientY - rect.top}px`);
+      });
+    });
   }
 
   /* ---------------------------------------------------------
@@ -433,6 +457,7 @@
     initMobileNav();
     initReveal();
     initCounters();
+    initCardGlow();
     initFaq();
     initCourseCta();
     initBookingForm();
