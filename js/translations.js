@@ -104,7 +104,13 @@ ru: {
     q5: "Выдаёте ли вы сертификат?",
     a5: "По окончании курса каждый ученик получает сертификат центра с указанием пройденного уровня и количества часов.",
     q6: "Как проходит оплата обучения?",
-    a6: "Оплата помесячная, после бесплатного пробного занятия. Доступна оплата за отдельные занятия для индивидуального формата."
+    a6: "Оплата помесячная, после бесплатного пробного занятия. Доступна оплата за отдельные занятия для индивидуального формата.",
+    q7: "В какое время проходят занятия?",
+    a7: "Центр работает с понедельника по субботу, с 9:00 до 20:00. Есть утренние, вечерние и группы выходного дня — подберём удобное вам время на пробном занятии.",
+    q8: "С какого возраста берёте детей?",
+    a8: "Курс Kids рассчитан на детей от 7 до 14 лет. Взрослые группы по фонетике и грамматике — без возрастных ограничений.",
+    q9: "Сколько стоит обучение?",
+    a9: "Фонетика и грамматика — 550 000 сум в месяц при 2 занятиях в неделю и 750 000 сум при 3 занятиях. Курс Kids — от 300 000 сум в месяц. Все варианты указаны в разделе «Курсы»."
   },
   contact: {
     tag: "Контакты", title: "Запишитесь на бесплатный пробный урок",
@@ -231,7 +237,13 @@ uz: {
     q5: "Sertifikat berasizmi?",
     a5: "Kurs yakunida har bir o'quvchi o'tilgan daraja va soatlar soni ko'rsatilgan markaz sertifikatini oladi.",
     q6: "To'lov qanday amalga oshiriladi?",
-    a6: "To'lov bepul sinov darsidan so'ng, oylik asosda amalga oshiriladi. Individual format uchun alohida darslar bo'yicha to'lov ham mavjud."
+    a6: "To'lov bepul sinov darsidan so'ng, oylik asosda amalga oshiriladi. Individual format uchun alohida darslar bo'yicha to'lov ham mavjud.",
+    q7: "Darslar qaysi vaqtlarda bo'ladi?",
+    a7: "Markaz dushanbadan shanbagacha, soat 9:00 dan 20:00 gacha ishlaydi. Ertalabki, kechki va dam olish kuni guruhlari bor — sinov darsida sizga qulay vaqtni tanlaymiz.",
+    q8: "Bolalarni necha yoshdan qabul qilasiz?",
+    a8: "Kids kursi 7 yoshdan 14 yoshgacha bo'lgan bolalar uchun mo'ljallangan. Kattalar uchun fonetika va grammatika guruhlarida yosh chegarasi yo'q.",
+    q9: "O'qish narxi qancha?",
+    a9: "Fonetika va grammatika — haftasiga 2 marta bo'lsa oyiga 550 000 so'm, 3 marta bo'lsa 750 000 so'm. Kids kursi — oyiga 300 000 so'mdan boshlanadi. Barcha variantlar «Kurslar» bo'limida ko'rsatilgan."
   },
   contact: {
     tag: "Aloqa", title: "Bepul sinov darsiga yoziling",
@@ -358,7 +370,13 @@ ar: {
     q5: "هل تمنحون شهادة؟",
     a5: "عند إتمام الدورة يحصل كل طالب على شهادة من المركز تُبيّن المستوى وعدد الساعات المُنجزة.",
     q6: "كيف يتم دفع رسوم التعليم؟",
-    a6: "الدفع شهري بعد الدرس التجريبي المجاني. كما يتوفر الدفع لكل درس على حدة في الصيغة الفردية."
+    a6: "الدفع شهري بعد الدرس التجريبي المجاني. كما يتوفر الدفع لكل درس على حدة في الصيغة الفردية.",
+    q7: "ما هي أوقات الدروس؟",
+    a7: "المركز يعمل من الاثنين إلى السبت، من الساعة ٩:٠٠ حتى ٢٠:٠٠. تتوفر مجموعات صباحية ومسائية ومجموعات نهاية الأسبوع — سنختار الوقت المناسب لك في الدرس التجريبي.",
+    q8: "من أي عمر تقبلون الأطفال؟",
+    a8: "دورة Kids مخصصة للأطفال من ٧ إلى ١٤ سنة. أما مجموعات البالغين في الصوتيات والقواعد فليس فيها حد للعمر.",
+    q9: "كم تبلغ تكلفة الدراسة؟",
+    a9: "الصوتيات والقواعد — ٥٥٠ ٠٠٠ سوم شهريًا بواقع درسين أسبوعيًا، و٧٥٠ ٠٠٠ سوم بواقع ثلاثة دروس. دورة Kids تبدأ من ٣٠٠ ٠٠٠ سوم شهريًا. جميع الخيارات مذكورة في قسم «الدورات»."
   },
   contact: {
     tag: "تواصل معنا", title: "سجّل للحصول على درس تجريبي مجاني",
