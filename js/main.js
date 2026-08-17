@@ -406,7 +406,9 @@
       const course = form.querySelector("#fieldCourse").value.trim();
       const message = form.querySelector("#fieldMessage").value.trim();
 
-      if (!name || !phone) {
+      const consent = form.querySelector("#fieldConsent");
+
+      if (!name || !phone || !consent.checked) {
         form.reportValidity();
         return;
       }
@@ -422,10 +424,25 @@
       const text = encodeURIComponent(lines.join("\n"));
       const url = `https://t.me/${CONFIG.telegramUsername}?text=${text}`;
 
+      /* the deep link only pre-fills the message — the visitor still has to
+         press send — so the panel says so rather than claiming it is done,
+         and always offers the link in case the popup never opened */
+      const link = document.getElementById("successTgLink");
+      if (link) link.href = url;
+
       form.hidden = true;
       success.hidden = false;
 
-      window.open(url, "_blank", "noopener");
+      const win = window.open(url, "_blank", "noopener");
+      if (!win || win.closed || typeof win.closed === "undefined") {
+        const dict = TRANSLATIONS[root.lang] || TRANSLATIONS[CONFIG.defaultLang];
+        const title = document.getElementById("successTitle");
+        const body = document.getElementById("successText");
+        const blockedTitle = getByPath(dict, "contact.successBlockedTitle");
+        const blockedText = getByPath(dict, "contact.successBlockedText");
+        if (title && blockedTitle) title.textContent = blockedTitle;
+        if (body && blockedText) body.textContent = blockedText;
+      }
     });
   }
 

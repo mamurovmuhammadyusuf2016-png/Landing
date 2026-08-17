@@ -457,6 +457,9 @@ html[dir="rtl"] .hero-card-go svg{ transform:scaleX(-1); }
 }
 @keyframes patternDrift{ to{ background-position:26px 26px; } }
 
+/* the <picture> wrapper must not become a layout box, or the img loses its
+   place in the centred frame */
+.about-frame picture{ display:contents; }
 .about-logo{ position:relative; width:82%; max-width:340px; height:auto; }
 
 .about-badge{
@@ -667,6 +670,10 @@ html[dir="rtl"] .contact-list li:hover{ transform:translateX(-4px); }
 .booking-form{
   background:#fff; border-radius:var(--radius-lg); padding:40px; box-shadow:var(--shadow-lg);
 }
+/* these cards sit on the dark contact section, which paints its headings and
+   paragraphs white — on a white card that made the text invisible */
+.booking-form h3, .form-success h3{ color:var(--ink); }
+.form-success p{ color:var(--ink-soft); }
 .booking-form h3{ font-size:1.25rem; margin-bottom:24px; }
 .field{ display:block; margin-bottom:18px; transition:transform .3s var(--ease); }
 .field > span{ display:block; font-family:var(--font-head); font-size:.78rem; font-weight:600; color:var(--ink-soft); margin-bottom:7px; transition:color .2s var(--ease); }
@@ -681,6 +688,19 @@ html[dir="rtl"] .contact-list li:hover{ transform:translateX(-4px); }
 .field:focus-within > span{ color:var(--primary); }
 .field textarea{ resize:vertical; }
 .form-note{ font-size:.76rem; color:var(--ink-faint); text-align:center; margin:14px 0 0; }
+.form-note a{ color:var(--ink-faint); text-decoration:underline; transition:color .2s var(--ease); }
+.form-note a:hover{ color:var(--primary); }
+
+.field-check{ display:flex; align-items:flex-start; gap:10px; margin-bottom:20px; cursor:pointer; }
+.field-check input{
+  flex-shrink:0; width:18px; height:18px; margin:2px 0 0; accent-color:var(--primary); cursor:pointer;
+}
+.field-check span{ font-size:.82rem; color:var(--ink-soft); line-height:1.45; }
+
+.form-success .btn{ margin-top:6px; }
+.form-success-alt{ margin:16px 0 0; font-size:.82rem; color:var(--ink-faint); }
+.form-success-alt a{ color:var(--primary); font-weight:600; white-space:nowrap; }
+.form-success-alt a:hover{ color:var(--gold); }
 
 .form-success{ display:flex; flex-direction:column; align-items:center; text-align:center; background:#fff; border-radius:var(--radius-lg); padding:50px 40px; box-shadow:var(--shadow-lg); animation:popIn .5s var(--ease); }
 .form-success[hidden]{ display:none; }

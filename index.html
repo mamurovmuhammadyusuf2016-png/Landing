@@ -147,7 +147,10 @@
       <div class="about-visual reveal-scale">
         <div class="about-frame">
           <div class="about-frame-pattern"></div>
-          <img class="about-logo" src="assets/logo-full.png" alt="Academy of Arabic" width="938" height="350">
+          <picture>
+            <source srcset="assets/logo-full.webp" type="image/webp">
+            <img class="about-logo" src="assets/logo-full.png" alt="Academy of Arabic" width="680" height="254" loading="lazy" decoding="async">
+          </picture>
         </div>
         <div class="about-badge">
           <span class="about-badge-num">2021</span>
@@ -560,14 +563,24 @@
             <textarea name="message" id="fieldMessage" rows="3" data-i18n-placeholder="contact.formMessagePh" placeholder="Удобное время, уровень языка, вопросы..."></textarea>
           </label>
 
+          <label class="field-check">
+            <input type="checkbox" name="consent" id="fieldConsent" required>
+            <span data-i18n="contact.formConsent">Согласен на обработку моих персональных данных</span>
+          </label>
+
           <button type="submit" class="btn btn-primary btn-lg btn-block" data-i18n="contact.formSubmit">Отправить заявку в Telegram</button>
-          <p class="form-note" data-i18n="contact.formPrivacy">Отправляя форму, вы соглашаетесь на обработку персональных данных.</p>
+          <p class="form-note"><a href="privacy.html" data-i18n="contact.privacyLink">Политика конфиденциальности</a></p>
         </form>
 
         <div class="form-success" id="formSuccess" hidden>
           <span class="form-success-ico">✓</span>
-          <h3 data-i18n="contact.successTitle">Заявка почти отправлена!</h3>
-          <p data-i18n="contact.successText">Сейчас откроется Telegram — просто нажмите «Отправить», и мы свяжемся с вами в ближайшее время.</p>
+          <h3 id="successTitle" data-i18n="contact.successTitle">Заявка почти отправлена!</h3>
+          <p id="successText" data-i18n="contact.successText">Сейчас откроется Telegram — там уже готово сообщение, просто нажмите «Отправить».</p>
+          <a class="btn btn-primary btn-lg" id="successTgLink" href="https://t.me/academy_arabic" target="_blank" rel="noopener" data-i18n="contact.successOpenTg">Открыть Telegram</a>
+          <p class="form-success-alt">
+            <span data-i18n="contact.successAlt">Не пользуетесь Telegram? Позвоните нам:</span>
+            <a href="tel:+998781136343">+998 78 113 63 43</a>
+          </p>
         </div>
       </div>
     </div>
@@ -594,6 +607,7 @@
       <a href="#courses" data-i18n="nav.courses">Курсы</a>
       <a href="#teachers" data-i18n="nav.teachers">Преподаватели</a>
       <a href="#faq" data-i18n="nav.faq">Вопросы</a>
+      <a href="privacy.html" data-i18n="contact.privacyLink">Политика конфиденциальности</a>
     </div>
 
     <div class="footer-col">

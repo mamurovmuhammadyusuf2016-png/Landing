@@ -123,9 +123,14 @@ ru: {
     formCourse: "Интересующий курс", formCourseDefault: "Не определился(-ась)",
     formMessage: "Комментарий (необязательно)", formMessagePh: "Удобное время, уровень языка, вопросы...",
     formSubmit: "Отправить заявку в Telegram",
-    formPrivacy: "Отправляя форму, вы соглашаетесь на обработку персональных данных.",
-    successTitle: "Заявка почти отправлена!",
-    successText: "Сейчас откроется Telegram — просто нажмите «Отправить», и мы свяжемся с вами в ближайшее время."
+    formConsent: "Согласен на обработку моих персональных данных",
+    privacyLink: "Политика конфиденциальности",
+    successTitle: "Остался один шаг",
+    successText: "Мы открыли Telegram — сообщение уже готово, осталось нажать «Отправить». Без этого заявка до нас не дойдёт.",
+    successOpenTg: "Открыть Telegram",
+    successBlockedTitle: "Откройте Telegram вручную",
+    successBlockedText: "Браузер заблокировал автоматическое открытие. Нажмите кнопку ниже — сообщение уже готово, останется нажать «Отправить».",
+    successAlt: "Не пользуетесь Telegram? Позвоните нам:"
   },
   footer: {
     about: "Учебный центр арабского языка в Ташкенте: фонетика, грамматика и курсы для детей.",
@@ -256,9 +261,14 @@ uz: {
     formCourse: "Qiziqtirgan kurs", formCourseDefault: "Hali aniqlamaganman",
     formMessage: "Izoh (ixtiyoriy)", formMessagePh: "Qulay vaqt, til darajasi, savollar...",
     formSubmit: "Telegram orqali ariza yuborish",
-    formPrivacy: "Formani yuborish orqali shaxsiy ma'lumotlaringizni qayta ishlashga rozilik bildirasiz.",
-    successTitle: "Ariza deyarli yuborildi!",
-    successText: "Hozir Telegram ochiladi — shunchaki «Yuborish» tugmasini bosing, biz tez orada siz bilan bog'lanamiz."
+    formConsent: "Shaxsiy ma'lumotlarimni qayta ishlashga roziman",
+    privacyLink: "Maxfiylik siyosati",
+    successTitle: "Bitta qadam qoldi",
+    successText: "Telegram ochildi — xabar tayyor, faqat «Yuborish» tugmasini bosing. Aks holda ariza bizga yetib kelmaydi.",
+    successOpenTg: "Telegramni ochish",
+    successBlockedTitle: "Telegramni qo'lda oching",
+    successBlockedText: "Brauzer avtomatik ochilishni bloklab qo'ydi. Quyidagi tugmani bosing — xabar tayyor, «Yuborish» tugmasini bosish qoladi.",
+    successAlt: "Telegramdan foydalanmaysizmi? Bizga qo'ng'iroq qiling:"
   },
   footer: {
     about: "Toshkentdagi arab tili o'quv markazi: fonetika, grammatika va bolalar uchun kurslar.",
@@ -389,9 +399,14 @@ ar: {
     formCourse: "الدورة التي تهمك", formCourseDefault: "لم أحدد بعد",
     formMessage: "ملاحظة (اختياري)", formMessagePh: "الوقت المناسب، مستوى اللغة، أسئلة...",
     formSubmit: "إرسال الطلب عبر Telegram",
-    formPrivacy: "بإرسال النموذج فإنك توافق على معالجة بياناتك الشخصية.",
-    successTitle: "الطلب على وشك الإرسال!",
-    successText: "سيُفتح الآن Telegram — فقط اضغط «إرسال» وسنتواصل معك في أقرب وقت."
+    formConsent: "أوافق على معالجة بياناتي الشخصية",
+    privacyLink: "سياسة الخصوصية",
+    successTitle: "بقيت خطوة واحدة",
+    successText: "فتحنا لك Telegram — الرسالة جاهزة، اضغط «إرسال» فقط. بدون ذلك لن يصلنا طلبك.",
+    successOpenTg: "فتح Telegram",
+    successBlockedTitle: "افتح Telegram يدويًا",
+    successBlockedText: "منع المتصفح الفتح التلقائي. اضغط الزر أدناه — الرسالة جاهزة ويبقى الضغط على «إرسال».",
+    successAlt: "لا تستخدم Telegram؟ اتصل بنا:"
   },
   footer: {
     about: "مركز تعليم اللغة العربية في طشقند: الصوتيات والقواعد ودورات للأطفال.",
