@@ -262,9 +262,12 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
 
 .header-actions{ display:flex; align-items:center; gap:14px; }
 .lang-switch{ display:flex; border:1px solid var(--line); border-radius:100px; padding:3px; gap:2px; }
+/* anchors now, one per language URL — kept looking like the old buttons */
 .lang-btn{
+  display:inline-flex; align-items:center; justify-content:center;
   border:none; background:transparent; padding:6px 11px; border-radius:100px;
   font-family:var(--font-head); font-size:.72rem; font-weight:700; color:var(--ink-faint); letter-spacing:.03em;
+  text-decoration:none; cursor:pointer;
   transition:background .2s var(--ease), color .2s var(--ease), transform .2s var(--ease);
 }
 .lang-btn:hover{ transform:translateY(-1px); color:var(--primary); }

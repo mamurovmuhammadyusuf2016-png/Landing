@@ -55,22 +55,21 @@
     root.dir = CONFIG.rtlLangs.includes(lang) ? "rtl" : "ltr";
 
     document.querySelectorAll(".lang-btn").forEach((btn) => {
-      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+      const isCurrent = btn.getAttribute("data-lang") === lang;
+      btn.classList.toggle("active", isCurrent);
+      if (isCurrent) btn.setAttribute("aria-current", "page");
+      else btn.removeAttribute("aria-current");
     });
-
-    try { localStorage.setItem("aoa_lang", lang); } catch (e) { /* storage unavailable */ }
   }
 
+  /* each language is its own URL, so the page's own lang attribute decides
+     what is shown — a remembered choice must not override the address the
+     visitor (or a search engine) actually asked for. The switcher is a set
+     of plain links; re-applying the dictionary here only restores the
+     word-by-word hero markup over text that is already correct. */
   function initLangSwitch() {
-    const saved = (() => {
-      try { return localStorage.getItem("aoa_lang"); } catch (e) { return null; }
-    })();
-    const initial = saved && TRANSLATIONS[saved] ? saved : CONFIG.defaultLang;
+    const initial = TRANSLATIONS[root.lang] ? root.lang : CONFIG.defaultLang;
     applyTranslations(initial);
-
-    document.querySelectorAll(".lang-btn").forEach((btn) => {
-      btn.addEventListener("click", () => applyTranslations(btn.getAttribute("data-lang")));
-    });
   }
 
   /* ---------------------------------------------------------
@@ -96,7 +95,8 @@
       tile.style.height = `${100 / rows}%`;
       tile.style.left = `${(100 / cols) * c}%`;
       tile.style.top = `${(100 / rows) * r}%`;
-      tile.style.backgroundImage = "url('assets/logo-icon.png')";
+      /* root-absolute: this script also runs from /ru/ and /ar/ */
+      tile.style.backgroundImage = "url('/assets/logo-icon.png')";
       tile.style.backgroundSize = `${cols * 100}% ${rows * 100}%`;
       tile.style.backgroundPosition = `${(c / (cols - 1)) * 100}% ${(r / (rows - 1)) * 100}%`;
       tile.style.animationDelay = `${i * 0.035}s`;
