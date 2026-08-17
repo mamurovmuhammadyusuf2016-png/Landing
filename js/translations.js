@@ -34,7 +34,7 @@ ru: {
     item2Title: "Разговорная практика", item2Desc: "Уже с первых занятий вы начинаете говорить, а не только зубрить грамматику.",
     item3Title: "Понятная грамматика", item3Desc: "Объясняем правила простым языком и сразу закрепляем их на практике.",
     item4Title: "Прозрачный прогресс", item4Desc: "Регулярные тесты и обратная связь — вы всегда видите свой уровень.",
-    item5Title: "Удобное расписание", item5Desc: "Утренние, вечерние и выходные группы — подберём удобное время.",
+    item5Title: "Удобное расписание", item5Desc: "Утренние, вечерние и субботние группы — подберём удобное время.",
     item6Title: "Бесплатный пробный урок", item6Desc: "Познакомитесь с преподавателем и форматом занятий перед оплатой курса."
   },
   courses: {
@@ -49,7 +49,7 @@ ru: {
     item2Desc: "Структура языка, правила и практика построения предложений.",
     item2Freq1: "2 раза в неделю", item2Price1: "550 000 сум",
     item2Freq2: "3 раза в неделю", item2Price2: "750 000 сум",
-    item3Level: "7–14 лет", item3Title: "Kids",
+    item3Level: "3–12 лет", item3Title: "Kids",
     item3Desc: "Арабский для детей — гибкий выбор частоты и длительности занятий.",
     kidsCol1: "1,5 часа", kidsCol2: "3 часа",
     kidsRow1: "2 раза/нед.", kidsRow2: "3 раза/нед.", kidsRow3: "5 раз/нед.",
@@ -106,9 +106,9 @@ ru: {
     q6: "Как проходит оплата обучения?",
     a6: "Оплата помесячная, после бесплатного пробного занятия. Доступна оплата за отдельные занятия для индивидуального формата.",
     q7: "В какое время проходят занятия?",
-    a7: "Центр работает с понедельника по субботу, с 9:00 до 20:00. Есть утренние, вечерние и группы выходного дня — подберём удобное вам время на пробном занятии.",
+    a7: "Центр работает с понедельника по субботу, с 9:00 до 20:00. Есть утренние, вечерние и субботние группы — подберём удобное вам время на пробном занятии.",
     q8: "С какого возраста берёте детей?",
-    a8: "Курс Kids рассчитан на детей от 7 до 14 лет. Взрослые группы по фонетике и грамматике — без возрастных ограничений.",
+    a8: "Курс Kids рассчитан на детей от 3 до 12 лет. Взрослые группы по фонетике и грамматике — без возрастных ограничений.",
     q9: "Сколько стоит обучение?",
     a9: "Фонетика и грамматика — 550 000 сум в месяц при 2 занятиях в неделю и 750 000 сум при 3 занятиях. Курс Kids — от 300 000 сум в месяц. Все варианты указаны в разделе «Курсы»."
   },
@@ -167,7 +167,7 @@ uz: {
     item2Title: "Amaliy suhbat", item2Desc: "Birinchi darsdanoq faqat grammatikani yodlamaysiz, balki gapira boshlaysiz.",
     item3Title: "Tushunarli grammatika", item3Desc: "Qoidalarni oddiy tilda tushuntiramiz va darhol amaliyotda mustahkamlaymiz.",
     item4Title: "Aniq natija nazorati", item4Desc: "Muntazam testlar va fikr-mulohaza — o'z darajangizni doim ko'rasiz.",
-    item5Title: "Qulay jadval", item5Desc: "Ertalabki, kechki va dam olish kuni guruhlari — qulay vaqtni tanlaymiz.",
+    item5Title: "Qulay jadval", item5Desc: "Ertalabki, kechki va shanba kuni guruhlari — qulay vaqtni tanlaymiz.",
     item6Title: "Bepul sinov darsi", item6Desc: "Kursga to'lov qilishdan oldin o'qituvchi va dars formati bilan tanishasiz."
   },
   courses: {
@@ -182,7 +182,7 @@ uz: {
     item2Desc: "Til qurilishi, qoidalar va gap tuzish amaliyoti.",
     item2Freq1: "haftada 2 marta", item2Price1: "550 000 so'm",
     item2Freq2: "haftada 3 marta", item2Price2: "750 000 so'm",
-    item3Level: "7–14 yosh", item3Title: "Kids",
+    item3Level: "3–12 yosh", item3Title: "Kids",
     item3Desc: "Bolalar uchun arab tili — chastota va davomiylikni o'zingiz tanlaysiz.",
     kidsCol1: "1,5 soat", kidsCol2: "3 soat",
     kidsRow1: "haftada 2 kun", kidsRow2: "haftada 3 kun", kidsRow3: "haftada 5 kun",
@@ -239,9 +239,9 @@ uz: {
     q6: "To'lov qanday amalga oshiriladi?",
     a6: "To'lov bepul sinov darsidan so'ng, oylik asosda amalga oshiriladi. Individual format uchun alohida darslar bo'yicha to'lov ham mavjud.",
     q7: "Darslar qaysi vaqtlarda bo'ladi?",
-    a7: "Markaz dushanbadan shanbagacha, soat 9:00 dan 20:00 gacha ishlaydi. Ertalabki, kechki va dam olish kuni guruhlari bor — sinov darsida sizga qulay vaqtni tanlaymiz.",
+    a7: "Markaz dushanbadan shanbagacha, soat 9:00 dan 20:00 gacha ishlaydi. Ertalabki, kechki va shanba kuni guruhlari bor — sinov darsida sizga qulay vaqtni tanlaymiz.",
     q8: "Bolalarni necha yoshdan qabul qilasiz?",
-    a8: "Kids kursi 7 yoshdan 14 yoshgacha bo'lgan bolalar uchun mo'ljallangan. Kattalar uchun fonetika va grammatika guruhlarida yosh chegarasi yo'q.",
+    a8: "Kids kursi 3 yoshdan 12 yoshgacha bo'lgan bolalar uchun mo'ljallangan. Kattalar uchun fonetika va grammatika guruhlarida yosh chegarasi yo'q.",
     q9: "O'qish narxi qancha?",
     a9: "Fonetika va grammatika — haftasiga 2 marta bo'lsa oyiga 550 000 so'm, 3 marta bo'lsa 750 000 so'm. Kids kursi — oyiga 300 000 so'mdan boshlanadi. Barcha variantlar «Kurslar» bo'limida ko'rsatilgan."
   },
@@ -300,7 +300,7 @@ ar: {
     item2Title: "ممارسة المحادثة", item2Desc: "تبدأ بالتحدث منذ الدروس الأولى، وليس فقط حفظ القواعد.",
     item3Title: "قواعد واضحة", item3Desc: "نشرح القواعد بلغة بسيطة ونرسّخها فورًا بالتطبيق العملي.",
     item4Title: "تقدّم واضح", item4Desc: "اختبارات منتظمة وتغذية راجعة — ترى مستواك دائمًا.",
-    item5Title: "جدول مريح", item5Desc: "مجموعات صباحية ومسائية وفي عطلة نهاية الأسبوع — نختار لك الوقت المناسب.",
+    item5Title: "جدول مريح", item5Desc: "مجموعات صباحية ومسائية ومجموعات يوم السبت — نختار لك الوقت المناسب.",
     item6Title: "درس تجريبي مجاني", item6Desc: "تتعرف على المعلم وصيغة الدروس قبل الدفع مقابل الدورة."
   },
   courses: {
@@ -315,7 +315,7 @@ ar: {
     item2Desc: "تركيب اللغة وقواعدها والتدرّب على بناء الجمل.",
     item2Freq1: "مرتان أسبوعيًا", item2Price1: "550,000 سوم",
     item2Freq2: "٣ مرات أسبوعيًا", item2Price2: "750,000 سوم",
-    item3Level: "٧–١٤ سنة", item3Title: "Kids",
+    item3Level: "٣–١٢ سنة", item3Title: "Kids",
     item3Desc: "العربية للأطفال — اختر وتيرة ومدة الحصص بما يناسبك.",
     kidsCol1: "١.٥ ساعة", kidsCol2: "٣ ساعات",
     kidsRow1: "يومان أسبوعيًا", kidsRow2: "٣ أيام أسبوعيًا", kidsRow3: "٥ أيام أسبوعيًا",
@@ -372,9 +372,9 @@ ar: {
     q6: "كيف يتم دفع رسوم التعليم؟",
     a6: "الدفع شهري بعد الدرس التجريبي المجاني. كما يتوفر الدفع لكل درس على حدة في الصيغة الفردية.",
     q7: "ما هي أوقات الدروس؟",
-    a7: "المركز يعمل من الاثنين إلى السبت، من الساعة ٩:٠٠ حتى ٢٠:٠٠. تتوفر مجموعات صباحية ومسائية ومجموعات نهاية الأسبوع — سنختار الوقت المناسب لك في الدرس التجريبي.",
+    a7: "المركز يعمل من الاثنين إلى السبت، من الساعة ٩:٠٠ حتى ٢٠:٠٠. تتوفر مجموعات صباحية ومسائية ومجموعات يوم السبت — سنختار الوقت المناسب لك في الدرس التجريبي.",
     q8: "من أي عمر تقبلون الأطفال؟",
-    a8: "دورة Kids مخصصة للأطفال من ٧ إلى ١٤ سنة. أما مجموعات البالغين في الصوتيات والقواعد فليس فيها حد للعمر.",
+    a8: "دورة Kids مخصصة للأطفال من ٣ إلى ١٢ سنة. أما مجموعات البالغين في الصوتيات والقواعد فليس فيها حد للعمر.",
     q9: "كم تبلغ تكلفة الدراسة؟",
     a9: "الصوتيات والقواعد — ٥٥٠ ٠٠٠ سوم شهريًا بواقع درسين أسبوعيًا، و٧٥٠ ٠٠٠ سوم بواقع ثلاثة دروس. دورة Kids تبدأ من ٣٠٠ ٠٠٠ سوم شهريًا. جميع الخيارات مذكورة في قسم «الدورات»."
   },
