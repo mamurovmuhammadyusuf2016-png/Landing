@@ -289,7 +289,7 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
 ============================================================= */
 .hero{
   position:relative;
-  padding-block:150px 100px;
+  padding-block:170px 100px;
   overflow:hidden;
   background:linear-gradient(180deg, var(--bg) 0%, var(--bg) 60%, var(--bg-alt) 100%);
 }
@@ -317,8 +317,29 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
   *, *::before, *::after{ animation-duration:.001ms!important; animation-iteration-count:1!important; }
 }
 .hero-inner{
-  position:relative; z-index:1;
-  display:grid; grid-template-columns:1fr 1.05fr; gap:50px; align-items:center;
+  position:relative; z-index:2;
+  display:grid; grid-template-columns:minmax(0, 560px); align-items:center;
+}
+
+/* the render bleeds off the right edge and dissolves into the page rather
+   than sitting in a framed card — masks fade it out on the left and bottom */
+.hero-media{
+  position:absolute; z-index:1;
+  top:0; inset-inline-end:0; width:57%;
+  /* stop short of the stats band so the figures stay on clean background */
+  bottom:170px;
+  pointer-events:none;
+}
+.hero-photo{
+  width:100%; height:100%; object-fit:cover; object-position:center 52%;
+  -webkit-mask-image:linear-gradient(to right, transparent 0%, #000 34%), linear-gradient(to top, transparent 0%, #000 24%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right, transparent 0%, #000 34%), linear-gradient(to top, transparent 0%, #000 24%);
+  mask-composite:intersect;
+}
+html[dir="rtl"] .hero-photo{
+  -webkit-mask-image:linear-gradient(to left, transparent 0%, #000 34%), linear-gradient(to top, transparent 0%, #000 24%);
+  mask-image:linear-gradient(to left, transparent 0%, #000 34%), linear-gradient(to top, transparent 0%, #000 24%);
 }
 .hero-title{ font-size:clamp(2.2rem, 4.2vw, 3.4rem); }
 .hero-title .accent .word-inner{
@@ -349,15 +370,6 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
 .stat-plus{ font-family:var(--font-head); font-size:clamp(2.1rem, 3.4vw, 2.9rem); font-weight:700; color:var(--gold); line-height:1.05; }
 .stat-label{ font-family:var(--font-head); font-size:.84rem; font-weight:500; color:var(--ink-faint); flex-basis:100%; margin-top:8px; }
 
-.hero-visual{ position:relative; display:flex; align-items:center; justify-content:center; }
-/* the render is square; crop it to a landscape slot from the top, where the
-   frame is just empty wall, so the arch, vase and book all stay in view */
-.hero-scene{
-  width:100%; height:auto; aspect-ratio:5/4;
-  object-fit:cover; object-position:center 58%;
-  border-radius:var(--radius-lg);
-  box-shadow:0 30px 70px rgba(14,59,46,.14);
-}
 
 /* still used for the About-section frame */
 .logo-showcase{
@@ -388,18 +400,16 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
 .hero-card-go svg{ width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
 .hero-card-float:hover .hero-card-go{ background:var(--primary); transform:rotate(45deg) scale(1.08); }
 html[dir="rtl"] .hero-card-go svg{ transform:scaleX(-1); }
-.hero-card-1{ top:10%; inset-inline-start:-8%; animation-delay:.3s; }
-.hero-card-2{ bottom:-4%; inset-inline-end:-5%; animation-delay:1s; }
+/* the card is the one interactive thing inside the (otherwise inert) media layer */
+.hero-card-float{ pointer-events:auto; bottom:6%; inset-inline-end:9%; animation-delay:1s; }
 @keyframes float{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-12px); } }
 
-/* on a phone the card must clip only the image corner, or it buries the book */
 @media (max-width:560px){
   .hero-card-float{ padding:9px 10px 9px 14px; gap:10px; }
   .hero-card-float strong{ font-size:.92rem; }
   .hero-card-float small{ font-size:.64rem; }
   .hero-card-go{ width:32px; height:32px; }
   .hero-card-go svg{ width:15px; height:15px; }
-  .hero-card-2{ bottom:-20px; inset-inline-end:-6px; }
 }
 
 /* =============================================================
@@ -814,9 +824,21 @@ html[dir="rtl"] .footer-col a:hover{ transform:translateX(-4px); }
   }
 
   .hero-inner{ grid-template-columns:1fr; }
-  .hero-visual{ order:-1; }
-  .hero-card-1{ top:0; inset-inline-start:0; }
-  .hero-card-2{ bottom:-16px; inset-inline-end:0; }
+  /* no room to run the image alongside the copy — sit it above, full width,
+     and fade the bottom instead of the side */
+  .hero-media{ position:relative; width:100%; height:320px; margin-bottom:26px; }
+  .hero-photo{
+    object-position:center 64%;
+    -webkit-mask-image:linear-gradient(to top, transparent 0%, #000 22%);
+    -webkit-mask-composite:source-over;
+    mask-image:linear-gradient(to top, transparent 0%, #000 22%);
+    mask-composite:add;
+  }
+  html[dir="rtl"] .hero-photo{
+    -webkit-mask-image:linear-gradient(to top, transparent 0%, #000 22%);
+    mask-image:linear-gradient(to top, transparent 0%, #000 22%);
+  }
+  .hero-card-float{ bottom:22%; inset-inline-end:6%; }
   .hero-stats{ margin-top:48px; padding-top:28px; }
   .stat{ padding-inline:22px; }
   .about-grid, .contact-grid, .faq-grid{ grid-template-columns:1fr; }
