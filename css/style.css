@@ -350,8 +350,12 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
 .stat-label{ font-family:var(--font-head); font-size:.84rem; font-weight:500; color:var(--ink-faint); flex-basis:100%; margin-top:8px; }
 
 .hero-visual{ position:relative; display:flex; align-items:center; justify-content:center; }
+/* the render is square; crop it to a landscape slot from the top, where the
+   frame is just empty wall, so the arch, vase and book all stay in view */
 .hero-scene{
-  width:100%; height:auto; border-radius:var(--radius-lg);
+  width:100%; height:auto; aspect-ratio:5/4;
+  object-fit:cover; object-position:center 58%;
+  border-radius:var(--radius-lg);
   box-shadow:0 30px 70px rgba(14,59,46,.14);
 }
 
