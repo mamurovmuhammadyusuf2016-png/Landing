@@ -120,7 +120,7 @@ ru: {
   contact: {
     tag: "Контакты", title: "Запишитесь на бесплатный пробный урок",
     subtitle: "Оставьте заявку — мы свяжемся с вами в Telegram или по телефону в течение рабочего дня и подберём удобное время занятия.",
-    addressLabel: "Адрес", address: "г. Ташкент, Лайлитугон, 1",
+    addressLabel: "Адрес", address: "г. Ташкент, Шайхантахурский р-н, ул. Сакичмон",
     phoneLabel: "Телефон", hoursLabel: "Часы работы", hours: "Пн–Сб: 9:00–20:00",
     formTitle: "Заявка на пробный урок",
     formName: "Ваше имя", formNamePh: "Иван Иванов",
@@ -263,7 +263,7 @@ uz: {
   contact: {
     tag: "Aloqa", title: "Bepul sinov darsiga yoziling",
     subtitle: "Ariza qoldiring — biz siz bilan ish kuni davomida Telegram yoki telefon orqali bogʻlanamiz va qulay dars vaqtini kelishamiz.",
-    addressLabel: "Manzil", address: "Toshkent sh., Laylitugon, 1-uy",
+    addressLabel: "Manzil", address: "Toshkent sh., Shayxontohur tumani, Sakichmon koʻchasi",
     phoneLabel: "Telefon", hoursLabel: "Ish vaqti", hours: "Dush–Shan: 9:00–20:00",
     formTitle: "Sinov darsiga ariza",
     formName: "Ismingiz", formNamePh: "Ism Familiya",
@@ -406,7 +406,7 @@ ar: {
   contact: {
     tag: "تواصل معنا", title: "سجّل للحصول على درس تجريبي مجاني",
     subtitle: "اترك طلبًا وسنتواصل معك عبر Telegram أو الهاتف خلال يوم العمل لتحديد الوقت المناسب للدرس.",
-    addressLabel: "العنوان", address: "طشقند، لايليتوغون، ١",
+    addressLabel: "العنوان", address: "طشقند، منطقة شايخانتاهور، شارع ساكيتشمون",
     phoneLabel: "الهاتف", hoursLabel: "ساعات العمل", hours: "الإثنين–السبت: ٩:٠٠–٢٠:٠٠",
     formTitle: "طلب درس تجريبي",
     formName: "اسمك", formNamePh: "الاسم الكامل",
