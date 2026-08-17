@@ -67,7 +67,7 @@
         "@type": "City",
         "name": "Toshkent"
       },
-      "priceRange": "300000–1500000 UZS",
+      "priceRange": "450000+ UZS",
       "currenciesAccepted": "UZS",
       "openingHoursSpecification": [
         {
@@ -124,24 +124,13 @@
               "ar"
             ],
             "educationalLevel": "Beginner",
-            "offers": [
-              {
-                "@type": "Offer",
-                "price": "550000",
-                "priceCurrency": "UZS",
-                "category": "Haftasiga 2 marta / oyiga",
-                "availability": "https://schema.org/InStock",
-                "url": "https://academy-of-arabic.uz/#courses"
-              },
-              {
-                "@type": "Offer",
-                "price": "750000",
-                "priceCurrency": "UZS",
-                "category": "Haftasiga 3 marta / oyiga",
-                "availability": "https://schema.org/InStock",
-                "url": "https://academy-of-arabic.uz/#courses"
-              }
-            ],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "450000",
+              "priceCurrency": "UZS",
+              "availability": "https://schema.org/InStock",
+              "url": "https://academy-of-arabic.uz/#courses"
+            },
             "hasCourseInstance": {
               "@type": "CourseInstance",
               "courseMode": [
@@ -170,24 +159,13 @@
               "ar"
             ],
             "educationalLevel": "Intermediate",
-            "offers": [
-              {
-                "@type": "Offer",
-                "price": "550000",
-                "priceCurrency": "UZS",
-                "category": "Haftasiga 2 marta / oyiga",
-                "availability": "https://schema.org/InStock",
-                "url": "https://academy-of-arabic.uz/#courses"
-              },
-              {
-                "@type": "Offer",
-                "price": "750000",
-                "priceCurrency": "UZS",
-                "category": "Haftasiga 3 marta / oyiga",
-                "availability": "https://schema.org/InStock",
-                "url": "https://academy-of-arabic.uz/#courses"
-              }
-            ],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "450000",
+              "priceCurrency": "UZS",
+              "availability": "https://schema.org/InStock",
+              "url": "https://academy-of-arabic.uz/#courses"
+            },
             "hasCourseInstance": {
               "@type": "CourseInstance",
               "courseMode": [
@@ -216,24 +194,13 @@
               "ar"
             ],
             "educationalLevel": "Beginner",
-            "offers": [
-              {
-                "@type": "Offer",
-                "price": "300000",
-                "priceCurrency": "UZS",
-                "category": "Haftasiga 2 marta, 1,5 soat / oyiga",
-                "availability": "https://schema.org/InStock",
-                "url": "https://academy-of-arabic.uz/#courses"
-              },
-              {
-                "@type": "Offer",
-                "price": "1500000",
-                "priceCurrency": "UZS",
-                "category": "Haftasiga 5 marta, 3 soat / oyiga",
-                "availability": "https://schema.org/InStock",
-                "url": "https://academy-of-arabic.uz/#courses"
-              }
-            ],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "450000",
+              "priceCurrency": "UZS",
+              "availability": "https://schema.org/InStock",
+              "url": "https://academy-of-arabic.uz/#courses"
+            },
             "hasCourseInstance": {
               "@type": "CourseInstance",
               "courseMode": [
@@ -506,50 +473,57 @@
 <section class="section" id="courses">
 <div class="container">
 <div class="section-head reveal-blur">
-<span class="tag" data-i18n="courses.tag">المسارات</span>
+<span class="tag" data-i18n="courses.tag">الدورات</span>
 <h2 data-i18n="courses.title">دورات اللغة العربية</h2>
-<p data-i18n="courses.subtitle">العربية للمبتدئين (الصوتيات) والقواعد ودورة للأطفال — اختر وتيرة الحصص المناسبة لك.</p>
+<p data-i18n="courses.subtitle">ثلاث دورات — ضبط النطق، والقواعد، ودروس للأطفال. حضوريًا في طشقند أو عبر الإنترنت.</p>
 </div>
 <div class="courses-grid courses-grid-3">
 <article class="course-card reveal">
-<span class="course-badge" data-i18n="courses.item1Level">للكبار</span>
+<span class="course-badge" data-i18n="courses.item1Level">للبالغين</span>
 <h3 data-i18n="courses.item1Title">العربية للمبتدئين (الصوتيات)</h3>
-<p data-i18n="courses.item1Desc">تأسيس النطق الصحيح لأصوات اللغة العربية — أساس لما بعده من تعلّم.</p>
-<ul class="course-price-list">
-<li><span data-i18n="courses.item1Freq1">مرتان أسبوعيًا</span><strong data-i18n="courses.item1Price1">550,000 سوم</strong></li>
-<li><span data-i18n="courses.item1Freq2">٣ مرات أسبوعيًا</span><strong data-i18n="courses.item1Price2">750,000 سوم</strong></li>
+<p data-i18n="courses.item1Desc">المرحلة الأولى لمن يبدأ من الصفر. نتعلّم قراءة الخط العربي ونطق الأصوات غير الموجودة في لغتك نطقًا صحيحًا — وبدون ذلك لا قراءة سليمة ولا كلام مفهوم.</p>
+<ul class="course-points">
+<li data-i18n="courses.item1Point1">الحروف العربية وكل أشكالها في الكلمة</li>
+<li data-i18n="courses.item1Point2">ضبط الأصوات الصعبة والعمل على المخارج</li>
+<li data-i18n="courses.item1Point3">الحركات والقراءة الجهرية دون الاستعانة بالنقحرة</li>
+<li data-i18n="courses.item1Point4">العبارات الأولى ومفردات لحوار بسيط</li>
 </ul>
-<span class="course-price-note" data-i18n="courses.priceMonth">/ شهريًا</span>
+<div class="course-price">
+<span class="course-price-from" data-i18n="courses.priceFrom">شهريًا</span>
+<strong class="course-price-value" data-i18n="courses.priceValue">من ٤٥٠ ٠٠٠ سوم</strong>
+</div>
 <a class="btn btn-outline btn-block course-cta" data-course="Начальный арабский (фонетика)" data-i18n="courses.cta" href="#contact">التسجيل</a>
 </article>
 <article class="course-card reveal">
-<span class="course-badge" data-i18n="courses.item2Level">للكبار</span>
+<span class="course-badge" data-i18n="courses.item2Level">للبالغين</span>
 <h3 data-i18n="courses.item2Title">القواعد</h3>
-<p data-i18n="courses.item2Desc">تركيب اللغة وقواعدها والتدرّب على بناء الجمل.</p>
-<ul class="course-price-list">
-<li><span data-i18n="courses.item2Freq1">مرتان أسبوعيًا</span><strong data-i18n="courses.item2Price1">550,000 سوم</strong></li>
-<li><span data-i18n="courses.item2Freq2">٣ مرات أسبوعيًا</span><strong data-i18n="courses.item2Price2">750,000 سوم</strong></li>
+<p data-i18n="courses.item2Desc">المرحلة التالية بعد الصوتيات. نفهم بنية اللغة ونطبّق القواعد في الكلام مباشرة، لتبني الجمل بنفسك بدل حفظ عبارات جاهزة.</p>
+<ul class="course-points">
+<li data-i18n="courses.item2Point1">أقسام الكلام والتذكير والتأنيث والعدد والإعراب</li>
+<li data-i18n="courses.item2Point2">الفعل: الأزمنة والأوزان والتصريف</li>
+<li data-i18n="courses.item2Point3">بناء الجمل من البسيط إلى المركّب</li>
+<li data-i18n="courses.item2Point4">تدريب على المحادثة وتصحيح الأخطاء في كل درس</li>
 </ul>
-<span class="course-price-note" data-i18n="courses.priceMonth">/ شهريًا</span>
+<div class="course-price">
+<span class="course-price-from" data-i18n="courses.priceFrom">شهريًا</span>
+<strong class="course-price-value" data-i18n="courses.priceValue">من ٤٥٠ ٠٠٠ سوم</strong>
+</div>
 <a class="btn btn-outline btn-block course-cta" data-course="Грамматика" data-i18n="courses.cta" href="#contact">التسجيل</a>
 </article>
 <article class="course-card reveal course-card-kids">
 <span class="course-badge" data-i18n="courses.item3Level">٣–١٢ سنة</span>
-<h3 data-i18n="courses.item3Title">Kids</h3>
-<p data-i18n="courses.item3Desc">العربية للأطفال — اختر وتيرة ومدة الحصص بما يناسبك.</p>
-<div class="course-price-grid-wrap">
-<table class="course-price-grid">
-<thead>
-<tr><th></th><th data-i18n="courses.kidsCol1">١.٥ ساعة</th><th data-i18n="courses.kidsCol2">٣ ساعات</th></tr>
-</thead>
-<tbody>
-<tr><th data-i18n="courses.kidsRow1">يومان أسبوعيًا</th><td data-i18n="courses.kidsPrice11">300,000</td><td data-i18n="courses.kidsPrice12">600,000</td></tr>
-<tr><th data-i18n="courses.kidsRow2">٣ أيام أسبوعيًا</th><td data-i18n="courses.kidsPrice21">500,000</td><td data-i18n="courses.kidsPrice22">900,000</td></tr>
-<tr><th data-i18n="courses.kidsRow3">٥ أيام أسبوعيًا</th><td data-i18n="courses.kidsPrice31">750,000</td><td data-i18n="courses.kidsPrice32">1,500,000</td></tr>
-</tbody>
-</table>
+<h3 data-i18n="courses.item3Title">Kids — العربية للأطفال</h3>
+<p data-i18n="courses.item3Desc">برنامج مستقل للأطفال: دروس قائمة على اللعب والحركة والتكرار، ويُختار الحِمل ومدة الدرس حسب عمر الطفل.</p>
+<ul class="course-points">
+<li data-i18n="courses.item3Point1">الحروف والأصوات عبر الألعاب والأناشيد والبطاقات</li>
+<li data-i18n="courses.item3Point2">القراءة بالمقاطع والكلمات الأولى</li>
+<li data-i18n="courses.item3Point3">التعبير الشفوي: الطفل يتكلم من الدرس الأول</li>
+<li data-i18n="courses.item3Point4">مجموعات صغيرة واهتمام بكل طفل</li>
+</ul>
+<div class="course-price">
+<span class="course-price-from" data-i18n="courses.priceFrom">شهريًا</span>
+<strong class="course-price-value" data-i18n="courses.priceValue">من ٤٥٠ ٠٠٠ سوم</strong>
 </div>
-<span class="course-price-note" data-i18n="courses.kidsPriceNote">سوم / شهريًا</span>
 <a class="btn btn-outline btn-block course-cta" data-course="Kids" data-i18n="courses.cta" href="#contact">التسجيل</a>
 </article>
 </div>
@@ -812,7 +786,7 @@
 <option data-i18n="contact.formCourseDefault" value="">لم أحدد بعد</option>
 <option data-i18n="courses.item1Title">العربية للمبتدئين (الصوتيات)</option>
 <option data-i18n="courses.item2Title">القواعد</option>
-<option data-i18n="courses.item3Title">Kids</option>
+<option data-i18n="courses.item3Title">Kids — العربية للأطفال</option>
 </select>
 </label>
 <label class="field">

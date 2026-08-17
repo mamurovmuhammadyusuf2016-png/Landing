@@ -524,27 +524,29 @@ html[dir="rtl"] .hero-card-go svg{ transform:scaleX(-1); }
 }
 .course-card:hover .course-badge{ transform:translateY(-2px); }
 .course-card h3{ font-size:1.18rem; }
-.course-card p{ font-size:.92rem; flex-grow:1; }
+/* the price block claims the slack with margin-top:auto, so the description
+   must not also stretch or the cards gap oddly under short copy */
+.course-card p{ font-size:.92rem; }
 
-.course-price-list{ display:flex; flex-direction:column; gap:10px; margin:18px 0 4px; }
-.course-price-list li{
-  display:flex; align-items:center; justify-content:space-between; gap:12px;
-  padding:10px 14px; background:var(--bg-alt); border-radius:12px;
+/* what the course actually covers, in place of the old price tables */
+.course-points{ display:flex; flex-direction:column; gap:11px; margin:20px 0 6px; }
+.course-points li{
+  position:relative; padding-inline-start:26px;
+  font-size:.89rem; color:var(--ink-soft); line-height:1.5;
 }
-.course-price-list li span{ font-family:var(--font-head); font-size:.84rem; color:var(--ink-soft); }
-.course-price-list li strong{ font-family:var(--font-head); font-size:1.02rem; color:var(--primary); white-space:nowrap; }
-.course-price-note{ display:block; font-family:var(--font-head); font-size:.78rem; color:var(--ink-faint); margin-bottom:18px; }
+.course-points li::before{
+  content:""; position:absolute; inset-inline-start:0; top:.5em;
+  width:8px; height:8px; border-radius:50%;
+  background:var(--gold); opacity:.85;
+}
 
-.course-price-grid-wrap{ margin:16px 0 4px; overflow-x:auto; }
-.course-price-grid{ width:100%; border-collapse:collapse; font-family:var(--font-head); font-size:.82rem; }
-.course-price-grid th, .course-price-grid td{ padding:9px 8px; text-align:center; white-space:nowrap; }
-.course-price-grid thead th{ color:var(--ink-faint); font-weight:600; font-size:.72rem; }
-.course-price-grid tbody th{ text-align:start; color:var(--ink-soft); font-weight:600; }
-.course-price-grid tbody td{ color:var(--primary); font-weight:700; }
-.course-price-grid tbody tr{ background:var(--bg-alt); }
-.course-price-grid tbody tr:nth-child(even){ background:transparent; }
-.course-price-grid tbody th:first-child{ border-start-start-radius:10px; border-end-start-radius:10px; padding-inline-start:12px; }
-.course-price-grid tbody td:last-child{ border-start-end-radius:10px; border-end-end-radius:10px; padding-inline-end:12px; }
+.course-price{
+  display:flex; flex-direction:column; gap:2px;
+  margin-top:auto; padding-top:20px; margin-bottom:18px;
+  border-top:1px solid var(--line);
+}
+.course-price-from{ font-family:var(--font-head); font-size:.74rem; font-weight:500; color:var(--ink-faint); }
+.course-price-value{ font-family:var(--font-head); font-size:1.32rem; font-weight:700; color:var(--primary); }
 
 /* =============================================================
    Process
