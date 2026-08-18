@@ -1,11 +1,20 @@
 (function () {
   "use strict";
 
-  /* Replace with the real values once available */
   const CONFIG = {
     telegramUsername: "academy_arabic",
     defaultLang: "uz",
-    rtlLangs: ["ar"]
+    rtlLangs: ["ar"],
+
+    /* Enquiries are posted straight into the centre's Telegram bot.
+       A static site has no server, so this token is served with the page
+       and is readable by anyone — a deliberate trade-off. What it allows:
+       posting as the bot. What it does not allow: reading enquiries that
+       were already delivered, since those travel from the bot outward.
+       If it is ever abused, revoke it in @BotFather and replace it here.
+       Clearing botChatId falls back to the pre-filled-chat link. */
+    botToken: "8857344901:AAG03YvpX8unJflXOMKihXOsn7PmSo26FLU",
+    botChatId: "1290205717"
   };
 
   const root = document.documentElement;
@@ -398,21 +407,34 @@
 
 
   /* ---------------------------------------------------------
-     Booking form -> Telegram deep link
+     Booking form -> the centre's Telegram bot, with the
+     pre-filled-chat link kept as the fallback when the request
+     cannot go through (offline, blocked, bot token revoked).
   --------------------------------------------------------- */
   function initBookingForm() {
     const form = document.getElementById("bookingForm");
     const success = document.getElementById("formSuccess");
     if (!form) return;
 
-    form.addEventListener("submit", (e) => {
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    function setPanel(titleKey, textKey) {
+      const dict = TRANSLATIONS[root.lang] || TRANSLATIONS[CONFIG.defaultLang];
+      const title = document.getElementById("successTitle");
+      const body = document.getElementById("successText");
+      const t = getByPath(dict, titleKey);
+      const b = getByPath(dict, textKey);
+      if (title && t) title.textContent = t;
+      if (body && b) body.textContent = b;
+    }
+
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const name = form.querySelector("#fieldName").value.trim();
       const phone = form.querySelector("#fieldPhone").value.trim();
       const course = form.querySelector("#fieldCourse").value.trim();
       const message = form.querySelector("#fieldMessage").value.trim();
-
       const consent = form.querySelector("#fieldConsent");
 
       if (!name || !phone || !consent.checked) {
@@ -420,36 +442,60 @@
         return;
       }
 
-      const lines = [
-        "Заявка с сайта Academy of Arabic:",
+      const body = [
+        "🔔 Заявка с сайта Academy of Arabic",
+        "",
         `Имя: ${name}`,
         `Телефон: ${phone}`,
         course ? `Курс: ${course}` : null,
-        message ? `Комментарий: ${message}` : null
-      ].filter(Boolean);
+        message ? `Комментарий: ${message}` : null,
+        `Язык сайта: ${root.lang}`
+      ].filter(Boolean).join("\n");
 
-      const text = encodeURIComponent(lines.join("\n"));
-      const url = `https://t.me/${CONFIG.telegramUsername}?text=${text}`;
-
-      /* the deep link only pre-fills the message — the visitor still has to
-         press send — so the panel says so rather than claiming it is done,
-         and always offers the link in case the popup never opened */
+      const deepLink = `https://t.me/${CONFIG.telegramUsername}?text=${encodeURIComponent(body)}`;
       const link = document.getElementById("successTgLink");
-      if (link) link.href = url;
+      if (link) link.href = deepLink;
 
+      if (CONFIG.botToken && CONFIG.botChatId) {
+        if (submitBtn) submitBtn.disabled = true;
+        /* a request that never settles would leave the button dead and the
+           visitor with no feedback, so give up after a few seconds and let
+           them finish through Telegram instead */
+        const abort = new AbortController();
+        const giveUp = setTimeout(() => abort.abort(), 8000);
+        try {
+          const res = await fetch(`https://api.telegram.org/bot${CONFIG.botToken}/sendMessage`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ chat_id: CONFIG.botChatId, text: body }),
+            signal: abort.signal
+          });
+          const data = await res.json();
+          if (data && data.ok) {
+            form.hidden = true;
+            success.hidden = false;
+            setPanel("contact.sentTitle", "contact.sentText");
+            if (link) link.hidden = true;   // nothing left for them to do
+            form.reset();
+            return;
+          }
+        } catch (err) {
+          /* offline, blocked or too slow — fall through to the link */
+        } finally {
+          clearTimeout(giveUp);
+          if (submitBtn) submitBtn.disabled = false;
+        }
+      }
+
+      /* it did not reach the bot — the panel asks for the one tap that
+         sends it. window.open with noopener always returns null, so the
+         wording never claims to know whether the popup actually opened;
+         the link sits right there either way. */
       form.hidden = true;
       success.hidden = false;
-
-      const win = window.open(url, "_blank", "noopener");
-      if (!win || win.closed || typeof win.closed === "undefined") {
-        const dict = TRANSLATIONS[root.lang] || TRANSLATIONS[CONFIG.defaultLang];
-        const title = document.getElementById("successTitle");
-        const body = document.getElementById("successText");
-        const blockedTitle = getByPath(dict, "contact.successBlockedTitle");
-        const blockedText = getByPath(dict, "contact.successBlockedText");
-        if (title && blockedTitle) title.textContent = blockedTitle;
-        if (body && blockedText) body.textContent = blockedText;
-      }
+      if (link) link.hidden = false;
+      setPanel("contact.successTitle", "contact.successText");
+      window.open(deepLink, "_blank", "noopener");
     });
   }
 

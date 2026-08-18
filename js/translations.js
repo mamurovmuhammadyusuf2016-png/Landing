@@ -129,11 +129,11 @@ ru: {
     formSubmit: "Отправить заявку в Telegram",
     formConsent: "Согласен на обработку моих персональных данных",
     privacyLink: "Политика конфиденциальности",
+    sentTitle: "Заявка отправлена!",
+    sentText: "Мы получили вашу заявку и свяжемся с вами в течение рабочего дня.",
     successTitle: "Остался один шаг",
-    successText: "Мы открыли Telegram — сообщение уже готово, осталось нажать «Отправить». Без этого заявка до нас не дойдёт.",
+    successText: "Сообщение уже готово — откройте Telegram кнопкой ниже и нажмите «Отправить». Без этого заявка до нас не дойдёт.",
     successOpenTg: "Открыть Telegram",
-    successBlockedTitle: "Откройте Telegram вручную",
-    successBlockedText: "Браузер заблокировал автоматическое открытие. Нажмите кнопку ниже — сообщение уже готово, останется нажать «Отправить».",
     successAlt: "Не пользуетесь Telegram? Позвоните нам:"
   },
   footer: {
@@ -271,11 +271,11 @@ uz: {
     formSubmit: "Telegram orqali ariza yuborish",
     formConsent: "Shaxsiy maʼlumotlarimni qayta ishlashga roziman",
     privacyLink: "Maxfiylik siyosati",
+    sentTitle: "Ariza yuborildi!",
+    sentText: "Arizangizni oldik va ish kuni davomida siz bilan bogʻlanamiz.",
     successTitle: "Bitta qadam qoldi",
-    successText: "Telegram ochildi — xabar tayyor, faqat «Yuborish» tugmasini bosing. Aks holda ariza bizga yetib kelmaydi.",
+    successText: "Xabar tayyor — quyidagi tugma orqali Telegramni oching va «Yuborish» tugmasini bosing. Aks holda ariza bizga yetib kelmaydi.",
     successOpenTg: "Telegramni ochish",
-    successBlockedTitle: "Telegramni qoʻlda oching",
-    successBlockedText: "Brauzer avtomatik ochilishni bloklab qoʻydi. Quyidagi tugmani bosing — xabar tayyor, «Yuborish» tugmasini bosish qoladi.",
     successAlt: "Telegramdan foydalanmaysizmi? Bizga qoʻngʻiroq qiling:"
   },
   footer: {
@@ -413,11 +413,11 @@ ar: {
     formSubmit: "إرسال الطلب عبر Telegram",
     formConsent: "أوافق على معالجة بياناتي الشخصية",
     privacyLink: "سياسة الخصوصية",
+    sentTitle: "تم إرسال الطلب!",
+    sentText: "استلمنا طلبك وسنتواصل معك خلال يوم العمل.",
     successTitle: "بقيت خطوة واحدة",
-    successText: "فتحنا لك Telegram — الرسالة جاهزة، اضغط «إرسال» فقط. بدون ذلك لن يصلنا طلبك.",
+    successText: "الرسالة جاهزة — افتح Telegram بالزر أدناه واضغط «إرسال». بدون ذلك لن يصلنا طلبك.",
     successOpenTg: "فتح Telegram",
-    successBlockedTitle: "افتح Telegram يدويًا",
-    successBlockedText: "منع المتصفح الفتح التلقائي. اضغط الزر أدناه — الرسالة جاهزة ويبقى الضغط على «إرسال».",
     successAlt: "لا تستخدم Telegram؟ اتصل بنا:"
   },
   footer: {
