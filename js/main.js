@@ -118,7 +118,11 @@
      Ambient background — floating Arabic words + drifting
      light beams and dust, layered into every section
   --------------------------------------------------------- */
-  const AMBIENT_WORDS = ["العربية", "تعلم", "لغة", "قرآن", "كتاب", "علم", "حرف", "كلمة", "قلم", "أهلاً"];
+  const AMBIENT_WORDS = [
+    "العربية", "تعلم", "لغة", "قرآن", "كتاب", "علم", "حرف", "كلمة", "قلم", "أهلاً",
+    "مرحبا", "درس", "معلم", "طالب", "نحو", "صرف", "قراءة", "كتابة", "مدرسة", "طشقند",
+    "سلام", "شكرا", "جميل", "صوت", "لسان", "بيت", "نور", "سماء", "قصة", "حوار"
+  ];
 
   function rand(min, max) {
     return Math.random() * (max - min) + min;
@@ -140,8 +144,8 @@
       const el = document.createElement("span");
       el.className = "floating-letter";
       el.textContent = AMBIENT_WORDS[Math.floor(Math.random() * AMBIENT_WORDS.length)];
-      el.style.left = `${rand(3, 82)}%`;
-      el.style.top = `${rand(6, 78)}%`;
+      el.style.left = `${rand(-4, 92)}%`;
+      el.style.top = `${rand(2, 86)}%`;
       el.style.fontSize = `${rand(2.2, 5)}rem`;
       el.style.animationDuration = `${rand(16, 30)}s`;
       el.style.animationDelay = `${rand(-12, 0)}s`;
@@ -176,20 +180,20 @@
 
   function initAmbientBackground() {
     document.querySelectorAll(".section").forEach((section) => {
-      const wrap = buildAmbientLayer(section, { letters: 3, motes: 7, beams: 1, lattice: true });
+      const wrap = buildAmbientLayer(section, { letters: 9, motes: 10, beams: 1, lattice: true });
       section.insertBefore(wrap, section.firstChild);
     });
 
     const hero = document.querySelector(".hero");
     if (hero) {
-      const wrap = buildAmbientLayer(hero, { motes: 6 });
+      const wrap = buildAmbientLayer(hero, { letters: 7, motes: 9 });
       const heroInner = hero.querySelector(".hero-inner");
       hero.insertBefore(wrap, heroInner);
     }
 
     const footer = document.querySelector(".site-footer");
     if (footer) {
-      const wrap = buildAmbientLayer(footer, { letters: 2, motes: 5, beams: 1, lattice: true });
+      const wrap = buildAmbientLayer(footer, { letters: 6, motes: 8, beams: 1, lattice: true });
       wrap.classList.add("dark");
       footer.insertBefore(wrap, footer.firstChild);
     }
@@ -378,17 +382,20 @@
      Course cards -> preselect course in booking form
   --------------------------------------------------------- */
   function initCourseCta() {
+    const select = document.getElementById("fieldCourse");
+    if (!select) return;
     document.querySelectorAll(".course-cta").forEach((btn) => {
       btn.addEventListener("click", () => {
-        const course = btn.getAttribute("data-course");
-        const select = document.getElementById("fieldCourse");
-        if (!course || !select) return;
-        [...select.options].forEach((opt) => {
-          if (opt.textContent.trim() === course) select.value = opt.value || opt.textContent;
-        });
+        /* match on the translation key, not the visible name — the name is
+           different in each language and gets reworded */
+        const key = btn.getAttribute("data-course-key");
+        if (!key) return;
+        const option = select.querySelector(`option[data-i18n="${key}"]`);
+        if (option) select.selectedIndex = option.index;
       });
     });
   }
+
 
   /* ---------------------------------------------------------
      Booking form -> Telegram deep link
@@ -447,6 +454,64 @@
   }
 
   /* ---------------------------------------------------------
+     Booking dialog — the form opens where the visitor already is
+     instead of throwing them down to the contact section. The form
+     itself is moved in and back out, so there is only ever one copy
+     of it and its ids stay unique.
+  --------------------------------------------------------- */
+  function initBookingModal() {
+    const dialog = document.getElementById("bookingDialog");
+    const slot = document.getElementById("bookingDialogSlot");
+    const closeBtn = document.getElementById("bookingDialogClose");
+    const wrap = document.querySelector(".contact-form-wrap");
+    if (!dialog || !slot || !wrap || typeof dialog.showModal !== "function") return;
+
+    const anchor = document.createComment("booking-form");
+    let open = false;
+
+    function openDialog() {
+      if (open) return;
+      wrap.parentNode.insertBefore(anchor, wrap);
+      slot.appendChild(wrap);
+      dialog.showModal();
+      open = true;
+      const first = wrap.querySelector("input:not([type=hidden])");
+      if (first) first.focus({ preventScroll: true });
+    }
+
+    function restore() {
+      if (!open) return;
+      anchor.parentNode.insertBefore(wrap, anchor);
+      anchor.remove();
+      open = false;
+
+      // a completed submission should not greet the next visit
+      const form = document.getElementById("bookingForm");
+      const success = document.getElementById("formSuccess");
+      if (form && success && !success.hidden) {
+        success.hidden = true;
+        form.hidden = false;
+        form.reset();
+      }
+    }
+
+    document.querySelectorAll("[data-open-booking]").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        openDialog();
+      });
+    });
+
+    closeBtn.addEventListener("click", () => dialog.close());
+    dialog.addEventListener("close", restore);
+    dialog.addEventListener("cancel", () => dialog.close());
+    // clicking the backdrop closes it
+    dialog.addEventListener("click", (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+  }
+
+  /* ---------------------------------------------------------
      Floating scroll-to-top button
   --------------------------------------------------------- */
   function initScrollTop() {
@@ -478,6 +543,7 @@
     initFaq();
     initCourseCta();
     initBookingForm();
+    initBookingModal();
     initScrollTop();
     initYear();
   });

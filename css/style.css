@@ -78,10 +78,10 @@ svg{ width:1em; height:1em; }
 
 .floating-letter{
   position:absolute; font-family:'Amiri', serif; font-weight:700; white-space:nowrap;
-  color:var(--primary); opacity:.05;
+  color:var(--primary); opacity:.085;
   animation:letterDrift linear infinite;
 }
-.ambient-bg.dark .floating-letter{ color:var(--gold-light); opacity:.08; }
+.ambient-bg.dark .floating-letter{ color:var(--gold-light); opacity:.13; }
 @keyframes letterDrift{
   0%,100%{ transform:translate(0,0) rotate(0deg); }
   25%{ transform:translate(16px,-22px) rotate(3deg); }
@@ -889,4 +889,47 @@ html[dir="rtl"] .footer-col a:hover{ transform:translateX(-4px); }
 @media (max-width: 360px){
   .lang-btn{ padding:4px 6px; font-size:.62rem; }
   .header-actions{ gap:4px; }
+}
+
+/* =============================================================
+   Booking dialog
+   The contact form is moved in here, so it inherits the styling it
+   already has; this only supplies the shell around it.
+============================================================= */
+.booking-dialog{
+  border:none; padding:0; background:transparent;
+  max-width:min(560px, calc(100vw - 32px));
+  width:100%; max-height:calc(100vh - 48px);
+  margin:auto; overflow:visible;
+  color:var(--ink);
+}
+.booking-dialog::backdrop{
+  background:rgba(7,26,20,.55);
+  backdrop-filter:blur(3px); -webkit-backdrop-filter:blur(3px);
+}
+.booking-dialog[open]{ animation:dialogIn .32s var(--ease); }
+.booking-dialog[open]::backdrop{ animation:fadeIn .32s var(--ease); }
+@keyframes dialogIn{ from{ opacity:0; transform:translateY(18px) scale(.97); } to{ opacity:1; transform:none; } }
+@keyframes fadeIn{ from{ opacity:0; } to{ opacity:1; } }
+
+.booking-dialog-inner{ position:relative; }
+/* the form carries its own white card, so nothing extra is painted here */
+.booking-dialog .contact-form-wrap{ max-height:calc(100vh - 48px); overflow-y:auto; border-radius:var(--radius-lg); }
+.booking-dialog .booking-form{ box-shadow:var(--shadow-lg); }
+.booking-dialog .reveal,
+.booking-dialog .reveal-scale,
+.booking-dialog .reveal-blur{ opacity:1; transform:none; filter:none; }
+
+.booking-dialog-close{
+  position:absolute; top:-14px; inset-inline-end:-14px; z-index:2;
+  width:40px; height:40px; border-radius:50%; border:none;
+  background:var(--primary); color:#fff; font-size:1.5rem; line-height:1;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:var(--shadow-md);
+  transition:background .25s var(--ease), transform .25s var(--ease);
+}
+.booking-dialog-close:hover{ background:var(--gold); transform:rotate(90deg); }
+
+@media (max-width:560px){
+  .booking-dialog-close{ top:-10px; inset-inline-end:-6px; width:34px; height:34px; font-size:1.25rem; }
 }

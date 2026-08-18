@@ -11,21 +11,21 @@ ru: {
   hero: {
     badge: "Арабский язык в центре Ташкента",
     title1: "Арабский язык", title2: "с нуля", title3: "до свободного общения",
-    subtitle: "Начальный арабский (фонетика), грамматика и курс для детей. Группы до 20 человек, опытные устазы, гибкое расписание в центре Ташкента.",
-    ctaPrimary: "Бесплатный пробный урок", ctaSecondary: "Смотреть курсы",
-    statsStudents: "учеников", statsTeachers: "преподавателей", statsSince: "с вами с 2021 года",
-    floatGroups: "до 20 чел.", floatGroupsLabel: "в группе"
+    subtitle: "Начальный арабский (чтение и письмо), грамматика и разговорная речь, курс для детей. Настоящий индивидуальный подход к каждому ученику, опытные устазы, удобное расписание в центре Ташкента.",
+    ctaPrimary: "Записаться на пробный урок", ctaSecondary: "Смотреть курсы",
+    statsStudents: "выпускников", statsTeachers: "преподавателей", statsSince: "с вами с 2021 года",
+    floatGroups: "Индивидуальный подход", floatGroupsLabel: "к каждому ученику"
   },
   about: {
     badgeLabel: "год основания центра",
     tag: "О центре",
     title: "От первых букв до свободного общения — по понятной программе",
-    lead: "Academy of Arabic ведёт взрослых и детей по трём ступеням: фонетика и чтение, затем грамматика, затем разговорная практика. Вы всегда знаете, на каком этапе находитесь и что будет дальше.",
-    text: "Обучение построено вокруг практики: разбор ошибок на каждом занятии, регулярные тесты и обратная связь от устаза. По итогам курса вы получаете сертификат с указанием достигнутого уровня.",
-    point1Title: "Опытные устазы", point1Desc: "Преподаватели центра — практикующие устазы по фонетике, грамматике и работе с детьми.",
-    point2Title: "Комфортные группы", point2Desc: "До 20 учеников в группе — внимание каждому и быстрый прогресс.",
+    lead: "Путь от первых букв арабского до свободного общения вы пройдёте с нами быстрее — по чёткой программе и проверенной методике!",
+    text: "Academy of Arabic ведёт обучение по ступеням: 1 — начальный арабский (чтение и письмо), 2 — грамматика и разговорная речь, 3 — подготовка к сертификатам CEFR или At-tanal. Обучение построено на практике: на каждом занятии разбираем ошибки, регулярно проводим тесты, а устаз работает с каждым учеником индивидуально. По окончании каждой ступени вы получаете сертификат с указанием достигнутого уровня (A1, A2, B1 … C1).",
+    point1Title: "Опытные устазы", point1Desc: "Преподаватели центра — опытные специалисты по фонетике, грамматике и работе с детьми.",
+    point2Title: "Индивидуальный подход", point2Desc: "Индивидуальный подход к каждому ученику в группе и помощник устаза.",
     point3Title: "Гибкий формат", point3Desc: "Офлайн-занятия в Ташкенте и онлайн-формат из любой точки мира.",
-    point4Title: "Сертификат", point4Desc: "По окончании курса — сертификат центра с указанием уровня владения языком."
+    point4Title: "Сертификат", point4Desc: "По завершении каждой ступени выдаётся сертификат центра с указанием уровня владения языком."
   },
   features: {
     tag: "Почему мы", title: "Всё для комфортного и результативного обучения",
@@ -154,21 +154,21 @@ uz: {
   hero: {
     badge: "Toshkent markazida arab tili",
     title1: "Arab tili", title2: "noldan", title3: "erkin muloqotgacha",
-    subtitle: "Boshlangʻich arab tili (fonetika), grammatika va bolalar uchun kurs. Guruhda 20 nafargacha oʻquvchi, tajribali ustozlar, Toshkent markazida qulay jadval.",
-    ctaPrimary: "Bepul sinov darsi", ctaSecondary: "Kurslarni koʻrish",
-    statsStudents: "oʻquvchi", statsTeachers: "oʻqituvchi", statsSince: "2021-yildan siz bilan",
-    floatGroups: "20 nafargacha", floatGroupsLabel: "guruhda"
+    subtitle: "Boshlangʻich arab tili (oʻqish va yozish), grammatika va soʻzlashuv, bolalar uchun kurs. Har bir oʻquvchiga haqiqiy individual yondashuv, tajribali ustozlar, Toshkent markazida qulay jadval.",
+    ctaPrimary: "Bepul sinov darsiga yozilish", ctaSecondary: "Kurslarni koʻrish",
+    statsStudents: "bitiruvchi", statsTeachers: "oʻqituvchi", statsSince: "2021 yildan beri siz bilan",
+    floatGroups: "Individual yondashuv", floatGroupsLabel: "har bir oʻquvchiga"
   },
   about: {
     badgeLabel: "markaz tashkil topgan yil",
     tag: "Markaz haqida",
     title: "Birinchi harflardan erkin muloqotgacha — aniq dastur boʻyicha",
-    lead: "Academy of Arabic kattalar va bolalarni uch bosqichdan olib oʻtadi: fonetika va oʻqish, soʻng grammatika, soʻng soʻzlashuv amaliyoti. Siz qaysi bosqichda ekaningizni va keyin nima boʻlishini doim bilasiz.",
-    text: "Taʼlim amaliyot ustiga qurilgan: har darsda xatolar tahlili, muntazam testlar va ustozdan fikr-mulohaza. Kurs yakunida erishilgan daraja koʻrsatilgan sertifikat olasiz.",
-    point1Title: "Tajribali ustozlar", point1Desc: "Markaz oʻqituvchilari — fonetika, grammatika va bolalar bilan ishlash boʻyicha amaliyotchi ustozlar.",
-    point2Title: "Qulay guruhlar", point2Desc: "Guruhda 20 nafargacha oʻquvchi — har biriga eʼtibor va tez natija.",
+    lead: "Arab tilidagi birinchi harflardan erkin muloqotgacha boʻlgan yoʻlni biz bilan aniq dastur va sinovdan oʻtgan metodika asosida tezroq bosib oʻtasiz!",
+    text: "Academy of Arabic darslarini bosqichma-bosqich olib boradi: 1-boshlangʻich arab tili (oʻqish va yozish), 2-grammatika va soʻzlashuv, 3-CEFR yoki At-tanal sertifikatlarini qoʻlga kiritish. Taʼlim amaliyotga asoslangan: har darsda xatolar tahlil qilinadi, muntazam testlar oʻtkaziladi va ustoz har bir oʻquvchi bilan individual shugʻullanadi. Har bir bosqichni tamomlaganingizda erishgan darajangiz koʻrsatilgan sertifikat olasiz (A1, A2, B1 … C1).",
+    point1Title: "Tajribali ustozlar", point1Desc: "Markaz oʻqituvchilari — fonetika, grammatika va bolalar bilan ishlash boʻyicha tajribali mutaxassis hisoblanadi.",
+    point2Title: "Individual yondashuv", point2Desc: "Guruhdagi har bir oʻquvchiga individual yondashuv va yordamchi ustoz.",
     point3Title: "Qulay format", point3Desc: "Toshkentda oflayn darslar va dunyoning istalgan nuqtasidan onlayn format.",
-    point4Title: "Sertifikat", point4Desc: "Kurs yakunida til darajasi koʻrsatilgan markaz sertifikati beriladi."
+    point4Title: "Sertifikat", point4Desc: "Har bir bosqich yakunida til darajasi koʻrsatilgan markaz sertifikati beriladi."
   },
   features: {
     tag: "Nega aynan biz", title: "Qulay va samarali taʼlim uchun barcha shart-sharoit",
@@ -297,21 +297,21 @@ ar: {
   hero: {
     badge: "اللغة العربية في مركز طشقند",
     title1: "اللغة العربية", title2: "من الصفر", title3: "حتى التواصل بحرية",
-    subtitle: "العربية للمبتدئين (الصوتيات) والقواعد ودورة للأطفال. مجموعات حتى ٢٠ طالبًا، أساتذة ذوو خبرة، وجدول مرن في مركز طشقند.",
-    ctaPrimary: "درس تجريبي مجاني", ctaSecondary: "عرض الدورات",
-    statsStudents: "طالب", statsTeachers: "معلم", statsSince: "معكم منذ ٢٠٢١",
-    floatGroups: "حتى ٢٠ طالبًا", floatGroupsLabel: "في المجموعة"
+    subtitle: "العربية للمبتدئين (القراءة والكتابة)، والقواعد والمحادثة، ودورة للأطفال. نهج فردي حقيقي لكل طالب، أساتذة ذوو خبرة، وجدول مريح في مركز طشقند.",
+    ctaPrimary: "التسجيل في درس تجريبي مجاني", ctaSecondary: "عرض الدورات",
+    statsStudents: "خريج", statsTeachers: "معلم", statsSince: "معكم منذ ٢٠٢١",
+    floatGroups: "نهج فردي", floatGroupsLabel: "لكل طالب"
   },
   about: {
     badgeLabel: "سنة تأسيس المركز",
     tag: "عن المركز",
     title: "من أول الحروف حتى التواصل بحرية — وفق برنامج واضح",
-    lead: "يأخذ Academy of Arabic الكبار والصغار عبر ثلاث مراحل: الصوتيات والقراءة، ثم القواعد، ثم ممارسة المحادثة. تعرف دائمًا في أي مرحلة أنت وما هي الخطوة التالية.",
-    text: "التعليم مبني على الممارسة: تحليل الأخطاء في كل حصة، واختبارات منتظمة، وتغذية راجعة من الأستاذ. وفي ختام الدورة تحصل على شهادة تُبيّن المستوى الذي بلغته.",
-    point1Title: "أساتذة ذوو خبرة", point1Desc: "معلمو المركز أساتذة ممارسون في الصوتيات والقواعد والعمل مع الأطفال.",
-    point2Title: "مجموعات مريحة", point2Desc: "حتى ٢٠ طالبًا في المجموعة — اهتمام بكل طالب وتقدّم سريع.",
+    lead: "الطريق من أول حروف العربية حتى التواصل بحرية تقطعه معنا أسرع — ببرنامج واضح ومنهجية مجرَّبة!",
+    text: "تسير Academy of Arabic بالدراسة على مراحل: ١ — العربية للمبتدئين (القراءة والكتابة)، ٢ — القواعد والمحادثة، ٣ — التحضير لشهادات CEFR أو At-tanal. التعليم قائم على التطبيق: نحلّل الأخطاء في كل درس، ونجري اختبارات منتظمة، ويعمل الأستاذ مع كل طالب بشكل فردي. وفي نهاية كل مرحلة تحصل على شهادة تبيّن المستوى الذي بلغته (A1، A2، B1 … C1).",
+    point1Title: "أساتذة ذوو خبرة", point1Desc: "معلّمو المركز مختصون ذوو خبرة في الصوتيات والقواعد والعمل مع الأطفال.",
+    point2Title: "نهج فردي", point2Desc: "نهج فردي لكل طالب في المجموعة ومعلّم مساعد.",
     point3Title: "صيغة مرنة", point3Desc: "دروس حضورية في طشقند وصيغة عبر الإنترنت من أي مكان في العالم.",
-    point4Title: "شهادة", point4Desc: "شهادة من المركز عند إتمام الدورة تُبيّن المستوى المكتسب في اللغة."
+    point4Title: "شهادة", point4Desc: "في نهاية كل مرحلة تُمنح شهادة من المركز تبيّن مستوى إتقان اللغة."
   },
   features: {
     tag: "لماذا نحن", title: "كل ما تحتاجه لتعليم مريح وفعّال",
