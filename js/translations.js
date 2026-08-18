@@ -13,8 +13,7 @@ ru: {
     title1: "Арабский язык", title2: "с нуля", title3: "до свободного общения",
     subtitle: "Начальный арабский (чтение и письмо), грамматика и разговорная речь, курс для детей. Настоящий индивидуальный подход к каждому ученику, опытные устазы, удобное расписание в центре Ташкента.",
     ctaPrimary: "Записаться на пробный урок", ctaSecondary: "Смотреть курсы",
-    statsStudents: "выпускников", statsTeachers: "преподавателей", statsSince: "с вами с 2021 года",
-    floatGroups: "Индивидуальный подход", floatGroupsLabel: "к каждому ученику"
+    statsStudents: "выпускников", statsTeachers: "преподавателей", statsSince: "с вами с 2021 года"
   },
   about: {
     badgeLabel: "год основания центра",
@@ -156,8 +155,7 @@ uz: {
     title1: "Arab tili", title2: "noldan", title3: "erkin muloqotgacha",
     subtitle: "Boshlangʻich arab tili (oʻqish va yozish), grammatika va soʻzlashuv, bolalar uchun kurs. Har bir oʻquvchiga haqiqiy individual yondashuv, tajribali ustozlar, Toshkent markazida qulay jadval.",
     ctaPrimary: "Bepul sinov darsiga yozilish", ctaSecondary: "Kurslarni koʻrish",
-    statsStudents: "bitiruvchi", statsTeachers: "oʻqituvchi", statsSince: "2021 yildan beri siz bilan",
-    floatGroups: "Individual yondashuv", floatGroupsLabel: "har bir oʻquvchiga"
+    statsStudents: "bitiruvchi", statsTeachers: "oʻqituvchi", statsSince: "2021 yildan beri siz bilan"
   },
   about: {
     badgeLabel: "markaz tashkil topgan yil",
@@ -299,8 +297,7 @@ ar: {
     title1: "اللغة العربية", title2: "من الصفر", title3: "حتى التواصل بحرية",
     subtitle: "العربية للمبتدئين (القراءة والكتابة)، والقواعد والمحادثة، ودورة للأطفال. نهج فردي حقيقي لكل طالب، أساتذة ذوو خبرة، وجدول مريح في مركز طشقند.",
     ctaPrimary: "التسجيل في درس تجريبي مجاني", ctaSecondary: "عرض الدورات",
-    statsStudents: "خريج", statsTeachers: "معلم", statsSince: "معكم منذ ٢٠٢١",
-    floatGroups: "نهج فردي", floatGroupsLabel: "لكل طالب"
+    statsStudents: "خريج", statsTeachers: "معلم", statsSince: "معكم منذ ٢٠٢١"
   },
   about: {
     badgeLabel: "سنة تأسيس المركز",
