@@ -1,0 +1,23 @@
+# Secrets — never commit these
+.env
+.env.*
+!.env.example
+js/config.js
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Build & tooling
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local scratch
+*.log
+tmp/
