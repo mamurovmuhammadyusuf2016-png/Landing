@@ -13,7 +13,7 @@
        were already delivered, since those travel from the bot outward.
        If it is ever abused, revoke it in @BotFather and replace it here.
        Clearing botChatId falls back to the pre-filled-chat link. */
-    botToken: "8857344901:AAG03YvpX8unJflXOMKihXOsn7PmSo26FLU",
+    botToken: "8857344901:AAGqWtvi0wDMyM7g8rK0TIFNiRdRASwEw_8",
     botChatId: "1290205717"
   };
 
