@@ -15,6 +15,7 @@ Run after changing index.html or the translations:
     python3 tools/build-langs.py
 """
 
+import hashlib
 import json
 import re
 import subprocess
@@ -76,6 +77,32 @@ def load_translations() -> dict:
         ["node", "-e", js], cwd=ROOT, capture_output=True, text=True, check=True
     )
     return json.loads(out.stdout)
+
+
+def asset_version(rel: str) -> str:
+    """Short content hash, so a changed file always gets a new URL."""
+    data = (ROOT / rel).read_bytes()
+    return hashlib.md5(data).hexdigest()[:10]
+
+
+def version_assets(soup):
+    """Stamp css/js links with their content hash.
+
+    Pages and assets are cached independently for ten minutes, so a visitor
+    can hold new markup against a stale script. Deriving the query from the
+    file itself means it can never be forgotten the way a hand-typed date
+    was — the URL changes exactly when the file does.
+    """
+    targets = [
+        ("link", "href", "/css/style.css", "css/style.css"),
+        ("script", "src", "/js/translations.js", "js/translations.js"),
+        ("script", "src", "/js/main.js", "js/main.js"),
+    ]
+    for tag_name, attr, url, rel in targets:
+        for tag in soup.find_all(tag_name):
+            value = tag.get(attr) or ""
+            if value.split("?")[0] == url:
+                tag[attr] = f"{url}?v={asset_version(rel)}"
 
 
 def by_path(d: dict, path: str):
@@ -185,6 +212,7 @@ def build(lang: str, source_html: str, translations: dict) -> str:
         soup.head.append(t)
 
     add_alternates(soup, lang)
+    version_assets(soup)
     localise_body(soup, dic)
     localise_jsonld(soup, lang, dic)
 
@@ -227,6 +255,19 @@ def write_sitemap():
     (ROOT / "sitemap.xml").write_text(xml, encoding="utf-8")
 
 
+def stamp_privacy():
+    """The privacy page is hand-maintained; keep its stylesheet URL in step."""
+    path = ROOT / "privacy.html"
+    if not path.exists():
+        return
+    html = path.read_text(encoding="utf-8")
+    new = re.sub(r'(href=")(?:\.\./)?/?css/style\.css(?:\?v=[^"]*)?(")',
+                 rf'\1css/style.css?v={asset_version("css/style.css")}\2', html)
+    if new != html:
+        path.write_text(new, encoding="utf-8")
+        print("  privacy.html")
+
+
 def main():
     source = (ROOT / "index.html").read_text(encoding="utf-8")
     translations = load_translations()
@@ -243,6 +284,7 @@ def main():
         path.write_text(build(lang, source, translations), encoding="utf-8")
         print(f"  {path.relative_to(ROOT)}")
 
+    stamp_privacy()
     write_sitemap()
     print("  sitemap.xml")
 
