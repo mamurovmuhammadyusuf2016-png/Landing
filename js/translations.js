@@ -5,7 +5,7 @@ const TRANSLATIONS = {
 ru: {
   nav: {
     tagline: "Учебный центр арабского языка",
-    about: "О центре", courses: "Курсы", teachers: "Преподаватели",
+    about: "О центре", courses: "Курсы",
     reviews: "Отзывы", faq: "Вопросы", contact: "Контакты", cta: "Записаться"
   },
   hero: {
@@ -68,19 +68,6 @@ ru: {
     step2Title: "Бесплатный пробный урок", step2Desc: "Познакомитесь с преподавателем, форматом занятий и программой курса.",
     step3Title: "Определение уровня", step3Desc: "Подберём группу или индивидуальную программу под ваш текущий уровень.",
     step4Title: "Начало обучения", step4Desc: "Регулярные занятия, поддержка преподавателя и понятный прогресс."
-  },
-  teachers: {
-    tag: "Команда", title: "Преподаватели, которым доверяют ученики",
-    subtitle: "Устазы центра по фонетике, грамматике и детским группам.",
-    t1Name: "Устоз Шавкат", t1Role: "Фонетика",
-    t2Name: "Устоз Аббос", t2Role: "Фонетика",
-    t3Name: "Устоз Мадина", t3Role: "Фонетика",
-    t4Name: "Устоз Самия", t4Role: "Фонетика",
-    t5Name: "Устоз Малохат", t5Role: "Грамматика",
-    t6Name: "Устоз Иброхим", t6Role: "Грамматика",
-    t7Name: "Устоз Суманбар", t7Role: "Kids",
-    t8Name: "Устоз Одина", t8Role: "Kids",
-    t9Name: "Устоз Гулноза", t9Role: "Kids"
   },
   reviews: {
     tag: "Отзывы", title: "Что говорят наши ученики",
@@ -151,7 +138,7 @@ ru: {
 uz: {
   nav: {
     tagline: "Arab tili akademiyasi",
-    about: "Markaz haqida", courses: "Kurslar", teachers: "Oʻqituvchilar",
+    about: "Markaz haqida", courses: "Kurslar",
     reviews: "Fikrlar", faq: "Savollar", contact: "Aloqa", cta: "Yozilish"
   },
   hero: {
@@ -214,19 +201,6 @@ uz: {
     step2Title: "Bepul sinov darsi", step2Desc: "Oʻqituvchi, dars formati va kurs dasturi bilan tanishasiz.",
     step3Title: "Daraja aniqlash", step3Desc: "Hozirgi darajangizga mos guruh yoki individual dastur tanlanadi.",
     step4Title: "Taʼlimni boshlash", step4Desc: "Muntazam darslar, oʻqituvchi qoʻllab-quvvatlashi va aniq natija."
-  },
-  teachers: {
-    tag: "Jamoa", title: "Oʻquvchilar ishonadigan oʻqituvchilar",
-    subtitle: "Markazimizning fonetika, grammatika va Kids guruhlari boʻyicha ustozlari.",
-    t1Name: "Shavkat ustoz", t1Role: "Fonetika",
-    t2Name: "Abbos ustoz", t2Role: "Fonetika",
-    t3Name: "Madina ustoz", t3Role: "Fonetika",
-    t4Name: "Samiyya ustoz", t4Role: "Fonetika",
-    t5Name: "Malohat ustoz", t5Role: "Grammatika",
-    t6Name: "Ibrohim ustoz", t6Role: "Grammatika",
-    t7Name: "Sumanbar ustoz", t7Role: "Kids",
-    t8Name: "Odina ustoz", t8Role: "Kids",
-    t9Name: "Gulnoza ustoz", t9Role: "Kids"
   },
   reviews: {
     tag: "Fikrlar", title: "Oʻquvchilarimiz nima deydi",
@@ -297,7 +271,7 @@ uz: {
 ar: {
   nav: {
     tagline: "مركز تعليم اللغة العربية",
-    about: "عن المركز", courses: "الدورات", teachers: "المعلمون",
+    about: "عن المركز", courses: "الدورات",
     reviews: "الآراء", faq: "الأسئلة", contact: "تواصل معنا", cta: "التسجيل"
   },
   hero: {
@@ -360,19 +334,6 @@ ar: {
     step2Title: "درس تجريبي مجاني", step2Desc: "تتعرف على المعلم وصيغة الدروس وبرنامج الدورة.",
     step3Title: "تحديد المستوى", step3Desc: "نختار لك مجموعة أو برنامجًا فرديًا يناسب مستواك الحالي.",
     step4Title: "بدء التعلّم", step4Desc: "دروس منتظمة، دعم من المعلم، وتقدّم واضح."
-  },
-  teachers: {
-    tag: "الفريق", title: "معلمون يثق بهم الطلاب",
-    subtitle: "أساتذة المركز في الصوتيات والقواعد ومجموعات الأطفال.",
-    t1Name: "الأستاذ شوكت", t1Role: "الصوتيات",
-    t2Name: "الأستاذ عباس", t2Role: "الصوتيات",
-    t3Name: "الأستاذة مادينا", t3Role: "الصوتيات",
-    t4Name: "الأستاذة سامية", t4Role: "الصوتيات",
-    t5Name: "الأستاذة مالوهات", t5Role: "القواعد",
-    t6Name: "الأستاذ إبراهيم", t6Role: "القواعد",
-    t7Name: "الأستاذة سومانبار", t7Role: "Kids",
-    t8Name: "الأستاذة أودينا", t8Role: "Kids",
-    t9Name: "الأستاذة غولنوزا", t9Role: "Kids"
   },
   reviews: {
     tag: "الآراء", title: "ماذا يقول طلابنا",

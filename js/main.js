@@ -363,7 +363,7 @@
   --------------------------------------------------------- */
   function initCardGlow() {
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-    const cards = document.querySelectorAll(".feature-card, .course-card, .teacher-card, .review-card, .process-step");
+    const cards = document.querySelectorAll(".feature-card, .course-card, .review-card, .process-step");
     cards.forEach((card) => {
       card.addEventListener("mousemove", (e) => {
         const rect = card.getBoundingClientRect();
