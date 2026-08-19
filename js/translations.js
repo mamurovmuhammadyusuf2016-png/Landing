@@ -6,7 +6,7 @@ ru: {
   nav: {
     tagline: "Учебный центр арабского языка",
     about: "О центре", courses: "Курсы",
-    reviews: "Отзывы", faq: "Вопросы", contact: "Контакты", cta: "Записаться"
+    director: "Директор", reviews: "Отзывы", faq: "Вопросы", contact: "Контакты", cta: "Записаться"
   },
   hero: {
     badge: "Арабский язык в центре Ташкента",
@@ -68,6 +68,16 @@ ru: {
     step2Title: "Бесплатный пробный урок", step2Desc: "Познакомитесь с преподавателем, форматом занятий и программой курса.",
     step3Title: "Определение уровня", step3Desc: "Подберём группу или индивидуальную программу под ваш текущий уровень.",
     step4Title: "Начало обучения", step4Desc: "Регулярные занятия, поддержка преподавателя и понятный прогресс."
+  },
+  director: {
+    tag: "Директор",
+    badge: "преподаёт с 2018 года",
+    name: "Шавкатжон Эгамбердиев",
+    role: "Генеральный директор и один из основателей ACADEMY OF ARABIC",
+    bio1: "Родился в 1996 году в Ташкенте. В 2012 году стал учащимся исламского медресе Кукельдаш.",
+    bio2: "С 2018 года занимается преподавательской деятельностью и ведёт занятия по арабскому языку. Международный тренер ICBT.",
+    bio3: "Наряду с управлением учебным процессом и общей работой академии он продолжает преподавать арабский язык.",
+    bio4: "Многолетний опыт преподавания и внимание к арабскому языку составляют основу его педагогической работы."
   },
   reviews: {
     tag: "Отзывы", title: "Что говорят наши ученики",
@@ -139,7 +149,7 @@ uz: {
   nav: {
     tagline: "Arab tili akademiyasi",
     about: "Markaz haqida", courses: "Kurslar",
-    reviews: "Fikrlar", faq: "Savollar", contact: "Aloqa", cta: "Yozilish"
+    director: "Direktor", reviews: "Fikrlar", faq: "Savollar", contact: "Aloqa", cta: "Yozilish"
   },
   hero: {
     badge: "Toshkent markazida arab tili",
@@ -201,6 +211,16 @@ uz: {
     step2Title: "Bepul sinov darsi", step2Desc: "Oʻqituvchi, dars formati va kurs dasturi bilan tanishasiz.",
     step3Title: "Daraja aniqlash", step3Desc: "Hozirgi darajangizga mos guruh yoki individual dastur tanlanadi.",
     step4Title: "Taʼlimni boshlash", step4Desc: "Muntazam darslar, oʻqituvchi qoʻllab-quvvatlashi va aniq natija."
+  },
+  director: {
+    tag: "Direktor",
+    badge: "2018-yildan ustoz",
+    name: "Shavkatjon Egamberdiyev",
+    role: "ACADEMY OF ARABIC bosh direktori va asoschilaridan biri",
+    bio1: "1996-yil Toshkent shahrida tugʻilgan. 2012-yilda Koʻkaldosh islom bilim yurti talabasi boʻlgan.",
+    bio2: "2018-yildan buyon ustozlik faoliyati bilan shugʻullanib, arab tilidan dars berib kelmoqda. Xalqaro ICBT treneri.",
+    bio3: "U akademiyaning taʼlim jarayoni va umumiy faoliyatini boshqarish bilan bir qatorda, arab tili taʼlimi yoʻnalishida ham ustoz sifatida faoliyat yuritadi.",
+    bio4: "Koʻp yillik ustozlik tajribasi va arab tiliga boʻlgan eʼtibori uning pedagogik faoliyatining asosini tashkil etadi."
   },
   reviews: {
     tag: "Fikrlar", title: "Oʻquvchilarimiz nima deydi",
@@ -272,7 +292,7 @@ ar: {
   nav: {
     tagline: "مركز تعليم اللغة العربية",
     about: "عن المركز", courses: "الدورات",
-    reviews: "الآراء", faq: "الأسئلة", contact: "تواصل معنا", cta: "التسجيل"
+    director: "المدير", reviews: "الآراء", faq: "الأسئلة", contact: "تواصل معنا", cta: "التسجيل"
   },
   hero: {
     badge: "اللغة العربية في مركز طشقند",
@@ -334,6 +354,16 @@ ar: {
     step2Title: "درس تجريبي مجاني", step2Desc: "تتعرف على المعلم وصيغة الدروس وبرنامج الدورة.",
     step3Title: "تحديد المستوى", step3Desc: "نختار لك مجموعة أو برنامجًا فرديًا يناسب مستواك الحالي.",
     step4Title: "بدء التعلّم", step4Desc: "دروس منتظمة، دعم من المعلم، وتقدّم واضح."
+  },
+  director: {
+    tag: "المدير",
+    badge: "يُدرّس منذ ٢٠١٨",
+    name: "شوكاتجون إيغامبيرديف",
+    role: "المدير العام وأحد مؤسسي ACADEMY OF ARABIC",
+    bio1: "وُلد عام ١٩٩٦ في مدينة طشقند. وفي عام ٢٠١٢ التحق بمعهد كوكلداش الإسلامي.",
+    bio2: "يعمل في التدريس منذ عام ٢٠١٨ ويُدرّس اللغة العربية. مدرّب دولي معتمد من ICBT.",
+    bio3: "إلى جانب إدارته للعملية التعليمية ولأعمال الأكاديمية، يواصل العمل أستاذًا في مجال تعليم اللغة العربية.",
+    bio4: "خبرة سنوات طويلة في التدريس واهتمامه باللغة العربية هما أساس عمله التربوي."
   },
   reviews: {
     tag: "الآراء", title: "ماذا يقول طلابنا",
