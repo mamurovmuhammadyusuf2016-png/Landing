@@ -432,12 +432,17 @@
       e.preventDefault();
 
       const name = form.querySelector("#fieldName").value.trim();
+      const dialCode = form.querySelector("#fieldDialCode").value.trim();
       const phone = form.querySelector("#fieldPhone").value.trim();
+      const telegramField = form.querySelector("#fieldTelegram");
       const course = form.querySelector("#fieldCourse").value.trim();
       const message = form.querySelector("#fieldMessage").value.trim();
       const consent = form.querySelector("#fieldConsent");
 
-      if (!name || !phone || !consent.checked) {
+      /* @ is how people write a handle but not part of it */
+      const telegram = telegramField.value.trim().replace(/^@+/, "");
+
+      if (!name || !phone || !telegram || !consent.checked) {
         form.reportValidity();
         return;
       }
@@ -446,7 +451,8 @@
         "🔔 Заявка с сайта Academy of Arabic",
         "",
         `Имя: ${name}`,
-        `Телефон: ${phone}`,
+        `Телефон: ${dialCode} ${phone}`,
+        `Telegram: @${telegram}`,
         course ? `Курс: ${course}` : null,
         message ? `Комментарий: ${message}` : null,
         `Язык сайта: ${root.lang}`

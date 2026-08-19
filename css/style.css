@@ -653,18 +653,87 @@ html[dir="rtl"] .contact-list li:hover{ transform:translateX(-4px); }
 .booking-form h3, .form-success h3{ color:var(--ink); }
 .form-success p{ color:var(--ink-soft); }
 .booking-form h3{ font-size:1.25rem; margin-bottom:24px; }
-.field{ display:block; margin-bottom:18px; transition:transform .3s var(--ease); }
-.field > span{ display:block; font-family:var(--font-head); font-size:.78rem; font-weight:600; color:var(--ink-soft); margin-bottom:7px; transition:color .2s var(--ease); }
-.field input, .field select, .field textarea{
-  width:100%; padding:13px 16px; border-radius:12px; border:1px solid var(--line);
-  font-family:var(--font-body); font-size:.95rem; color:var(--ink); background:var(--bg);
-  transition:border-color .2s var(--ease), box-shadow .2s var(--ease), transform .2s var(--ease);
+/* screen-reader-only labels: the pills show placeholders, but every control
+   still needs a name for assistive tech */
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
 }
-.field input:focus, .field select:focus, .field textarea:focus{
-  outline:none; border-color:var(--primary); box-shadow:0 0 0 4px var(--primary-soft); transform:translateY(-1px);
+
+/* pill fields — no visible label, the placeholder carries the name */
+.field-pill{
+  display:flex; align-items:stretch;
+  background:var(--bg-alt); border:1px solid transparent; border-radius:100px;
+  margin-bottom:14px; overflow:hidden;
+  transition:border-color .2s var(--ease), box-shadow .2s var(--ease), background .2s var(--ease);
 }
-.field:focus-within > span{ color:var(--primary); }
-.field textarea{ resize:vertical; }
+.field-pill:focus-within{
+  background:#fff; border-color:var(--primary); box-shadow:0 0 0 4px var(--primary-soft);
+}
+.field-pill input,
+.field-pill select,
+.field-pill textarea{
+  flex:1; min-width:0; width:100%;
+  padding:16px 22px; border:none; background:transparent; outline:none;
+  font-family:var(--font-body); font-size:.98rem; color:var(--ink);
+}
+.field-pill input::placeholder,
+.field-pill textarea::placeholder{ color:var(--ink-faint); }
+/* a textarea cannot sit in a circle — soften that one to a rounded box */
+.field-pill:has(textarea){ border-radius:var(--radius-md); }
+.field-pill textarea{ resize:vertical; padding-block:16px; }
+.field-pill select{ appearance:none; -webkit-appearance:none; cursor:pointer; }
+
+/* left-hand chunk: country code, or the Telegram mark */
+.field-pill-split .field-prefix{
+  position:relative; display:flex; align-items:center; gap:8px; flex-shrink:0;
+  padding-inline:22px 16px;
+  border-inline-end:1px solid var(--line);
+  font-family:var(--font-head); font-weight:600; font-size:.98rem; color:var(--ink);
+}
+.field-prefix select{
+  appearance:none; -webkit-appearance:none;
+  padding:16px 26px 16px 0; border:none; background:transparent; outline:none;
+  font-family:var(--font-head); font-weight:600; font-size:.98rem; color:var(--ink);
+  cursor:pointer;
+}
+/* chevron, drawn once and shared by the code picker and the course select */
+.field-prefix::after,
+.field-pill > select ~ .field-chevron,
+.field-pill:not(.field-pill-split) > select + .field-chevron{ pointer-events:none; }
+.field-prefix::after{
+  content:""; position:absolute; inset-inline-end:16px; top:50%;
+  width:8px; height:8px; margin-top:-6px;
+  border-inline-end:2px solid var(--ink-soft); border-block-end:2px solid var(--ink-soft);
+  transform:rotate(45deg); pointer-events:none;
+}
+.field-prefix-static{ padding-inline-end:22px; }
+.field-prefix-static::after{ display:none; }
+.field-prefix-ico{ width:22px; height:22px; fill:#2AABEE; flex-shrink:0; }
+
+/* the standalone course select needs its own chevron */
+.field-pill:not(.field-pill-split){ position:relative; }
+.field-pill:not(.field-pill-split) select{ padding-inline-end:46px; }
+.field-pill:not(.field-pill-split):has(select)::after{
+  content:""; position:absolute; inset-inline-end:22px; top:50%;
+  width:8px; height:8px; margin-top:-6px;
+  border-inline-end:2px solid var(--ink-soft); border-block-end:2px solid var(--ink-soft);
+  transform:rotate(45deg); pointer-events:none;
+}
+
+/* "additional contact" rule with a centred pill caption */
+.field-divider{
+  display:flex; align-items:center; gap:14px;
+  margin:22px 0 14px;
+}
+.field-divider::before,
+.field-divider::after{ content:""; flex:1; height:1px; background:var(--line); }
+.field-divider span{
+  flex-shrink:0; padding:5px 16px; border-radius:100px;
+  border:1px solid var(--line);
+  font-family:var(--font-head); font-size:.78rem; font-weight:600; color:var(--ink-soft);
+}
+
 .form-note{ font-size:.76rem; color:var(--ink-faint); text-align:center; margin:14px 0 0; }
 .form-note a{ color:var(--ink-faint); text-decoration:underline; transition:color .2s var(--ease); }
 .form-note a:hover{ color:var(--primary); }
