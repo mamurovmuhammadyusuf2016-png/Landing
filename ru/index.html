@@ -301,7 +301,7 @@
 <!-- ?v= is bumped whenever these files change: Pages serves them with a
      10-minute cache, so without it a visitor can get new markup with a
      stale stylesheet and the layout breaks -->
-<link href="/css/style.css?v=7d05a70838" rel="stylesheet"/>
+<link href="/css/style.css?v=af80c3bea8" rel="stylesheet"/>
 <meta content="uz_UZ" property="og:locale:alternate"/><meta content="ar_AR" property="og:locale:alternate"/><link href="https://academy-of-arabic.uz/ru/" rel="canonical"/><link href="https://academy-of-arabic.uz/" hreflang="uz" rel="alternate"/><link href="https://academy-of-arabic.uz/ru/" hreflang="ru" rel="alternate"/><link href="https://academy-of-arabic.uz/ar/" hreflang="ar" rel="alternate"/><link href="https://academy-of-arabic.uz/" hreflang="x-default" rel="alternate"/></head>
 <body>
 <div aria-hidden="true" class="pattern-overlay"></div>
@@ -722,14 +722,13 @@
 <label class="sr-only" data-i18n="contact.formDialCode" for="fieldDialCode">Код страны</label>
 <div class="field-prefix">
 <select id="fieldDialCode" name="dialCode">
-<option data-flag="🇺🇿" selected="" value="+998">🇺🇿 +998</option>
-<option data-flag="🇷🇺" value="+7">🇷🇺 +7</option>
-<option data-flag="🇰🇿" value="+7 7">🇰🇿 +7</option>
-<option data-flag="🇰🇬" value="+996">🇰🇬 +996</option>
-<option data-flag="🇹🇯" value="+992">🇹🇯 +992</option>
-<option data-flag="🇹🇷" value="+90">🇹🇷 +90</option>
-<option data-flag="🇸🇦" value="+966">🇸🇦 +966</option>
-<option data-flag="🇦🇪" value="+971">🇦🇪 +971</option>
+<option selected="" value="+998">+998</option>
+<option value="+7">+7</option>
+<option value="+996">+996</option>
+<option value="+992">+992</option>
+<option value="+90">+90</option>
+<option value="+966">+966</option>
+<option value="+971">+971</option>
 </select>
 </div>
 <label class="sr-only" data-i18n="contact.formPhone" for="fieldPhone">Номер телефона</label>
@@ -744,8 +743,8 @@
 <label class="sr-only" data-i18n="contact.formTelegramLabel" for="fieldTelegram">Username</label>
 <input autocomplete="off" id="fieldTelegram" name="telegram" placeholder="@examplename" required="" type="text"/>
 </div>
+<label class="field-label" data-i18n="contact.formLevelLabel" for="fieldCourse">Ваш текущий уровень</label>
 <div class="field-pill">
-<label class="sr-only" data-i18n="contact.formCourse" for="fieldCourse">Интересующий курс</label>
 <select id="fieldCourse" name="course">
 <option data-i18n="contact.course1" value="">Ещё не определился(-ась)</option>
 <option data-i18n="contact.course2">Начальный арабский (фонетика, на узбекском)</option>
@@ -759,8 +758,8 @@
 <option data-i18n="contact.course10">Kids — детская группа (с 3 лет)</option>
 </select>
 </div>
+<label class="field-label" data-i18n="contact.formNoteLabel" for="fieldMessage">Для комментария</label>
 <div class="field-pill">
-<label class="sr-only" data-i18n="contact.formMessage" for="fieldMessage">Комментарий (необязательно)</label>
 <textarea data-i18n-placeholder="contact.formMessagePh" id="fieldMessage" name="message" placeholder="Удобное время, уровень языка, вопросы..." rows="3"></textarea>
 </div>
 <label class="field-check">
@@ -838,7 +837,7 @@
 <div id="bookingDialogSlot"></div>
 </div>
 </dialog>
-<script src="/js/translations.js?v=02250a0c31"></script>
+<script src="/js/translations.js?v=3154d50fa9"></script>
 <script src="/js/main.js?v=9696882257"></script>
 </body>
 </html>

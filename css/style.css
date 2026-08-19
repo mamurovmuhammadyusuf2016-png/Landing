@@ -697,6 +697,13 @@ html[dir="rtl"] .contact-list li:hover{ transform:translateX(-4px); }
   transform:rotate(45deg); pointer-events:none;
 }
 
+/* the two fields that need a spelled-out caption above the pill */
+.field-label{
+  display:block; margin:20px 0 8px; padding-inline-start:6px;
+  font-family:var(--font-head); font-size:.82rem; font-weight:600;
+  color:var(--ink-soft);
+}
+
 /* "additional contact" rule with a centred pill caption */
 .field-divider{
   display:flex; align-items:center; gap:14px;
