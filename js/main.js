@@ -406,6 +406,32 @@
   }
 
 
+
+  /* ---------------------------------------------------------
+     Confetti — fires once when an enquiry actually reaches the bot
+  --------------------------------------------------------- */
+  function celebrate() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const layer = document.createElement("div");
+    layer.className = "confetti";
+    layer.setAttribute("aria-hidden", "true");
+    const colours = ["#0E3B2E", "#B98A2E", "#E7CD7A", "#17614a", "#F4EEDD"];
+    for (let i = 0; i < 90; i++) {
+      const bit = document.createElement("i");
+      bit.style.left = `${rand(0, 100)}%`;
+      bit.style.background = colours[Math.floor(Math.random() * colours.length)];
+      bit.style.setProperty("--dx", `${rand(-160, 160)}px`);
+      bit.style.setProperty("--spin", `${rand(360, 1080)}deg`);
+      bit.style.animationDuration = `${rand(2.4, 4.2)}s`;
+      bit.style.animationDelay = `${rand(0, .5)}s`;
+      bit.style.width = `${rand(6, 11)}px`;
+      bit.style.height = `${rand(10, 18)}px`;
+      layer.appendChild(bit);
+    }
+    document.body.appendChild(layer);
+    setTimeout(() => layer.remove(), 5200);
+  }
+
   /* ---------------------------------------------------------
      Booking form -> the centre's Telegram bot, with the
      pre-filled-chat link kept as the fallback when the request
@@ -481,8 +507,12 @@
             form.hidden = true;
             success.hidden = false;
             setPanel("contact.sentTitle", "contact.sentText");
-            if (link) link.hidden = true;   // nothing left for them to do
+            /* delivered — nothing is left for them to do */
+            if (link) link.hidden = true;
+            const alt = success.querySelector(".form-success-alt");
+            if (alt) alt.hidden = true;
             form.reset();
+            celebrate();
             return;
           }
         } catch (err) {
@@ -500,6 +530,8 @@
       form.hidden = true;
       success.hidden = false;
       if (link) link.hidden = false;
+      const altBack = success.querySelector(".form-success-alt");
+      if (altBack) altBack.hidden = false;
       setPanel("contact.successTitle", "contact.successText");
       window.open(deepLink, "_blank", "noopener");
     });

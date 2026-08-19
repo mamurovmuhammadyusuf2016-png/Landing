@@ -371,7 +371,7 @@ html[dir="rtl"] .hero-photo{
 .stat:hover{ transform:translateY(-3px); }
 .stat-num{ font-family:var(--font-head); font-size:clamp(2.1rem, 3.4vw, 2.9rem); font-weight:700; color:var(--primary); display:inline; line-height:1.05; }
 .stat-plus{ font-family:var(--font-head); font-size:clamp(2.1rem, 3.4vw, 2.9rem); font-weight:700; color:var(--gold); line-height:1.05; }
-.stat-label{ font-family:var(--font-head); font-size:.84rem; font-weight:500; color:var(--ink-faint); flex-basis:100%; margin-top:8px; }
+.stat-label{ font-family:var(--font-head); font-size:.78rem; font-weight:600; color:var(--ink-faint); flex-basis:100%; margin-top:8px; text-transform:uppercase; letter-spacing:.07em; }
 
 
 /* still used for the About-section frame */
@@ -721,6 +721,8 @@ html[dir="rtl"] .contact-list li:hover{ transform:translateX(-4px); }
 .field-check span{ font-size:.82rem; color:var(--ink-soft); line-height:1.45; }
 
 .form-success .btn{ margin-top:6px; }
+/* .btn sets display, which outranks the hidden attribute on its own */
+.form-success .btn[hidden], .form-success-alt[hidden]{ display:none; }
 .form-success-alt{ margin:16px 0 0; font-size:.82rem; color:var(--ink-faint); }
 .form-success-alt a{ color:var(--primary); font-weight:600; white-space:nowrap; }
 .form-success-alt a:hover{ color:var(--gold); }
@@ -1100,3 +1102,16 @@ html[dir="rtl"] .footer-col a:hover{ transform:translateX(-4px); }
   .director-visual{ max-width:340px; margin-inline:auto; }
   .director-badge{ inset-inline-start:0; }
 }
+
+
+/* ---- Confetti on a delivered enquiry ------------------------- */
+.confetti{ position:fixed; inset:0; z-index:200; pointer-events:none; overflow:hidden; }
+.confetti i{
+  position:absolute; top:-14px; width:9px; height:14px; border-radius:2px;
+  animation:confettiFall linear forwards;
+}
+@keyframes confettiFall{
+  0%{ transform:translate3d(0,0,0) rotate(0deg); opacity:1; }
+  100%{ transform:translate3d(var(--dx,0), 105vh, 0) rotate(var(--spin,540deg)); opacity:.9; }
+}
+@media (prefers-reduced-motion: reduce){ .confetti{ display:none; } }

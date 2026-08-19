@@ -301,7 +301,7 @@
 <!-- ?v= is bumped whenever these files change: Pages serves them with a
      10-minute cache, so without it a visitor can get new markup with a
      stale stylesheet and the layout breaks -->
-<link href="/css/style.css?v=30ce89b057" rel="stylesheet"/>
+<link href="/css/style.css?v=7d05a70838" rel="stylesheet"/>
 <meta content="ru_RU" property="og:locale:alternate"/><meta content="ar_AR" property="og:locale:alternate"/><link href="https://academy-of-arabic.uz/" rel="canonical"/><link href="https://academy-of-arabic.uz/" hreflang="uz" rel="alternate"/><link href="https://academy-of-arabic.uz/ru/" hreflang="ru" rel="alternate"/><link href="https://academy-of-arabic.uz/ar/" hreflang="ar" rel="alternate"/><link href="https://academy-of-arabic.uz/" hreflang="x-default" rel="alternate"/></head>
 <body>
 <div aria-hidden="true" class="pattern-overlay"></div>
@@ -366,8 +366,8 @@
 <span class="stat-label" data-i18n="hero.statsStudents">bitiruvchi</span>
 </div>
 <div class="stat">
-<span class="stat-num" data-count="13">13</span>
-<span class="stat-label" data-i18n="hero.statsTeachers">oʻqituvchi</span>
+<span class="stat-num" data-count="30">30</span><span class="stat-plus">+</span>
+<span class="stat-label" data-i18n="hero.statsTeachers">Xodimlarimiz</span>
 </div>
 <div class="stat">
 <span class="stat-num">2021</span>
@@ -479,7 +479,7 @@
 <li data-i18n="courses.item1Point3">Harakatlar va transkripsiyasiz ovoz chiqarib oʻqish</li>
 <li data-i18n="courses.item1Point4">Oddiy suhbat uchun birinchi iboralar va soʻz boyligi</li>
 </ul>
-<a class="btn btn-outline btn-block course-cta" data-course-key="courses.item1Title" data-i18n="courses.cta" data-open-booking="" href="#contact">Yozilish</a>
+<a class="btn btn-outline btn-block course-cta" data-course-key="contact.course2" data-i18n="courses.cta" data-open-booking="" href="#contact">Yozilish</a>
 </article>
 <article class="course-card reveal">
 <span class="course-badge" data-i18n="courses.item2Level">Kattalar uchun</span>
@@ -491,7 +491,7 @@
 <li data-i18n="courses.item2Point3">Oddiydan murakkabgacha gap qurish</li>
 <li data-i18n="courses.item2Point4">Har darsda nutq amaliyoti va xatolar tahlili</li>
 </ul>
-<a class="btn btn-outline btn-block course-cta" data-course-key="courses.item2Title" data-i18n="courses.cta" data-open-booking="" href="#contact">Yozilish</a>
+<a class="btn btn-outline btn-block course-cta" data-course-key="contact.course4" data-i18n="courses.cta" data-open-booking="" href="#contact">Yozilish</a>
 </article>
 <article class="course-card reveal course-card-kids">
 <span class="course-badge" data-i18n="courses.item3Level">3–12 yosh</span>
@@ -503,7 +503,7 @@
 <li data-i18n="courses.item3Point3">Ogʻzaki nutq: bola birinchi darsdanoq gapiradi</li>
 <li data-i18n="courses.item3Point4">Kichik guruhlar va har bir bolaga eʼtibor</li>
 </ul>
-<a class="btn btn-outline btn-block course-cta" data-course-key="courses.item3Title" data-i18n="courses.cta" data-open-booking="" href="#contact">Yozilish</a>
+<a class="btn btn-outline btn-block course-cta" data-course-key="contact.course10" data-i18n="courses.cta" data-open-booking="" href="#contact">Yozilish</a>
 </article>
 </div>
 </div>
@@ -747,10 +747,16 @@
 <div class="field-pill">
 <label class="sr-only" data-i18n="contact.formCourse" for="fieldCourse">Qiziqtirgan kurs</label>
 <select id="fieldCourse" name="course">
-<option data-i18n="contact.formCourseDefault" value="">Hali aniqlamaganman</option>
-<option data-i18n="courses.item1Title">Boshlangʻich arab tili (fonetika)</option>
-<option data-i18n="courses.item2Title">Grammatika</option>
-<option data-i18n="courses.item3Title">Kids — bolalar uchun arab tili</option>
+<option data-i18n="contact.course1" value="">Hali aniqlamaganman</option>
+<option data-i18n="contact.course2">Boshlangʻich arab tili (fonetika, oʻzbek tilida)</option>
+<option data-i18n="contact.course3">Boshlangʻich arab tili (fonetika, rus tilida)</option>
+<option data-i18n="contact.course4">Grammatika (oʻzbek tilida)</option>
+<option data-i18n="contact.course5">Grammatika (rus tilida)</option>
+<option data-i18n="contact.course6">Yakka taʼlim shaklida</option>
+<option data-i18n="contact.course7">Mini guruh shaklida</option>
+<option data-i18n="contact.course8">Gibrid taʼlim shaklida</option>
+<option data-i18n="contact.course9">Online taʼlim shaklida</option>
+<option data-i18n="contact.course10">Kids — bolalar guruhi (3 yoshdan qabul)</option>
 </select>
 </div>
 <div class="field-pill">
@@ -832,7 +838,7 @@
 <div id="bookingDialogSlot"></div>
 </div>
 </dialog>
-<script src="/js/translations.js?v=1a0474010d"></script>
-<script src="/js/main.js?v=59236df6fa"></script>
+<script src="/js/translations.js?v=02250a0c31"></script>
+<script src="/js/main.js?v=9696882257"></script>
 </body>
 </html>
