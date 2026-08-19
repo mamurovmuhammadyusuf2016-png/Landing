@@ -31,7 +31,7 @@ ru: {
     subtitle: "Мы убрали из обучения всё лишнее и оставили то, что действительно ведёт к результату.",
     item1Title: "Опытные устазы", item1Desc: "Опыт более 5 лет — занятия ведут устазы-специалисты!",
     item2Title: "Разговорная практика", item2Desc: "Уже с первых занятий вы начинаете говорить, а не только зубрить грамматику.",
-    item3Title: "Понятная грамматика", item3Desc: "Объясняем правила простым языком и сразу закрепляем их на практике.",
+    item3Title: "Русский и узбекский", item3Desc: "Занятия ведутся на русском и узбекском языках — выбираете тот, на котором вам удобнее.",
     item4Title: "Прозрачный прогресс", item4Desc: "Регулярные тесты и обратная связь — вы всегда видите свой уровень.",
     item5Title: "Удобное расписание", item5Desc: "Занятия все дни недели, утром и вечером: группы для женщин, мужчин, детей (Kids) и индивидуальный формат. 1, 2 или 3 занятия в неделю.",
     item6Title: "Бесплатный пробный урок", item6Desc: "Познакомитесь с преподавателем и форматом занятий перед оплатой курса."
@@ -39,7 +39,7 @@ ru: {
   courses: {
     tag: "Направления", title: "Курсы арабского языка",
     subtitle: "Три направления — постановка произношения, грамматика и занятия для детей. Формат офлайн в Ташкенте или онлайн.",
-    priceFrom: "в месяц", priceValue: "от 450 000 сум", cta: "Записаться",
+    cta: "Записаться",
 
     item1Level: "Взрослым", item1Title: "Начальный арабский (фонетика)",
     item1Desc: "Стартовая ступень для тех, кто начинает с нуля. Учимся читать арабское письмо и правильно произносить звуки, которых нет в русском языке, — без этого дальше не будет ни грамотного чтения, ни понятной речи.",
@@ -177,7 +177,7 @@ uz: {
     subtitle: "Biz taʼlimdan barcha ortiqcha narsalarni olib tashladik va faqat natijaga olib keladigan narsalarni qoldirdik.",
     item1Title: "Tajribali ustozlar", item1Desc: "5 yildan ortiq tajribaga ega, mutaxassis ustozlar!",
     item2Title: "Amaliy suhbat", item2Desc: "Birinchi darsdanoq faqat grammatikani yodlamaysiz, balki gapira boshlaysiz.",
-    item3Title: "Tushunarli grammatika", item3Desc: "Qoidalarni oddiy tilda tushuntiramiz va darhol amaliyotda mustahkamlaymiz.",
+    item3Title: "Rus va oʻzbek tilida", item3Desc: "Darslar rus va oʻzbek tillarida olib boriladi — oʻzingizga qulay tilni tanlaysiz.",
     item4Title: "Aniq natija nazorati", item4Desc: "Muntazam testlar va fikr-mulohaza — oʻz darajangizni doim koʻrasiz.",
     item5Title: "Qulay jadval", item5Desc: "Haftaning barcha kunlarida ertalabki va kechki kurslarimiz bor: ayollar, erkaklar, kids va individual. Haftada 1, 2 yoki 3 martalik darslar.",
     item6Title: "Bepul sinov darsi", item6Desc: "Kursga toʻlov qilishdan oldin oʻqituvchi va dars formati bilan tanishasiz."
@@ -185,7 +185,7 @@ uz: {
   courses: {
     tag: "Yoʻnalishlar", title: "Arab tili kurslari",
     subtitle: "Uchta yoʻnalish — talaffuzni qoʻyish, grammatika va bolalar uchun darslar. Toshkentda oflayn yoki onlayn format.",
-    priceFrom: "oyiga", priceValue: "450 000 soʻmdan", cta: "Yozilish",
+    cta: "Yozilish",
 
     item1Level: "Kattalar uchun", item1Title: "Boshlangʻich arab tili (fonetika)",
     item1Desc: "Noldan boshlovchilar uchun birinchi bosqich. Arab yozuvini oʻqishni va oʻzbek tilida boʻlmagan tovushlarni toʻgʻri talaffuz qilishni oʻrganamiz — busiz na savodli oʻqish, na tushunarli nutq boʻladi.",
@@ -323,7 +323,7 @@ ar: {
     subtitle: "أزلنا من التعليم كل ما هو غير ضروري وأبقينا على ما يقود فعلاً إلى نتيجة.",
     item1Title: "أساتذة ذوو خبرة", item1Desc: "أساتذة مختصون بخبرة تزيد على خمس سنوات!",
     item2Title: "ممارسة المحادثة", item2Desc: "تبدأ بالتحدث منذ الدروس الأولى، وليس فقط حفظ القواعد.",
-    item3Title: "قواعد واضحة", item3Desc: "نشرح القواعد بلغة بسيطة ونرسّخها فورًا بالتطبيق العملي.",
+    item3Title: "بالروسية والأوزبكية", item3Desc: "تُقدَّم الدروس بالروسية والأوزبكية — تختار اللغة الأنسب لك.",
     item4Title: "تقدّم واضح", item4Desc: "اختبارات منتظمة وتغذية راجعة — ترى مستواك دائمًا.",
     item5Title: "جدول مريح", item5Desc: "دروس في كل أيام الأسبوع صباحًا ومساءً: مجموعات للنساء وللرجال وللأطفال (Kids) ودروس فردية. درس أو درسان أو ثلاثة في الأسبوع.",
     item6Title: "درس تجريبي مجاني", item6Desc: "تتعرف على المعلم وصيغة الدروس قبل الدفع مقابل الدورة."
@@ -331,7 +331,7 @@ ar: {
   courses: {
     tag: "الدورات", title: "دورات اللغة العربية",
     subtitle: "ثلاث دورات — ضبط النطق، والقواعد، ودروس للأطفال. حضوريًا في طشقند أو عبر الإنترنت.",
-    priceFrom: "شهريًا", priceValue: "من ٤٥٠ ٠٠٠ سوم", cta: "التسجيل",
+    cta: "التسجيل",
 
     item1Level: "للبالغين", item1Title: "العربية للمبتدئين (الصوتيات)",
     item1Desc: "المرحلة الأولى لمن يبدأ من الصفر. نتعلّم قراءة الخط العربي ونطق الأصوات غير الموجودة في لغتك نطقًا صحيحًا — وبدون ذلك لا قراءة سليمة ولا كلام مفهوم.",

@@ -513,13 +513,11 @@ html[dir="rtl"] .hero-photo{
   background:var(--gold); opacity:.85;
 }
 
-.course-price{
-  display:flex; flex-direction:column; gap:2px;
-  margin-top:auto; padding-top:20px; margin-bottom:18px;
-  border-top:1px solid var(--line);
-}
-.course-price-from{ font-family:var(--font-head); font-size:.74rem; font-weight:500; color:var(--ink-faint); }
-.course-price-value{ font-family:var(--font-head); font-size:1.32rem; font-weight:700; color:var(--primary); }
+/* the price block used to hold the bottom; without it the button does, so
+   the cards keep a common baseline whatever the copy length */
+.course-card .course-cta{ margin-top:auto; }
+.course-points{ margin-bottom:22px; }
+
 
 /* =============================================================
    Process
