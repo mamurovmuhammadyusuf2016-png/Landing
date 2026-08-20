@@ -189,17 +189,22 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
 /* =============================================================
    Header
 ============================================================= */
+/* The header is painted with a solid colour on purpose. A frosted
+   backdrop-filter here rendered as an opaque black bar on some phone
+   browsers, hiding the logo, the phone number and the menu, so the blur
+   is gone and the bar carries the page colour instead. */
 .site-header{
   position:fixed; inset-inline:0; top:0; z-index:100;
-  background:rgba(251,248,241,.7);
-  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  background:var(--bg);
   border-bottom:1px solid transparent;
   transition:background .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease), padding .3s var(--ease);
-  animation:headerDrop .6s var(--ease) both;
 }
+/* the entrance animation runs on the inner row: an animated element that
+   also composites a filter is what triggered the black bar */
+.header-inner{ animation:headerDrop .6s var(--ease) both; }
 @keyframes headerDrop{ from{ opacity:0; transform:translateY(-16px); } to{ opacity:1; transform:translateY(0); } }
 .site-header.scrolled{
-  background:rgba(251,248,241,.92);
+  background:var(--bg);
   border-color:var(--line);
   box-shadow:0 6px 24px rgba(14,59,46,.06);
 }
