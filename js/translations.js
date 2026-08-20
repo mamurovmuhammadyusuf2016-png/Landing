@@ -6,7 +6,7 @@ ru: {
   nav: {
     tagline: "Учебный центр арабского языка",
     about: "О центре", courses: "Курсы",
-    director: "Основатель", reviews: "Отзывы", faq: "Вопросы", contact: "Контакты", cta: "Записаться"
+    director: "Основатель", reviews: "Отзывы", branches: "Филиалы", faq: "Вопросы", contact: "Контакты", cta: "Записаться"
   },
   hero: {
     badge: "Арабский язык в центре Ташкента",
@@ -117,6 +117,12 @@ ru: {
     q8: "С какого возраста берёте детей?",
     a8: "Курс Kids рассчитан на детей от 3 до 12 лет. Взрослые группы по фонетике и грамматике — без возрастных ограничений."
   },
+  branches: {
+    tag: "Филиалы", title: "Где нас найти",
+    subtitle: "В центре Ташкента, в нескольких минутах от метро и общественного транспорта.",
+    name: "Ташкент — главный филиал",
+    call: "Позвонить", directions: "Построить маршрут →"
+  },
   contact: {
     tag: "Контакты", title: "Запишитесь на бесплатный пробный урок",
     subtitle: "Оставьте заявку — мы свяжемся с вами в Telegram или по телефону в течение рабочего дня и подберём удобное время занятия.",
@@ -165,7 +171,7 @@ uz: {
   nav: {
     tagline: "Arab tili akademiyasi",
     about: "Markaz haqida", courses: "Kurslar",
-    director: "Asoschi", reviews: "Fikrlar", faq: "Savollar", contact: "Aloqa", cta: "Yozilish"
+    director: "Asoschi", reviews: "Fikrlar", branches: "Filiallar", faq: "Savollar", contact: "Aloqa", cta: "Yozilish"
   },
   hero: {
     badge: "Toshkent markazida arab tili",
@@ -276,6 +282,12 @@ uz: {
     q8: "Bolalarni necha yoshdan qabul qilasiz?",
     a8: "Kids kursi 3 yoshdan 12 yoshgacha boʻlgan bolalar uchun moʻljallangan. Kattalar uchun fonetika va grammatika guruhlarida yosh chegarasi yoʻq."
   },
+  branches: {
+    tag: "Filiallar", title: "Bizni qayerdan topasiz",
+    subtitle: "Toshkent markazida, metro va jamoat transportidan bir necha daqiqalik yoʻlda.",
+    name: "Toshkent — bosh filial",
+    call: "Qoʻngʻiroq qilish", directions: "Yoʻnalish olish →"
+  },
   contact: {
     tag: "Aloqa", title: "Bepul sinov darsiga yoziling",
     subtitle: "Ariza qoldiring — biz siz bilan ish kuni davomida Telegram yoki telefon orqali bogʻlanamiz va qulay dars vaqtini kelishamiz.",
@@ -324,7 +336,7 @@ ar: {
   nav: {
     tagline: "مركز تعليم اللغة العربية",
     about: "عن المركز", courses: "الدورات",
-    director: "المؤسس", reviews: "الآراء", faq: "الأسئلة", contact: "تواصل معنا", cta: "التسجيل"
+    director: "المؤسس", reviews: "الآراء", branches: "الفروع", faq: "الأسئلة", contact: "تواصل معنا", cta: "التسجيل"
   },
   hero: {
     badge: "اللغة العربية في مركز طشقند",
@@ -435,6 +447,12 @@ ar: {
     q8: "من أي عمر تقبلون الأطفال؟",
     a8: "دورة Kids مخصصة للأطفال من ٣ إلى ١٢ سنة. أما مجموعات البالغين في الصوتيات والقواعد فليس فيها حد للعمر."
   },
+  branches: {
+    tag: "الفروع", title: "أين تجدنا",
+    subtitle: "في وسط طشقند، على بُعد دقائق من المترو ووسائل النقل العام.",
+    name: "طشقند — الفرع الرئيسي",
+    call: "اتصل بنا", directions: "← الحصول على الاتجاهات"
+  },
   contact: {
     tag: "تواصل معنا", title: "سجّل للحصول على درس تجريبي مجاني",
     subtitle: "اترك طلبًا وسنتواصل معك عبر Telegram أو الهاتف خلال يوم العمل لتحديد الوقت المناسب للدرس.",
@@ -485,7 +503,7 @@ en: {
   nav: {
     tagline: "Arabic language academy",
     about: "About", courses: "Courses",
-    director: "Founder", reviews: "Reviews", faq: "FAQ", contact: "Contact", cta: "Enrol"
+    director: "Founder", reviews: "Reviews", branches: "Branches", faq: "FAQ", contact: "Contact", cta: "Enrol"
   },
   hero: {
     badge: "Arabic in central Tashkent",
@@ -595,6 +613,12 @@ en: {
     a7: "The centre is open Monday to Saturday, 9:00 to 20:00. There are morning, evening and Saturday groups â we will find a time that suits you at the trial lesson.",
     q8: "From what age do you accept children?",
     a8: "The Kids course is for children aged 3 to 12. Adult phonetics and grammar groups have no age limit."
+  },
+  branches: {
+    tag: "Branches", title: "Where to find us",
+    subtitle: "In central Tashkent, a few minutes from the metro and public transport.",
+    name: "Tashkent — main branch",
+    call: "Call us", directions: "Get directions →"
   },
   contact: {
     tag: "Contact", title: "Book a free trial lesson",
