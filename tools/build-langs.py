@@ -141,6 +141,11 @@ def localise_body(soup, dic):
         v = by_path(dic, el["data-i18n-placeholder"])
         if v is not None:
             el["placeholder"] = v
+    for el in soup.select("[data-i18n-title]"):
+        v = by_path(dic, el["data-i18n-title"])
+        if v is not None:
+            el["title"] = v
+            el["aria-label"] = v
 
 
 def localise_jsonld(soup, lang, dic):

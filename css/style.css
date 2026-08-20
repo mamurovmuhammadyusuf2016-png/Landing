@@ -261,6 +261,21 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
 .nav-cta-mobile{ display:none; }
 
 .header-actions{ display:flex; align-items:center; gap:14px; }
+
+/* the design-style switch, next to the language pills */
+.skin-toggle{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:34px; height:34px; flex-shrink:0;
+  border:1px solid var(--line); border-radius:50%;
+  background:transparent; color:var(--gold); cursor:pointer;
+  transition:background .25s var(--ease), color .25s var(--ease),
+             border-color .25s var(--ease), transform .25s var(--ease);
+}
+.skin-toggle svg{ width:17px; height:17px; fill:currentColor; }
+.skin-toggle:hover{ border-color:var(--gold); transform:translateY(-1px) rotate(12deg); }
+.skin-toggle[aria-pressed="true"]{ color:var(--ink-faint); }
+.skin-toggle[aria-pressed="true"]:hover{ border-color:var(--primary); color:var(--primary); }
+
 .lang-switch{ display:flex; border:1px solid var(--line); border-radius:100px; padding:3px; gap:2px; }
 /* anchors now, one per language URL — kept looking like the old buttons */
 .lang-btn{
@@ -1240,3 +1255,59 @@ html[dir="rtl"] .footer-col a:hover{ transform:translateX(-4px); }
   100%{ transform:translate3d(var(--dx,0), 105vh, 0) rotate(var(--spin,540deg)); opacity:.9; }
 }
 @media (prefers-reduced-motion: reduce){ .confetti{ display:none; } }
+
+
+/* =============================================================
+   Classic skin — the plainer look the site had before the
+   ornament pass. Everything above is the ornate default; these
+   rules only fire when <html data-skin="classic">.
+============================================================= */
+[data-skin="classic"] .section-head h2::after{ display:none; }
+
+[data-skin="classic"] .about-arch{ display:none; }
+[data-skin="classic"] .about-logo{ width:82%; max-width:340px; }
+
+/* courses go back to ghost numerals and one uniform bullet */
+[data-skin="classic"] .courses-grid{ counter-reset:course; }
+[data-skin="classic"] .course-card{ counter-increment:course; }
+[data-skin="classic"] .course-card::after{
+  content:counter(course, decimal-leading-zero);
+  top:-18px; inset-inline-end:14px;
+  font-family:var(--font-head); font-size:5.6rem; font-weight:800;
+  opacity:.05;
+}
+[data-skin="classic"] .course-card:hover::after{ opacity:.09; transform:none; }
+[data-skin="classic"] .course-points li::before{
+  width:8px; height:8px; border-radius:50%; transform:none;
+  background:var(--gold); border:none; box-shadow:none;
+}
+[data-skin="classic"] .course-card-kids{ background:#fff; border-color:var(--line); }
+[data-skin="classic"] .course-card-kids::before{
+  background:linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+}
+[data-skin="classic"] .course-card:hover{ border-color:var(--line); }
+
+/* the FAQ is numbered again, with no rail and no tint */
+[data-skin="classic"] .faq-list{ counter-reset:faq; }
+[data-skin="classic"] .faq-item{ counter-increment:faq; }
+[data-skin="classic"] .faq-item::before{ display:none; }
+[data-skin="classic"] .faq-item.open{ background:#fff; }
+[data-skin="classic"] .faq-head{ position:static; }
+[data-skin="classic"] .faq-question::before{
+  content:counter(faq, decimal-leading-zero);
+  margin-inline-end:14px; flex-shrink:0;
+  font-family:var(--font-head); font-size:.82rem; font-weight:700; color:var(--gold);
+}
+
+/* the last step is lit only on hover again */
+[data-skin="classic"] .process-step:last-child .process-num{
+  background:var(--primary-dark); color:var(--gold-light);
+  border-color:var(--gold-light); box-shadow:none;
+}
+[data-skin="classic"] .process-step:last-child:hover .process-num{
+  background:var(--gold); color:var(--primary-dark); border-color:var(--gold);
+}
+
+/* cards answer the cursor with a shadow only */
+[data-skin="classic"] .review-avatar{ box-shadow:none; }
+[data-skin="classic"] .review-card:hover{ border-color:var(--line); }

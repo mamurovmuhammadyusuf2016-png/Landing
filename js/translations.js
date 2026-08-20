@@ -6,7 +6,8 @@ ru: {
   nav: {
     tagline: "Учебный центр арабского языка",
     about: "О центре", courses: "Курсы",
-    director: "Основатель", reviews: "Отзывы", faq: "Вопросы", contact: "Контакты", cta: "Записаться"
+    director: "Основатель", reviews: "Отзывы", faq: "Вопросы", contact: "Контакты", cta: "Записаться",
+    skinToggle: "Стиль оформления"
   },
   hero: {
     badge: "Арабский язык в центре Ташкента",
@@ -167,7 +168,8 @@ uz: {
   nav: {
     tagline: "Arab tili akademiyasi",
     about: "Markaz haqida", courses: "Kurslar",
-    director: "Asoschi", reviews: "Fikrlar", faq: "Savollar", contact: "Aloqa", cta: "Yozilish"
+    director: "Asoschi", reviews: "Fikrlar", faq: "Savollar", contact: "Aloqa", cta: "Yozilish",
+    skinToggle: "Dizayn uslubi"
   },
   hero: {
     badge: "Toshkent markazida arab tili",
@@ -328,7 +330,8 @@ ar: {
   nav: {
     tagline: "مركز تعليم اللغة العربية",
     about: "عن المركز", courses: "الدورات",
-    director: "المؤسس", reviews: "الآراء", faq: "الأسئلة", contact: "تواصل معنا", cta: "التسجيل"
+    director: "المؤسس", reviews: "الآراء", faq: "الأسئلة", contact: "تواصل معنا", cta: "التسجيل",
+    skinToggle: "نمط التصميم"
   },
   hero: {
     badge: "اللغة العربية في مركز طشقند",
