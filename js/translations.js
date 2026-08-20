@@ -6,7 +6,7 @@ ru: {
   nav: {
     tagline: "Учебный центр арабского языка",
     about: "О центре", courses: "Курсы",
-    director: "Директор", reviews: "Отзывы", faq: "Вопросы", contact: "Контакты", cta: "Записаться"
+    director: "Основатель", reviews: "Отзывы", faq: "Вопросы", contact: "Контакты", cta: "Записаться"
   },
   hero: {
     badge: "Арабский язык в центре Ташкента",
@@ -72,7 +72,7 @@ ru: {
     step3Time: "от 2 до 10 месяцев"
   },
   director: {
-    tag: "Директор",
+    tag: "Основатель",
     badge: "преподаёт с 2019 года",
     name: "Шавкатжон Эгамбердиев",
     role: "Генеральный директор и один из основателей ACADEMY OF ARABIC",
@@ -167,7 +167,7 @@ uz: {
   nav: {
     tagline: "Arab tili akademiyasi",
     about: "Markaz haqida", courses: "Kurslar",
-    director: "Direktor", reviews: "Fikrlar", faq: "Savollar", contact: "Aloqa", cta: "Yozilish"
+    director: "Asoschi", reviews: "Fikrlar", faq: "Savollar", contact: "Aloqa", cta: "Yozilish"
   },
   hero: {
     badge: "Toshkent markazida arab tili",
@@ -233,7 +233,7 @@ uz: {
     step3Time: "2 oydan 10 oygacha"
   },
   director: {
-    tag: "Direktor",
+    tag: "Asoschi",
     badge: "2019-yildan ustoz",
     name: "Shavkatjon Egamberdiyev",
     role: "ACADEMY OF ARABIC bosh direktori va asoschilaridan biri",
@@ -328,7 +328,7 @@ ar: {
   nav: {
     tagline: "مركز تعليم اللغة العربية",
     about: "عن المركز", courses: "الدورات",
-    director: "المدير", reviews: "الآراء", faq: "الأسئلة", contact: "تواصل معنا", cta: "التسجيل"
+    director: "المؤسس", reviews: "الآراء", faq: "الأسئلة", contact: "تواصل معنا", cta: "التسجيل"
   },
   hero: {
     badge: "اللغة العربية في مركز طشقند",
@@ -394,7 +394,7 @@ ar: {
     step3Time: "من شهرين إلى ١٠ أشهر"
   },
   director: {
-    tag: "المدير",
+    tag: "المؤسس",
     badge: "يُدرّس منذ ٢٠١٩",
     name: "شوكاتجون إيغامبيرديف",
     role: "المدير العام وأحد مؤسسي ACADEMY OF ARABIC",
