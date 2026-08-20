@@ -115,14 +115,12 @@ ru: {
     q7: "В какое время проходят занятия?",
     a7: "Центр работает с понедельника по субботу, с 9:00 до 20:00. Есть утренние, вечерние и субботние группы — подберём удобное вам время на пробном занятии.",
     q8: "С какого возраста берёте детей?",
-    a8: "Курс Kids рассчитан на детей от 3 до 12 лет. Взрослые группы по фонетике и грамматике — без возрастных ограничений.",
-    q9: "Сколько стоит обучение?",
-    a9: "Фонетика и грамматика — 550 000 сум в месяц при 2 занятиях в неделю и 750 000 сум при 3 занятиях. Курс Kids — от 300 000 сум в месяц. Все варианты указаны в разделе «Курсы»."
+    a8: "Курс Kids рассчитан на детей от 3 до 12 лет. Взрослые группы по фонетике и грамматике — без возрастных ограничений."
   },
   contact: {
     tag: "Контакты", title: "Запишитесь на бесплатный пробный урок",
     subtitle: "Оставьте заявку — мы свяжемся с вами в Telegram или по телефону в течение рабочего дня и подберём удобное время занятия.",
-    addressLabel: "Адрес", address: "г. Ташкент, Шайхантахурский р-н, ул. Сакичмон",
+    addressLabel: "Адрес", address: "г. Ташкент, Шайхантахурский р-н, ул. Лайлитугон, 1",
     phoneLabel: "Телефон", hoursLabel: "Часы работы", hours: "Пн–Сб: 9:00–20:00",
     formTitle: "Заявка на пробный урок",
     formName: "Ваше имя", formNamePh: "Ваше имя",
@@ -276,14 +274,12 @@ uz: {
     q7: "Darslar qaysi vaqtlarda boʻladi?",
     a7: "Markaz dushanbadan shanbagacha, soat 9:00 dan 20:00 gacha ishlaydi. Ertalabki, kechki va shanba kuni guruhlari bor — sinov darsida sizga qulay vaqtni tanlaymiz.",
     q8: "Bolalarni necha yoshdan qabul qilasiz?",
-    a8: "Kids kursi 3 yoshdan 12 yoshgacha boʻlgan bolalar uchun moʻljallangan. Kattalar uchun fonetika va grammatika guruhlarida yosh chegarasi yoʻq.",
-    q9: "Oʻqish narxi qancha?",
-    a9: "Fonetika va grammatika — haftasiga 2 marta boʻlsa oyiga 550 000 soʻm, 3 marta boʻlsa 750 000 soʻm. Kids kursi — oyiga 300 000 soʻmdan boshlanadi. Barcha variantlar «Kurslar» boʻlimida koʻrsatilgan."
+    a8: "Kids kursi 3 yoshdan 12 yoshgacha boʻlgan bolalar uchun moʻljallangan. Kattalar uchun fonetika va grammatika guruhlarida yosh chegarasi yoʻq."
   },
   contact: {
     tag: "Aloqa", title: "Bepul sinov darsiga yoziling",
     subtitle: "Ariza qoldiring — biz siz bilan ish kuni davomida Telegram yoki telefon orqali bogʻlanamiz va qulay dars vaqtini kelishamiz.",
-    addressLabel: "Manzil", address: "Toshkent sh., Shayxontohur tumani, Sakichmon koʻchasi",
+    addressLabel: "Manzil", address: "Toshkent sh., Shayxontohur tumani, Laylitugon koʻchasi, 1",
     phoneLabel: "Telefon", hoursLabel: "Ish vaqti", hours: "Dush–Shan: 9:00–20:00",
     formTitle: "Sinov darsiga ariza",
     formName: "Ismingiz", formNamePh: "Ismingiz",
@@ -437,14 +433,12 @@ ar: {
     q7: "ما هي أوقات الدروس؟",
     a7: "المركز يعمل من الاثنين إلى السبت، من الساعة ٩:٠٠ حتى ٢٠:٠٠. تتوفر مجموعات صباحية ومسائية ومجموعات يوم السبت — سنختار الوقت المناسب لك في الدرس التجريبي.",
     q8: "من أي عمر تقبلون الأطفال؟",
-    a8: "دورة Kids مخصصة للأطفال من ٣ إلى ١٢ سنة. أما مجموعات البالغين في الصوتيات والقواعد فليس فيها حد للعمر.",
-    q9: "كم تبلغ تكلفة الدراسة؟",
-    a9: "الصوتيات والقواعد — ٥٥٠ ٠٠٠ سوم شهريًا بواقع درسين أسبوعيًا، و٧٥٠ ٠٠٠ سوم بواقع ثلاثة دروس. دورة Kids تبدأ من ٣٠٠ ٠٠٠ سوم شهريًا. جميع الخيارات مذكورة في قسم «الدورات»."
+    a8: "دورة Kids مخصصة للأطفال من ٣ إلى ١٢ سنة. أما مجموعات البالغين في الصوتيات والقواعد فليس فيها حد للعمر."
   },
   contact: {
     tag: "تواصل معنا", title: "سجّل للحصول على درس تجريبي مجاني",
     subtitle: "اترك طلبًا وسنتواصل معك عبر Telegram أو الهاتف خلال يوم العمل لتحديد الوقت المناسب للدرس.",
-    addressLabel: "العنوان", address: "طشقند، منطقة شايخانتاهور، شارع ساكيتشمون",
+    addressLabel: "العنوان", address: "طشقند، منطقة شايخانتاهور، شارع لايليتوغون ١",
     phoneLabel: "الهاتف", hoursLabel: "ساعات العمل", hours: "الإثنين–السبت: ٩:٠٠–٢٠:٠٠",
     formTitle: "طلب درس تجريبي",
     formName: "اسمك", formNamePh: "اسمك",
