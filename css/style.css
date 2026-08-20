@@ -267,18 +267,64 @@ html[dir="rtl"] .feature-ico svg, html[dir="rtl"] .contact-ico svg{ transform:sc
 
 .header-actions{ display:flex; align-items:center; gap:14px; }
 
-.lang-switch{ display:flex; border:1px solid var(--line); border-radius:100px; padding:3px; gap:2px; }
-/* anchors now, one per language URL — kept looking like the old buttons */
-.lang-btn{
+/* Language picker: a round flag button that drops a named list. Four
+   languages will not fit as text pills on a phone, so the header only
+   ever carries the current flag. */
+.lang-switch{ position:relative; flex-shrink:0; }
+.lang-current{
   display:inline-flex; align-items:center; justify-content:center;
-  border:none; background:transparent; padding:6px 11px; border-radius:100px;
-  font-family:var(--font-head); font-size:.72rem; font-weight:700; color:var(--ink-faint); letter-spacing:.03em;
-  text-decoration:none; cursor:pointer;
-  transition:background .2s var(--ease), color .2s var(--ease), transform .2s var(--ease);
+  width:38px; height:38px; padding:0;
+  border:1px solid var(--line); border-radius:50%;
+  background:#fff; cursor:pointer;
+  transition:border-color .2s var(--ease), box-shadow .2s var(--ease), transform .2s var(--ease);
 }
-.lang-btn:hover{ transform:translateY(-1px); color:var(--primary); }
-.lang-btn.active{ background:var(--primary); color:#fff; animation:popIn .3s var(--ease); }
+.lang-current:hover{ border-color:var(--gold); transform:translateY(-1px); }
+.lang-current[aria-expanded="true"]{ border-color:var(--primary); box-shadow:0 0 0 4px var(--primary-soft); }
+
+/* flags are drawn in CSS — no image requests for four small rectangles */
+.flag{
+  display:block; width:24px; height:24px; border-radius:50%; flex-shrink:0;
+  border:1px solid rgba(14,59,46,.12);
+  background-size:100% 100%; background-repeat:no-repeat;
+}
+.flag-uz{ background-image:linear-gradient(to bottom, #1EB53A 0 33.3%, #fff 33.3% 66.6%, #0099B5 66.6% 100%); }
+.flag-ru{ background-image:linear-gradient(to bottom, #fff 0 33.3%, #0039A6 33.3% 66.6%, #D52B1E 66.6% 100%); }
+.flag-ar{ background-color:#006C35; background-image:linear-gradient(to bottom, transparent 46%, rgba(255,255,255,.9) 46% 54%, transparent 54%); }
+.flag-en{
+  background-color:#012169;
+  background-image:
+    linear-gradient(to bottom, transparent 44%, #C8102E 44% 56%, transparent 56%),
+    linear-gradient(to right,  transparent 44%, #C8102E 44% 56%, transparent 56%),
+    linear-gradient(to bottom, transparent 36%, #fff 36% 64%, transparent 64%),
+    linear-gradient(to right,  transparent 36%, #fff 36% 64%, transparent 64%),
+    linear-gradient(45deg,  transparent 46%, #C8102E 46% 54%, transparent 54%),
+    linear-gradient(-45deg, transparent 46%, #C8102E 46% 54%, transparent 54%),
+    linear-gradient(45deg,  transparent 40%, #fff 40% 60%, transparent 60%),
+    linear-gradient(-45deg, transparent 40%, #fff 40% 60%, transparent 60%);
+}
+
+.lang-menu{
+  position:absolute; top:calc(100% + 12px); inset-inline-end:0; z-index:120;
+  min-width:190px; margin:0; padding:10px; list-style:none;
+  background:#fff; border:1px solid var(--line); border-radius:20px;
+  box-shadow:0 18px 46px rgba(14,59,46,.14);
+  opacity:0; visibility:hidden; transform:translateY(-8px);
+  transition:opacity .22s var(--ease), transform .22s var(--ease), visibility .22s;
+}
+.lang-menu.open{ opacity:1; visibility:visible; transform:translateY(0); }
+.lang-btn{
+  display:flex; align-items:center; gap:12px;
+  padding:9px 12px; border-radius:14px;
+  font-family:var(--font-head); font-size:.92rem; font-weight:600; color:var(--ink);
+  text-decoration:none; white-space:nowrap;
+  transition:background .18s var(--ease), color .18s var(--ease);
+}
+.lang-btn:hover{ background:var(--bg-alt); color:var(--primary); }
+.lang-btn.active{ color:var(--primary); background:var(--primary-soft); }
 @keyframes popIn{ from{ transform:scale(.85); } to{ transform:scale(1); } }
+/* a phone number is Latin digits and must not be re-ordered by the RTL
+   layout — +998 78 … came out as … 78 998+ on the Arabic page */
+.header-phone, a[href^="tel:"]{ direction:ltr; unicode-bidi:isolate; }
 .header-phone{ font-family:var(--font-head); font-weight:600; font-size:.86rem; color:var(--primary); white-space:nowrap; transition:color .25s var(--ease), transform .25s var(--ease); display:inline-block; }
 .header-phone:hover{ color:var(--gold); transform:translateY(-1px); }
 
@@ -883,7 +929,6 @@ html[dir="rtl"] .footer-col a:hover{ transform:translateX(-4px); }
   .brand-sub{ display:none; }
   .brand-title{ font-size:.9rem; }
   .brand-mark{ width:28px; height:35px; }
-  .lang-btn{ padding:5px 8px; font-size:.68rem; }
   .nav-cta-mobile{ display:flex!important; margin-top:10px; }
 
   .main-nav{
@@ -940,7 +985,6 @@ html[dir="rtl"] .footer-col a:hover{ transform:translateX(-4px); }
 }
 
 @media (max-width: 360px){
-  .lang-btn{ padding:4px 6px; font-size:.62rem; }
   .header-actions{ gap:4px; }
 }
 

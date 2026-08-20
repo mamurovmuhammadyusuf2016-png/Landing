@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Build the Russian and Arabic copies of the landing page from index.html.
+Build the Russian, Arabic and English copies of the landing page from index.html.
 
 The site is plain static HTML — there is no runtime framework and nothing
 here ships to the browser. This script exists because each language needs
@@ -8,7 +8,7 @@ its own URL to be indexed separately, and hand-maintaining three copies of
 the same markup would drift.
 
 Reads:   index.html (the Uzbek original) and js/translations.js
-Writes:  ru/index.html, ar/index.html, sitemap.xml
+Writes:  ru/index.html, ar/index.html, en/index.html, sitemap.xml
 
 Run after changing index.html or the translations:
 
@@ -28,18 +28,19 @@ from bs4 import BeautifulSoup
 ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://academy-of-arabic.uz/"
 SOURCE_LANG = "uz"
-LANGS = ["uz", "ru", "ar"]
+LANGS = ["uz", "ru", "ar", "en"]
 RTL = {"ar"}
 
 # where each language lives, relative to the domain root
-URLS = {"uz": SITE, "ru": SITE + "ru/", "ar": SITE + "ar/"}
+URLS = {"uz": SITE, "ru": SITE + "ru/", "ar": SITE + "ar/", "en": SITE + "en/"}
 OUT = {
     "uz": ROOT / "index.html",
     "ru": ROOT / "ru" / "index.html",
     "ar": ROOT / "ar" / "index.html",
+    "en": ROOT / "en" / "index.html",
 }
 
-OG_LOCALE = {"uz": "uz_UZ", "ru": "ru_RU", "ar": "ar_AR"}
+OG_LOCALE = {"uz": "uz_UZ", "ru": "ru_RU", "ar": "ar_AR", "en": "en_US"}
 
 # head strings that carry language, keyed by meta name/property
 HEAD_TEXT = {
@@ -62,6 +63,16 @@ HEAD_TEXT = {
         "og:image:alt": "Academy of Arabic — أكاديمية اللغة العربية في طشقند",
         "twitter:title": "أكاديمية اللغة العربية في طشقند — Academy of Arabic",
         "twitter:description": "الصوتيات والقواعد ودورة للأطفال. درس تجريبي مجاني!",
+    },
+    "en": {
+        "title": "Arabic language academy in Tashkent — Academy of Arabic | Phonetics, grammar, kids",
+        "description": "Academy of Arabic — Arabic language courses in Tashkent: phonetics, grammar and classes for children. Groups of up to 20. Free trial lesson!",
+        "keywords": "arabic language, arabic courses, learn arabic, arabic Tashkent, arabic academy, phonetics, grammar, arabic for kids",
+        "og:title": "Arabic language academy in Tashkent — Academy of Arabic",
+        "og:description": "Phonetics, grammar and a course for children. Groups of up to 20. Book a free trial lesson!",
+        "og:image:alt": "Academy of Arabic — Arabic language academy in Tashkent",
+        "twitter:title": "Arabic language academy in Tashkent — Academy of Arabic",
+        "twitter:description": "Phonetics, grammar and a course for children. Free trial lesson!",
     },
 }
 

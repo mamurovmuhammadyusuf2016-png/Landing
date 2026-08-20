@@ -87,6 +87,29 @@
   function initLangSwitch() {
     const initial = TRANSLATIONS[root.lang] ? root.lang : CONFIG.defaultLang;
     applyTranslations(initial);
+
+    const button = document.getElementById("langCurrent");
+    const menu = document.getElementById("langMenu");
+    if (!button || !menu) return;
+
+    /* the closed control shows only the flag of the page you are on */
+    const flag = button.querySelector(".flag");
+    if (flag) flag.className = "flag flag-" + initial;
+
+    const close = () => {
+      menu.classList.remove("open");
+      button.setAttribute("aria-expanded", "false");
+    };
+
+    button.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const open = menu.classList.toggle("open");
+      button.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+
+    menu.addEventListener("click", (e) => e.stopPropagation());
+    document.addEventListener("click", close);
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
   }
 
   /* ---------------------------------------------------------

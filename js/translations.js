@@ -1,4 +1,4 @@
-/* Academy of Arabic — translations (RU / UZ / AR) */
+/* Academy of Arabic — translations (RU / UZ / AR / EN) */
 const TRANSLATIONS = {
 
 /* =========================== RUSSIAN =========================== */
@@ -476,6 +476,166 @@ ar: {
     about: "مركز تعليم اللغة العربية في طشقند: الصوتيات والقواعد ودورات للأطفال.",
     linksTitle: "الأقسام", contactTitle: "تواصل معنا", followTitle: "تابعنا",
     rights: "جميع الحقوق محفوظة."
+  }
+}
+,
+
+/* =========================== ENGLISH =========================== */
+en: {
+  nav: {
+    tagline: "Arabic language academy",
+    about: "About", courses: "Courses",
+    director: "Founder", reviews: "Reviews", faq: "FAQ", contact: "Contact", cta: "Enrol"
+  },
+  hero: {
+    badge: "Arabic in central Tashkent",
+    title1: "Arabic", title2: "from zero", title3: "to fluent conversation",
+    subtitle: "Beginner Arabic (reading and writing), grammar and speaking, plus a course for children. A genuinely individual approach to every student, experienced teachers and a convenient timetable in central Tashkent.",
+    ctaPrimary: "Book a free trial lesson", ctaSecondary: "See the courses",
+    statsStudents: "graduates", statsTeachers: "our staff", statsSince: "with you since 2021"
+  },
+  about: {
+    badgeLabel: "the year the centre opened",
+    tag: "About the centre",
+    title: "The road from your first Arabic letters to fluent conversation goes faster with us â on a clear programme and a proven method!",
+    lead: "Academy of Arabic teaches in stages: 1 â beginner Arabic (reading and writing), 2 â grammar and speaking, 3 â preparation for the CEFR or At-tanal certificates.",
+    text: "The teaching is built on practice: every lesson reviews your mistakes, tests are held regularly, and the teacher works with each student individually. At the end of every stage you receive a certificate stating the level you reached (A1, A2, B1 â¦ C1).",
+    point1Title: "Experienced teachers", point1Desc: "Our teachers are specialists in phonetics, grammar and working with children.",
+    point2Title: "Individual approach", point2Desc: "An individual approach to every student in the group, plus an assistant teacher.",
+    point3Title: "Flexible format", point3Desc: "In-person lessons in Tashkent and an online format from anywhere in the world.",
+    point4Title: "Certificate", point4Desc: "Each stage ends with a centre certificate stating your level of the language."
+  },
+  features: {
+    tag: "Why us", title: "Everything you need for comfortable, effective learning",
+    subtitle: "We stripped everything unnecessary out of the teaching and kept only what actually produces results.",
+    item1Title: "Experienced teachers", item1Desc: "Over 5 years of experience â every class is led by a specialist teacher!",
+    item2Title: "Speaking practice", item2Desc: "From the very first lesson you start speaking, not just memorising grammar.",
+    item3Title: "Russian and Uzbek", item3Desc: "Lessons are taught in Russian and Uzbek â you pick whichever suits you.",
+    item4Title: "Clear progress", item4Desc: "Regular tests and feedback â you always know exactly where you stand.",
+    item5Title: "Convenient timetable", item5Desc: "Morning and evening classes every day of the week: groups for women, men, kids and one-to-one. 1, 2 or 3 lessons a week.",
+    item6Title: "Free trial lesson", item6Desc: "Meet the teacher and see how a lesson runs before you pay for the course."
+  },
+  courses: {
+    tag: "Courses", title: "Arabic language courses",
+    subtitle: "Three tracks â pronunciation, grammar and lessons for children. In person in Tashkent or online.",
+    cta: "Enrol",
+
+    item1Level: "For adults", item1Title: "Beginner Arabic (phonetics)",
+    item1Desc: "The starting stage for complete beginners. You learn to read Arabic script and to pronounce the sounds that do not exist in your own language â without that there is neither confident reading nor clear speech.",
+    item1Point1: "The Arabic alphabet and every letter form",
+    item1Point2: "Getting the difficult sounds right and working on articulation",
+    item1Point3: "Vowel marks and reading aloud without transcription",
+    item1Point4: "First phrases and the vocabulary for simple conversation",
+
+    item2Level: "For adults", item2Title: "Grammar",
+    item2Desc: "The stage after phonetics. We take the language apart and apply the rules in speech straight away, so that you build sentences yourself instead of memorising ready-made phrases.",
+    item2Point1: "Parts of speech, gender, number and case",
+    item2Point2: "The verb: tenses, forms and conjugation",
+    item2Point3: "Building sentences, from simple to complex",
+    item2Point4: "Speaking practice and error analysis in every lesson",
+
+    item3Level: "Ages 3â12", item3Title: "Kids â Arabic for children",
+    item3Desc: "A separate programme for children: lessons are built on play, movement and repetition, and both the workload and the length are matched to the child’s age.",
+    item3Point1: "Letters and sounds through games, songs and flashcards",
+    item3Point2: "Reading syllable by syllable and first words",
+    item3Point3: "Speaking: the child talks from the very first lesson",
+    item3Point4: "Small groups and attention for every child"
+  },
+  process: {
+    tag: "How to start", title: "Three steps to your first lesson",
+    step1Title: "Send a request", step1Desc: "Fill in the form on the site or write to us on Telegram.",
+    step1Time: "1 minute",
+    step2Title: "Free trial lesson", step2Desc: "You meet the teacher and see how a lesson and the course method work. We then pick the group or one-to-one format that matches your current level.",
+    step2Time: "30 minutes",
+    step3Title: "Start learning", step3Desc: "Regular lessons, support from your teacher and a clear result. Assistant teachers help along the way.",
+    step3Time: "2 to 10 months"
+  },
+  director: {
+    tag: "Founder",
+    badge: "teaching since 2019",
+    name: "Shavkatjon Egamberdiyev",
+    role: "Director and one of the founders of ACADEMY OF ARABIC",
+    y1: "1996", m1: "Born in Tashkent",
+    y2: "2012", m2: "Enrolled at the Koʻkaldosh Islamic institute",
+    y3: "2019", m3: "International Arabic language certificate",
+    y4: "2019", m4: "Started teaching â began giving Arabic lessons",
+    y5: "2021", m5: "Academy of Arabic was founded",
+    y6: "2025", m6: "International ICBT trainer",
+    bio3: "Alongside running the academy’s teaching and day-to-day work, he continues to teach Arabic himself.",
+    bio4: "Years of teaching experience and a deep attention to Arabic are the foundation of his work as an educator."
+  },
+  reviews: {
+    tag: "Reviews", title: "What our students say",
+    r1Text: "«I came in with no background at all, and within six months I was reading and understanding simple texts. The teachers are very patient and explain until it clicks.»",
+    r1Name: "Nigora S.", r1Course: "Phonetics",
+    r2Text: "«I enrolled my son in Kids â in half a year he speaks far more confidently and runs to every lesson. Special thanks to the teacher for the way he works with children.»",
+    r2Name: "Jasur M.", r2Course: "Kids",
+    r3Text: "«Grammar finally fell into place â it is explained simply and practised immediately. In 3 months I began speaking more confidently than in a year of studying alone.»",
+    r3Name: "Dilnoza A.", r3Course: "Grammar",
+    r4Text: "«I started from zero on the phonetics course â the teacher worked through every sound until it was clear. Now I read and pronounce far more confidently.»",
+    r4Name: "Rustam T.", r4Course: "Phonetics"
+  },
+  faq: {
+    tag: "FAQ", title: "Frequently asked questions",
+    subtitle: "Did not find your answer? Write to us and we will reply within the day.",
+    cta: "Ask a question",
+    q1: "What level can I start from?",
+    a1: "From zero â most of our students begin with no Arabic at all. We check your starting level in the trial lesson and place you in a suitable group.",
+    q2: "How many people are in a group?",
+    a2: "No more than 20 students per group, so the teacher can give everyone attention and practise speaking in every lesson.",
+    q3: "Can I study online?",
+    a3: "Yes. We run in-person lessons at our centre in Tashkent and an online format for students in other cities and countries.",
+    q4: "Is the trial lesson really free?",
+    a4: "Yes, the first lesson is free and commits you to nothing â you can judge the format and the teacher before paying for a course.",
+    q5: "Do you issue a certificate?",
+    a5: "At the end of the course every student receives a centre certificate stating the level completed and the number of hours.",
+    q6: "How does payment work?",
+    a6: "Payment is monthly, after the free trial lesson. Per-lesson payment is available for the one-to-one format.",
+    q7: "When do lessons take place?",
+    a7: "The centre is open Monday to Saturday, 9:00 to 20:00. There are morning, evening and Saturday groups â we will find a time that suits you at the trial lesson.",
+    q8: "From what age do you accept children?",
+    a8: "The Kids course is for children aged 3 to 12. Adult phonetics and grammar groups have no age limit."
+  },
+  contact: {
+    tag: "Contact", title: "Book a free trial lesson",
+    subtitle: "Send a request â we will reach you on Telegram or by phone within the working day and agree a time that suits you.",
+    addressLabel: "Address", address: "Tashkent, Shaykhantakhur district, Laylitugon Street 1",
+    phoneLabel: "Phone", hoursLabel: "Opening hours", hours: "Mon–Sat: 9:00–20:00",
+    formTitle: "Trial lesson request",
+    formName: "Your name", formNamePh: "Your name",
+    formPhone: "Phone number",
+    formCourse: "Course you are interested in", formCourseDefault: "Not decided yet",
+    formMessage: "Comment (optional)", formMessagePh: "A convenient time, your level, questions...",
+    formPhonePh: "Phone number",
+    formDialCode: "Country code",
+    extraContact: "Additional contact",
+    formTelegramLabel: "Username",
+    formLevelLabel: "Your current level",
+    formNoteLabel: "For a comment",
+    course1: "Not decided yet",
+    course2: "Beginner Arabic (phonetics, in Uzbek)",
+    course3: "Beginner Arabic (phonetics, in Russian)",
+    course4: "Grammar (in Uzbek)",
+    course5: "Grammar (in Russian)",
+    course6: "One-to-one",
+    course7: "Mini group",
+    course8: "Hybrid format",
+    course9: "Online format",
+    course10: "Kids â children’s group (from age 3)",
+    formSubmit: "Send the request via Telegram",
+    formConsent: "I agree to the processing of my personal data",
+    privacyLink: "Privacy policy",
+    sentTitle: "Congratulations!",
+    sentText: "Your request has been received. Our team will contact you within 24 hours.",
+    successTitle: "One step left",
+    successText: "Your message is ready â open Telegram with the button below and press «Send». Without that the request will not reach us.",
+    successOpenTg: "Open Telegram",
+    successAlt: "Not on Telegram? Give us a call:"
+  },
+  footer: {
+    about: "An Arabic language centre in Tashkent: phonetics, grammar and courses for children.",
+    linksTitle: "Sections", contactTitle: "Contact", followTitle: "Follow us",
+    rights: "All rights reserved."
   }
 }
 

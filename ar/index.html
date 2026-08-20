@@ -294,8 +294,8 @@
 <!-- ?v= is bumped whenever these files change: Pages serves them with a
      10-minute cache, so without it a visitor can get new markup with a
      stale stylesheet and the layout breaks -->
-<link href="/css/style.css?v=af3778f5d7" rel="stylesheet"/>
-<meta content="uz_UZ" property="og:locale:alternate"/><meta content="ru_RU" property="og:locale:alternate"/><link href="https://academy-of-arabic.uz/ar/" rel="canonical"/><link href="https://academy-of-arabic.uz/" hreflang="uz" rel="alternate"/><link href="https://academy-of-arabic.uz/ru/" hreflang="ru" rel="alternate"/><link href="https://academy-of-arabic.uz/ar/" hreflang="ar" rel="alternate"/><link href="https://academy-of-arabic.uz/" hreflang="x-default" rel="alternate"/></head>
+<link href="/css/style.css?v=c767ac4a3c" rel="stylesheet"/>
+<meta content="uz_UZ" property="og:locale:alternate"/><meta content="ru_RU" property="og:locale:alternate"/><meta content="en_US" property="og:locale:alternate"/><link href="https://academy-of-arabic.uz/ar/" rel="canonical"/><link href="https://academy-of-arabic.uz/" hreflang="uz" rel="alternate"/><link href="https://academy-of-arabic.uz/ru/" hreflang="ru" rel="alternate"/><link href="https://academy-of-arabic.uz/ar/" hreflang="ar" rel="alternate"/><link href="https://academy-of-arabic.uz/en/" hreflang="en" rel="alternate"/><link href="https://academy-of-arabic.uz/" hreflang="x-default" rel="alternate"/></head>
 <body>
 <div aria-hidden="true" class="pattern-overlay"></div>
 <!-- ===== HEADER ===== -->
@@ -319,9 +319,15 @@
 </nav>
 <div class="header-actions">
 <div class="lang-switch" id="langSwitch">
-<a class="lang-btn" data-lang="uz" href="/" hreflang="uz">UZ</a>
-<a class="lang-btn" data-lang="ru" href="/ru/" hreflang="ru">RU</a>
-<a class="lang-btn" data-lang="ar" href="/ar/" hreflang="ar">AR</a>
+<button aria-expanded="false" aria-haspopup="true" aria-label="Til / Language" class="lang-current" id="langCurrent" type="button">
+<span aria-hidden="true" class="flag flag-uz"></span>
+</button>
+<ul class="lang-menu" id="langMenu" role="menu">
+<li role="none"><a class="lang-btn" data-lang="en" href="/en/" hreflang="en" role="menuitem"><span aria-hidden="true" class="flag flag-en"></span>English</a></li>
+<li role="none"><a class="lang-btn" data-lang="uz" href="/" hreflang="uz" role="menuitem"><span aria-hidden="true" class="flag flag-uz"></span>Oʻzbek</a></li>
+<li role="none"><a class="lang-btn" data-lang="ru" href="/ru/" hreflang="ru" role="menuitem"><span aria-hidden="true" class="flag flag-ru"></span>Русский</a></li>
+<li role="none"><a class="lang-btn" data-lang="ar" href="/ar/" hreflang="ar" role="menuitem"><span aria-hidden="true" class="flag flag-ar"></span>العربية</a></li>
+</ul>
 </div>
 <a class="header-phone" href="tel:+998781136343">+998 78 113 63 43</a>
 <a class="btn btn-primary btn-sm" data-i18n="nav.cta" data-open-booking="" href="#contact">التسجيل</a>
@@ -827,7 +833,7 @@
 <div id="bookingDialogSlot"></div>
 </div>
 </dialog>
-<script src="/js/translations.js?v=365f3987c2"></script>
-<script src="/js/main.js?v=d20eb6dbaa"></script>
+<script src="/js/translations.js?v=219bf57b6f"></script>
+<script src="/js/main.js?v=36eb0ccb89"></script>
 </body>
 </html>
