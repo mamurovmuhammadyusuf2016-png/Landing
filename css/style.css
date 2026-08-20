@@ -1259,3 +1259,45 @@ html[dir="rtl"] .footer-col a:hover{ transform:translateX(-4px); }
   .branch-map{ min-height:260px; order:-1; }
   .branch-body{ padding:30px 24px; }
 }
+
+/* ---- Reviews: a belt of the real screenshots, rolling by --------
+   Two identical runs sit side by side and the track slides by exactly
+   one run, so the loop has no seam. */
+.reviews-marquee{
+  margin-top:52px;
+  overflow:hidden;
+  mask-image:linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+  -webkit-mask-image:linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+}
+.reviews-marquee-track{
+  display:flex; gap:22px; width:max-content; direction:ltr;
+  animation:reviewsRoll 64s linear infinite;
+}
+.reviews-marquee:hover .reviews-marquee-track,
+.reviews-marquee:focus-within .reviews-marquee-track{ animation-play-state:paused; }
+@keyframes reviewsRoll{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(calc(-50% - 11px)); }
+}
+.review-shot{
+  margin:0; flex-shrink:0; width:250px;
+  border-radius:var(--radius-md); overflow:hidden;
+  background:#fff; border:1px solid var(--line); box-shadow:var(--shadow-sm);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.review-shot:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); }
+.review-shot img{ display:block; width:100%; height:auto; }
+
+@media (max-width: 760px){
+  .review-shot{ width:200px; }
+  .reviews-marquee-track{ gap:16px; animation-duration:52s; }
+  @keyframes reviewsRoll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(calc(-50% - 8px)); }
+  }
+}
+/* a belt that never stops is exactly what this preference is about */
+@media (prefers-reduced-motion: reduce){
+  .reviews-marquee-track{ animation:none; }
+  .reviews-marquee{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+}
