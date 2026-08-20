@@ -617,27 +617,6 @@
   /* ---------------------------------------------------------
      Footer year
   --------------------------------------------------------- */
-  /* Two looks: "ornate" (the ornamented pass) and "classic" (the plainer
-     earlier design). The choice lives on <html data-skin> so CSS can switch
-     everything at once, and in localStorage so it survives a reload. */
-  function initSkinToggle() {
-    const btn = document.getElementById("skinToggle");
-    if (!btn) return;
-
-    const sync = () => {
-      const classic = root.getAttribute("data-skin") === "classic";
-      btn.setAttribute("aria-pressed", classic ? "true" : "false");
-    };
-
-    sync();
-    btn.addEventListener("click", () => {
-      const next = root.getAttribute("data-skin") === "classic" ? "ornate" : "classic";
-      root.setAttribute("data-skin", next);
-      try { localStorage.setItem("aoa-skin", next); } catch (e) { /* private mode */ }
-      sync();
-    });
-  }
-
   function initYear() {
     const el = document.getElementById("year");
     if (el) el.textContent = new Date().getFullYear();
@@ -658,7 +637,6 @@
     initBookingForm();
     initBookingModal();
     initScrollTop();
-    initSkinToggle();
     initYear();
   });
 })();
