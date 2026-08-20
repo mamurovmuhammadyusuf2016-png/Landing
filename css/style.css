@@ -522,8 +522,9 @@ html[dir="rtl"] .hero-photo{
 /* =============================================================
    Process
 ============================================================= */
-.process-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:26px; }
+.process-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:26px; }
 .process-step{
+  display:flex; flex-direction:column; align-items:flex-start;
   padding:30px 22px; border:1px solid rgba(255,255,255,.1); border-radius:var(--radius-md);
   background:rgba(255,255,255,.03);
   transition:transform .3s var(--ease), background .3s var(--ease);
@@ -533,6 +534,20 @@ html[dir="rtl"] .hero-photo{
 .process-num{ display:inline-block; font-family:var(--font-head); font-size:2rem; font-weight:700; color:var(--gold-light); opacity:.8; transition:transform .3s var(--ease), color .3s var(--ease); }
 .process-step h3{ margin-top:14px; font-size:1.05rem; }
 .process-step p{ font-size:.88rem; margin:0; }
+/* how long this step takes — pinned to the bottom of the card */
+.process-time{
+  margin-top:auto; padding-top:18px;
+  display:inline-flex; align-items:center; gap:7px;
+  font-family:var(--font-head); font-size:.8rem; font-weight:600;
+  color:var(--gold-light);
+}
+.process-time::before{
+  content:""; width:13px; height:13px; flex-shrink:0;
+  border:1.5px solid currentColor; border-radius:50%;
+  background:
+    linear-gradient(to bottom, currentColor 0 45%, transparent 45%) 50% 20%/1.5px 32% no-repeat,
+    linear-gradient(to right, currentColor 0 45%, transparent 45%) 62% 50%/28% 1.5px no-repeat;
+}
 
 /* =============================================================
    Reviews
@@ -839,7 +854,6 @@ html[dir="rtl"] .footer-col a:hover{ transform:translateX(-4px); }
 
 @media (max-width: 1080px){
   .features-grid, .courses-grid{ grid-template-columns:repeat(2, 1fr); }
-  .process-grid{ grid-template-columns:repeat(2, 1fr); }
   .about-grid, .contact-grid{ gap:40px; }
   .footer-grid{ grid-template-columns:1fr 1fr; }
 }
@@ -1019,7 +1033,7 @@ html[dir="rtl"] .footer-col a:hover{ transform:translateX(-4px); }
 /* ---- Process: the four steps sit on one connected line ------- */
 .process-grid{ position:relative; }
 .process-grid::before{
-  content:""; position:absolute; top:56px; inset-inline:11%;
+  content:""; position:absolute; top:56px; inset-inline:5% 28%;
   height:2px;
   background:repeating-linear-gradient(90deg,
     rgba(231,205,122,.5) 0 10px, transparent 10px 20px);

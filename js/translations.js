@@ -63,11 +63,13 @@ ru: {
     item3Point4: "Небольшие группы и внимание каждому ребёнку"
   },
   process: {
-    tag: "Как начать", title: "Четыре шага до первого занятия",
-    step1Title: "Оставьте заявку", step1Desc: "Заполните форму на сайте или напишите нам в Telegram — это займёт минуту.",
-    step2Title: "Бесплатный пробный урок", step2Desc: "Познакомитесь с преподавателем, форматом занятий и программой курса.",
-    step3Title: "Определение уровня", step3Desc: "Подберём группу или индивидуальную программу под ваш текущий уровень.",
-    step4Title: "Начало обучения", step4Desc: "Регулярные занятия, поддержка преподавателя и понятный прогресс."
+    tag: "Как начать", title: "Три шага до первого занятия",
+    step1Title: "Оставьте заявку", step1Desc: "Заполните форму на сайте или напишите нам в Telegram.",
+    step1Time: "1 минута",
+    step2Title: "Бесплатный пробный урок", step2Desc: "Познакомитесь с преподавателем, ходом занятия и методикой курса. Подберём группу или индивидуальное обучение под ваш текущий уровень.",
+    step2Time: "30 минут",
+    step3Title: "Начало обучения", step3Desc: "Регулярные занятия, поддержка преподавателя и понятный результат. Помощь ассистентов.",
+    step3Time: "от 2 до 10 месяцев"
   },
   director: {
     tag: "Директор",
@@ -222,11 +224,13 @@ uz: {
     item3Point4: "Kichik guruhlar va har bir bolaga eʼtibor"
   },
   process: {
-    tag: "Qanday boshlash", title: "Birinchi darsgacha toʻrt qadam",
-    step1Title: "Ariza qoldiring", step1Desc: "Saytdagi formani toʻldiring yoki Telegramda yozing — bu bir daqiqa vaqt oladi.",
-    step2Title: "Bepul sinov darsi", step2Desc: "Oʻqituvchi, dars formati va kurs dasturi bilan tanishasiz.",
-    step3Title: "Daraja aniqlash", step3Desc: "Hozirgi darajangizga mos guruh yoki individual dastur tanlanadi.",
-    step4Title: "Taʼlimni boshlash", step4Desc: "Muntazam darslar, oʻqituvchi qoʻllab-quvvatlashi va aniq natija."
+    tag: "Qanday boshlash", title: "Birinchi darsgacha uch qadam",
+    step1Title: "Ariza qoldiring", step1Desc: "Saytdagi formani toʻldiring yoki Telegramda yozing.",
+    step1Time: "1 daqiqa",
+    step2Title: "Bepul sinov darsi", step2Desc: "Oʻqituvchi, dars jarayoni va kurs metodikasi bilan tanishasiz. Hozirgi darajangizga mos guruh yoki individual taʼlim tanlanadi.",
+    step2Time: "30 daqiqa",
+    step3Title: "Taʼlimni boshlash", step3Desc: "Muntazam darslar, oʻqituvchi qoʻllab-quvvatlashi va aniq natija. Yordamchi ustozlar koʻmagi.",
+    step3Time: "2 oydan 10 oygacha"
   },
   director: {
     tag: "Direktor",
@@ -381,11 +385,13 @@ ar: {
     item3Point4: "مجموعات صغيرة واهتمام بكل طفل"
   },
   process: {
-    tag: "كيف تبدأ", title: "أربع خطوات حتى الدرس الأول",
-    step1Title: "اترك طلبًا", step1Desc: "املأ النموذج على الموقع أو راسلنا عبر Telegram — الأمر يستغرق دقيقة واحدة.",
-    step2Title: "درس تجريبي مجاني", step2Desc: "تتعرف على المعلم وصيغة الدروس وبرنامج الدورة.",
-    step3Title: "تحديد المستوى", step3Desc: "نختار لك مجموعة أو برنامجًا فرديًا يناسب مستواك الحالي.",
-    step4Title: "بدء التعلّم", step4Desc: "دروس منتظمة، دعم من المعلم، وتقدّم واضح."
+    tag: "كيف تبدأ", title: "ثلاث خطوات حتى الدرس الأول",
+    step1Title: "اترك طلبًا", step1Desc: "املأ النموذج على الموقع أو راسلنا عبر Telegram.",
+    step1Time: "دقيقة واحدة",
+    step2Title: "درس تجريبي مجاني", step2Desc: "تتعرّف على المعلم وسير الدرس ومنهجية الدورة، ونختار لك مجموعة أو تعليمًا فرديًا يناسب مستواك الحالي.",
+    step2Time: "٣٠ دقيقة",
+    step3Title: "بدء التعلّم", step3Desc: "دروس منتظمة، دعم من المعلم، ونتيجة واضحة، بمساعدة المعلمين المساعدين.",
+    step3Time: "من شهرين إلى ١٠ أشهر"
   },
   director: {
     tag: "المدير",
