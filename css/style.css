@@ -1251,6 +1251,17 @@ html[dir="rtl"] .footer-col a:hover{ transform:translateX(-4px); }
 .review-shot:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); }
 .review-shot img{ display:block; width:100%; height:auto; }
 
+/* Hover magnifier: the picture grows around the point under the cursor,
+   so you read the part you are actually pointing at. Pointer devices only —
+   on a touch screen there is no cursor to follow and it would stick. */
+@media (hover: hover) and (pointer: fine){
+  [data-zoom] img{ transition:transform .35s var(--ease); will-change:transform; }
+  [data-zoom]:hover img{ transform:scale(2.3); }
+}
+@media (prefers-reduced-motion: reduce){
+  [data-zoom]:hover img{ transform:none; }
+}
+
 @media (max-width: 760px){
   .review-shot{ width:200px; }
   .reviews-marquee-track{ gap:16px; animation-duration:52s; }

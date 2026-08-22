@@ -640,6 +640,27 @@
   /* ---------------------------------------------------------
      Footer year
   --------------------------------------------------------- */
+  /* Follow the cursor with the transform-origin so the zoom lands where
+     the pointer is, rather than always on the middle of the picture. */
+  function initHoverZoom() {
+    document.querySelectorAll("[data-zoom]").forEach((box) => {
+      const img = box.querySelector("img");
+      if (!img) return;
+
+      box.addEventListener("pointermove", (e) => {
+        if (e.pointerType !== "mouse") return;
+        const r = box.getBoundingClientRect();
+        const x = ((e.clientX - r.left) / r.width) * 100;
+        const y = ((e.clientY - r.top) / r.height) * 100;
+        img.style.transformOrigin = x + "% " + y + "%";
+      });
+
+      box.addEventListener("pointerleave", () => {
+        img.style.transformOrigin = "50% 50%";
+      });
+    });
+  }
+
   function initYear() {
     const el = document.getElementById("year");
     if (el) el.textContent = new Date().getFullYear();
@@ -660,6 +681,7 @@
     initBookingForm();
     initBookingModal();
     initScrollTop();
+    initHoverZoom();
     initYear();
   });
 })();
