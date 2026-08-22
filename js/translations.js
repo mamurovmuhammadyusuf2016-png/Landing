@@ -86,15 +86,7 @@ ru: {
     bio4: "Многолетний опыт преподавания и внимание к арабскому языку составляют основу его педагогической работы."
   },
   reviews: {
-    tag: "Отзывы", title: "Что говорят наши ученики",
-    r1Text: "«Пришла совсем без базы, за полгода уже читаю и понимаю простые тексты. Преподаватели очень терпеливые и всегда объясняют, пока не станет понятно».",
-    r1Name: "Нигора С.", r1Course: "Фонетика",
-    r2Text: "«Записал сына на Kids — за полгода стал увереннее говорить и с радостью бежит на каждое занятие. Отдельное спасибо устазу за подход к детям».",
-    r2Name: "Жасур М.", r2Course: "Kids",
-    r3Text: "«Грамматика наконец встала на свои места — объясняют просто и сразу закрепляем на практике. За 3 месяца заговорила увереннее, чем за год самостоятельного изучения».",
-    r3Name: "Дилноза А.", r3Course: "Грамматика",
-    r4Text: "«Начинал с нуля на курсе фонетики — преподаватель разбирал каждый звук, пока не станет понятно. Теперь читаю и произношу гораздо увереннее».",
-    r4Name: "Рустам Т.", r4Course: "Фонетика"
+    tag: "Отзывы", title: "Что говорят наши ученики"
   },
   faq: {
     tag: "Вопросы", title: "Частые вопросы",
@@ -251,15 +243,7 @@ uz: {
     bio4: "Koʻp yillik ustozlik tajribasi va arab tiliga boʻlgan eʼtibori uning pedagogik faoliyatining asosini tashkil etadi."
   },
   reviews: {
-    tag: "Fikrlar", title: "Oʻquvchilarimiz nima deydi",
-    r1Text: "«Hech qanday bazasiz keldim, yarim yilda oddiy matnlarni oʻqib, tushuna oladigan boʻldim. Oʻqituvchilar juda sabrli va tushunguncha tushuntiraveradi».",
-    r1Name: "Nigora S.", r1Course: "Fonetika",
-    r2Text: "«Oʻgʻlimni Kids guruhiga yozdirdim — yarim yilda ancha erkin gapiradigan boʻldi va darslarga zavq bilan boradi. Bolalarga yondashuvi uchun ustozga alohida rahmat».",
-    r2Name: "Jasur M.", r2Course: "Kids",
-    r3Text: "«Grammatika nihoyat oʻz oʻrniga tushdi — oddiy tilda tushuntirishadi va darhol amaliyotda mustahkamlaymiz. 3 oyda mustaqil oʻrgangan bir yildan koʻra ishonchliroq gapira boshladim».",
-    r3Name: "Dilnoza A.", r3Course: "Grammatika",
-    r4Text: "«Fonetika kursini noldan boshladim — oʻqituvchi har bir tovushni tushunguncha tushuntirdi. Endi ancha ishonchli oʻqiyman va talaffuz qilaman».",
-    r4Name: "Rustam T.", r4Course: "Fonetika"
+    tag: "Fikrlar", title: "Oʻquvchilarimiz nima deydi"
   },
   faq: {
     tag: "Savollar", title: "Koʻp beriladigan savollar",
@@ -416,15 +400,7 @@ ar: {
     bio4: "خبرة سنوات طويلة في التدريس واهتمامه باللغة العربية هما أساس عمله التربوي."
   },
   reviews: {
-    tag: "الآراء", title: "ماذا يقول طلابنا",
-    r1Text: "«جئت بلا أي أساس، وخلال نصف عام أصبحت أقرأ وأفهم نصوصًا بسيطة. المعلمون صبورون جدًا ويشرحون حتى يتضح الأمر تمامًا».",
-    r1Name: "نيغورا س.", r1Course: "الصوتيات",
-    r2Text: "«سجّلت ابني في Kids — وخلال نصف عام أصبح يتحدث بثقة أكبر ويذهب إلى الحصص بسعادة. شكر خاص للأستاذ على أسلوبه مع الأطفال».",
-    r2Name: "جسور م.", r2Course: "Kids",
-    r3Text: "«القواعد أصبحت أخيرًا واضحة — يشرحون ببساطة ونطبّق فورًا. خلال ٣ أشهر أصبحت أتحدث بثقة أكبر من سنة كاملة من التعلّم الذاتي».",
-    r3Name: "دلنوزا أ.", r3Course: "القواعد",
-    r4Text: "«بدأت دورة الصوتيات من الصفر — كان المعلم يشرح كل صوت حتى يتضح تمامًا. أصبحت الآن أقرأ وأنطق بثقة أكبر».",
-    r4Name: "رستم ت.", r4Course: "الصوتيات"
+    tag: "الآراء", title: "ماذا يقول طلابنا"
   },
   faq: {
     tag: "الأسئلة", title: "الأسئلة الشائعة",
@@ -583,15 +559,7 @@ en: {
     bio4: "Years of teaching experience and a deep attention to Arabic are the foundation of his work as an educator."
   },
   reviews: {
-    tag: "Reviews", title: "What our students say",
-    r1Text: "«I came in with no background at all, and within six months I was reading and understanding simple texts. The teachers are very patient and explain until it clicks.»",
-    r1Name: "Nigora S.", r1Course: "Phonetics",
-    r2Text: "«I enrolled my son in Kids â in half a year he speaks far more confidently and runs to every lesson. Special thanks to the teacher for the way he works with children.»",
-    r2Name: "Jasur M.", r2Course: "Kids",
-    r3Text: "«Grammar finally fell into place â it is explained simply and practised immediately. In 3 months I began speaking more confidently than in a year of studying alone.»",
-    r3Name: "Dilnoza A.", r3Course: "Grammar",
-    r4Text: "«I started from zero on the phonetics course â the teacher worked through every sound until it was clear. Now I read and pronounce far more confidently.»",
-    r4Name: "Rustam T.", r4Course: "Phonetics"
+    tag: "Reviews", title: "What our students say"
   },
   faq: {
     tag: "FAQ", title: "Frequently asked questions",
