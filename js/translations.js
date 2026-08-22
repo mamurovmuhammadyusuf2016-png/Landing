@@ -90,7 +90,7 @@ ru: {
   },
   certificates: {
     tag: "Сертификаты", title: "Сертификаты наших учеников",
-    subtitle: "Государственные сертификаты по арабскому языку Агентства по оценке знаний и квалификаций Республики Узбекистан — уровни B2 и C1."
+    subtitle: "Государственные сертификаты по арабскому языку Агентства по оценке знаний и квалификаций Республики Узбекистан и международный сертификат At-tanal — уровни B2 и C1."
   },
   faq: {
     tag: "Вопросы", title: "Частые вопросы",
@@ -251,7 +251,7 @@ uz: {
   },
   certificates: {
     tag: "Sertifikatlar", title: "Oʻquvchilarimizning sertifikatlari",
-    subtitle: "Oʻzbekiston Respublikasi Bilim va malakalarni baholash agentligining arab tili boʻyicha davlat sertifikatlari — B2 va C1 darajalari."
+    subtitle: "Oʻzbekiston Respublikasi Bilim va malakalarni baholash agentligining arab tili boʻyicha davlat sertifikatlari va xalqaro At-tanal sertifikati — B2 va C1 darajalari."
   },
   faq: {
     tag: "Savollar", title: "Koʻp beriladigan savollar",
@@ -412,7 +412,7 @@ ar: {
   },
   certificates: {
     tag: "الشهادات", title: "شهادات طلابنا",
-    subtitle: "شهادات حكومية في اللغة العربية من وكالة تقييم المعارف والكفاءات بجمهورية أوزبكستان — المستويان B2 وC1."
+    subtitle: "شهادات حكومية في اللغة العربية من وكالة تقييم المعارف والكفاءات بجمهورية أوزبكستان وشهادة التنال العربي الدولية — المستويان B2 وC1."
   },
   faq: {
     tag: "الأسئلة", title: "الأسئلة الشائعة",
@@ -575,7 +575,7 @@ en: {
   },
   certificates: {
     tag: "Certificates", title: "Our students' certificates",
-    subtitle: "State Arabic language certificates from the Agency for Assessment of Knowledge and Competences of the Republic of Uzbekistan — levels B2 and C1."
+    subtitle: "State Arabic language certificates from the Agency for Assessment of Knowledge and Competences of the Republic of Uzbekistan, plus the international At-tanal certificate — levels B2 and C1."
   },
   faq: {
     tag: "FAQ", title: "Frequently asked questions",
