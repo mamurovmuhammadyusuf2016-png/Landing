@@ -88,6 +88,10 @@ ru: {
   reviews: {
     tag: "Отзывы", title: "Что говорят наши ученики"
   },
+  certificates: {
+    tag: "Сертификаты", title: "Сертификаты наших учеников",
+    subtitle: "Государственные сертификаты по арабскому языку Агентства по оценке знаний и квалификаций Республики Узбекистан — уровни B2 и C1."
+  },
   faq: {
     tag: "Вопросы", title: "Частые вопросы",
     subtitle: "Не нашли ответ на свой вопрос? Напишите нам, мы ответим в течение дня.",
@@ -245,6 +249,10 @@ uz: {
   reviews: {
     tag: "Fikrlar", title: "Oʻquvchilarimiz nima deydi"
   },
+  certificates: {
+    tag: "Sertifikatlar", title: "Oʻquvchilarimizning sertifikatlari",
+    subtitle: "Oʻzbekiston Respublikasi Bilim va malakalarni baholash agentligining arab tili boʻyicha davlat sertifikatlari — B2 va C1 darajalari."
+  },
   faq: {
     tag: "Savollar", title: "Koʻp beriladigan savollar",
     subtitle: "Savolingizga javob topa olmadingizmi? Bizga yozing, bir kun ichida javob beramiz.",
@@ -401,6 +409,10 @@ ar: {
   },
   reviews: {
     tag: "الآراء", title: "ماذا يقول طلابنا"
+  },
+  certificates: {
+    tag: "الشهادات", title: "شهادات طلابنا",
+    subtitle: "شهادات حكومية في اللغة العربية من وكالة تقييم المعارف والكفاءات بجمهورية أوزبكستان — المستويان B2 وC1."
   },
   faq: {
     tag: "الأسئلة", title: "الأسئلة الشائعة",
@@ -560,6 +572,10 @@ en: {
   },
   reviews: {
     tag: "Reviews", title: "What our students say"
+  },
+  certificates: {
+    tag: "Certificates", title: "Our students' certificates",
+    subtitle: "State Arabic language certificates from the Agency for Assessment of Knowledge and Competences of the Republic of Uzbekistan — levels B2 and C1."
   },
   faq: {
     tag: "FAQ", title: "Frequently asked questions",

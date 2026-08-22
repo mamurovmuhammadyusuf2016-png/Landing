@@ -1228,6 +1228,7 @@ html[dir="rtl"] .footer-col a:hover{ transform:translateX(-4px); }
    one run, so the loop has no seam. */
 .reviews-marquee{
   margin-top:8px;
+  direction:ltr;
   overflow:hidden;
   mask-image:linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
   -webkit-mask-image:linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
@@ -1274,4 +1275,44 @@ html[dir="rtl"] .footer-col a:hover{ transform:translateX(-4px); }
 @media (prefers-reduced-motion: reduce){
   .reviews-marquee-track{ animation:none; }
   .reviews-marquee{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+}
+
+/* ---- Certificates: the same belt, rolling the other way --------- */
+.certs-marquee{
+  direction:ltr;
+  overflow:hidden;
+  mask-image:linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+  -webkit-mask-image:linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+}
+.certs-marquee-track{
+  display:flex; gap:22px; width:max-content; direction:ltr;
+  animation:certsRoll 58s linear infinite;
+}
+.certs-marquee:hover .certs-marquee-track,
+.certs-marquee:focus-within .certs-marquee-track{ animation-play-state:paused; }
+/* starts one run in and walks back, so this belt travels rightwards */
+@keyframes certsRoll{
+  from{ transform:translateX(calc(-50% - 11px)); }
+  to{ transform:translateX(0); }
+}
+.cert-shot{
+  margin:0; flex-shrink:0; width:280px;
+  border-radius:var(--radius-md); overflow:hidden;
+  background:#fff; border:1px solid var(--line); box-shadow:var(--shadow-sm);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.cert-shot:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); }
+.cert-shot img{ display:block; width:100%; height:auto; }
+
+@media (max-width: 760px){
+  .cert-shot{ width:220px; }
+  .certs-marquee-track{ gap:16px; animation-duration:48s; }
+  @keyframes certsRoll{
+    from{ transform:translateX(calc(-50% - 8px)); }
+    to{ transform:translateX(0); }
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  .certs-marquee-track{ animation:none; }
+  .certs-marquee{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
 }
