@@ -799,6 +799,28 @@ html[dir="rtl"] .contact-list li:hover{ transform:translateX(-4px); }
 /* .btn sets display, which outranks the hidden attribute on its own */
 .form-success .btn[hidden], .form-success-alt[hidden]{ display:none; }
 .form-success-alt{ margin:16px 0 0; font-size:.82rem; color:var(--ink-faint); }
+
+/* the Telegram handle is a nice-to-have, not a gate */
+.field-optional{
+  flex-shrink:0; font-family:var(--font-head); font-size:.7rem; font-weight:600;
+  font-style:normal; color:var(--ink-faint); letter-spacing:.02em;
+}
+
+/* Fallback panel: when neither route delivered the enquiry, the visitor
+   gets the text itself rather than a link to an empty chat. */
+.form-relay{ width:100%; margin-top:4px; text-align:start; }
+.form-relay[hidden]{ display:none; }
+.form-relay-text{
+  width:100%; resize:vertical; border-radius:var(--radius-md);
+  border:1px solid var(--line); background:var(--paper, #fbfaf7);
+  padding:14px 16px; font-family:var(--font-body); font-size:.82rem;
+  line-height:1.55; color:var(--ink-soft);
+}
+.form-relay-text:focus{ outline:none; box-shadow:var(--ring); border-color:var(--gold); }
+.form-relay-actions{
+  display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:14px;
+}
+.form-relay-actions .btn{ margin-top:0; flex:1 1 auto; min-width:170px; justify-content:center; }
 .form-success-alt a{ color:var(--primary); font-weight:600; white-space:nowrap; }
 .form-success-alt a:hover{ color:var(--gold); }
 
@@ -1674,6 +1696,12 @@ html[dir="rtl"] .section-head.faq-head h2::after{ margin-inline:auto 0; }
 .form-success-ico{
   background:linear-gradient(140deg, var(--primary-mid), var(--primary-dark));
   box-shadow:var(--shadow-md), 0 0 0 8px var(--primary-soft);
+}
+
+/* the enquiry still needs sending by hand — say so with the mark too */
+.form-success.is-manual .form-success-ico{
+  background:linear-gradient(140deg, #d8a63c, #b9882e);
+  box-shadow:var(--shadow-md), 0 0 0 8px rgba(185,138,46,.16);
 }
 .contact-list a:focus-visible{ outline-offset:2px; }
 

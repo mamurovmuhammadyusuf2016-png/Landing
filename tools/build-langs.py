@@ -42,6 +42,43 @@ OUT = {
 
 OG_LOCALE = {"uz": "uz_UZ", "ru": "ru_RU", "ar": "ar_AR", "en": "en_US"}
 
+# Google Fonts, per language.
+#
+# The page used to request one list for everybody: five families, thirty-odd
+# styles. Playfair Display was in it and is used by no rule in style.css at
+# all; Tajawal is the Arabic body face and does nothing on the other three
+# pages; Amiri is the Arabic heading face there but on a Latin page only
+# .floating-letter touches it, at 700. Each page now asks for what it
+# renders — the Latin pages drop about half the styles.
+FONT_FAMILIES = {
+    "latin": [
+        "Unbounded:wght@400;500;600;700;800",
+        "Manrope:wght@400;500;600;700;800",
+        "Amiri:wght@700",
+    ],
+    "ar": [
+        "Unbounded:wght@400;500;600;700;800",
+        "Manrope:wght@400;500;600;700;800",
+        "Amiri:ital,wght@0,400;0,700;1,400",
+        "Tajawal:wght@400;500;700;800",
+    ],
+}
+
+
+def font_href(lang: str) -> str:
+    families = FONT_FAMILIES["ar" if lang in RTL else "latin"]
+    return (
+        "https://fonts.googleapis.com/css2?"
+        + "&".join("family=" + f for f in families)
+        + "&display=swap"
+    )
+
+
+def set_fonts(soup, lang: str):
+    for tag in soup.find_all("link", href=True):
+        if tag["href"].startswith("https://fonts.googleapis.com/css2"):
+            tag["href"] = font_href(lang)
+
 # head strings that carry language, keyed by meta name/property
 HEAD_TEXT = {
     "ru": {
@@ -228,6 +265,7 @@ def build(lang: str, source_html: str, translations: dict) -> str:
         soup.head.append(t)
 
     add_alternates(soup, lang)
+    set_fonts(soup, lang)
     version_assets(soup)
     localise_body(soup, dic)
     localise_jsonld(soup, lang, dic)

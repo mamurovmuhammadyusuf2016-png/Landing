@@ -290,11 +290,11 @@
 }</script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Tajawal:wght@400;500;700;800&amp;family=Amiri:ital,wght@0,400;0,700;1,400&amp;family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Amiri:ital,wght@0,400;0,700;1,400&amp;family=Tajawal:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
 <!-- ?v= is bumped whenever these files change: Pages serves them with a
      10-minute cache, so without it a visitor can get new markup with a
      stale stylesheet and the layout breaks -->
-<link href="/css/style.css?v=1199fcbd70" rel="stylesheet"/>
+<link href="/css/style.css?v=017ae6053e" rel="stylesheet"/>
 <meta content="uz_UZ" property="og:locale:alternate"/><meta content="ru_RU" property="og:locale:alternate"/><meta content="en_US" property="og:locale:alternate"/><link href="https://academy-of-arabic.uz/ar/" rel="canonical"/><link href="https://academy-of-arabic.uz/" hreflang="uz" rel="alternate"/><link href="https://academy-of-arabic.uz/ru/" hreflang="ru" rel="alternate"/><link href="https://academy-of-arabic.uz/ar/" hreflang="ar" rel="alternate"/><link href="https://academy-of-arabic.uz/en/" hreflang="en" rel="alternate"/><link href="https://academy-of-arabic.uz/" hreflang="x-default" rel="alternate"/></head>
 <body>
 <div aria-hidden="true" class="pattern-overlay"></div>
@@ -343,7 +343,10 @@
 <!-- ===== HERO ===== -->
 <section class="hero">
 <div class="hero-media">
+<picture>
+<source sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 1100px" srcset="/assets/hero-photo-550.webp 550w, /assets/hero-photo-800.webp 800w, /assets/hero-photo-1100.webp 1100w" type="image/webp"/>
 <img alt="" class="hero-photo" fetchpriority="high" height="1100" src="/assets/hero-photo.jpg" width="1100"/>
+</picture>
 </div>
 <div class="container hero-inner">
 <div class="hero-copy reveal">
@@ -543,7 +546,10 @@
 <div class="container director-grid">
 <div class="director-visual reveal-scale">
 <div class="director-frame">
+<picture>
+<source sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 900px" srcset="/assets/director-450.webp 450w, /assets/director-600.webp 600w, /assets/director-900.webp 900w" type="image/webp"/>
 <img alt="Shavkatjon Egamberdiyev" class="director-photo" decoding="async" height="1125" loading="lazy" src="/assets/director.jpg" width="900"/>
+</picture>
 </div>
 <span class="director-badge" data-i18n="director.badge">يُدرّس منذ ٢٠١٩</span>
 </div>
@@ -713,14 +719,14 @@
 <label class="sr-only" data-i18n="contact.formPhone" for="fieldPhone">رقم الهاتف</label>
 <input autocomplete="tel" data-i18n-placeholder="contact.formPhonePh" id="fieldPhone" inputmode="tel" name="phone" placeholder="رقم الهاتف" required="" type="tel"/>
 </div>
-<div class="field-divider"><span data-i18n="contact.extraContact">وسيلة تواصل إضافية</span></div>
+<div class="field-divider"><span data-i18n="contact.extraContact">وسيلة تواصل إضافية</span><em class="field-optional" data-i18n="contact.optional">اختياري</em></div>
 <div class="field-pill field-pill-split">
 <div class="field-prefix field-prefix-static">
 <svg aria-hidden="true" class="field-prefix-ico" viewbox="0 0 24 24"><path d="M21.9 4.3L2.7 11.7c-1.2.5-1.2 1.2-.2 1.5l4.9 1.5 1.9 5.8c.2.6.4.9.9.9.5 0 .7-.2 1-.5l2.4-2.3 5 3.6c.9.5 1.6.2 1.8-.9l3.3-15.6c.3-1.4-.5-2-1.8-1.4z"></path></svg>
 <span data-i18n="contact.formTelegramLabel">Username</span>
 </div>
 <label class="sr-only" data-i18n="contact.formTelegramLabel" for="fieldTelegram">Username</label>
-<input autocomplete="off" id="fieldTelegram" name="telegram" placeholder="@examplename" required="" type="text"/>
+<input autocomplete="off" id="fieldTelegram" name="telegram" placeholder="@examplename" type="text"/>
 </div>
 <label class="field-label" data-i18n="contact.formLevelLabel" for="fieldCourse">مستواك الحالي</label>
 <div class="field-pill">
@@ -751,8 +757,15 @@
 <div class="form-success" hidden="" id="formSuccess">
 <span class="form-success-ico">✓</span>
 <h3 data-i18n="contact.successTitle" id="successTitle">بقيت خطوة واحدة</h3>
-<p data-i18n="contact.successText" id="successText">الرسالة جاهزة — افتح Telegram بالزر أدناه واضغط «إرسال». بدون ذلك لن يصلنا طلبك.</p>
-<a class="btn btn-primary btn-lg" data-i18n="contact.successOpenTg" href="https://t.me/academy_arabic" id="successTgLink" rel="noopener" target="_blank">فتح Telegram</a>
+<p data-i18n="contact.successText" id="successText">تعذّر إرسال الطلب تلقائيًا — على الأرجح بسبب الشبكة. نص الطلب أدناه منسوخ بالفعل: افتح Telegram والصقه وأرسله. أو اتصل بنا مباشرة.</p>
+<div class="form-relay" id="formRelay">
+<label class="sr-only" data-i18n="contact.relayLabel" for="relayText">نص الطلب</label>
+<textarea class="form-relay-text" id="relayText" readonly="" rows="7"></textarea>
+<div class="form-relay-actions">
+<button class="btn btn-ghost" data-i18n="contact.relayCopy" id="relayCopy" type="button">نسخ النص</button>
+<a class="btn btn-primary" data-i18n="contact.successOpenTg" href="https://t.me/academy_arabic" id="successTgLink" rel="noopener" target="_blank">فتح Telegram</a>
+</div>
+</div>
 <p class="form-success-alt">
 <span data-i18n="contact.successAlt">لا تستخدم Telegram؟ اتصل بنا:</span>
 <a href="tel:+998781136343">+998 78 113 63 43</a>
@@ -886,7 +899,7 @@
 <div id="bookingDialogSlot"></div>
 </div>
 </dialog>
-<script src="/js/translations.js?v=0299e7cff9"></script>
-<script src="/js/main.js?v=87192501f2"></script>
+<script src="/js/translations.js?v=1889590669"></script>
+<script src="/js/main.js?v=3f16b02971"></script>
 </body>
 </html>
