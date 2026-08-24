@@ -288,13 +288,18 @@
     }
   ]
 }</script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Tajawal:wght@400;500;700;800&amp;family=Amiri:ital,wght@0,400;0,700;1,400&amp;family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&amp;display=swap" rel="stylesheet"/>
+<!-- The faces are served from this origin, cut to the subsets the four
+     languages use; they were a render-blocking round trip to a third party
+     before a word could be painted. Regenerate with tools/build-fonts.py.
+     The three preloads are swapped per language by tools/build-langs.py. -->
+<link as="font" crossorigin="" href="/assets/fonts/amiri-arabic-700-normal.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/tajawal-arabic-400-normal.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/cairo-arabic-wght-normal.woff2" rel="preload" type="font/woff2"/>
+<link href="/css/fonts.css?v=d1df4e11bb" rel="stylesheet"/>
 <!-- ?v= is bumped whenever these files change: Pages serves them with a
      10-minute cache, so without it a visitor can get new markup with a
      stale stylesheet and the layout breaks -->
-<link href="/css/style.css?v=1199fcbd70" rel="stylesheet"/>
+<link href="/css/style.css?v=ef706d3378" rel="stylesheet"/>
 <meta content="uz_UZ" property="og:locale:alternate"/><meta content="ru_RU" property="og:locale:alternate"/><meta content="en_US" property="og:locale:alternate"/><link href="https://academy-of-arabic.uz/ar/" rel="canonical"/><link href="https://academy-of-arabic.uz/" hreflang="uz" rel="alternate"/><link href="https://academy-of-arabic.uz/ru/" hreflang="ru" rel="alternate"/><link href="https://academy-of-arabic.uz/ar/" hreflang="ar" rel="alternate"/><link href="https://academy-of-arabic.uz/en/" hreflang="en" rel="alternate"/><link href="https://academy-of-arabic.uz/" hreflang="x-default" rel="alternate"/></head>
 <body>
 <div aria-hidden="true" class="pattern-overlay"></div>

@@ -105,6 +105,7 @@ def version_assets(soup):
     was — the URL changes exactly when the file does.
     """
     targets = [
+        ("link", "href", "/css/fonts.css", "css/fonts.css"),
         ("link", "href", "/css/style.css", "css/style.css"),
         ("script", "src", "/js/translations.js", "js/translations.js"),
         ("script", "src", "/js/main.js", "js/main.js"),
@@ -114,6 +115,39 @@ def version_assets(soup):
             value = tag.get(attr) or ""
             if value.split("?")[0] == url:
                 tag[attr] = f"{url}?v={asset_version(rel)}"
+
+
+# Which three cuts the browser should fetch before it is told to. The
+# headline and the body copy of each language live in a different subset
+# file, so preloading the Latin cuts on the Russian or Arabic page would
+# warm the wrong ones.
+PRELOAD_FONTS = {
+    "uz": ["playfair-display-latin-wght-normal.woff2",
+           "mulish-latin-wght-normal.woff2",
+           "unbounded-latin-wght-normal.woff2"],
+    "en": ["playfair-display-latin-wght-normal.woff2",
+           "mulish-latin-wght-normal.woff2",
+           "unbounded-latin-wght-normal.woff2"],
+    "ru": ["playfair-display-cyrillic-wght-normal.woff2",
+           "mulish-cyrillic-wght-normal.woff2",
+           "unbounded-cyrillic-wght-normal.woff2"],
+    "ar": ["amiri-arabic-700-normal.woff2",
+           "tajawal-arabic-400-normal.woff2",
+           "cairo-arabic-wght-normal.woff2"],
+}
+
+
+def set_font_preloads(soup, lang):
+    wanted = PRELOAD_FONTS[lang]
+    tags = [t for t in soup.find_all("link", attrs={"rel": "preload"})
+            if t.get("as") == "font"]
+    if len(tags) != len(wanted):
+        sys.exit(f"index.html has {len(tags)} font preloads, expected {len(wanted)}")
+    for tag, name in zip(tags, wanted):
+        path = ROOT / "assets" / "fonts" / name
+        if not path.is_file():
+            sys.exit(f"preload target missing: assets/fonts/{name}")
+        tag["href"] = f"/assets/fonts/{name}"
 
 
 def by_path(d: dict, path: str):
@@ -228,6 +262,7 @@ def build(lang: str, source_html: str, translations: dict) -> str:
         soup.head.append(t)
 
     add_alternates(soup, lang)
+    set_font_preloads(soup, lang)
     version_assets(soup)
     localise_body(soup, dic)
     localise_jsonld(soup, lang, dic)
@@ -277,8 +312,10 @@ def stamp_privacy():
     if not path.exists():
         return
     html = path.read_text(encoding="utf-8")
-    new = re.sub(r'(href=")(?:\.\./)?/?css/style\.css(?:\?v=[^"]*)?(")',
-                 rf'\1css/style.css?v={asset_version("css/style.css")}\2', html)
+    new = html
+    for sheet in ("style", "fonts"):
+        new = re.sub(rf'(href=")(?:\.\./)?/?css/{sheet}\.css(?:\?v=[^"]*)?(")',
+                     rf'\1css/{sheet}.css?v={asset_version(f"css/{sheet}.css")}\2', new)
     if new != html:
         path.write_text(new, encoding="utf-8")
         print("  privacy.html")
