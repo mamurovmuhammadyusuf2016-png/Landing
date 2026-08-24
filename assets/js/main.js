@@ -55,15 +55,16 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!entry.isIntersecting) return;
       const el = entry.target;
       const target = parseInt(el.dataset.count, 10);
-      let cur = 0;
-      const step = Math.max(1, Math.round(target / 40));
-      const tick = () => {
-        cur += step;
-        if (cur >= target) { el.textContent = target; return; }
-        el.textContent = cur;
-        requestAnimationFrame(tick);
+      const duration = 1500;
+      const started = performance.now();
+      const easeOut = p => 1 - Math.pow(1 - p, 3);
+      const tick = (now) => {
+        const p = Math.min(1, (now - started) / duration);
+        el.textContent = Math.round(target * easeOut(p));
+        if (p < 1) { requestAnimationFrame(tick); }
+        else { el.textContent = target; el.classList.add('counted'); }
       };
-      tick();
+      requestAnimationFrame(tick);
       countIO.unobserve(el);
     });
   }, { threshold: 0.5 });
@@ -397,5 +398,235 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   if (currentLang !== 'ru') applyLang(currentLang);
+
+  /* ============================================================
+     MOTION LAYER — оживляем статичные блоки
+     ============================================================ */
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Индикатор прокрутки страницы ---------- */
+  const scrollBar = document.getElementById('scrollBar');
+  const navLinks = [...document.querySelectorAll('.main-nav a')];
+  const sections = navLinks
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+
+  // страховка: при быстрой прокрутке IntersectionObserver может «проскочить» блок,
+  // поэтому всё, что уже поднялось в область видимости, показываем принудительно
+  function revealSafety() {
+    const pending = document.querySelectorAll('[data-reveal]:not(.in-view)');
+    if (!pending.length) return;
+    const h = window.innerHeight;
+    pending.forEach(el => {
+      if (el.getBoundingClientRect().top < h * 0.92) el.classList.add('in-view');
+    });
+  }
+
+  let ticking = false;
+  function onScrollFrame() {
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - window.innerHeight;
+    const p = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+    if (scrollBar) scrollBar.style.setProperty('--p', p.toFixed(4));
+
+    // подсветка активного пункта меню
+    const probe = window.scrollY + window.innerHeight * 0.35;
+    let activeId = null;
+    sections.forEach(sec => { if (sec.offsetTop <= probe) activeId = sec.id; });
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + activeId));
+
+    revealSafety();
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(onScrollFrame);
+  }, { passive: true });
+  onScrollFrame();
+
+  /* ---------- Каскадные задержки появления ---------- */
+  function stagger(selector, step = 90, base = 0) {
+    document.querySelectorAll(selector).forEach((el, i) => {
+      el.style.setProperty('--d', (base + i * step) + 'ms');
+    });
+  }
+  stagger('.why-grid .why-card', 90);
+  stagger('.course-panel[data-panel="kids"] .course-card', 110);
+  stagger('.course-panel[data-panel="adults"] .course-card', 110);
+  stagger('.process-grid .process-card', 120);
+  stagger('.teachers-grid .teacher-card', 120);
+  stagger('.faq-list .faq-item', 70);
+  stagger('.footer-inner > [data-reveal]', 120);
+
+  /* ---------- Появление элементов, которых не было в разметке ---------- */
+  const extraReveal = [
+    ['.about-points li', 90],
+    ['.contact-info .contact-item', 90],
+    ['.hero-stats .stat', 110],
+    ['.trial-points li', 110],
+    ['.footer-social a', 80],
+  ];
+  const extraIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('in-view');
+      extraIO.unobserve(entry.target);
+    });
+  }, { threshold: 0.2 });
+
+  if (!reduceMotion) {
+    extraReveal.forEach(([sel, step]) => {
+      document.querySelectorAll(sel).forEach((el, i) => {
+        el.setAttribute('data-reveal', '');
+        el.style.setProperty('--d', (i * step) + 'ms');
+        extraIO.observe(el);
+      });
+    });
+  }
+
+  /* ---------- Заголовок героя: появление по словам ---------- */
+  const headline = document.querySelector('[data-split]');
+
+  function splitTextNodes(node) {
+    [...node.childNodes].forEach(child => {
+      if (child.nodeType === Node.TEXT_NODE) {
+        if (!child.textContent.trim()) return;
+        const frag = document.createDocumentFragment();
+        // делим только по обычным пробелам — неразрывные остаются внутри слова
+        child.textContent.split(/( +)/).forEach(part => {
+          if (!part) return;
+          if (/^ +$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+          const word = document.createElement('span');
+          word.className = 'word';
+          const inner = document.createElement('span');
+          inner.textContent = part;
+          word.appendChild(inner);
+          frag.appendChild(word);
+        });
+        node.replaceChild(frag, child);
+      } else if (child.nodeType === Node.ELEMENT_NODE && !child.classList.contains('word')) {
+        splitTextNodes(child);
+      }
+    });
+  }
+
+  function animateHeadline() {
+    if (!headline || reduceMotion) return;
+    headline.classList.remove('split-ready');
+    splitTextNodes(headline);
+    headline.querySelectorAll('.word > span').forEach((w, i) => {
+      w.style.setProperty('--wd', (120 + i * 65) + 'ms');
+    });
+    requestAnimationFrame(() => headline.classList.add('split-ready'));
+  }
+  animateHeadline();
+
+  /* ---------- Наклон карточки героя за курсором ---------- */
+  const heroVisual = document.querySelector('.hero-visual');
+  if (heroVisual && !reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+    heroVisual.addEventListener('mousemove', (e) => {
+      const r = heroVisual.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      heroVisual.classList.add('tilt');
+      heroVisual.style.setProperty('--ry', (x * 12).toFixed(2) + 'deg');
+      heroVisual.style.setProperty('--rx', (-y * 12).toFixed(2) + 'deg');
+    });
+    heroVisual.addEventListener('mouseleave', () => {
+      heroVisual.classList.remove('tilt');
+      heroVisual.style.setProperty('--ry', '0deg');
+      heroVisual.style.setProperty('--rx', '0deg');
+    });
+  }
+
+  /* ---------- Бегущая строка преимуществ ---------- */
+  const trustTrack = document.getElementById('trustTrack');
+  if (trustTrack) {
+    const group = trustTrack.querySelector('.trustbar-group');
+    if (reduceMotion) {
+      trustTrack.classList.add('trustbar-static');
+    } else {
+      const sample = group.querySelector('p');
+      let guard = 0;
+      while (group.scrollWidth < window.innerWidth * 1.25 && guard++ < 12) {
+        group.appendChild(sample.cloneNode(true));
+      }
+      const clone = group.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      trustTrack.appendChild(clone);
+      trustTrack.style.setProperty('--dur', Math.max(18, group.scrollWidth / 55) + 's');
+    }
+  }
+
+  /* ---------- Подвижный индикатор вкладок курсов ---------- */
+  const tabsWrap = document.querySelector('.course-tabs');
+  const indicator = document.querySelector('.tab-indicator');
+  function moveIndicator() {
+    if (!tabsWrap || !indicator) return;
+    const active = tabsWrap.querySelector('.course-tab.active');
+    if (!active) return;
+    indicator.style.width = active.offsetWidth + 'px';
+    indicator.style.setProperty('--x', active.offsetLeft + 'px');
+  }
+  if (tabsWrap && indicator) {
+    tabsWrap.classList.add('has-indicator');
+    tabsWrap.querySelectorAll('.course-tab').forEach(tab => {
+      tab.addEventListener('click', () => requestAnimationFrame(moveIndicator));
+    });
+    window.addEventListener('resize', moveIndicator);
+    moveIndicator();
+    // шрифты подгружаются асинхронно и меняют ширину вкладок
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveIndicator);
+  }
+
+  /* ---------- Подсветка карточки «Почему мы» за курсором ---------- */
+  if (!reduceMotion) {
+    document.querySelectorAll('.why-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+  }
+
+  /* ---------- Отзывы: пауза автопрокрутки при наведении ---------- */
+  const reviewsSlider = document.getElementById('reviewsSlider');
+  if (reviewsSlider) {
+    const pause = () => clearInterval(sliderTimer);
+    const resume = () => {
+      clearInterval(sliderTimer);
+      if (!reduceMotion) sliderTimer = setInterval(() => goTo(current + 1), 5500);
+    };
+    reviewsSlider.addEventListener('mouseenter', pause);
+    reviewsSlider.addEventListener('focusin', pause);
+    reviewsSlider.addEventListener('mouseleave', resume);
+    reviewsSlider.addEventListener('touchstart', pause, { passive: true });
+    if (reduceMotion) pause();
+  }
+
+  /* ---------- Кнопка формы: отправка → галочка ---------- */
+  const submitBtn = trialForm && trialForm.querySelector('button[type="submit"]');
+  if (submitBtn) {
+    // браузер не выпускает событие submit, пока обязательные поля не заполнены,
+    // поэтому здесь форма уже гарантированно валидна
+    trialForm.addEventListener('submit', () => {
+      submitBtn.classList.add('is-loading');
+      setTimeout(() => {
+        submitBtn.classList.remove('is-loading');
+        submitBtn.classList.add('is-done');
+        setTimeout(() => submitBtn.classList.remove('is-done'), 1800);
+      }, 850);
+    });
+  }
+
+  /* ---------- Пересобрать анимации после смены языка ---------- */
+  const applyLangBase = applyLang;
+  applyLang = function (lang) {
+    applyLangBase(lang);
+    animateHeadline();
+    requestAnimationFrame(moveIndicator);
+  };
 
 });

@@ -17,6 +17,7 @@
 <body>
 
 <div class="noise-overlay"></div>
+<div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
 
 <!-- Preloader -->
 <div class="preloader" id="preloader">
@@ -104,7 +105,7 @@
     <div class="container hero-inner">
       <div class="hero-copy" data-reveal>
         <span class="eyebrow"><span class="eyebrow-arabic">العربية</span><span data-i18n="hero.eyebrow">Учебный центр арабского языка в Ташкенте</span></span>
-        <h1 data-i18n="hero.title">Откройте мир <span class="hl">арабского языка</span> вместе с Academy&nbsp;of&nbsp;Arabic</h1>
+        <h1 data-i18n="hero.title" data-split>Откройте мир <span class="hl">арабского языка</span> вместе с Academy&nbsp;of&nbsp;Arabic</h1>
         <p class="hero-sub" data-i18n="hero.sub">Курсы для детей и взрослых: грамматика, чтение и живое общение. Опытные преподаватели, уютные группы и результат уже с первого месяца.</p>
         <div class="hero-cta">
           <a href="#trial" class="btn btn-primary btn-lg" data-i18n="hero.cta1">Записаться на пробный урок</a>
@@ -147,15 +148,19 @@
 
   <!-- LOGOS / TRUST BAR -->
   <section class="trustbar">
-    <div class="container trustbar-inner">
-      <p data-i18n="trust.line">Online и офлайн формат · Небольшие группы до 8 человек · Сертификат по окончании курса</p>
+    <div class="trustbar-marquee">
+      <div class="trustbar-track" id="trustTrack">
+        <div class="trustbar-group">
+          <p data-i18n="trust.line">Online и офлайн формат · Небольшие группы до 8 человек · Сертификат по окончании курса</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- ABOUT -->
   <section id="about" class="about">
     <div class="container about-grid">
-      <div class="about-visual" data-reveal>
+      <div class="about-visual" data-reveal="left">
         <div class="about-frame">
           <div class="about-pattern"></div>
           <svg viewBox="0 0 200 200" class="about-svg"><rect x="10" y="10" width="180" height="180" rx="18" fill="#0F6B4F"/><text x="100" y="130" text-anchor="middle" font-family="Amiri, serif" font-size="90" fill="#D4AF37">أ</text></svg>
@@ -165,7 +170,7 @@
           <span data-i18n="about.years">лет обучаем арабскому в Ташкенте</span>
         </div>
       </div>
-      <div class="about-content" data-reveal>
+      <div class="about-content" data-reveal="right">
         <span class="section-tag" data-i18n="about.tag">О центре</span>
         <h2 data-i18n="about.title">Academy of Arabic — от алфавита до свободного разговора</h2>
         <p data-i18n="about.p1">Мы ведём ученика по понятной программе: постановка произношения и чтение текста с огласовками, затем базовая грамматика и разговорные модули. На каждом этапе видно, что уже освоено и какой шаг следующий.</p>
@@ -232,6 +237,7 @@
       </div>
 
       <div class="course-tabs" role="tablist">
+        <span class="tab-indicator" aria-hidden="true"></span>
         <button class="course-tab active" data-tab="kids" data-i18n="courses.tabKids">Для детей</button>
         <button class="course-tab" data-tab="adults" data-i18n="courses.tabAdults">Для взрослых</button>
       </div>
@@ -332,7 +338,7 @@
         </div>
       </div>
 
-      <p class="courses-note" data-i18n="courses.note">* Точную стоимость и расписание уточняйте у администратора — предложим программу под ваш уровень.</p>
+      <p class="courses-note" data-reveal data-i18n="courses.note">* Точную стоимость и расписание уточняйте у администратора — предложим программу под ваш уровень.</p>
     </div>
   </section>
 
@@ -405,7 +411,7 @@
         <span class="section-tag" data-i18n="reviews.tag">Отзывы</span>
         <h2 data-i18n="reviews.title">Что говорят наши ученики и родители</h2>
       </div>
-      <div class="reviews-slider" id="reviewsSlider">
+      <div class="reviews-slider" id="reviewsSlider" data-reveal="scale">
         <div class="review-track" id="reviewTrack">
           <div class="review-card">
             <p data-i18n="reviews.r1text">«Сын занимается уже полгода — грамматика стала гораздо понятнее, а читает арабский текст уверенно и с удовольствием.»</p>
@@ -425,37 +431,37 @@
           </div>
         </div>
       </div>
-      <div class="reviews-dots" id="reviewDots"></div>
+      <div class="reviews-dots" id="reviewDots" data-reveal></div>
     </div>
   </section>
 
   <!-- FAQ -->
   <section id="faq" class="faq">
     <div class="container faq-grid">
-      <div class="faq-head" data-reveal>
+      <div class="faq-head" data-reveal="left">
         <span class="section-tag" data-i18n="faq.tag">Вопросы и ответы</span>
         <h2 data-i18n="faq.title">Отвечаем на частые вопросы</h2>
         <p data-i18n="faq.sub">Не нашли ответ на свой вопрос? Напишите нам — ответим в Telegram или по телефону.</p>
         <a href="#trial" class="btn btn-primary" data-i18n="faq.cta">Задать вопрос</a>
       </div>
-      <div class="faq-list" data-reveal>
-        <div class="faq-item active">
+      <div class="faq-list">
+        <div class="faq-item active" data-reveal="right">
           <button class="faq-q"><span data-i18n="faq.q1">С какого возраста можно начинать обучение?</span><span class="faq-toggle">+</span></button>
           <div class="faq-a"><p data-i18n="faq.a1">Мы принимаем детей с 6 лет и взрослых без ограничений по возрасту. Программу подбираем индивидуально после короткой беседы.</p></div>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" data-reveal="right">
           <button class="faq-q"><span data-i18n="faq.q2">Нужны ли базовые знания арабского языка?</span><span class="faq-toggle">+</span></button>
           <div class="faq-a"><p data-i18n="faq.a2">Нет, у нас есть группы с нуля. Если базовые знания уже есть, определим уровень на пробном уроке и подберём подходящую группу.</p></div>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" data-reveal="right">
           <button class="faq-q"><span data-i18n="faq.q3">Есть ли занятия онлайн?</span><span class="faq-toggle">+</span></button>
           <div class="faq-a"><p data-i18n="faq.a3">Да, можно заниматься онлайн из любого города, а можно приходить очно в наш центр в Ташкенте.</p></div>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" data-reveal="right">
           <button class="faq-q"><span data-i18n="faq.q4">Сколько человек в группе?</span><span class="faq-toggle">+</span></button>
           <div class="faq-a"><p data-i18n="faq.a4">Группы небольшие — до 8 человек, поэтому у преподавателя есть время на каждого ученика.</p></div>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" data-reveal="right">
           <button class="faq-q"><span data-i18n="faq.q5">Как проходит пробный урок?</span><span class="faq-toggle">+</span></button>
           <div class="faq-a"><p data-i18n="faq.a5">Пробный урок бесплатный, длится 30–40 минут. Вы познакомитесь с преподавателем и форматом занятий без каких-либо обязательств.</p></div>
         </div>
@@ -467,7 +473,7 @@
   <section id="trial" class="trial">
     <div class="trial-pattern" aria-hidden="true"></div>
     <div class="container trial-grid">
-      <div class="trial-copy" data-reveal>
+      <div class="trial-copy" data-reveal="left">
         <span class="section-tag light" data-i18n="trial.tag">Бесплатный пробный урок</span>
         <h2 data-i18n="trial.title">Сделайте первый шаг к арабскому языку</h2>
         <p data-i18n="trial.sub">Оставьте заявку — мы свяжемся с вами в течение дня, подберём группу и запишем на бесплатный пробный урок.</p>
@@ -477,7 +483,7 @@
           <li data-i18n="trial.point3">✓ Ответ в течение рабочего дня</li>
         </ul>
       </div>
-      <form class="trial-form" id="trialForm" data-reveal>
+      <form class="trial-form" id="trialForm" data-reveal="right">
         <div class="form-row">
           <label data-i18n="trial.nameLabel">Ваше имя</label>
           <input type="text" name="name" required placeholder="Имя" data-i18n-ph="trial.namePh">
@@ -534,7 +540,7 @@
             <div><strong data-i18n="contact.hoursTitle">Часы работы</strong><span data-i18n="contact.hours">Пн–Сб: 9:00–20:00, Вс: выходной</span></div>
           </div>
         </div>
-        <div class="contact-map" data-reveal>
+        <div class="contact-map" data-reveal="scale">
           <iframe title="map" src="https://www.google.com/maps?q=Tashkent,Uzbekistan&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
@@ -545,7 +551,7 @@
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <div class="footer-brand">
+    <div class="footer-brand" data-reveal>
       <span class="logo-text light"><strong>Academy</strong><em>of Arabic</em></span>
       <p data-i18n="footer.text">Учебный центр арабского языка в Ташкенте — курсы для детей и взрослых, грамматика и живое общение.</p>
       <div class="footer-social">
@@ -554,14 +560,14 @@
         <a href="https://wa.me/998712000000" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm4.9 12.4c-.2.6-1.4 1.2-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.8-4.3-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.3.7-.3h.5c.2 0 .4-.1.6.5.2.5.7 1.9.8 2 .1.2.1.3 0 .5-.1.1-.1.3-.2.4-.1.1-.3.3-.4.5-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.2.1.3.1.5-.1.1-.1.6-.7.8-1 .2-.2.3-.2.6-.1.2.1 1.6.8 1.9.9.3.1.5.2.5.3.1.3.1.6-.1 1z"/></svg></a>
       </div>
     </div>
-    <div class="footer-links">
+    <div class="footer-links" data-reveal>
       <h4 data-i18n="footer.nav">Навигация</h4>
       <a href="#about" data-i18n="nav.about">О центре</a>
       <a href="#courses" data-i18n="nav.courses">Курсы</a>
       <a href="#teachers" data-i18n="nav.teachers">Преподаватели</a>
       <a href="#faq" data-i18n="nav.faq">Вопросы</a>
     </div>
-    <div class="footer-contact">
+    <div class="footer-contact" data-reveal>
       <h4 data-i18n="footer.contact">Контакты</h4>
       <span data-i18n="contact.address">г. Ташкент, Мирабадский район, ул. Себзор, 12</span>
       <a href="tel:+998781136343">+998 78 113 63 43</a>
