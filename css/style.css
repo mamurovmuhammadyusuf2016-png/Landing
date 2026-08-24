@@ -1916,3 +1916,207 @@ html[lang="ar"] .btn{ letter-spacing:0; }
 .header-phone{ font-size:.82rem; }
 .header-actions .btn-sm{ font-size:.8rem; padding:9px 18px; }
 html[lang="ar"] .main-nav a{ letter-spacing:0; }
+
+/* =============================================================
+   Online course
+   Its own band between the courses and the enrolment steps: the
+   photograph in the same gilt niche the About frame uses, the five
+   reasons beside it, then the two ways to study and what the course
+   leaves you with.
+============================================================= */
+.online-lead{
+  display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(32px, 5vw, 66px);
+  align-items:center;
+}
+
+/* the photograph, framed the way the About logo is */
+.online-media{
+  position:relative; margin:0;
+  border-radius:var(--radius-lg); overflow:hidden;
+  box-shadow:
+    0 0 0 1px rgba(185,138,46,.35),
+    0 0 0 9px var(--bg-alt),
+    0 0 0 10px rgba(185,138,46,.18),
+    0 30px 70px rgba(14,59,46,.16);
+}
+.online-media img{
+  width:100%; height:100%; aspect-ratio:4/5; object-fit:cover;
+  transition:transform .6s var(--ease);
+}
+.online-media:hover img{ transform:scale(1.03); }
+/* a breath of the house green over the photograph, so any picture
+   dropped in here still belongs to the page */
+.online-media::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(200deg, rgba(14,59,46,.10), transparent 42%, rgba(185,138,46,.10));
+}
+
+.online-why h3{ font-size:clamp(1.25rem, 2.1vw, 1.6rem); margin-bottom:26px; }
+.online-points{ display:flex; flex-direction:column; gap:20px; }
+.online-points li{ display:flex; gap:18px; }
+.online-points strong{
+  display:block; margin-bottom:4px;
+  font-family:var(--font-body); font-weight:800; font-size:1.02rem;
+  letter-spacing:-.012em; color:var(--ink);
+}
+.online-points p{ margin:0; font-size:.93rem; max-width:none; }
+.online-ico{
+  flex-shrink:0; width:46px; height:46px; border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(140deg, var(--primary-mid), var(--primary-dark));
+  color:#fff;
+  box-shadow:0 10px 22px rgba(14,59,46,.20), inset 0 1px 0 rgba(255,255,255,.14);
+  transition:transform .35s var(--ease), background .35s var(--ease);
+}
+.online-ico svg{
+  width:22px; height:22px; fill:none; stroke:currentColor;
+  stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round;
+}
+.online-points li:hover .online-ico{
+  transform:rotate(-8deg) scale(1.08);
+  background:linear-gradient(140deg, var(--gold-light), var(--gold));
+  box-shadow:var(--shadow-gold), inset 0 1px 0 rgba(255,255,255,.4);
+}
+
+/* the two sub-headings inside the band get the section rule, at their scale */
+.online-sub{
+  margin:clamp(56px, 7vw, 84px) 0 30px;
+  text-align:center; font-size:clamp(1.35rem, 2.3vw, 1.8rem);
+}
+.online-sub::after{
+  content:""; display:block; width:96px; height:8px; margin:16px auto 0;
+  background:
+    radial-gradient(circle, var(--gold) 0 3.5px, transparent 4px) 50% 50%/9px 8px no-repeat,
+    linear-gradient(90deg, transparent, rgba(185,138,46,.55) 26%, rgba(185,138,46,.08) 45%,
+                    rgba(185,138,46,.08) 55%, rgba(185,138,46,.55) 74%, transparent) 50% 50%/100% 1px no-repeat;
+}
+
+.online-plans{ display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+.online-plan{
+  position:relative; overflow:hidden;
+  background:
+    radial-gradient(120% 60% at 50% -18%, rgba(185,138,46,.10), transparent 60%),
+    linear-gradient(180deg, #fff, #FDFBF6);
+  border:1px solid var(--line); border-radius:var(--radius-md);
+  padding:34px 30px;
+  box-shadow:var(--shadow-xs);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.online-plan::before{
+  content:""; position:absolute; top:0; inset-inline:0; height:4px;
+  background:var(--gilt); pointer-events:none;
+}
+.online-plan:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-md), 0 0 0 1px rgba(185,138,46,.35);
+}
+.online-plan-ico{
+  display:flex; align-items:center; justify-content:center;
+  width:50px; height:50px; border-radius:14px; margin-bottom:18px;
+  background:linear-gradient(140deg, var(--primary-mid), var(--primary-dark));
+  color:#fff;
+  box-shadow:0 10px 22px rgba(14,59,46,.20), inset 0 1px 0 rgba(255,255,255,.14);
+  transition:transform .35s var(--ease), background .35s var(--ease);
+}
+.online-plan-ico svg{
+  width:23px; height:23px; fill:none; stroke:currentColor;
+  stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round;
+}
+.online-plan:hover .online-plan-ico{
+  transform:rotate(-8deg) scale(1.08);
+  background:linear-gradient(140deg, var(--gold-light), var(--gold));
+  box-shadow:var(--shadow-gold), inset 0 1px 0 rgba(255,255,255,.4);
+}
+.online-plan h4{ font-size:1.18rem; margin-bottom:20px; }
+
+/* the ticked lists, shared by the plans and the outcomes */
+.online-checks{ display:flex; flex-direction:column; gap:13px; }
+.online-checks li{
+  position:relative; padding-inline-start:32px;
+  font-size:.94rem; color:var(--ink-soft); line-height:1.5;
+}
+.online-checks li::before{
+  content:""; position:absolute; inset-inline-start:0; top:.1em;
+  width:20px; height:20px; border-radius:50%;
+  background:var(--primary-soft);
+  box-shadow:inset 0 0 0 1px rgba(185,138,46,.28);
+}
+/* the tick itself, drawn as two rules rather than another glyph request */
+.online-checks li::after{
+  content:""; position:absolute; inset-inline-start:6px; top:.42em;
+  width:8px; height:4.5px;
+  border-inline-start:1.8px solid var(--primary);
+  border-block-end:1.8px solid var(--primary);
+  transform:rotate(-45deg);
+}
+html[dir="rtl"] .online-checks li::after{
+  border-inline-start:0; border-block-end:0;
+  border-left:1.8px solid var(--primary);
+  border-bottom:1.8px solid var(--primary);
+}
+/* the last line of the group plan is the offer — it carries the weight */
+.online-plan .online-checks li:last-child{ color:var(--ink); font-weight:700; }
+.online-plan .online-checks li:last-child::before{
+  background:linear-gradient(140deg, var(--gold-light), var(--gold));
+  box-shadow:none;
+}
+.online-plan .online-checks li:last-child::after{
+  border-color:var(--primary-dark);
+}
+
+.online-close{
+  display:grid; grid-template-columns:.9fr 1.1fr; gap:26px;
+  margin-top:26px; align-items:stretch;
+}
+.online-duration, .online-outcomes{
+  border-radius:var(--radius-md); padding:32px 30px;
+}
+/* the duration is the one dark card in the band, so the claim lands */
+.online-duration{
+  background:
+    radial-gradient(circle at 84% 12%, rgba(231,205,122,.16), transparent 48%),
+    linear-gradient(150deg, var(--primary-mid), var(--primary) 55%, var(--primary-dark));
+  box-shadow:var(--shadow-md), inset 0 0 0 1px rgba(231,205,122,.18);
+}
+.online-duration h4{ color:#fff; font-size:1.15rem; }
+.online-duration p{ color:rgba(255,255,255,.74); font-size:.95rem; max-width:none; }
+.online-formula{
+  margin:18px 0 0; padding-top:18px;
+  border-top:1px solid rgba(231,205,122,.22);
+  font-family:var(--font-head); font-weight:600; font-size:.86rem;
+  color:var(--gold-light)!important;
+}
+.online-outcomes{
+  background:linear-gradient(165deg, #fff, #FDFBF6);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-xs);
+}
+.online-outcomes h4{ font-size:1.15rem; }
+.online-checks-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:13px 26px;
+}
+
+.online-cta{
+  margin-top:clamp(34px, 4vw, 48px);
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+  gap:14px 26px; text-align:center;
+}
+.online-cta p{
+  margin:0; max-width:none;
+  font-family:var(--font-head); font-weight:600; font-size:.92rem; color:var(--ink);
+}
+
+@media (max-width: 1080px){
+  .online-lead{ grid-template-columns:1fr; }
+  .online-media{ max-width:400px; margin-inline:auto; }
+  .online-close{ grid-template-columns:1fr; }
+}
+@media (max-width: 760px){
+  .online-plans{ grid-template-columns:1fr; }
+}
+@media (max-width: 520px){
+  .online-checks-grid{ grid-template-columns:1fr; }
+  .online-plan, .online-duration, .online-outcomes{ padding:26px 22px; }
+  .online-cta{ flex-direction:column; }
+  .online-cta .btn{ width:100%; }
+}

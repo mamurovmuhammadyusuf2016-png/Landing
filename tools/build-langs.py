@@ -186,6 +186,10 @@ def localise_body(soup, dic):
         v = by_path(dic, el["data-i18n-placeholder"])
         if v is not None:
             el["placeholder"] = v
+    for el in soup.select("[data-i18n-alt]"):
+        v = by_path(dic, el["data-i18n-alt"])
+        if v is not None:
+            el["alt"] = v
     for el in soup.select("[data-i18n-title]"):
         v = by_path(dic, el["data-i18n-title"])
         if v is not None:

@@ -60,6 +60,11 @@
       if (value !== null) el.setAttribute("placeholder", value);
     });
 
+    document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+      const value = getByPath(dict, el.getAttribute("data-i18n-alt"));
+      if (value !== null) el.setAttribute("alt", value);
+    });
+
     document.querySelectorAll("[data-i18n-title]").forEach((el) => {
       const value = getByPath(dict, el.getAttribute("data-i18n-title"));
       if (value !== null) {
