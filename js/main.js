@@ -6,18 +6,113 @@
     defaultLang: "uz",
     rtlLangs: ["ar"],
 
-    /* Enquiries are posted straight into the centre's Telegram bot.
-       A static site has no server, so this token is served with the page
-       and is readable by anyone — a deliberate trade-off. What it allows:
-       posting as the bot. What it does not allow: reading enquiries that
-       were already delivered, since those travel from the bot outward.
-       If it is ever abused, revoke it in @BotFather and replace it here.
-       Clearing botChatId falls back to the pre-filled-chat link. */
+    /* ---- Where enquiries go -------------------------------------------
+       Preferred route: a proxy that holds the bot token server-side, so
+       the page never carries it. Deploy tools/telegram-proxy/ (about ten
+       minutes, free tier) and paste its URL here, e.g.
+           "https://aoa-form.<subdomain>.workers.dev/"
+
+       Once this is set and a test enquiry arrives, delete botToken and
+       botChatId below and revoke the old token in @BotFather.
+
+       It also survives networks that block api.telegram.org, which the
+       direct call cannot — those visitors currently fall through to the
+       manual panel and mostly give up. */
+    formEndpoint: "",
+
+    /* ---- Fallback: post straight to Telegram ---------------------------
+       Only used while formEndpoint is empty. The token ships with the page
+       and anyone can read it, which lets a stranger flood this chat with
+       fake enquiries, post as the bot, and — unless a webhook is set —
+       read incoming enquiries through getUpdates. Temporary by design. */
     botToken: "8857344901:AAF2kmegXYBDBcLGQK9vcOjjIyyvJtf7h68",
-    botChatId: "1290205717"
+    botChatId: "1290205717",
+
+    /* ---- Analytics -----------------------------------------------------
+       Paste the ids and the tags load themselves; leave empty and nothing
+       is requested. Goals are reported as events, so no separate
+       thank-you URL is needed — see track() below for the event names. */
+    ga4Id: "",         /* "G-XXXXXXXXXX"  */
+    metricaId: ""      /* "12345678"      */
   };
 
   const root = document.documentElement;
+
+  /* ---------------------------------------------------------
+     Analytics
+
+     Nothing loads until an id is filled in above, so the page
+     stays request-free by default. Everything worth measuring is
+     reported through track(): one call, both counters.
+
+     Events: booking_open · lead_sent · lead_manual
+             click_phone · click_telegram · click_instagram
+             click_whatsapp · click_directions
+  --------------------------------------------------------- */
+  function initAnalytics() {
+    if (CONFIG.ga4Id) {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag("js", new Date());
+      window.gtag("config", CONFIG.ga4Id);
+      const tag = document.createElement("script");
+      tag.async = true;
+      tag.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(CONFIG.ga4Id);
+      document.head.appendChild(tag);
+    }
+
+    if (CONFIG.metricaId) {
+      (function (m, e, t, r, i, k, a) {
+        m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+        m[i].l = 1 * new Date();
+        k = e.createElement(t); a = e.getElementsByTagName(t)[0];
+        k.async = 1; k.src = r; a.parentNode.insertBefore(k, a);
+      })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+      window.ym(CONFIG.metricaId, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true
+      });
+    }
+  }
+
+  /* One event name, sent wherever it can go. Safe to call when no
+     analytics is configured — it simply does nothing. */
+  function track(name, params) {
+    if (window.gtag) window.gtag("event", name, params || {});
+    if (window.ym && CONFIG.metricaId) window.ym(CONFIG.metricaId, "reachGoal", name, params || {});
+  }
+
+  /* A submitted form never changes the URL, so a conversion has no
+     pageview of its own to hang a goal on. Report one by hand. */
+  function trackConversionView() {
+    const path = "/lead/" + (root.lang || CONFIG.defaultLang) + "/";
+    if (window.gtag && CONFIG.ga4Id) {
+      window.gtag("event", "page_view", { page_path: path, page_title: "Lead — Academy of Arabic" });
+    }
+    if (window.ym && CONFIG.metricaId) window.ym(CONFIG.metricaId, "hit", path);
+  }
+
+  /* Outbound taps are the other half of the enquiries — people who call
+     or write instead of filling the form. Matched on href so the markup
+     needs no per-link bookkeeping. */
+  function initOutboundTracking() {
+    const rules = [
+      [/^tel:/i, "click_phone"],
+      [/^https?:\/\/(www\.)?wa\.me\//i, "click_whatsapp"],
+      [/^https?:\/\/t\.me\//i, "click_telegram"],
+      [/^https?:\/\/(www\.)?instagram\.com\//i, "click_instagram"],
+      [/^https?:\/\/maps\.app\.goo\.gl\//i, "click_directions"]
+    ];
+    document.addEventListener("click", (e) => {
+      const link = e.target.closest("a[href]");
+      if (!link) return;
+      const href = link.getAttribute("href") || "";
+      const rule = rules.find(([re]) => re.test(href));
+      if (rule) track(rule[1]);
+    });
+  }
 
   /* ---------------------------------------------------------
      i18n
@@ -479,6 +574,24 @@
     if (!form) return;
 
     const submitBtn = form.querySelector('button[type="submit"]');
+    const relay = document.getElementById("formRelay");
+    const relayText = document.getElementById("relayText");
+    const relayCopy = document.getElementById("relayCopy");
+
+    if (relayCopy && relayText) {
+      relayCopy.addEventListener("click", async () => {
+        const dict = TRANSLATIONS[root.lang] || TRANSLATIONS[CONFIG.defaultLang];
+        try {
+          await navigator.clipboard.writeText(relayText.value);
+        } catch (err) {
+          /* fall back to a selection the visitor can copy by hand */
+          relayText.focus();
+          relayText.select();
+        }
+        const done = getByPath(dict, "contact.relayCopied");
+        if (done) relayCopy.textContent = done;
+      });
+    }
 
     function setPanel(titleKey, textKey) {
       const dict = TRANSLATIONS[root.lang] || TRANSLATIONS[CONFIG.defaultLang];
@@ -488,6 +601,50 @@
       const b = getByPath(dict, textKey);
       if (title && t) title.textContent = t;
       if (body && b) body.textContent = b;
+    }
+
+    /* Try the routes in order of reliability and stop at the first that
+       takes it. Returns true only when the enquiry is actually delivered. */
+    async function deliver(text) {
+      if (CONFIG.formEndpoint) {
+        try {
+          const res = await withTimeout((signal) => fetch(CONFIG.formEndpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ text }),
+            signal
+          }), 10000);
+          if (res.ok) return true;
+        } catch (err) {
+          /* blocked, offline or too slow — try the next route */
+        }
+      }
+
+      if (CONFIG.botToken && CONFIG.botChatId) {
+        try {
+          const res = await withTimeout((signal) => fetch(
+            `https://api.telegram.org/bot${CONFIG.botToken}/sendMessage`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ chat_id: CONFIG.botChatId, text }),
+              signal
+            }
+          ), 8000);
+          const data = await res.json();
+          if (data && data.ok) return true;
+        } catch (err) {
+          /* api.telegram.org is blocked on a fair few local networks */
+        }
+      }
+
+      return false;
+    }
+
+    function withTimeout(run, ms) {
+      const abort = new AbortController();
+      const giveUp = setTimeout(() => abort.abort(), ms);
+      return run(abort.signal).finally(() => clearTimeout(giveUp));
     }
 
     form.addEventListener("submit", async (e) => {
@@ -504,7 +661,9 @@
       /* @ is how people write a handle but not part of it */
       const telegram = telegramField.value.trim().replace(/^@+/, "");
 
-      if (!name || !phone || !telegram || !consent.checked) {
+      /* Telegram is deliberately not required: plenty of accounts have no
+         username at all, and the phone number already reaches them. */
+      if (!name || !phone || !consent.checked) {
         form.reportValidity();
         return;
       }
@@ -514,62 +673,68 @@
         "",
         `Имя: ${name}`,
         `Телефон: ${dialCode} ${phone}`,
-        `Telegram: @${telegram}`,
+        telegram ? `Telegram: @${telegram}` : null,
         course ? `Курс: ${course}` : null,
         message ? `Комментарий: ${message}` : null,
         `Язык сайта: ${root.lang}`
       ].filter(Boolean).join("\n");
 
-      const deepLink = `https://t.me/${CONFIG.telegramUsername}?text=${encodeURIComponent(body)}`;
-      const link = document.getElementById("successTgLink");
-      if (link) link.href = deepLink;
-
-      if (CONFIG.botToken && CONFIG.botChatId) {
-        if (submitBtn) submitBtn.disabled = true;
-        /* a request that never settles would leave the button dead and the
-           visitor with no feedback, so give up after a few seconds and let
-           them finish through Telegram instead */
-        const abort = new AbortController();
-        const giveUp = setTimeout(() => abort.abort(), 8000);
-        try {
-          const res = await fetch(`https://api.telegram.org/bot${CONFIG.botToken}/sendMessage`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ chat_id: CONFIG.botChatId, text: body }),
-            signal: abort.signal
-          });
-          const data = await res.json();
-          if (data && data.ok) {
-            form.hidden = true;
-            success.hidden = false;
-            setPanel("contact.sentTitle", "contact.sentText");
-            /* delivered — nothing is left for them to do */
-            if (link) link.hidden = true;
-            const alt = success.querySelector(".form-success-alt");
-            if (alt) alt.hidden = true;
-            form.reset();
-            celebrate();
-            return;
-          }
-        } catch (err) {
-          /* offline, blocked or too slow — fall through to the link */
-        } finally {
-          clearTimeout(giveUp);
-          if (submitBtn) submitBtn.disabled = false;
-        }
+      if (submitBtn) submitBtn.disabled = true;
+      let delivered = false;
+      try {
+        delivered = await deliver(body);
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
       }
 
-      /* it did not reach the bot — the panel asks for the one tap that
-         sends it. window.open with noopener always returns null, so the
-         wording never claims to know whether the popup actually opened;
-         the link sits right there either way. */
       form.hidden = true;
       success.hidden = false;
-      if (link) link.hidden = false;
+
+      const icon = success.querySelector(".form-success-ico");
+
+      if (delivered) {
+        success.classList.remove("is-manual");
+        if (icon) icon.textContent = "\u2713";
+        setPanel("contact.sentTitle", "contact.sentText");
+        if (relay) relay.hidden = true;
+        const alt = success.querySelector(".form-success-alt");
+        if (alt) alt.hidden = true;
+        form.reset();
+        celebrate();
+        track("lead_sent", { course: course || "undecided", lang: root.lang });
+        trackConversionView();
+        return;
+      }
+
+      /* Nothing got through. The old build sent people to
+         t.me/<bot>?text=… — Telegram ignores ?text= on a bot link, so they
+         arrived at an empty chat with nothing to send and the enquiry was
+         simply lost. Hand them the text instead: copied to the clipboard
+         where the browser allows it, visible and selectable where it does
+         not, with the phone number underneath. */
+      success.classList.add("is-manual");
+      if (icon) icon.textContent = "\u2192";
+      setPanel("contact.successTitle", "contact.successText");
+      if (relay) relay.hidden = false;
       const altBack = success.querySelector(".form-success-alt");
       if (altBack) altBack.hidden = false;
-      setPanel("contact.successTitle", "contact.successText");
-      window.open(deepLink, "_blank", "noopener");
+      if (relayText) relayText.value = body;
+
+      let copied = false;
+      try {
+        await navigator.clipboard.writeText(body);
+        copied = true;
+      } catch (err) {
+        /* no clipboard permission, or an insecure context — the box shows */
+      }
+      if (relayCopy) {
+        const dict = TRANSLATIONS[root.lang] || TRANSLATIONS[CONFIG.defaultLang];
+        const done = getByPath(dict, "contact.relayCopied");
+        const label = getByPath(dict, "contact.relayCopy");
+        relayCopy.textContent = (copied && done) ? done : (label || relayCopy.textContent);
+      }
+
+      track("lead_manual", { course: course || "undecided", lang: root.lang, copied });
     });
   }
 
@@ -595,6 +760,7 @@
       slot.appendChild(wrap);
       dialog.showModal();
       open = true;
+      track("booking_open");
       const first = wrap.querySelector("input:not([type=hidden])");
       if (first) first.focus({ preventScroll: true });
     }
@@ -612,6 +778,8 @@
         success.hidden = true;
         form.hidden = false;
         form.reset();
+        const relay = document.getElementById("formRelay");
+        if (relay) relay.hidden = true;
       }
     }
 
@@ -683,6 +851,8 @@
     initCardGlow();
     initFaq();
     initCourseCta();
+    initAnalytics();
+    initOutboundTracking();
     initBookingForm();
     initBookingModal();
     initScrollTop();

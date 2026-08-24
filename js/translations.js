@@ -30,10 +30,9 @@ ru: {
     tag: "Почему мы", title: "Всё для комфортного и результативного обучения",
     subtitle: "Мы убрали из обучения всё лишнее и оставили то, что действительно ведёт к результату.",
     item1Title: "Опытные устазы", item1Desc: "Опыт более 5 лет — занятия ведут устазы-специалисты!",
-    item2Title: "Разговорная практика", item2Desc: "Уже с первых занятий вы начинаете говорить, а не только зубрить грамматику.",
     item3Title: "Русский и узбекский", item3Desc: "Занятия ведутся на русском и узбекском языках — выбираете тот, на котором вам удобнее.",
     item4Title: "Прозрачный прогресс", item4Desc: "Регулярные тесты и обратная связь — вы всегда видите свой уровень.",
-    item5Title: "Удобное расписание", item5Desc: "Занятия все дни недели, утром и вечером: группы для женщин, мужчин, детей (Kids) и индивидуальный формат. 1, 2 или 3 занятия в неделю.",
+    item5Title: "Удобное расписание", item5Desc: "Индивидуальные занятия проводятся в удобное для вас время на русском и узбекском языках.",
     item6Title: "Бесплатный пробный урок", item6Desc: "Познакомитесь с преподавателем и форматом занятий перед оплатой курса."
   },
   courses: {
@@ -197,9 +196,13 @@ ru: {
     sentTitle: "Поздравляем!",
     sentText: "Заявка принята. Наши специалисты свяжутся с вами в течение 24 часов.",
     successTitle: "Остался один шаг",
-    successText: "Сообщение уже готово — откройте Telegram кнопкой ниже и нажмите «Отправить». Без этого заявка до нас не дойдёт.",
+    successText: "Не удалось отправить заявку автоматически — скорее всего, мешает сеть. Текст заявки ниже уже скопирован: откройте Telegram, вставьте его и отправьте. Или просто позвоните нам.",
     successOpenTg: "Открыть Telegram",
-    successAlt: "Не пользуетесь Telegram? Позвоните нам:"
+    successAlt: "Не пользуетесь Telegram? Позвоните нам:",
+    optional: "необязательно",
+    relayLabel: "Текст заявки",
+    relayCopy: "Скопировать текст",
+    relayCopied: "Скопировано ✓"
   },
   footer: {
     about: "Учебный центр арабского языка в Ташкенте: фонетика, грамматика и курсы для детей.",
@@ -237,10 +240,9 @@ uz: {
     tag: "Nega aynan biz", title: "Qulay va samarali taʼlim uchun barcha shart-sharoit",
     subtitle: "Biz taʼlimdan barcha ortiqcha narsalarni olib tashladik va faqat natijaga olib keladigan narsalarni qoldirdik.",
     item1Title: "Tajribali ustozlar", item1Desc: "5 yildan ortiq tajribaga ega, mutaxassis ustozlar!",
-    item2Title: "Amaliy suhbat", item2Desc: "Birinchi darsdanoq faqat grammatikani yodlamaysiz, balki gapira boshlaysiz.",
     item3Title: "Rus va oʻzbek tilida", item3Desc: "Darslar rus va oʻzbek tillarida olib boriladi — oʻzingizga qulay tilni tanlaysiz.",
     item4Title: "Aniq natija nazorati", item4Desc: "Muntazam testlar va fikr-mulohaza — oʻz darajangizni doim koʻrasiz.",
-    item5Title: "Qulay jadval", item5Desc: "Haftaning barcha kunlarida ertalabki va kechki kurslarimiz bor: ayollar, erkaklar, kids va individual. Haftada 1, 2 yoki 3 martalik darslar.",
+    item5Title: "Qulay jadval", item5Desc: "Individual darslar sizga qulay istalgan vaqtda, rus va oʻzbek tillarida oʻtkaziladi.",
     item6Title: "Bepul sinov darsi", item6Desc: "Kursga toʻlov qilishdan oldin oʻqituvchi va dars formati bilan tanishasiz."
   },
   courses: {
@@ -404,9 +406,13 @@ uz: {
     sentTitle: "Tabriklaymiz!",
     sentText: "Arizangiz qabul qilindi. Siz bilan mutaxassislarimiz 24 soat ichida bogʻlanadi.",
     successTitle: "Bitta qadam qoldi",
-    successText: "Xabar tayyor — quyidagi tugma orqali Telegramni oching va «Yuborish» tugmasini bosing. Aks holda ariza bizga yetib kelmaydi.",
+    successText: "Arizani avtomatik yuborib boʻlmadi — koʻrinishidan tarmoq toʻsqinlik qilmoqda. Quyidagi matn allaqachon nusxalandi: Telegramni oching, uni joylashtiring va yuboring. Yoki bizga qoʻngʻiroq qiling.",
     successOpenTg: "Telegramni ochish",
-    successAlt: "Telegramdan foydalanmaysizmi? Bizga qoʻngʻiroq qiling:"
+    successAlt: "Telegramdan foydalanmaysizmi? Bizga qoʻngʻiroq qiling:",
+    optional: "ixtiyoriy",
+    relayLabel: "Ariza matni",
+    relayCopy: "Matnni nusxalash",
+    relayCopied: "Nusxalandi ✓"
   },
   footer: {
     about: "Toshkentdagi arab tili oʻquv markazi: fonetika, grammatika va bolalar uchun kurslar.",
@@ -444,10 +450,9 @@ ar: {
     tag: "لماذا نحن", title: "كل ما تحتاجه لتعليم مريح وفعّال",
     subtitle: "أزلنا من التعليم كل ما هو غير ضروري وأبقينا على ما يقود فعلاً إلى نتيجة.",
     item1Title: "أساتذة ذوو خبرة", item1Desc: "أساتذة مختصون بخبرة تزيد على خمس سنوات!",
-    item2Title: "ممارسة المحادثة", item2Desc: "تبدأ بالتحدث منذ الدروس الأولى، وليس فقط حفظ القواعد.",
     item3Title: "بالروسية والأوزبكية", item3Desc: "تُقدَّم الدروس بالروسية والأوزبكية — تختار اللغة الأنسب لك.",
     item4Title: "تقدّم واضح", item4Desc: "اختبارات منتظمة وتغذية راجعة — ترى مستواك دائمًا.",
-    item5Title: "جدول مريح", item5Desc: "دروس في كل أيام الأسبوع صباحًا ومساءً: مجموعات للنساء وللرجال وللأطفال (Kids) ودروس فردية. درس أو درسان أو ثلاثة في الأسبوع.",
+    item5Title: "جدول مريح", item5Desc: "تُقدَّم الدروس الفردية في الوقت المناسب لك باللغتين الروسية والأوزبكية.",
     item6Title: "درس تجريبي مجاني", item6Desc: "تتعرف على المعلم وصيغة الدروس قبل الدفع مقابل الدورة."
   },
   courses: {
@@ -612,9 +617,13 @@ ar: {
     sentTitle: "تهانينا!",
     sentText: "تم قبول طلبك. سيتواصل معك مختصونا خلال ٢٤ ساعة.",
     successTitle: "بقيت خطوة واحدة",
-    successText: "الرسالة جاهزة — افتح Telegram بالزر أدناه واضغط «إرسال». بدون ذلك لن يصلنا طلبك.",
+    successText: "تعذّر إرسال الطلب تلقائيًا — على الأرجح بسبب الشبكة. نص الطلب أدناه منسوخ بالفعل: افتح Telegram والصقه وأرسله. أو اتصل بنا مباشرة.",
     successOpenTg: "فتح Telegram",
-    successAlt: "لا تستخدم Telegram؟ اتصل بنا:"
+    successAlt: "لا تستخدم Telegram؟ اتصل بنا:",
+    optional: "اختياري",
+    relayLabel: "نص الطلب",
+    relayCopy: "نسخ النص",
+    relayCopied: "تم النسخ ✓"
   },
   footer: {
     about: "مركز تعليم اللغة العربية في طشقند: الصوتيات والقواعد ودورات للأطفال.",
@@ -641,9 +650,9 @@ en: {
   about: {
     badgeLabel: "the year the centre opened",
     tag: "About the centre",
-    title: "The road from your first Arabic letters to fluent conversation goes faster with us â on a clear programme and a proven method!",
-    lead: "Academy of Arabic teaches in stages: 1 â beginner Arabic (reading and writing), 2 â grammar and speaking, 3 â preparation for the CEFR or At-tanal certificates.",
-    text: "The teaching is built on practice: every lesson reviews your mistakes, tests are held regularly, and the teacher works with each student individually. At the end of every stage you receive a certificate stating the level you reached (A1, A2, B1 â¦ C1).",
+    title: "The road from your first Arabic letters to fluent conversation goes faster with us — on a clear programme and a proven method!",
+    lead: "Academy of Arabic teaches in stages: 1 — beginner Arabic (reading and writing), 2 — grammar and speaking, 3 — preparation for the CEFR or At-tanal certificates.",
+    text: "The teaching is built on practice: every lesson reviews your mistakes, tests are held regularly, and the teacher works with each student individually. At the end of every stage you receive a certificate stating the level you reached (A1, A2, B1 … C1).",
     point1Title: "Experienced teachers", point1Desc: "Our teachers are specialists in phonetics, grammar and working with children.",
     point2Title: "Individual approach", point2Desc: "An individual approach to every student in the group, plus an assistant teacher.",
     point3Title: "Flexible format", point3Desc: "In-person lessons in Tashkent and an online format from anywhere in the world.",
@@ -652,20 +661,19 @@ en: {
   features: {
     tag: "Why us", title: "Everything you need for comfortable, effective learning",
     subtitle: "We stripped everything unnecessary out of the teaching and kept only what actually produces results.",
-    item1Title: "Experienced teachers", item1Desc: "Over 5 years of experience â every class is led by a specialist teacher!",
-    item2Title: "Speaking practice", item2Desc: "From the very first lesson you start speaking, not just memorising grammar.",
-    item3Title: "Russian and Uzbek", item3Desc: "Lessons are taught in Russian and Uzbek â you pick whichever suits you.",
-    item4Title: "Clear progress", item4Desc: "Regular tests and feedback â you always know exactly where you stand.",
-    item5Title: "Convenient timetable", item5Desc: "Morning and evening classes every day of the week: groups for women, men, kids and one-to-one. 1, 2 or 3 lessons a week.",
+    item1Title: "Experienced teachers", item1Desc: "Over 5 years of experience — every class is led by a specialist teacher!",
+    item3Title: "Russian and Uzbek", item3Desc: "Lessons are taught in Russian and Uzbek — you pick whichever suits you.",
+    item4Title: "Clear progress", item4Desc: "Regular tests and feedback — you always know exactly where you stand.",
+    item5Title: "Convenient timetable", item5Desc: "Individual lessons are offered at a time convenient for you, in Russian and Uzbek.",
     item6Title: "Free trial lesson", item6Desc: "Meet the teacher and see how a lesson runs before you pay for the course."
   },
   courses: {
     tag: "Courses", title: "Arabic language courses",
-    subtitle: "Three tracks â pronunciation, grammar and lessons for children. In person in Tashkent or online.",
+    subtitle: "Three tracks — pronunciation, grammar and lessons for children. In person in Tashkent or online.",
     cta: "Enrol",
 
     item1Level: "For adults", item1Title: "Beginner Arabic (phonetics)",
-    item1Desc: "The starting stage for complete beginners. You learn to read Arabic script and to pronounce the sounds that do not exist in your own language â without that there is neither confident reading nor clear speech.",
+    item1Desc: "The starting stage for complete beginners. You learn to read Arabic script and to pronounce the sounds that do not exist in your own language — without that there is neither confident reading nor clear speech.",
     item1Point1: "The Arabic alphabet and every letter form",
     item1Point2: "Getting the difficult sounds right and working on articulation",
     item1Point3: "Vowel marks and reading aloud without transcription",
@@ -678,7 +686,7 @@ en: {
     item2Point3: "Building sentences, from simple to complex",
     item2Point4: "Speaking practice and error analysis in every lesson",
 
-    item3Level: "Ages 3â12", item3Title: "Kids â Arabic for children",
+    item3Level: "Ages 3–12", item3Title: "Kids — Arabic for children",
     item3Desc: "A separate programme for children: lessons are built on play, movement and repetition, and both the workload and the length are matched to the child’s age.",
     item3Point1: "Letters and sounds through games, songs and flashcards",
     item3Point2: "Reading syllable by syllable and first words",
@@ -748,7 +756,7 @@ en: {
     y1: "1996", m1: "Born in Tashkent",
     y2: "2012", m2: "Enrolled at the Koʻkaldosh Islamic institute",
     y3: "2019", m3: "International Arabic language certificate",
-    y4: "2019", m4: "Started teaching â began giving Arabic lessons",
+    y4: "2019", m4: "Started teaching — began giving Arabic lessons",
     y5: "2021", m5: "Academy of Arabic was founded",
     y6: "2025", m6: "International ICBT trainer",
     bio3: "Alongside running the academy’s teaching and day-to-day work, he continues to teach Arabic himself.",
@@ -766,19 +774,19 @@ en: {
     subtitle: "Did not find your answer? Write to us and we will reply within the day.",
     cta: "Ask a question",
     q1: "What level can I start from?",
-    a1: "From zero â most of our students begin with no Arabic at all. We check your starting level in the trial lesson and place you in a suitable group.",
+    a1: "From zero — most of our students begin with no Arabic at all. We check your starting level in the trial lesson and place you in a suitable group.",
     q2: "How many people are in a group?",
     a2: "No more than 20 students per group, so the teacher can give everyone attention and practise speaking in every lesson.",
     q3: "Can I study online?",
     a3: "Yes. We run in-person lessons at our centre in Tashkent and an online format for students in other cities and countries.",
     q4: "Is the trial lesson really free?",
-    a4: "Yes, the first lesson is free and commits you to nothing â you can judge the format and the teacher before paying for a course.",
+    a4: "Yes, the first lesson is free and commits you to nothing — you can judge the format and the teacher before paying for a course.",
     q5: "Do you issue a certificate?",
     a5: "At the end of the course every student receives a centre certificate stating the level completed and the number of hours.",
     q6: "How does payment work?",
     a6: "Payment is monthly, after the free trial lesson. Per-lesson payment is available for the one-to-one format.",
     q7: "When do lessons take place?",
-    a7: "The centre is open Monday to Saturday, 9:00 to 20:00. There are morning, evening and Saturday groups â we will find a time that suits you at the trial lesson.",
+    a7: "The centre is open Monday to Saturday, 9:00 to 20:00. There are morning, evening and Saturday groups — we will find a time that suits you at the trial lesson.",
     q8: "From what age do you accept children?",
     a8: "The Kids course is for children aged 3 to 12. Adult phonetics and grammar groups have no age limit."
   },
@@ -790,7 +798,7 @@ en: {
   },
   contact: {
     tag: "Contact", title: "Book a free trial lesson",
-    subtitle: "Send a request â we will reach you on Telegram or by phone within the working day and agree a time that suits you.",
+    subtitle: "Send a request — we will reach you on Telegram or by phone within the working day and agree a time that suits you.",
     addressLabel: "Address", address: "Tashkent, Shaykhantakhur district, Laylitugon Street 1",
     phoneLabel: "Phone", hoursLabel: "Opening hours", hours: "Mon–Sat: 9:00–20:00",
     formTitle: "Trial lesson request",
@@ -813,16 +821,20 @@ en: {
     course7: "Mini group",
     course8: "Hybrid format",
     course9: "Online format",
-    course10: "Kids â children’s group (from age 3)",
+    course10: "Kids — children’s group (from age 3)",
     formSubmit: "Send the request via Telegram",
     formConsent: "I agree to the processing of my personal data",
     privacyLink: "Privacy policy",
     sentTitle: "Congratulations!",
     sentText: "Your request has been received. Our team will contact you within 24 hours.",
     successTitle: "One step left",
-    successText: "Your message is ready â open Telegram with the button below and press «Send». Without that the request will not reach us.",
+    successText: "We could not send your request automatically — most likely the network blocked it. The text below is already copied: open Telegram, paste it and send. Or simply give us a call.",
     successOpenTg: "Open Telegram",
-    successAlt: "Not on Telegram? Give us a call:"
+    successAlt: "Not on Telegram? Give us a call:",
+    optional: "optional",
+    relayLabel: "Enquiry text",
+    relayCopy: "Copy the text",
+    relayCopied: "Copied ✓"
   },
   footer: {
     about: "An Arabic language centre in Tashkent: phonetics, grammar and courses for children.",

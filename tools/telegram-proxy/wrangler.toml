@@ -1,0 +1,6 @@
+name = "aoa-form"
+main = "worker.js"
+compatibility_date = "2026-08-01"
+
+# BOT_TOKEN and BOT_CHAT_ID are secrets, not plain vars — set them with
+# `wrangler secret put`, never in this file. See README.md.

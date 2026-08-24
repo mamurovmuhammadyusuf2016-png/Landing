@@ -322,7 +322,7 @@
 <!-- ?v= is bumped whenever these files change: Pages serves them with a
      10-minute cache, so without it a visitor can get new markup with a
      stale stylesheet and the layout breaks -->
-<link href="/css/style.css?v=5e32174ff4" rel="stylesheet"/>
+<link href="/css/style.css?v=3265cbac51" rel="stylesheet"/>
 <meta content="ru_RU" property="og:locale:alternate"/><meta content="ar_AR" property="og:locale:alternate"/><meta content="en_US" property="og:locale:alternate"/><link href="https://academy-of-arabic.uz/" rel="canonical"/><link href="https://academy-of-arabic.uz/" hreflang="uz" rel="alternate"/><link href="https://academy-of-arabic.uz/ru/" hreflang="ru" rel="alternate"/><link href="https://academy-of-arabic.uz/ar/" hreflang="ar" rel="alternate"/><link href="https://academy-of-arabic.uz/en/" hreflang="en" rel="alternate"/><link href="https://academy-of-arabic.uz/" hreflang="x-default" rel="alternate"/></head>
 <body>
 <div aria-hidden="true" class="pattern-overlay"></div>
@@ -372,7 +372,10 @@
 <!-- ===== HERO ===== -->
 <section class="hero">
 <div class="hero-media">
+<picture>
+<source sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 1100px" srcset="/assets/hero-photo-550.webp 550w, /assets/hero-photo-800.webp 800w, /assets/hero-photo-1100.webp 1100w" type="image/webp"/>
 <img alt="" class="hero-photo" fetchpriority="high" height="1100" src="/assets/hero-photo.jpg" width="1100"/>
+</picture>
 </div>
 <div class="container hero-inner">
 <div class="hero-copy reveal">
@@ -462,11 +465,6 @@
 <p data-i18n="features.item1Desc">5 yildan ortiq tajribaga ega, mutaxassis ustozlar!</p>
 </div>
 <div class="feature-card reveal">
-<span aria-hidden="true" class="feature-ico"><svg viewbox="0 0 24 24"><path d="M4 4h16v12H5.17L4 17.17V4z"></path></svg></span>
-<h3 data-i18n="features.item2Title">Amaliy suhbat</h3>
-<p data-i18n="features.item2Desc">Birinchi darsdanoq faqat grammatikani yodlamaysiz, balki gapira boshlaysiz.</p>
-</div>
-<div class="feature-card reveal">
 <span aria-hidden="true" class="feature-ico"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9S14.5 18.3 12 21c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"></path></svg></span>
 <h3 data-i18n="features.item3Title">Rus va oʻzbek tilida</h3>
 <p data-i18n="features.item3Desc">Darslar rus va oʻzbek tillarida olib boriladi — oʻzingizga qulay tilni tanlaysiz.</p>
@@ -479,7 +477,7 @@
 <div class="feature-card reveal">
 <span aria-hidden="true" class="feature-ico"><svg viewbox="0 0 24 24"><path d="M12 8v4l3 3M12 3a9 9 0 100 18 9 9 0 000-18z"></path></svg></span>
 <h3 data-i18n="features.item5Title">Qulay jadval</h3>
-<p data-i18n="features.item5Desc">Haftaning barcha kunlarida ertalabki va kechki kurslarimiz bor: ayollar, erkaklar, kids va individual. Haftada 1, 2 yoki 3 martalik darslar.</p>
+<p data-i18n="features.item5Desc">Individual darslar sizga qulay istalgan vaqtda, rus va oʻzbek tillarida oʻtkaziladi.</p>
 </div>
 <div class="feature-card reveal">
 <span aria-hidden="true" class="feature-ico"><svg viewbox="0 0 24 24"><path d="M20 7l-9 9-5-5"></path></svg></span>
@@ -499,7 +497,6 @@
 </div>
 <div class="courses-grid courses-grid-3">
 <article class="course-card reveal">
-<span class="course-badge" data-i18n="courses.item1Level">Kattalar uchun</span>
 <h3 data-i18n="courses.item1Title">Boshlangʻich arab tili (fonetika)</h3>
 <p data-i18n="courses.item1Desc">Noldan boshlovchilar uchun birinchi bosqich. Arab yozuvini oʻqishni va oʻzbek tilida boʻlmagan tovushlarni toʻgʻri talaffuz qilishni oʻrganamiz — busiz na savodli oʻqish, na tushunarli nutq boʻladi.</p>
 <ul class="course-points">
@@ -511,7 +508,6 @@
 <a class="btn btn-outline btn-block course-cta" data-course-key="contact.course2" data-i18n="courses.cta" data-open-booking="" href="#contact">Yozilish</a>
 </article>
 <article class="course-card reveal">
-<span class="course-badge" data-i18n="courses.item2Level">Kattalar uchun</span>
 <h3 data-i18n="courses.item2Title">Grammatika</h3>
 <p data-i18n="courses.item2Desc">Fonetikadan keyingi bosqich. Til qanday tuzilganini oʻrganamiz va qoidalarni darhol nutqda qoʻllaymiz — tayyor iboralarni yodlash oʻrniga gaplarni oʻzingiz tuzasiz.</p>
 <ul class="course-points">
@@ -523,7 +519,6 @@
 <a class="btn btn-outline btn-block course-cta" data-course-key="contact.course4" data-i18n="courses.cta" data-open-booking="" href="#contact">Yozilish</a>
 </article>
 <article class="course-card reveal course-card-kids">
-<span class="course-badge" data-i18n="courses.item3Level">3–12 yosh</span>
 <h3 data-i18n="courses.item3Title">Kids — bolalar uchun arab tili</h3>
 <p data-i18n="courses.item3Desc">Bolalar uchun alohida dastur: darslar oʻyin, harakat va takrorlash asosida quriladi, yuklama va davomiylik bolaning yoshiga qarab tanlanadi.</p>
 <ul class="course-points">
@@ -663,7 +658,10 @@
 <div class="container director-grid">
 <div class="director-visual reveal-scale">
 <div class="director-frame">
+<picture>
+<source sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 900px" srcset="/assets/director-450.webp 450w, /assets/director-600.webp 600w, /assets/director-900.webp 900w" type="image/webp"/>
 <img alt="Shavkatjon Egamberdiyev" class="director-photo" decoding="async" height="1125" loading="lazy" src="/assets/director.jpg" width="900"/>
+</picture>
 </div>
 <span class="director-badge" data-i18n="director.badge">2019-yildan ustoz</span>
 </div>
@@ -833,14 +831,14 @@
 <label class="sr-only" data-i18n="contact.formPhone" for="fieldPhone">Telefon raqami</label>
 <input autocomplete="tel" data-i18n-placeholder="contact.formPhonePh" id="fieldPhone" inputmode="tel" name="phone" placeholder="Telefon raqami" required="" type="tel"/>
 </div>
-<div class="field-divider"><span data-i18n="contact.extraContact">Qoʻshimcha aloqa</span></div>
+<div class="field-divider"><span data-i18n="contact.extraContact">Qoʻshimcha aloqa</span><em class="field-optional" data-i18n="contact.optional">ixtiyoriy</em></div>
 <div class="field-pill field-pill-split">
 <div class="field-prefix field-prefix-static">
 <svg aria-hidden="true" class="field-prefix-ico" viewbox="0 0 24 24"><path d="M21.9 4.3L2.7 11.7c-1.2.5-1.2 1.2-.2 1.5l4.9 1.5 1.9 5.8c.2.6.4.9.9.9.5 0 .7-.2 1-.5l2.4-2.3 5 3.6c.9.5 1.6.2 1.8-.9l3.3-15.6c.3-1.4-.5-2-1.8-1.4z"></path></svg>
 <span data-i18n="contact.formTelegramLabel">Username</span>
 </div>
 <label class="sr-only" data-i18n="contact.formTelegramLabel" for="fieldTelegram">Username</label>
-<input autocomplete="off" id="fieldTelegram" name="telegram" placeholder="@examplename" required="" type="text"/>
+<input autocomplete="off" id="fieldTelegram" name="telegram" placeholder="@examplename" type="text"/>
 </div>
 <label class="field-label" data-i18n="contact.formLevelLabel" for="fieldCourse">Hozirgi darajangiz</label>
 <div class="field-pill">
@@ -871,8 +869,15 @@
 <div class="form-success" hidden="" id="formSuccess">
 <span class="form-success-ico">✓</span>
 <h3 data-i18n="contact.successTitle" id="successTitle">Bitta qadam qoldi</h3>
-<p data-i18n="contact.successText" id="successText">Xabar tayyor — quyidagi tugma orqali Telegramni oching va «Yuborish» tugmasini bosing. Aks holda ariza bizga yetib kelmaydi.</p>
-<a class="btn btn-primary btn-lg" data-i18n="contact.successOpenTg" href="https://t.me/academy_arabic" id="successTgLink" rel="noopener" target="_blank">Telegramni ochish</a>
+<p data-i18n="contact.successText" id="successText">Arizani avtomatik yuborib boʻlmadi — koʻrinishidan tarmoq toʻsqinlik qilmoqda. Quyidagi matn allaqachon nusxalandi: Telegramni oching, uni joylashtiring va yuboring. Yoki bizga qoʻngʻiroq qiling.</p>
+<div class="form-relay" id="formRelay">
+<label class="sr-only" data-i18n="contact.relayLabel" for="relayText">Ariza matni</label>
+<textarea class="form-relay-text" id="relayText" readonly="" rows="7"></textarea>
+<div class="form-relay-actions">
+<button class="btn btn-ghost" data-i18n="contact.relayCopy" id="relayCopy" type="button">Matnni nusxalash</button>
+<a class="btn btn-primary" data-i18n="contact.successOpenTg" href="https://t.me/academy_arabic" id="successTgLink" rel="noopener" target="_blank">Telegramni ochish</a>
+</div>
+</div>
 <p class="form-success-alt">
 <span data-i18n="contact.successAlt">Telegramdan foydalanmaysizmi? Bizga qoʻngʻiroq qiling:</span>
 <a href="tel:+998781136343">+998 78 113 63 43</a>
@@ -1007,7 +1012,7 @@
 <div id="bookingDialogSlot"></div>
 </div>
 </dialog>
-<script src="/js/translations.js?v=07aea59fd2"></script>
-<script src="/js/main.js?v=f67a7249ef"></script>
+<script src="/js/translations.js?v=8eb4c732c3"></script>
+<script src="/js/main.js?v=a0f147dd5c"></script>
 </body>
 </html>
