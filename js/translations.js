@@ -156,7 +156,11 @@ ru: {
     q7: "В какое время проходят занятия?",
     a7: "Центр работает с понедельника по субботу, с 9:00 до 20:00. Есть утренние, вечерние и субботние группы — подберём удобное вам время на пробном занятии.",
     q8: "С какого возраста берёте детей?",
-    a8: "Курс Kids рассчитан на детей от 3 до 12 лет. Взрослые группы по фонетике и грамматике — без возрастных ограничений."
+    a8: "Курс Kids рассчитан на детей от 3 до 12 лет. Взрослые группы по фонетике и грамматике — без возрастных ограничений.",
+    q9: "Есть ли у центра государственное разрешение (лицензия)?",
+    a9: "Да. Academy of Arabic NTM зарегистрирован Государственной инспекцией по надзору за качеством образования при Кабинете Министров: свидетельство №016923 от 09.12.2021, реестровый номер X-174389. Обе страницы документа приведены ниже — нажмите на изображение, чтобы открыть его целиком.",
+    licence1: "Свидетельство №016923 — страница 1",
+    licence2: "Свидетельство №016923 — страница 2"
   },
   branches: {
     tag: "Филиалы", title: "Где нас найти",
@@ -366,7 +370,12 @@ uz: {
     q7: "Darslar qaysi vaqtlarda boʻladi?",
     a7: "Markaz dushanbadan shanbagacha, soat 9:00 dan 20:00 gacha ishlaydi. Ertalabki, kechki va shanba kuni guruhlari bor — sinov darsida sizga qulay vaqtni tanlaymiz.",
     q8: "Bolalarni necha yoshdan qabul qilasiz?",
-    a8: "Kids kursi 3 yoshdan 12 yoshgacha boʻlgan bolalar uchun moʻljallangan. Kattalar uchun fonetika va grammatika guruhlarida yosh chegarasi yoʻq."
+    a8: "Kids kursi 3 yoshdan 12 yoshgacha boʻlgan bolalar uchun moʻljallangan. Kattalar uchun fonetika va grammatika guruhlarida yosh chegarasi yoʻq.",
+    a8: "Kids kursi 3 yoshdan 12 yoshgacha boʻlgan bolalar uchun moʻljallangan. Kattalar uchun fonetika va grammatika guruhlarida yosh chegarasi yoʻq.",
+    q9: "Oʻquv markaz davlat ruhsatnomasi (litsenziya)ga egami?",
+    a9: "Ha. Academy of Arabic NTM Vazirlar Mahkamasi huzuridagi Taʼlim sifatini nazorat qilish davlat inspeksiyasi tomonidan roʻyxatga olingan: 09.12.2021-yildagi №016923 tasdiqnoma, reestr raqami X-174389. Hujjatning ikkala sahifasi quyida keltirilgan — kattalashtirib koʻrish uchun rasm ustiga bosing.",
+    licence1: "Tasdiqnoma №016923 — 1-sahifa",
+    licence2: "Tasdiqnoma №016923 — 2-sahifa"
   },
   branches: {
     tag: "Filiallar", title: "Bizni qayerdan topasiz",
@@ -576,7 +585,11 @@ ar: {
     q7: "ما هي أوقات الدروس؟",
     a7: "المركز يعمل من الاثنين إلى السبت، من الساعة ٩:٠٠ حتى ٢٠:٠٠. تتوفر مجموعات صباحية ومسائية ومجموعات يوم السبت — سنختار الوقت المناسب لك في الدرس التجريبي.",
     q8: "من أي عمر تقبلون الأطفال؟",
-    a8: "دورة Kids مخصصة للأطفال من ٣ إلى ١٢ سنة. أما مجموعات البالغين في الصوتيات والقواعد فليس فيها حد للعمر."
+    a8: "دورة Kids مخصصة للأطفال من ٣ إلى ١٢ سنة. أما مجموعات البالغين في الصوتيات والقواعد فليس فيها حد للعمر.",
+    q9: "هل يملك المركز ترخيصًا حكوميًا؟",
+    a9: "نعم. مركز Academy of Arabic NTM مسجَّل لدى مفتشية الدولة للرقابة على جودة التعليم التابعة لمجلس الوزراء: الشهادة رقم ٠١٦٩٢٣ بتاريخ ٩ ديسمبر ٢٠٢١، ورقم السجل X-174389. صفحتا الوثيقة معروضتان أدناه — اضغط على الصورة لعرضها كاملة.",
+    licence1: "الشهادة رقم ٠١٦٩٢٣ — الصفحة الأولى",
+    licence2: "الشهادة رقم ٠١٦٩٢٣ — الصفحة الثانية"
   },
   branches: {
     tag: "الفروع", title: "أين تجدنا",
@@ -788,7 +801,11 @@ en: {
     q7: "When do lessons take place?",
     a7: "The centre is open Monday to Saturday, 9:00 to 20:00. There are morning, evening and Saturday groups — we will find a time that suits you at the trial lesson.",
     q8: "From what age do you accept children?",
-    a8: "The Kids course is for children aged 3 to 12. Adult phonetics and grammar groups have no age limit."
+    a8: "The Kids course is for children aged 3 to 12. Adult phonetics and grammar groups have no age limit.",
+    q9: "Does the centre hold a state permit (licence)?",
+    a9: "Yes. Academy of Arabic NTM is registered with the State Inspectorate for Supervision of Education Quality under the Cabinet of Ministers: certificate no. 016923 of 09.12.2021, register number X-174389. Both pages of the document are shown below — tap an image to open it in full.",
+    licence1: "Certificate no. 016923 — page 1",
+    licence2: "Certificate no. 016923 — page 2"
   },
   branches: {
     tag: "Branches", title: "Where to find us",

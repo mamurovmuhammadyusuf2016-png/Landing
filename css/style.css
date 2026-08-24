@@ -2307,3 +2307,35 @@ html[dir="rtl"] .course-points li{ transform:translateX(10px); }
   .online-points li > *, .online-checks li{ opacity:1; transform:none; }
   .online-sub::after{ transform:scaleX(1); }
 }
+
+/* ---- The licence, inside its answer -------------------------
+   One question answers itself with the document rather than a claim:
+   both pages of the state registration certificate, framed the way the
+   certificates belt frames its own, and openable full size. */
+.licence-shots{
+  display:grid; grid-template-columns:1fr 1fr; gap:14px;
+  padding-bottom:26px;
+}
+.licence-shots a{
+  display:block; border-radius:var(--radius-sm); overflow:hidden;
+  background:#fff; padding:6px;
+  border:1px solid rgba(185,138,46,.35);
+  box-shadow:0 8px 22px rgba(14,59,46,.10), inset 0 0 0 1px rgba(255,255,255,.9);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+}
+.licence-shots a:hover{
+  transform:translateY(-4px);
+  border-color:rgba(185,138,46,.6);
+  box-shadow:var(--shadow-md), 0 0 22px var(--gold-glow), inset 0 0 0 1px #fff;
+}
+.licence-shots img{
+  width:100%; height:auto; display:block;
+  border-radius:calc(var(--radius-sm) - 4px);
+}
+/* the collapsed height is a fixed number, and two document pages need
+   more of it than a paragraph does */
+.faq-item-media.open .faq-answer{ max-height:1200px; }
+@media (max-width: 520px){
+  .licence-shots{ gap:10px; }
+  .faq-item-media.open .faq-answer{ max-height:1400px; }
+}
