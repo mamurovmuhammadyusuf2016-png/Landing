@@ -31,7 +31,7 @@ ru: {
     subtitle: "Мы убрали из обучения всё лишнее и оставили то, что действительно ведёт к результату.",
     item1Title: "Опытные устазы", item1Desc: "Опыт более 5 лет — занятия ведут устазы-специалисты!",
     item3Title: "Русский и узбекский", item3Desc: "Занятия ведутся на русском и узбекском языках — выбираете тот, на котором вам удобнее.",
-    item4Title: "Прозрачный прогресс", item4Desc: "Регулярные тесты и обратная связь — вы всегда видите свой уровень.",
+    item4Title: "Прозрачный прогресс", item4Desc: "К следующему уроку ученик переходит только после того, как сдал текущий по установленным нормативам.",
     item5Title: "Удобное расписание", item5Desc: "Занятия по утрам и вечерам во все дни недели. Женские, мужские, Kids и индивидуальные. Расписание от 1, 2, 3 … до 6 раз в неделю.",
     item6Title: "Бесплатный пробный урок", item6Desc: "Познакомитесь с преподавателем и форматом занятий перед оплатой курса."
   },
@@ -195,7 +195,7 @@ uz: {
     subtitle: "Biz taʼlimdan barcha ortiqcha narsalarni olib tashladik va faqat natijaga olib keladigan narsalarni qoldirdik.",
     item1Title: "Tajribali ustozlar", item1Desc: "5 yildan ortiq tajribaga ega, mutaxassis ustozlar!",
     item3Title: "Rus va oʻzbek tilida", item3Desc: "Darslar rus va oʻzbek tillarida olib boriladi — oʻzingizga qulay tilni tanlaysiz.",
-    item4Title: "Aniq natija nazorati", item4Desc: "Muntazam testlar va fikr-mulohaza — oʻz darajangizni doim koʻrasiz.",
+    item4Title: "Aniq natija nazorati", item4Desc: "Har bir dars belgilangan normativlar asosida topshirilgandan soʻng keyingi darsga oʻtiladi.",
     item5Title: "Qulay jadval", item5Desc: "Haftaning barcha kunlarida ertalabki va kechki kurslarimiz bor. Ayollar, erkaklar, kids va individual darslar. Haftada 1, 2, 3 … 6 martalik jadval.",
     item6Title: "Bepul sinov darsi", item6Desc: "Kursga toʻlov qilishdan oldin oʻqituvchi va dars formati bilan tanishasiz."
   },
@@ -359,7 +359,7 @@ ar: {
     subtitle: "أزلنا من التعليم كل ما هو غير ضروري وأبقينا على ما يقود فعلاً إلى نتيجة.",
     item1Title: "أساتذة ذوو خبرة", item1Desc: "أساتذة مختصون بخبرة تزيد على خمس سنوات!",
     item3Title: "بالروسية والأوزبكية", item3Desc: "تُقدَّم الدروس بالروسية والأوزبكية — تختار اللغة الأنسب لك.",
-    item4Title: "تقدّم واضح", item4Desc: "اختبارات منتظمة وتغذية راجعة — ترى مستواك دائمًا.",
+    item4Title: "تقدّم واضح", item4Desc: "لا يُنتقل إلى الدرس التالي إلا بعد اجتياز الدرس الحالي وفق المعايير المحددة.",
     item5Title: "جدول مريح", item5Desc: "دروس صباحية ومسائية في جميع أيام الأسبوع. مجموعات للنساء وللرجال و Kids ودروس فردية. من ١ أو ٢ أو ٣ … إلى ٦ دروس في الأسبوع.",
     item6Title: "درس تجريبي مجاني", item6Desc: "تتعرف على المعلم وصيغة الدروس قبل الدفع مقابل الدورة."
   },
@@ -525,7 +525,7 @@ en: {
     subtitle: "We stripped everything unnecessary out of the teaching and kept only what actually produces results.",
     item1Title: "Experienced teachers", item1Desc: "Over 5 years of experience — every class is led by a specialist teacher!",
     item3Title: "Russian and Uzbek", item3Desc: "Lessons are taught in Russian and Uzbek — you pick whichever suits you.",
-    item4Title: "Clear progress", item4Desc: "Regular tests and feedback — you always know exactly where you stand.",
+    item4Title: "Clear progress", item4Desc: "You move on to the next lesson only after passing the current one against the set standards.",
     item5Title: "Convenient timetable", item5Desc: "Morning and evening classes every day of the week. Women’s, men’s, Kids and one-to-one lessons. From 1, 2, 3 … up to 6 lessons a week.",
     item6Title: "Free trial lesson", item6Desc: "Meet the teacher and see how a lesson runs before you pay for the course."
   },
