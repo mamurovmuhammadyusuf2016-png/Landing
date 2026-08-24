@@ -1967,6 +1967,9 @@ html[lang="ar"] .main-nav a{ letter-spacing:0; }
     0 0 0 10px rgba(185,138,46,.18),
     0 30px 70px rgba(14,59,46,.16);
 }
+/* the <picture> wrapper must not become a layout box, or the img loses
+   the frame's own size (the same fix the About frame needed) */
+.online-media picture{ display:contents; }
 .online-media img{
   width:100%; height:100%; aspect-ratio:4/5; object-fit:cover;
   transition:transform .6s var(--ease);
