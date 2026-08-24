@@ -1944,3 +1944,108 @@ html[lang="ar"] .btn{ letter-spacing:0; }
 .header-phone{ font-size:.82rem; }
 .header-actions .btn-sm{ font-size:.8rem; padding:9px 18px; }
 html[lang="ar"] .main-nav a{ letter-spacing:0; }
+
+/* ---- The still parts of the page, set in motion ---------------
+   The page already moves in the hero, the cards and the two belts.
+   What stayed inert were the drawn lines — the About rail, the
+   director's timeline, the rule under every heading — plus the FAQ
+   and the footer, which arrived all at once. These give each of them
+   an entrance of its own, driven by the classes initSequences() and
+   initNavSpy() add. */
+
+/* the About rail draws down, then each marker lands on it */
+.about-points li:not(:last-child)::before{
+  transform:scaleY(0); transform-origin:top;
+  transition:transform .8s var(--ease) var(--seq, 0ms);
+}
+.about-points.seq-in li:not(:last-child)::before{ transform:scaleY(1); }
+.about-points li > *{
+  opacity:0; transform:translateY(14px);
+  transition:opacity .6s var(--ease) var(--seq, 0ms), transform .6s var(--ease) var(--seq, 0ms);
+}
+.about-points.seq-in li > *{ opacity:1; transform:none; }
+.about-points .point-ico{ transition:transform .45s var(--ease), background .3s var(--ease), color .3s var(--ease), opacity .5s var(--ease) var(--seq, 0ms); }
+.about-points li:hover strong{ color:var(--primary); }
+
+/* the director's timeline: the line runs, the years arrive after it */
+.director-timeline::before{
+  transform:scaleY(0); transform-origin:top;
+  transition:transform 1s var(--ease);
+}
+.director-timeline.seq-in::before{ transform:scaleY(1); }
+.director-timeline li::before{
+  transform:scale(0);
+  transition:transform .45s var(--ease) var(--seq, 0ms), background .3s var(--ease);
+}
+.director-timeline.seq-in li::before{ transform:scale(1); }
+.director-timeline li > *{
+  opacity:0; transform:translateY(10px);
+  transition:opacity .55s var(--ease) var(--seq, 0ms), transform .55s var(--ease) var(--seq, 0ms);
+}
+.director-timeline.seq-in li > *{ opacity:1; transform:none; }
+.director-timeline li{ transition:transform .3s var(--ease); }
+.director-timeline li:hover{ transform:translateX(4px); }
+html[dir="rtl"] .director-timeline li:hover{ transform:translateX(-4px); }
+.director-timeline li:hover::before{ background:var(--gold); }
+.director-timeline li:hover .dt-year{ color:var(--gold-ink); }
+
+/* the rule under a heading is drawn, not printed */
+.section-head h2::after{
+  transform:scaleX(0); transform-origin:center;
+  transition:transform .9s var(--ease) .15s;
+}
+.section-head.in-view h2::after{ transform:scaleX(1); }
+
+/* FAQ rows arrive one after another instead of in a block */
+.faq-item{
+  opacity:0; transform:translateY(16px);
+  transition:opacity .55s var(--ease) var(--seq, 0ms), transform .55s var(--ease) var(--seq, 0ms),
+             border-color .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
+}
+.faq-list.seq-in .faq-item{ opacity:1; transform:none; }
+
+/* the branch card's address rows, in sequence with the card */
+.branch-body .contact-list li{
+  opacity:0; transform:translateY(12px);
+  transition:opacity .5s var(--ease) var(--seq, 0ms), transform .5s var(--ease) var(--seq, 0ms);
+}
+.branch-body .contact-list.seq-in li{ opacity:1; transform:translateY(0); }
+.branch-body .contact-list.seq-in li:hover{ transform:translateX(4px); }
+html[dir="rtl"] .branch-body .contact-list.seq-in li:hover{ transform:translateX(-4px); }
+
+/* course bullets land after their card */
+.course-points li{
+  opacity:0; transform:translateX(-10px);
+  transition:opacity .45s var(--ease) var(--seq, 0ms), transform .45s var(--ease) var(--seq, 0ms), color .25s var(--ease);
+}
+html[dir="rtl"] .course-points li{ transform:translateX(10px); }
+.course-points.seq-in li{ opacity:1; transform:none; }
+.course-card:hover .course-points li::before{ transform:scale(1.3); }
+.course-points li::before{ transition:transform .3s var(--ease); }
+
+/* the footer used to appear fully formed */
+.site-footer .footer-col,
+.site-footer .footer-brand{
+  opacity:0; transform:translateY(20px);
+  transition:opacity .7s var(--ease) var(--seq, 0ms), transform .7s var(--ease) var(--seq, 0ms);
+}
+.site-footer.seq-in .footer-col,
+.site-footer.seq-in .footer-brand{ opacity:1; transform:none; }
+
+/* which section you are in, marked in the nav */
+.main-nav a.is-current{ color:var(--primary); }
+.main-nav a.is-current::after{ width:100%; }
+
+@media (prefers-reduced-motion: reduce){
+  .about-points li:not(:last-child)::before,
+  .director-timeline::before,
+  .director-timeline li::before,
+  .section-head h2::after{ transform:none !important; }
+  .about-points li > *,
+  .director-timeline li > *,
+  .faq-item,
+  .branch-body .contact-list li,
+  .course-points li,
+  .site-footer .footer-col,
+  .site-footer .footer-brand{ opacity:1 !important; transform:none !important; }
+}

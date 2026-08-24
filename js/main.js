@@ -829,6 +829,84 @@
     });
   }
 
+  /* ---------------------------------------------------------
+     Sequences — the drawn lines and the lists that used to
+     arrive all at once. Each group gets a class when it comes
+     into view; the CSS reads --seq off every child for the
+     order they land in.
+  --------------------------------------------------------- */
+  function initSequences() {
+    const groups = [
+      { selector: ".about-points", children: "li", step: 130 },
+      { selector: ".director-timeline", children: "li", step: 120, base: 260 },
+      { selector: ".faq-list", children: ".faq-item", step: 70 },
+      { selector: ".branch-body .contact-list", children: "li", step: 110 },
+      { selector: ".course-points", children: "li", step: 80, base: 160 },
+      { selector: ".site-footer", children: ".footer-brand, .footer-col", step: 110 }
+    ];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("seq-in");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    groups.forEach(({ selector, children, step, base = 0 }) => {
+      document.querySelectorAll(selector).forEach((group) => {
+        group.querySelectorAll(children).forEach((child, i) => {
+          child.style.setProperty("--seq", `${base + i * step}ms`);
+        });
+        observer.observe(group);
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------
+     Nav spy — the header already shows how far down the page
+     you are; this shows which section you are actually in.
+  --------------------------------------------------------- */
+  function initNavSpy() {
+    /* the sign-up button sits in the same nav and also points at
+       #contact — it is a call to action, not a place you are at */
+    const links = Array.from(document.querySelectorAll(".main-nav a[href^='#']:not(.btn)"));
+    if (!links.length) return;
+
+    const sections = links
+      .map((link) => ({ link, section: document.querySelector(link.getAttribute("href")) }))
+      .filter((pair) => pair.section);
+    if (!sections.length) return;
+
+    let queued = false;
+    function mark() {
+      queued = false;
+      const probe = window.scrollY + window.innerHeight * 0.35;
+      /* markup order is not page order once a section moves, so rank by
+         where each one actually sits and take the last one passed */
+      const current = sections
+        .slice()
+        .sort((a, b) => a.section.offsetTop - b.section.offsetTop)
+        .filter(({ section }) => section.offsetTop <= probe)
+        .pop();
+      links.forEach((link) => link.classList.toggle("is-current", !!current && link === current.link));
+    }
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(mark);
+      },
+      { passive: true }
+    );
+    mark();
+  }
+
   function initYear() {
     const el = document.getElementById("year");
     if (el) el.textContent = new Date().getFullYear();
@@ -852,6 +930,8 @@
     initBookingModal();
     initScrollTop();
     initHoverZoom();
+    initSequences();
+    initNavSpy();
     initYear();
   });
 })();
