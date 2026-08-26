@@ -2452,3 +2452,33 @@ html[dir="rtl"] .kids-adv::before{ border-radius:3px 0 0 3px; }
   .kids-advs{ grid-template-columns:1fr; }
   .kids-outcomes{ padding:24px 20px; }
 }
+
+/* ---- Topic pages ---------------------------------------------
+   The children's programme and the online course each have their own
+   URL now, so each needs a way back to the page it was lifted from. */
+.page-crumb{
+  display:flex; flex-wrap:wrap; align-items:center; gap:10px;
+  margin-bottom:clamp(22px, 3vw, 34px);
+  font-family:var(--font-head); font-weight:500; font-size:.78rem;
+  letter-spacing:.04em;
+}
+.page-crumb a{ color:var(--gold-ink); text-decoration:none; }
+.page-crumb a:hover{ color:var(--primary); text-decoration:underline; text-underline-offset:3px; }
+.page-crumb span{ color:var(--ink-faint); }
+.page-crumb span[aria-current]{ color:var(--ink); font-weight:600; }
+
+/* the link out of a section on the home page into its own page */
+.section-more{
+  display:inline-flex; align-items:center; gap:9px;
+  margin-top:22px;
+  font-family:var(--font-head); font-weight:600; font-size:.88rem;
+  color:var(--gold-ink);
+  border-bottom:1px solid rgba(185,138,46,.4);
+  padding-bottom:3px;
+  transition:color .25s var(--ease), border-color .25s var(--ease), gap .25s var(--ease);
+}
+.section-more::after{ content:"→"; transition:transform .25s var(--ease); }
+html[dir="rtl"] .section-more::after{ content:"←"; }
+.section-more:hover{ color:var(--primary); border-color:var(--primary); gap:13px; }
+.section-more:hover::after{ transform:translateX(2px); }
+html[dir="rtl"] .section-more:hover::after{ transform:translateX(-2px); }

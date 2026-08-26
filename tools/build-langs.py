@@ -350,6 +350,16 @@ def write_sitemap():
     <priority>{'1.0' if lang == SOURCE_LANG else '0.9'}</priority>{alts}
   </url>"""
         )
+    # the standalone topic pages, written by build-pages.py
+    for slug in ("kids", "online"):
+        entries.append(
+            f"""  <url>
+    <loc>{SITE}{slug}/</loc>
+    <lastmod>{today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>"""
+        )
     entries.append(
         f"""  <url>
     <loc>{SITE}privacy.html</loc>
