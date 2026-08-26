@@ -105,6 +105,10 @@ def version_assets(soup):
     was — the URL changes exactly when the file does.
     """
     targets = [
+        ("link", "href", "/favicon.ico", "favicon.ico"),
+        ("link", "href", "/assets/favicon-96.png", "assets/favicon-96.png"),
+        ("link", "href", "/assets/favicon-192.png", "assets/favicon-192.png"),
+        ("link", "href", "/assets/apple-touch-icon.png", "assets/apple-touch-icon.png"),
         ("link", "href", "/css/fonts.css", "css/fonts.css"),
         ("link", "href", "/css/style.css", "css/style.css"),
         ("script", "src", "/js/translations.js", "js/translations.js"),
