@@ -207,6 +207,18 @@
       button.setAttribute("aria-expanded", open ? "true" : "false");
     });
 
+    /* Landing on /ru/, /en/ or /ar/ sends a visitor to the Uzbek page —
+       the centre wants one language in search and one on arrival. Picking
+       a language here is the deliberate exception, so record it before the
+       link navigates and the guard on that page stands down. */
+    menu.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        try {
+          sessionStorage.setItem("aoa-lang", btn.getAttribute("data-lang"));
+        } catch (e) { /* private mode: the guard simply stays on */ }
+      });
+    });
+
     menu.addEventListener("click", (e) => e.stopPropagation());
     document.addEventListener("click", close);
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });

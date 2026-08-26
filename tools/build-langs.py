@@ -42,6 +42,15 @@ OUT = {
 
 OG_LOCALE = {"uz": "uz_UZ", "ru": "ru_RU", "ar": "ar_AR", "en": "en_US"}
 
+# The centre wants one language in search and one language on arrival: Uzbek.
+# With this on, /ru/, /en/ and /ar/ stay out of the index and out of the
+# sitemap, and a visitor who lands on one is sent to the Uzbek page unless
+# they chose that language themselves from the picker.
+#
+# Set to False to go back to four indexed languages with hreflang between
+# them, which is what the markup did before; nothing else has to change.
+UZ_ONLY_IN_SEARCH = True
+
 # head strings that carry language, keyed by meta name/property
 HEAD_TEXT = {
     "ru": {
@@ -226,16 +235,52 @@ def localise_jsonld(soup, lang, dic):
     tag.string = json.dumps(data, ensure_ascii=False, indent=2)
 
 
+REDIRECT_JS = (
+    "(function(){try{"
+    "if(sessionStorage.getItem('aoa-lang')==='%s')return;"
+    "location.replace('/');"
+    "}catch(e){}})();"
+)
+
+
+def add_uz_redirect(soup, lang):
+    """Send a visitor who landed on another language to the Uzbek page.
+
+    It runs first thing in the head, so nothing of the wrong language is
+    painted, and it stands down for anyone who picked that language from
+    the switcher — the picker records the choice before it navigates.
+    """
+    if not UZ_ONLY_IN_SEARCH or lang == SOURCE_LANG:
+        return
+    tag = soup.new_tag("script")
+    tag.string = REDIRECT_JS % lang
+    soup.head.insert(0, tag)
+
+
 def add_alternates(soup, lang):
-    """canonical + hreflang, so the three pages are read as one set."""
+    """canonical, and — unless Uzbek is the only indexed language — the
+    hreflang set that ties the four pages together."""
     for tag in soup.find_all("link", rel=lambda r: r and (
         "canonical" in r or "alternate" in r
     )):
+        tag.decompose()
+    for tag in soup.find_all("meta", attrs={"name": "robots"}):
         tag.decompose()
 
     head = soup.head
     canonical = soup.new_tag("link", rel="canonical", href=URLS[lang])
     head.append(canonical)
+
+    if UZ_ONLY_IN_SEARCH:
+        # hreflang must not point at noindex pages — the cluster would be
+        # invalid — so the other three simply drop out of search.
+        if lang != SOURCE_LANG:
+            robots = soup.new_tag("meta")
+            robots["name"] = "robots"
+            robots["content"] = "noindex, follow"
+            head.append(robots)
+        return
+
     for code in LANGS:
         alt = soup.new_tag("link", rel="alternate", href=URLS[code])
         alt["hreflang"] = code
@@ -270,6 +315,7 @@ def build(lang: str, source_html: str, translations: dict) -> str:
         soup.head.append(t)
 
     add_alternates(soup, lang)
+    add_uz_redirect(soup, lang)
     set_font_preloads(soup, lang)
     version_assets(soup)
     localise_body(soup, dic)
@@ -279,21 +325,29 @@ def build(lang: str, source_html: str, translations: dict) -> str:
 
 
 def write_sitemap():
+    """Only what should be found in search goes in here."""
     today = date.today().isoformat()
+    listed = [SOURCE_LANG] if UZ_ONLY_IN_SEARCH else LANGS
     entries = []
-    for lang in LANGS:
-        alts = "\n".join(
-            f'      <xhtml:link rel="alternate" hreflang="{c}" href="{URLS[c]}"/>'
-            for c in LANGS
-        )
+    for lang in listed:
+        if UZ_ONLY_IN_SEARCH:
+            alts = ""
+        else:
+            rows = [
+                f'      <xhtml:link rel="alternate" hreflang="{c}" href="{URLS[c]}"/>'
+                for c in LANGS
+            ]
+            rows.append(
+                '      <xhtml:link rel="alternate" hreflang="x-default"'
+                f' href="{URLS[SOURCE_LANG]}"/>'
+            )
+            alts = "\n" + "\n".join(rows)
         entries.append(
             f"""  <url>
     <loc>{URLS[lang]}</loc>
     <lastmod>{today}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>{'1.0' if lang == SOURCE_LANG else '0.9'}</priority>
-{alts}
-      <xhtml:link rel="alternate" hreflang="x-default" href="{URLS[SOURCE_LANG]}"/>
+    <priority>{'1.0' if lang == SOURCE_LANG else '0.9'}</priority>{alts}
   </url>"""
         )
     entries.append(
