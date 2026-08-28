@@ -335,7 +335,7 @@
 <!-- ?v= is bumped whenever these files change: Pages serves them with a
      10-minute cache, so without it a visitor can get new markup with a
      stale stylesheet and the layout breaks -->
-<link href="/css/style.css?v=d128a75196" rel="stylesheet"/>
+<link href="/css/style.css?v=571b0b9cf4" rel="stylesheet"/>
 <meta content="uz_UZ" property="og:locale:alternate"/><meta content="ru_RU" property="og:locale:alternate"/><meta content="ar_AR" property="og:locale:alternate"/><link href="https://academy-of-arabic.uz/en/" rel="canonical"/><meta content="noindex, follow" name="robots"/></head>
 <body>
 <div aria-hidden="true" class="pattern-overlay"></div>
@@ -585,6 +585,25 @@
 <div><strong data-i18n="online.item5Title">Taught for the result</strong><p data-i18n="online.item5Desc">The aim is not simply correct reading, but fluent, confident, quick reading.</p></div>
 </li>
 </ul>
+</div>
+</div>
+<div class="lesson reveal">
+<div class="lesson-copy">
+<h3 data-i18n="online.videoTitle">Watch the first lesson now</h3>
+<p data-i18n="online.videoNote">No sign-up. This is lesson one of the course — the Arabic alphabet.</p>
+</div>
+<!-- A facade, not an embed: YouTube's player pulls about a megabyte of
+     script before anything is watched. The poster is ours, and the real
+     player is fetched only when someone asks for it. -->
+<div class="lesson-player" data-youtube="Z2FNS2sEB50">
+<button aria-label="Play the lesson" class="lesson-play" data-i18n-title="online.videoPlay" title="Play the lesson" type="button">
+<picture>
+<source sizes="(max-width: 960px) 92vw, 900px" srcset="/assets/video/lesson-1-560.webp 560w, /assets/video/lesson-1-900.webp 900w, /assets/video/lesson-1-1280.webp 1280w" type="image/webp"/>
+<img alt="Arab tili 1-dars: Alif, Ba, Ta, Sa, Jim, Ha, Xo, Dal" data-i18n-alt="online.videoName" decoding="async" height="720" loading="lazy" src="/assets/video/lesson-1.jpg" width="1280"/>
+</picture>
+<span aria-hidden="true" class="lesson-play-mark"><svg viewbox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"></path></svg></span>
+<span class="lesson-play-label" data-i18n="online.videoPlay">Play the lesson</span>
+</button>
 </div>
 </div>
 <h3 class="online-sub reveal-blur" data-i18n="online.formatsTitle">Ways to study</h3>
@@ -1179,7 +1198,7 @@
 <div id="bookingDialogSlot"></div>
 </div>
 </dialog>
-<script src="/js/translations.js?v=611b47d528"></script>
-<script src="/js/main.js?v=a25e0bdb04"></script>
+<script src="/js/translations.js?v=9997f67191"></script>
+<script src="/js/main.js?v=8fc04c9f20"></script>
 </body>
 </html>

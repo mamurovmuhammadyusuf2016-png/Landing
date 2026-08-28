@@ -847,6 +847,32 @@
   }
 
   /* ---------------------------------------------------------
+     Sample lesson — the poster stands in for the player until
+     someone actually wants to watch, so the page does not pay
+     for YouTube's script on every visit.
+  --------------------------------------------------------- */
+  function initLessonPlayer() {
+    document.querySelectorAll("[data-youtube]").forEach((holder) => {
+      const button = holder.querySelector(".lesson-play");
+      if (!button) return;
+      button.addEventListener("click", () => {
+        const id = holder.getAttribute("data-youtube");
+        const frame = document.createElement("iframe");
+        frame.src =
+          "https://www.youtube-nocookie.com/embed/" + id +
+          "?autoplay=1&rel=0&modestbranding=1";
+        frame.title = button.querySelector(".lesson-play-label").textContent;
+        frame.allow =
+          "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture";
+        frame.allowFullscreen = true;
+        frame.loading = "lazy";
+        holder.replaceChildren(frame);
+        track("lesson_play", { video: id });
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------
      Sequences — the drawn lines and the lists that used to
      arrive all at once. Each group gets a class when it comes
      into view; the CSS reads --seq off every child for the
@@ -949,6 +975,7 @@
     initBookingModal();
     initScrollTop();
     initHoverZoom();
+    initLessonPlayer();
     initSequences();
     initNavSpy();
     initYear();
