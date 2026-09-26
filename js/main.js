@@ -1,4 +1,4 @@
-(function () {
+ff==(function () {
   "use strict";
 
   const CONFIG = {
@@ -34,6 +34,14 @@
        thank-you URL is needed — see track() below for the event names. */
     ga4Id: "",         /* "G-XXXXXXXXXX"  */
     metricaId: ""      /* "12345678"      */
+        , adsId: "AW-18394600440",
+    adsConversions: {
+      lead_sent:      "AW-18394600440/s2B5CMvCroYdEPinncNE",
+      lead_manual:    "AW-18394600440/s2B5CMvCroYdEPinncNE",
+      click_phone:    "AW-18394600440/vdd-CM7CroYdEPinncNE",
+      click_telegram: "AW-18394600440/vdd-CM7CroYdEPinncNE",
+      click_whatsapp: "AW-18394600440/vdd-CM7CroYdEPinncNE"
+    }
   };
 
   const root = document.documentElement;
@@ -60,7 +68,16 @@
       tag.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(CONFIG.ga4Id);
       document.head.appendChild(tag);
     }
-
+    if (CONFIG.adsId) {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      window.gtag("js", new Date());
+      window.gtag("config", CONFIG.adsId);
+      const adsTag = document.createElement("script");
+      adsTag.async = true;
+      adsTag.src = "https://www.googletagmanager.com/gtag/js?id=" + CONFIG.adsId;
+      document.head.appendChild(adsTag);
+    }
     if (CONFIG.metricaId) {
       (function (m, e, t, r, i, k, a) {
         m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
@@ -82,6 +99,8 @@
   function track(name, params) {
     if (window.gtag) window.gtag("event", name, params || {});
     if (window.ym && CONFIG.metricaId) window.ym(CONFIG.metricaId, "reachGoal", name, params || {});
+        const sendTo = CONFIG.adsConversions && CONFIG.adsConversions[name];
+    if (window.gtag && sendTo) window.gtag("event", "conversion", { send_to: sendTo });
   }
 
   /* A submitted form never changes the URL, so a conversion has no
