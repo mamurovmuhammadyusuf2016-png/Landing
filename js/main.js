@@ -1,4 +1,4 @@
-ff==(function () {
+(function () {
   "use strict";
 
   const CONFIG = {
