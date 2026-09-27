@@ -148,7 +148,22 @@
       stored = JSON.parse(sessionStorage.getItem("aoa-attrib") || "{}");
     } catch (e) { stored = {}; }
 
-    const params = new URLSearchParams(location.search);
+    /* A click that landed on /ru/, /en/ or /ar/ is bounced to the Uzbek
+       page. Older builds bounced with location.replace('/'), which drops
+       the query string and with it the gclid — and those builds stay in
+       browser caches for a while. The page we came from is still in
+       document.referrer, query string intact, so the click id can be
+       recovered from there. Same-origin only: a referrer from Google or
+       Facebook is not ours to read parameters out of. */
+    let search = location.search;
+    if (!/[?&](gclid|gbraid|wbraid|utm_source)=/.test(search) && document.referrer) {
+      try {
+        const from = new URL(document.referrer);
+        if (from.origin === location.origin && from.search) search = from.search;
+      } catch (e) { /* malformed referrer — ignore */ }
+    }
+
+    const params = new URLSearchParams(search);
     let found = false;
     ATTRIB_KEYS.forEach((key) => {
       const value = params.get(key);
