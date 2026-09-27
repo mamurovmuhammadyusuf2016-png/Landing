@@ -235,16 +235,10 @@ def localise_jsonld(soup, lang, dic):
     tag.string = json.dumps(data, ensure_ascii=False, indent=2)
 
 
-# location.replace('/') drops everything after the "?" — which is where
-# Google Ads puts ?gclid=… and where every UTM lives. A paid click that
-# landed on /ru/ therefore arrived at / with no gclid at all, so the
-# conversion it produced could never be tied back to the ad and Smart
-# Bidding was optimising on a fraction of the truth. Carry the query and
-# the hash across.
 REDIRECT_JS = (
     "(function(){try{"
     "if(sessionStorage.getItem('aoa-lang')==='%s')return;"
-    "location.replace('/'+location.search+location.hash);"
+    "location.replace('/');"
     "}catch(e){}})();"
 )
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html dir="ltr" lang="ru">
-<head><script>(function(){try{if(sessionStorage.getItem('aoa-lang')==='ru')return;location.replace('/');}catch(e){}})();</script>
+<head><script>(function(){try{if(sessionStorage.getItem('aoa-lang')==='ru')return;location.replace('/'+location.search+location.hash);}catch(e){}})();</script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Курсы арабского языка в Ташкенте — Academy of Arabic</title>
@@ -1032,11 +1032,11 @@
 <textarea data-i18n-placeholder="contact.formMessagePh" id="fieldMessage" name="message" placeholder="Удобное время, уровень языка, вопросы..." rows="3"></textarea>
 </div>
 <label class="field-check">
-<input id="fieldConsent" name="consent" required="" type="checkbox"/>
+<input id="fieldConsent" name="consent" type="checkbox"/>
 <span data-i18n="contact.formConsent">Согласен на обработку моих персональных данных</span>
 </label>
 <button class="btn btn-primary btn-lg btn-block" data-i18n="contact.formSubmit" type="submit">Отправить заявку в Telegram</button>
-<p class="form-note"><a data-i18n="contact.privacyLink" href="/privacy.html">Политика конфиденциальности</a></p>
+<p class="form-note"><span data-i18n="contact.formConsentNote">Нажимая «Отправить», вы соглашаетесь на обработку персональных данных.</span> <a data-i18n="contact.privacyLink" href="/privacy.html">Политика конфиденциальности</a></p>
 </form>
 <div class="form-success" hidden="" id="formSuccess">
 <span class="form-success-ico">✓</span>
@@ -1203,7 +1203,7 @@
 <div id="bookingDialogSlot"></div>
 </div>
 </dialog>
-<script src="/js/translations.js?v=9997f67191"></script>
-<script src="/js/main.js?v=8fc04c9f20"></script>
+<script src="/js/translations.js?v=41a06d3831"></script>
+<script src="/js/main.js?v=f630189677"></script>
 </body>
 </html>

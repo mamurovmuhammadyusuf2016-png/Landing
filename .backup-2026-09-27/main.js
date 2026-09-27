@@ -33,46 +33,15 @@
        is requested. Goals are reported as events, so no separate
        thank-you URL is needed — see track() below for the event names. */
     ga4Id: "",         /* "G-XXXXXXXXXX"  */
-    metricaId: ""      /* "12345678"      */,
-
-    /* ---- Google Ads ----------------------------------------------------
-       adsConversions maps an internal event name to a conversion label.
-       Three rules hold this map together; breaking any of them teaches
-       Smart Bidding to buy the wrong traffic.
-
-       1. Only a DELIVERED enquiry may sit on the lead label. lead_manual
-          means the message never reached Telegram, so it is deliberately
-          absent — counting it told Google that a failed form was a win,
-          and Google went looking for more of exactly that traffic.
-
-       2. A tap on a phone / Telegram / WhatsApp link is INTEREST, not a
-          lead. Those belong on their own conversion action, marked
-          Secondary in Google Ads so bidding does not chase them. Until
-          separate actions exist in the account they share one label —
-          see the placeholders below — but they are deduplicated (each
-          channel fires at most once per visit) so one person tapping
-          twice is no longer two conversions.
-
-       3. Anything ambiguous stays out. A page view, a video play or an
-          opened form is not a conversion. */
-    adsId: "AW-18394600440",
+    metricaId: ""      /* "12345678"      */
+        , adsId: "AW-18394600440",
     adsConversions: {
-      /* PRIMARY — a real, delivered enquiry. Nothing else goes here. */
       lead_sent:      "AW-18394600440/s2B5CMvCroYdEPinncNE",
-
-      /* SECONDARY — contact intent. Replace each with its own label once
-         the three conversion actions exist in Google Ads; the code needs
-         no other change. */
+      lead_manual:    "AW-18394600440/s2B5CMvCroYdEPinncNE",
       click_phone:    "AW-18394600440/vdd-CM7CroYdEPinncNE",
       click_telegram: "AW-18394600440/vdd-CM7CroYdEPinncNE",
       click_whatsapp: "AW-18394600440/vdd-CM7CroYdEPinncNE"
-    },
-
-    /* Fired at most once per visit each. Without this a visitor who taps
-       the phone number twice is reported as two conversions. */
-    adsConversionsOncePerSession: [
-      "click_phone", "click_telegram", "click_whatsapp"
-    ]
+    }
   };
 
   const root = document.documentElement;
@@ -125,108 +94,13 @@
     }
   }
 
-  /* ---------------------------------------------------------
-     Attribution
-
-     Which ad produced this enquiry? Google Ads answers that only for
-     the conversions it manages to attribute itself; the centre also
-     needs it in plain words, on the Telegram message, so a real
-     enquiry can be matched to a real keyword by hand.
-
-     The parameters arrive once, on the landing URL, and are gone the
-     moment the visitor clicks anything. Capture them on first paint
-     and keep them for the visit.
-  --------------------------------------------------------- */
-  const ATTRIB_KEYS = [
-    "gclid", "gbraid", "wbraid", "msclkid", "fbclid", "yclid",
-    "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"
-  ];
-
-  function captureAttribution() {
-    let stored = {};
-    try {
-      stored = JSON.parse(sessionStorage.getItem("aoa-attrib") || "{}");
-    } catch (e) { stored = {}; }
-
-    const params = new URLSearchParams(location.search);
-    let found = false;
-    ATTRIB_KEYS.forEach((key) => {
-      const value = params.get(key);
-      /* First touch wins: a visitor who arrives on an ad and later
-         reloads without the parameter keeps the ad as their source. */
-      if (value && !stored[key]) { stored[key] = value.slice(0, 200); found = true; }
-    });
-
-    if (found || !stored.landing) {
-      if (!stored.landing) stored.landing = location.pathname;
-      if (!stored.first_seen) stored.first_seen = new Date().toISOString();
-      if (!stored.referrer && document.referrer) {
-        stored.referrer = document.referrer.slice(0, 200);
-      }
-      try {
-        sessionStorage.setItem("aoa-attrib", JSON.stringify(stored));
-      } catch (e) { /* private mode — the enquiry just goes without it */ }
-    }
-    return stored;
-  }
-
-  /* The block appended to every enquiry. Empty for organic visitors, so
-     the message stays short when there is nothing to say. */
-  function attributionLines() {
-    let a = {};
-    try {
-      a = JSON.parse(sessionStorage.getItem("aoa-attrib") || "{}");
-    } catch (e) { return ""; }
-
-    const out = [];
-    if (a.gclid || a.gbraid || a.wbraid) out.push("Manba: Google Ads");
-    else if (a.utm_source) out.push("Manba: " + a.utm_source);
-    else if (a.fbclid) out.push("Manba: Meta");
-
-    if (a.utm_campaign) out.push("Kampaniya: " + a.utm_campaign);
-    if (a.utm_term) out.push("Kalit so'z: " + a.utm_term);
-    if (a.utm_content) out.push("Reklama: " + a.utm_content);
-    const click = a.gclid || a.gbraid || a.wbraid || a.msclkid || a.fbclid;
-    if (click) out.push("Click ID: " + click);
-    if (a.landing && a.landing !== "/") out.push("Kirgan sahifa: " + a.landing);
-
-    return out.length ? "\n\n— — —\n" + out.join("\n") : "";
-  }
-
-  /* Has this event already been reported to Google Ads this visit?
-     Only the events named in adsConversionsOncePerSession are capped —
-     a delivered enquiry is always worth reporting, even the second one
-     from the same person on the same day. */
-  function alreadyCounted(name) {
-    const capped = CONFIG.adsConversionsOncePerSession || [];
-    if (capped.indexOf(name) === -1) return false;
-    const key = "aoa-conv-" + name;
-    try {
-      if (sessionStorage.getItem(key)) return true;
-      sessionStorage.setItem(key, "1");
-    } catch (e) {
-      /* private mode, or storage disabled — better to report twice than
-         to lose the signal entirely */
-    }
-    return false;
-  }
-
   /* One event name, sent wherever it can go. Safe to call when no
-     analytics is configured — it simply does nothing.
-
-     The Ads conversion is sent separately from the plain event: the
-     event is for GA4 and Metrica, the "conversion" hit is the only
-     thing Google Ads counts. An event with no entry in adsConversions
-     therefore never becomes a conversion, which is how booking_open,
-     lead_manual and lesson_play stay out of the bidding signal. */
+     analytics is configured — it simply does nothing. */
   function track(name, params) {
     if (window.gtag) window.gtag("event", name, params || {});
     if (window.ym && CONFIG.metricaId) window.ym(CONFIG.metricaId, "reachGoal", name, params || {});
-
-    const sendTo = CONFIG.adsConversions && CONFIG.adsConversions[name];
-    if (window.gtag && sendTo && !alreadyCounted(name)) {
-      window.gtag("event", "conversion", { send_to: sendTo });
-    }
+        const sendTo = CONFIG.adsConversions && CONFIG.adsConversions[name];
+    if (window.gtag && sendTo) window.gtag("event", "conversion", { send_to: sendTo });
   }
 
   /* A submitted form never changes the URL, so a conversion has no
@@ -357,13 +231,6 @@
        a language here is the deliberate exception, so record it before the
        link navigates and the guard on that page stands down. */
     menu.querySelectorAll(".lang-btn").forEach((btn) => {
-      /* The hrefs are bare ("/ru/"), so switching language used to throw
-         away ?gclid= and every UTM with it. Carry them across. */
-      const qs = location.search + location.hash;
-      if (qs) {
-        const href = btn.getAttribute("href") || "/";
-        if (href.indexOf("?") === -1) btn.setAttribute("href", href + qs);
-      }
       btn.addEventListener("click", () => {
         try {
           sessionStorage.setItem("aoa-lang", btn.getAttribute("data-lang"));
@@ -826,16 +693,8 @@
       const telegram = telegramField.value.trim().replace(/^@+/, "");
 
       /* Telegram is deliberately not required: plenty of accounts have no
-         username at all, and the phone number already reaches them.
-
-         Consent is no longer a gate either. It was a required checkbox
-         below the fold on a phone: people filled the form, pressed
-         Send, nothing visibly happened, and they left believing the
-         site was broken — a paid click thrown away. The notice now sits
-         above the button and submitting is the consent, which is how
-         every other centre does it. The box stays for anyone who wants
-         to tick it, and its state travels with the enquiry. */
-      if (!name || !phone) {
+         username at all, and the phone number already reaches them. */
+      if (!name || !phone || !consent.checked) {
         form.reportValidity();
         return;
       }
@@ -848,9 +707,8 @@
         telegram ? `Telegram: @${telegram}` : null,
         course ? `Курс: ${course}` : null,
         message ? `Комментарий: ${message}` : null,
-        `Язык сайта: ${root.lang}`,
-        consent && consent.checked ? "Согласие: отмечено" : null
-      ].filter(Boolean).join("\n") + attributionLines();
+        `Язык сайта: ${root.lang}`
+      ].filter(Boolean).join("\n");
 
       if (submitBtn) submitBtn.disabled = true;
       let delivered = false;
@@ -1130,8 +988,6 @@
     initCardGlow();
     initFaq();
     initCourseCta();
-    /* Before anything can navigate and strip the query string. */
-    captureAttribution();
     initAnalytics();
     initOutboundTracking();
     initBookingForm();
