@@ -1023,10 +1023,114 @@
   }
 
   /* ---------------------------------------------------------
-     Sample lesson — the poster stands in for the player until
-     someone actually wants to watch, so the page does not pay
-     for YouTube's script on every visit.
+     Sample lesson
+
+     The poster stands in for the player until someone actually
+     wants to watch, so the page does not pay for YouTube's
+     script on every visit.
+
+     A press of play is the least interesting thing to know
+     about the video. Someone who stops after ten seconds and
+     someone who watches the lesson to the end are telling the
+     centre two opposite things, and only the second one says
+     the video is doing its job. So the player is asked how far
+     it has got, and the answer is reported at the quarters and
+     again when the visitor leaves.
+
+     enablejsapi=1 does double duty: it is what lets the code
+     below read the player's position, and it is also what GA4's
+     own video measurement needs before it will report on an
+     embed at all.
   --------------------------------------------------------- */
+  let ytApiPromise = null;
+
+  function loadYouTubeApi() {
+    if (ytApiPromise) return ytApiPromise;
+    ytApiPromise = new Promise((resolve) => {
+      if (window.YT && window.YT.Player) { resolve(window.YT); return; }
+      /* The API calls exactly one global when it is ready, so
+         chain onto whatever is already there rather than
+         overwrite it. */
+      const previous = window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady = function () {
+        if (typeof previous === "function") previous();
+        resolve(window.YT);
+      };
+      const script = document.createElement("script");
+      script.src = "https://www.youtube.com/iframe_api";
+      script.async = true;
+      document.head.appendChild(script);
+    });
+    return ytApiPromise;
+  }
+
+  /* One video, watched once. Milestones fire at most once each,
+     so scrubbing back and forth stays a single journey, and the
+     furthest point reached is what gets reported at the end —
+     not wherever the visitor happened to pause. */
+  function watchProgress(player, id) {
+    const marks = [25, 50, 75];
+    const passed = {};
+    let deepest = 0;
+    let seconds = 0;
+    let reportedEnd = false;
+    let timer = null;
+
+    function send(name, extra) {
+      track(name, Object.assign({
+        video_title: id,
+        video_provider: "youtube",
+        video_url: "https://youtu.be/" + id
+      }, extra || {}));
+    }
+
+    function sample() {
+      const total = player.getDuration();
+      if (!total) return;
+      const at = player.getCurrentTime();
+      seconds = Math.round(at);
+      const percent = Math.max(0, Math.min(100, Math.round((at / total) * 100)));
+      if (percent > deepest) deepest = percent;
+      marks.forEach((mark) => {
+        if (percent >= mark && !passed[mark]) {
+          passed[mark] = true;
+          send("video_progress", { video_percent: mark, video_current_time: seconds });
+        }
+      });
+    }
+
+    /* Whatever happens — the tab closes, the visitor navigates
+       away, the video ends — the centre gets one line saying how
+       far this person actually got. Sent once. */
+    function finish(reason) {
+      if (reportedEnd) return;
+      reportedEnd = true;
+      if (timer) { clearInterval(timer); timer = null; }
+      send("video_engagement", {
+        video_percent: deepest,
+        video_seconds: seconds,
+        video_minutes: Math.round((seconds / 60) * 10) / 10,
+        reason: reason
+      });
+    }
+
+    player.addEventListener("onStateChange", (event) => {
+      const state = event.data;
+      if (state === 1) {                       /* playing */
+        if (!timer) timer = setInterval(sample, 1000);
+      } else if (state === 2) {                /* paused  */
+        sample();
+        if (timer) { clearInterval(timer); timer = null; }
+      } else if (state === 0) {                /* ended   */
+        deepest = 100;
+        send("video_complete", { video_percent: 100, video_seconds: seconds });
+        finish("ended");
+      }
+    });
+
+    window.addEventListener("pagehide", () => finish("left"), { once: true });
+  }
+
   function initLessonPlayer() {
     document.querySelectorAll("[data-youtube]").forEach((holder) => {
       const button = holder.querySelector(".lesson-play");
@@ -1034,16 +1138,28 @@
       button.addEventListener("click", () => {
         const id = holder.getAttribute("data-youtube");
         const frame = document.createElement("iframe");
+        frame.id = "ytplayer-" + id;
         frame.src =
           "https://www.youtube-nocookie.com/embed/" + id +
-          "?autoplay=1&rel=0&modestbranding=1";
+          "?autoplay=1&rel=0&modestbranding=1&enablejsapi=1" +
+          "&origin=" + encodeURIComponent(location.origin);
         frame.title = button.querySelector(".lesson-play-label").textContent;
         frame.allow =
           "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture";
         frame.allowFullscreen = true;
         frame.loading = "lazy";
         holder.replaceChildren(frame);
+
         track("lesson_play", { video: id });
+        track("video_start", { video_title: id, video_provider: "youtube" });
+
+        /* If YouTube's API never arrives — blocked, offline — the
+           video still plays; only the progress reporting is lost. */
+        loadYouTubeApi().then((YT) => {
+          try {
+            watchProgress(new YT.Player(frame.id), id);
+          } catch (err) { /* nothing to measure, nothing to break */ }
+        }).catch(() => {});
       });
     });
   }
