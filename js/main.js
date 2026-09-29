@@ -185,8 +185,47 @@
     return stored;
   }
 
-  /* The block appended to every enquiry. Empty for organic visitors, so
-     the message stays short when there is nothing to say. */
+  /* Most people arrive without a tagged link. An ad click carries a
+     click id, a campaign link carries a UTM, but someone tapping the
+     bio link on Instagram or a message in Telegram carries neither —
+     and those are the visitors the centre most wants to recognise. The
+     page they came from says it, so read the referrer when nothing
+     better is there, and name the well-known ones in plain words.
+
+     Two caveats worth knowing: an app's in-app browser sometimes sends
+     no referrer at all, and a link opened from a message often loses
+     it. A tagged link (?utm_source=instagram) is the only way to be
+     certain, which is why the bio link should carry one. */
+  const REFERRERS = [
+    [/(^|\.)instagram\.com$/i,      "Instagram"],
+    [/(^|\.)(t|telegram)\.me$/i,    "Telegram"],
+    [/(^|\.)telegram\.org$/i,       "Telegram"],
+    [/(^|\.)youtube\.com$/i,        "YouTube"],
+    [/(^|\.)youtu\.be$/i,           "YouTube"],
+    [/(^|\.)facebook\.com$/i,       "Facebook"],
+    [/(^|\.)m\.me$/i,               "Messenger"],
+    [/(^|\.)tiktok\.com$/i,         "TikTok"],
+    [/(^|\.)google\./i,             "Google qidiruv"],
+    [/(^|\.)yandex\./i,             "Yandex qidiruv"],
+    [/(^|\.)bing\.com$/i,           "Bing qidiruv"],
+    [/(^|\.)chatgpt\.com$/i,        "ChatGPT"],
+    [/(^|\.)openai\.com$/i,         "ChatGPT"],
+    [/(^|\.)claude\.ai$/i,          "Claude"],
+    [/(^|\.)wa\.me$/i,              "WhatsApp"],
+    [/(^|\.)whatsapp\.com$/i,       "WhatsApp"]
+  ];
+
+  function referrerName(referrer) {
+    let host;
+    try { host = new URL(referrer).hostname; } catch (e) { return null; }
+    if (!host || host === location.hostname) return null;
+    const known = REFERRERS.find(([re]) => re.test(host));
+    return known ? known[1] : host.replace(/^www\./, "");
+  }
+
+  /* The block appended to every enquiry. Empty only when the visit
+     really says nothing — typed the address, or arrived with the
+     referrer stripped. */
   function attributionLines() {
     let a = {};
     try {
@@ -197,6 +236,10 @@
     if (a.gclid || a.gbraid || a.wbraid) out.push("Manba: Google Ads");
     else if (a.utm_source) out.push("Manba: " + a.utm_source);
     else if (a.fbclid) out.push("Manba: Meta");
+    else {
+      const from = a.referrer && referrerName(a.referrer);
+      if (from) out.push("Manba: " + from);
+    }
 
     if (a.utm_campaign) out.push("Kampaniya: " + a.utm_campaign);
     if (a.utm_term) out.push("Kalit so'z: " + a.utm_term);
