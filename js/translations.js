@@ -107,10 +107,10 @@ ru: {
     ctaNote: "Чтобы начать онлайн-обучение, оставьте заявку.",
     cta: "Записаться на онлайн-обучение",
     imageAlt: "Онлайн-курс фонетики арабского языка — ученица смотрит видеоурок на ноутбуке",
-    videoTitle: "Посмотрите первый урок прямо сейчас",
-    videoNote: "Без регистрации. Это первый урок курса — арабский алфавит.",
+    videoTitle: "Посмотрите урок прямо сейчас",
+    videoNote: "Без регистрации. За 7 минут — весь арабский алфавит.",
     videoPlay: "Открыть урок",
-    videoName: "Arab tili 1-dars: Alif, Ba, Ta, Sa, Jim, Ha, Xo, Dal"
+    videoName: "7 Daqiqada Arab alifbosini oʻrganing — Arab tili alifbosi"
   },
   kids: {
     tag: "Kids",
@@ -390,10 +390,10 @@ uz: {
     ctaNote: "Online taʼlimni boshlash uchun roʻyxatdan oʻting.",
     cta: "Online taʼlimga yozilish",
     imageAlt: "Online arab tili fonetika kursi — oʻquvchi noutbukda video darsni koʻrmoqda",
-    videoTitle: "Birinchi darsni hoziroq koʻring",
-    videoNote: "Roʻyxatdan oʻtmasdan. Bu — kursning 1-darsi: arab alifbosi.",
+    videoTitle: "Darsni hoziroq koʻring",
+    videoNote: "Roʻyxatdan oʻtmasdan. 7 daqiqada — butun arab alifbosi.",
     videoPlay: "Darsni ochish",
-    videoName: "Arab tili 1-dars: Alif, Ba, Ta, Sa, Jim, Ha, Xo, Dal"
+    videoName: "7 Daqiqada Arab alifbosini oʻrganing — Arab tili alifbosi"
   },
   kids: {
     tag: "Kids",
@@ -674,10 +674,10 @@ ar: {
     ctaNote: "للبدء بالدراسة أونلاين اترك طلبًا.",
     cta: "التسجيل في الدراسة أونلاين",
     imageAlt: "دورة الصوتيات العربية أونلاين — طالبة تشاهد درسًا مصوّرًا على الحاسوب المحمول",
-    videoTitle: "شاهد الدرس الأول الآن",
-    videoNote: "بلا تسجيل. هذا هو الدرس الأول من الدورة — الحروف العربية.",
+    videoTitle: "شاهد الدرس الآن",
+    videoNote: "بلا تسجيل. الحروف العربية كاملة في سبع دقائق.",
     videoPlay: "تشغيل الدرس",
-    videoName: "Arab tili 1-dars: Alif, Ba, Ta, Sa, Jim, Ha, Xo, Dal"
+    videoName: "7 Daqiqada Arab alifbosini oʻrganing — Arab tili alifbosi"
   },
   kids: {
     tag: "Kids",
@@ -959,10 +959,10 @@ en: {
     ctaNote: "Send a request to start studying online.",
     cta: "Enrol in the online course",
     imageAlt: "Online Arabic phonetics course — a student watching a video lesson on a laptop",
-    videoTitle: "Watch the first lesson now",
-    videoNote: "No sign-up. This is lesson one of the course — the Arabic alphabet.",
+    videoTitle: "Watch a lesson right now",
+    videoNote: "No sign-up. The whole Arabic alphabet in seven minutes.",
     videoPlay: "Play the lesson",
-    videoName: "Arab tili 1-dars: Alif, Ba, Ta, Sa, Jim, Ha, Xo, Dal"
+    videoName: "7 Daqiqada Arab alifbosini oʻrganing — Arab tili alifbosi"
   },
   kids: {
     tag: "Kids",
