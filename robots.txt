@@ -1,4 +1,44 @@
 User-agent: *
 Allow: /
 
+# The assistants people ask "Toshkentda qaysi arab tili kursi yaxshi?" are
+# already sending enquiries here, so say plainly that they are welcome
+# rather than leaving it to the wildcard above. llms.txt holds the same
+# facts as the page, in the plain text these crawlers read best.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
 Sitemap: https://academy-of-arabic.uz/sitemap.xml
