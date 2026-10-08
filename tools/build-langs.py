@@ -241,9 +241,21 @@ def localise_jsonld(soup, lang, dic):
 # conversion it produced could never be tied back to the ad and Smart
 # Bidding was optimising on a fraction of the truth. Carry the query and
 # the hash across.
+#
+# A paid click must also *stay*. Google Ads requires the ad text and the
+# landing page to be in the same supported language, so a Russian ad has
+# to come to rest on /ru/ — bouncing it to the Uzbek homepage is what
+# gets the ad disapproved under the "Unsupported language" policy. So the
+# redirect stands down whenever the URL carries an ad or campaign
+# parameter, and records the language for the rest of the session so the
+# visitor is not bounced on the next click either. Organic visitors, who
+# arrive with no such parameter, are still sent to the Uzbek page.
+AD_PARAM_RE = r"[?&](?:gclid|gbraid|wbraid|dclid|msclkid|fbclid|yclid|utm_[a-z_]+)="
 REDIRECT_JS = (
     "(function(){try{"
-    "if(sessionStorage.getItem('aoa-lang')==='%s')return;"
+    "if(sessionStorage.getItem('aoa-lang')==='%(lang)s')return;"
+    "if(/%(ads)s/i.test(location.search)){"
+    "sessionStorage.setItem('aoa-lang','%(lang)s');return;}"
     "location.replace('/'+location.search+location.hash);"
     "}catch(e){}})();"
 )
@@ -254,12 +266,14 @@ def add_uz_redirect(soup, lang):
 
     It runs first thing in the head, so nothing of the wrong language is
     painted, and it stands down for anyone who picked that language from
-    the switcher — the picker records the choice before it navigates.
+    the switcher — the picker records the choice before it navigates —
+    and for anyone arriving on a paid click, whose landing page has to
+    match the language of the ad that sent them.
     """
     if not UZ_ONLY_IN_SEARCH or lang == SOURCE_LANG:
         return
     tag = soup.new_tag("script")
-    tag.string = REDIRECT_JS % lang
+    tag.string = REDIRECT_JS % {"lang": lang, "ads": AD_PARAM_RE}
     soup.head.insert(0, tag)
 
 
