@@ -51,6 +51,16 @@ OG_LOCALE = {"uz": "uz_UZ", "ru": "ru_RU", "ar": "ar_AR", "en": "en_US"}
 # them, which is what the markup did before; nothing else has to change.
 UZ_ONLY_IN_SEARCH = True
 
+# Languages that keep their own page even when UZ_ONLY_IN_SEARCH is on.
+# Google Ads requires an ad and its landing page to be in the same supported
+# language, and it checks that by fetching the landing page itself — with no
+# gclid on the URL, so the ad-parameter escape below does not apply to it. A
+# redirect on /ru/ therefore shows the reviewer an Uzbek page under a Russian
+# ad and earns a second "Unsupported language" disapproval. /ru/ carries the
+# paid traffic, so it stands on its own; it is noindex either way, so almost
+# nobody reaches it from organic search for the redirect to have helped.
+AD_LANDING_LANGS = {"ru"}
+
 # head strings that carry language, keyed by meta name/property
 HEAD_TEXT = {
     "ru": {
@@ -266,11 +276,13 @@ def add_uz_redirect(soup, lang):
 
     It runs first thing in the head, so nothing of the wrong language is
     painted, and it stands down for anyone who picked that language from
-    the switcher — the picker records the choice before it navigates —
-    and for anyone arriving on a paid click, whose landing page has to
-    match the language of the ad that sent them.
+    the switcher — the picker records the choice before it navigates.
+    A language in AD_LANDING_LANGS gets no redirect at all, because the
+    ads that point at it are reviewed against what that page serves.
     """
     if not UZ_ONLY_IN_SEARCH or lang == SOURCE_LANG:
+        return
+    if lang in AD_LANDING_LANGS:
         return
     tag = soup.new_tag("script")
     tag.string = REDIRECT_JS % {"lang": lang, "ads": AD_PARAM_RE}
