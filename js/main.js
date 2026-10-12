@@ -32,7 +32,7 @@
        Paste the ids and the tags load themselves; leave empty and nothing
        is requested. Goals are reported as events, so no separate
        thank-you URL is needed — see track() below for the event names. */
-    ga4Id: "",         /* "G-XXXXXXXXXX"  */
+    ga4Id: "G-5JMJ4WVB4Z",
     metricaId: ""      /* "12345678"      */,
 
     /* ---- Google Ads ----------------------------------------------------
